@@ -36,7 +36,7 @@ public class PickupController : MonoBehaviour
         int y = Screen.height / 2;
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.SphereCast(ray, 0.5f, out hit))
         {
 
             //Pickupable p = hit.collider.GetComponent<Pickupable>();
@@ -64,7 +64,7 @@ public class PickupController : MonoBehaviour
         {
             carrying = !carrying;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-            carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 100f, 0f) + GetComponent<Rigidbody>().velocity);
+            carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
         }
     }
 

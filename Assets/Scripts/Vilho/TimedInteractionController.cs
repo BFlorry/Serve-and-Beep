@@ -16,15 +16,13 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     PlayerController playerController;
 
     ProgressBarController progressBar;
-
-    Canvas canvas;
+    ProgressBarHideController progressBarHide;
 
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
-        progressBar = GetComponentInChildren<ProgressBarController>();
-        canvas = GetComponentInChildren<Canvas>();
-        canvas.gameObject.SetActive(false);
+        progressBarHide = playerController.GetComponentInChildren<ProgressBarHideController>();
+        //progressBar = progressBarHide.GetComponentInChildren<ProgressBarController>();
         interactionTimeLeft = interactionTime;
     }
 
@@ -54,7 +52,8 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
         if (!isInteracting)
         {
             isInteracting = true;
-            canvas.gameObject.SetActive(true);
+            progressBarHide.HideProgressBar(false);
+            progressBar = progressBarHide.GetComponentInChildren<ProgressBarController>();
         }
         else
         {
@@ -65,7 +64,7 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     private void DeInteract()
     {
         isInteracting = false;
-        canvas.gameObject.SetActive(false);
+        progressBarHide.HideProgressBar(true);
     }
 
     public void InteractionEvent()

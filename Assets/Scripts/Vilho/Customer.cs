@@ -29,8 +29,6 @@ public class Customer : MonoBehaviour
     [SerializeField]
     protected float sfFactor = 0.0f;
 
-    //protected int reviewClass = 1;
-
 
     //Methods-------------------------------------------------------------------------------------------------
 
@@ -83,15 +81,21 @@ public class Customer : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Recovers emptied satisfaction to half of maxium satisfaction.
+    /// </summary>
     public void SfRecoveryEmpty()
     {
-        sf = (sf - sfMax) + sfMax / 2;
+        sf = sf + sfMax / 2;
     }
 
 
+    /// <summary>
+    /// Recovers filled satisfaction to half of maxium satisfaction.
+    /// </summary>
     public void SfRecoveryFull()
     {
-        sf = sf + sfMax / 2;
+        sf = (sf - sfMax) + sfMax / 2;
     }
 
 

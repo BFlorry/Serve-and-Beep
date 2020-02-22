@@ -40,14 +40,9 @@ public class PickupController : MonoBehaviour
         }
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
-
-        /*Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.SphereCast(ray, 0.5f, out hit))*/
+        
         foreach (RaycastHit hit in hits)
         {
-
-            //Pickupable p = hit.collider.GetComponent<Pickupable>();
             if (hit.transform.gameObject.tag == "Pickupable") {
                 GameObject p = hit.collider.gameObject;
                 if (p != null)

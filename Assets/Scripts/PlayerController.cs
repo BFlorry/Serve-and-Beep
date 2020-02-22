@@ -21,24 +21,6 @@ public class PlayerController : MonoBehaviour
 
     Quaternion turnRotation;
 
-    public void Awake()
-    {
-
-        //controls = new Controls();
-
-        //PlayerInteractionController piController = GetComponent<PlayerInteractionController>();
-        //controls.Player.Interact.performed += ctx => piController.OnInteract();
-        //controls.Player.Interact.Enable();
-        
-        //controls.Player.Pickup.performed += ctx => GetComponent<PickupController>().OnPickup();
-        //controls.Player.Pickup.Enable();
-        //controls.Player.Throw.performed += ctx => GetComponent<PickupController>().OnThrow();
-        //controls.Player.Throw.Enable();
-
-        //controls.Player.Movement.performed += MovementInput;
-        //controls.Player.Movement.Enable();
-    }
-
     void Start()
     {
         playerSpeedStore = playerSpeed;
@@ -81,13 +63,11 @@ public class PlayerController : MonoBehaviour
         {
             frozen = true;
             playerSpeed = 0;
-            //GetComponent<Rigidbody>().freezeRotation = true;
         }
         else
         {
             frozen = false;
             playerSpeed = playerSpeedStore;
-            //GetComponent<Rigidbody>().freezeRotation = false;
         }
     }
     

@@ -90,9 +90,9 @@ public class Customer : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// <summary>  
     /// Recovers filled satisfaction to half of maxium satisfaction.
-    /// </summary>
+    /// </summary> 
     public void SfRecoveryFull()
     {
         sf = (sf - sfMax) + sfMax / 2;

@@ -7,17 +7,23 @@ public class PickupController : MonoBehaviour
     bool carrying;
     GameObject carriedObject;
     GameObject carryPosition;
-    public float throwMagnitude = 100f;
-    public float carryOffset = 10f;
+
+    [SerializeField]
+    private float throwMagnitude = 100f;
+    [SerializeField]
+    private float carryOffset = 1f;
+
+    [SerializeField]
+    private float maxRayDistance = 0.5f;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         carryPosition = this.gameObject;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (carrying)
         {
@@ -25,18 +31,20 @@ public class PickupController : MonoBehaviour
         }
     }
 
-    public void Pickup()
+    private void OnPickup()
     {
         if (carrying)
         {
             DropObject();
             return;
         }
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+        Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
+
+        /*Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        if (Physics.SphereCast(ray, 0.5f, out hit))
+        if (Physics.SphereCast(ray, 0.5f, out hit))*/
+        foreach (RaycastHit hit in hits)
         {
 
             //Pickupable p = hit.collider.GetComponent<Pickupable>();
@@ -51,14 +59,14 @@ public class PickupController : MonoBehaviour
         }
     }
 
-    void Carry(GameObject o)
+    private void Carry(GameObject o)
     {
         o.GetComponent<Rigidbody>().isKinematic = true;
         o.transform.position = carryPosition.transform.position + carryPosition.transform.forward * carryOffset;
         o.transform.rotation = carryPosition.transform.rotation;
     }
 
-    public void ThrowObject()
+    private void OnThrow()
     {
         if (carrying)
         {

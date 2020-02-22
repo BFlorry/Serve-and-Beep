@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControllerAlt : MonoBehaviour
 {
     Rigidbody2D rb;
-    private float dist;
+    private float dist = 1f;
 
     // Start is called before the first frame update
     void Start()

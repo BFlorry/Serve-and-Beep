@@ -13,10 +13,37 @@ public class Customer : MonoBehaviour
 
     //Sf stands for satisfaction of the customer.
     private int sf;
-    private readonly int maxSf = 100;
-    private int defaultSf = 0;
+    private int sfMax = 100;
+    private int sfDefault = 0;
     private float sfFactor = 0.0f;
     //private int reviewClass = 1;
+
+
+    //Properties---------------------------------------------------------------------------------------------
+
+    private int Sf
+    {
+        get { return sf; }
+        set { sf = value; }
+    }
+
+    private int SfMax
+    {
+        get { return sfMax; }
+        set { sfMax = value; }
+    }
+
+    private int SfDeafault
+    {
+        get { return sfDefault; }
+        set { sfDefault = value; }
+    }
+
+    private float SfFactor
+    {
+        get { return sfFactor; }
+        set { sfFactor = value; }
+    }
 
 
     //Methods------------------------------------------------------------------------------------------------
@@ -27,9 +54,9 @@ public class Customer : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        if (defaultSf <= 0)
+        if (sfDefault <= 0)
         {
-            defaultSf = maxSf / 2;
+            sfDefault = sfMax / 2;
         }
 
         RecoverSf();
@@ -40,7 +67,7 @@ public class Customer : MonoBehaviour
     {
         //Check if satisfaction is full or minium.
         //TODO: Better way to do this? Lambda?
-        if (maxSf <= sf || sf <= 0)
+        if (sfMax <= sf || sf <= 0)
         {
             Review();
             RecoverSf();
@@ -115,7 +142,7 @@ public class Customer : MonoBehaviour
     /// </summary>
     public void RecoverSf()
     {
-        sf = defaultSf;
+        sf = sfDefault;
     }
 
 

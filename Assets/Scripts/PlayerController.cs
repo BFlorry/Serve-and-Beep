@@ -42,8 +42,8 @@ public class PlayerController : MonoBehaviour
     void PlayerMovementNew()
     {
         Vector3 targetVelocity = new Vector3(moveAxis.x, 0, moveAxis.y);
-        GetComponent<Rigidbody>().velocity = targetVelocity * playerSpeed;
-        GetComponent<Rigidbody>().velocity = targetVelocity * playerSpeed;
+        Vector3 fallingVelocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y, 0);
+        GetComponent<Rigidbody>().velocity = fallingVelocity + (targetVelocity * playerSpeed);
 
         if(targetVelocity.magnitude > 0 && !frozen) {
             //Rotate player

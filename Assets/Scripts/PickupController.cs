@@ -43,13 +43,15 @@ public class PickupController : MonoBehaviour
         
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.tag == "Pickupable") {
-                GameObject p = hit.collider.gameObject;
+            if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable)) {
+                GameObject p = pickupable.gameObject;
                 if (p != null)
-                    {
-                        carrying = true;
-                        carriedObject = p.gameObject;
-                    }
+                {
+                    carrying = true;
+                    carriedObject = p.gameObject;
+                    pickupable.Pickup(this);
+                    return;
+                }
             }
         }
     }
@@ -65,16 +67,32 @@ public class PickupController : MonoBehaviour
     {
         if (carrying)
         {
-            carrying = !carrying;
+            carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
+            carriedObject.GetComponent<Pickupable>().Pickup(this);
+            carriedObject = null;
         }
     }
 
-    private void DropObject()
+    public void DropObject()
     {
-            carrying = !carrying;
+        if (carrying)
+        {
+            carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);
+            carriedObject = null;
+        }
     }
+
+    public Pickupable GetPickupable()
+    {
+        if (carriedObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
+        {
+            return pickupable;
+        }
+        else return null;
+    }
+    
 }

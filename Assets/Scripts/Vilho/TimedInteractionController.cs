@@ -21,6 +21,8 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
 
     void Start()
     {
+        Camera camera = Camera.main;
+        progressBarCanvas.transform.LookAt(progressBarCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
         interactionTimeLeft = interactionTime;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class OpenSceneWindow : MonoBehaviour, IInteractable {
 
     [SerializeField]
-    string sceneName;
+    string sceneName = "TestWindow";
 
     bool isInteracting = false;
 
@@ -14,7 +14,7 @@ public class OpenSceneWindow : MonoBehaviour, IInteractable {
 
 	// Use this for initialization
 	void Start () {
-        playerController = FindObjectOfType<PlayerController>();
+        
 	}
 	
 	// Update is called once per frame
@@ -22,8 +22,9 @@ public class OpenSceneWindow : MonoBehaviour, IInteractable {
 		
 	}
 
-    public void Interact()
+    public void Interact(GameObject player)
     {
+        playerController = player.GetComponent<PlayerController>();
         playerController.TogglePlayerFreeze();
 
         if (!isInteracting) {

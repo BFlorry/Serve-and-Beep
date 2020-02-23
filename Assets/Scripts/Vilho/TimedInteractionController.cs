@@ -9,20 +9,18 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     private float interactionTime = 2.0f;
 
     private float interactionTimeLeft;
-    //private bool interactable = true;
 
     bool isInteracting = false;
 
     PlayerController playerController;
 
-    ProgressBarController progressBar;
-    ProgressBarHideController progressBarHide;
+    [SerializeField]
+    private Image progressBarImage;
+    [SerializeField]
+    private GameObject progressBarCanvas;
 
     void Start()
     {
-        playerController = FindObjectOfType<PlayerController>();
-        progressBarHide = playerController.GetComponentInChildren<ProgressBarHideController>();
-        //progressBar = progressBarHide.GetComponentInChildren<ProgressBarController>();
         interactionTimeLeft = interactionTime;
     }
 
@@ -32,11 +30,15 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
         {
             interactionTimeLeft -= Time.deltaTime;
             Debug.Log("Interaction. Interaction time left: " + interactionTimeLeft);
-            progressBar.SetProgressBarValue(1 - interactionTimeLeft / interactionTime);
+            SetProgressBarValue(1 - interactionTimeLeft / interactionTime);
             if (interactionTimeLeft <= 0.0f)
             {
                 InteractionEvent();
             }
+        }
+        if (interactionTimeLeft >= interactionTime)
+        {
+            progressBarCanvas.SetActive(false);
         }
     }
 
@@ -45,15 +47,15 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     /// Reduces the completion time in seconds since the last frame from interactionTimeLeft.
     /// Calls InteractionEvent when interactionTimeLeft reaches zero.
     /// </summary>
-    public void Interact()
+    public void Interact(GameObject player)
     {
+        playerController = player.GetComponent<PlayerController>();
         playerController.TogglePlayerFreeze();
 
         if (!isInteracting)
         {
+            progressBarCanvas.SetActive(true);
             isInteracting = true;
-            progressBarHide.HideProgressBar(false);
-            progressBar = progressBarHide.GetComponentInChildren<ProgressBarController>();
         }
         else
         {
@@ -64,17 +66,21 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     private void DeInteract()
     {
         isInteracting = false;
-        progressBarHide.HideProgressBar(true);
     }
 
     public void InteractionEvent()
     {
-        //interactable = false;
         playerController.TogglePlayerFreeze();
         DeInteract();
+        progressBarCanvas.SetActive(false);
         interactionTimeLeft = interactionTime;
         Debug.Log("Counter interaction event.");
         Destroy(gameObject);
     }
-    
+
+    void SetProgressBarValue(float value)
+    {
+        progressBarImage.fillAmount = value;
+    }
+
 }

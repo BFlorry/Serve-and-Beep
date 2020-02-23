@@ -32,6 +32,11 @@ public class Customer : MonoBehaviour
 
     //Methods-------------------------------------------------------------------------------------------------
 
+    public int SfMax { get => sfMax; }
+    public int Sf { get => sf; }
+    public int SfDefault { get => sfDefault; }
+    public float SfFactor { get => sfFactor; }
+
     /// <summary>
     /// Set starting Sf as default Sf.
     /// If variables' values are less or equal to zero

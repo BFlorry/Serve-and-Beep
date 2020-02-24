@@ -18,14 +18,23 @@ public class CustomerMoodDisplay : MonoBehaviour
     private Quaternion posRotation;
     private Quaternion negRotation;
 
+    private Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
         moodCanvas.SetActive(true);
-        Camera camera = Camera.main;
+        camera = Camera.main;
         moodCanvas.transform.LookAt(moodCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
         posRotation = arrowImage.transform.rotation;
         negRotation = posRotation * Quaternion.Euler(0, 0, 180);
+    }
+
+    private void Update()
+    {
+        moodCanvas.transform.LookAt(moodCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+        SetMoodDisplayValue();
+        SetArrowDisplayValue();
     }
 
     // Update is called once per frame
@@ -33,8 +42,7 @@ public class CustomerMoodDisplay : MonoBehaviour
     {
         //customer.SfGain(1);
         //customer.SfFactorGain(-1);
-        SetMoodDisplayValue();
-        SetArrowDisplayValue();
+        
     }
 
     void SetMoodDisplayValue()

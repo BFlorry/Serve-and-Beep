@@ -8,6 +8,9 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     [SerializeField]
     private float interactionTime = 2.0f;
 
+    [SerializeField]
+    AudioClip interactSfx;
+
     private float interactionTimeLeft;
 
     bool isInteracting = false;
@@ -77,6 +80,7 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
         progressBarCanvas.SetActive(false);
         interactionTimeLeft = interactionTime;
         Debug.Log("Counter interaction event.");
+        playerController.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
         Destroy(gameObject);
     }
 

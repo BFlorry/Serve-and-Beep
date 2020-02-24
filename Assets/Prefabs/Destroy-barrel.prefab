@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 367150765}
   - component: {fileID: 367150764}
   - component: {fileID: 367150763}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 939315590}
   - component: {fileID: 939315592}
   - component: {fileID: 939315591}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bar BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1377726526}
   - component: {fileID: 1377726529}
   - component: {fileID: 1377726528}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Interact Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTime: 3
+  interactSfx: {fileID: 8300000, guid: 5ee7db6cb0919354f9b3a46bc2456728, type: 3}
   progressBarImage: {fileID: 1377726528}
   progressBarCanvas: {fileID: 367150761}
 --- !u!1001 &7266797015769257750
@@ -274,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.536
+      value: -4.439631
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalPosition.y
@@ -282,19 +283,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.312
+      value: -8.587944
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4959057358301152, guid: 90a18773e670f054680d2f39c76a5471, type: 3}
       propertyPath: m_LocalRotation.w

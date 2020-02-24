@@ -10,6 +10,8 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
         Hungry
     }
 
+    private IEnumerator waitAfterMove;
+
     [SerializeField]
     Need curNeed;
     Customer customer;
@@ -23,6 +25,9 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
     [SerializeField]
     int satisfactionModifier = 20;
 
+    [SerializeField]
+    float timeBetweenNeeds = 3f;
+
     public float MaxValue { get => maxValue; }
     public float CurrentValue { get => currentValue; }
     public float DefaultValue { get => defaultValue; }
@@ -34,6 +39,11 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
         customer = GetComponent<Customer>();
     }
 
+    void Update()
+    {
+        if(curNeed == Need.Empty) StartCoroutine(WaitBeforeNext(timeBetweenNeeds));
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -43,7 +53,6 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
             else
             {
                 curNeed = Need.Empty;
-                currentValue = defaultValue;
                 customer.SfGain(-satisfactionModifier);
             }
         }
@@ -54,8 +63,14 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
         if(curNeed == Need.Hungry)
         {
             curNeed = Need.Empty;
-            currentValue = defaultValue;
             customer.SfGain(satisfactionModifier);
         }
+    }
+
+    private IEnumerator WaitBeforeNext(float time)
+    {
+        currentValue = defaultValue;
+        yield return new WaitForSeconds(time);
+        curNeed = Need.Hungry;
     }
 }

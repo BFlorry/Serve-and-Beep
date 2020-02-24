@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickupable
   - ProgressBar
+  - NavMesh
   layers:
   - Default
   - TransparentFX
@@ -15,9 +16,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Pickupable
+  - Player
+  - NPC
   - 
   - 
   - 

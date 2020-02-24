@@ -8,6 +8,9 @@ public class Pickupable : MonoBehaviour
     [SerializeField]
     private float maxRayDistance = 2.0f;
 
+    [SerializeField]
+    AudioClip interactSfx;
+
     PickupController player;
     //[SerializeField]
     //Item type = Item.Crate;
@@ -61,6 +64,9 @@ public class Pickupable : MonoBehaviour
                         if (interactObj.GetType() == interactable.GetType())
                         {
                             interactable.Interact(this.gameObject);
+                            player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+                            player.DropObject();
+                            Destroy(this.gameObject);
                             return;
                         }
                     }

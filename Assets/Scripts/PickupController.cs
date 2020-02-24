@@ -9,6 +9,13 @@ public class PickupController : MonoBehaviour
     GameObject carryPosition;
 
     [SerializeField]
+    private AudioClip throwSfx;
+    [SerializeField]
+    private AudioClip pickupSfx;
+
+    private PlayerSfxManager sfxManager;
+
+    [SerializeField]
     private float throwMagnitude = 100f;
     [SerializeField]
     private float carryOffset = 1f;
@@ -20,6 +27,7 @@ public class PickupController : MonoBehaviour
     private void Start()
     {
         carryPosition = this.gameObject;
+        sfxManager = GetComponent<PlayerSfxManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +55,7 @@ public class PickupController : MonoBehaviour
                 GameObject p = pickupable.gameObject;
                 if (p != null)
                 {
+                    sfxManager.PlaySingle(pickupSfx);
                     carrying = true;
                     carriedObject = p.gameObject;
                     pickupable.Pickup(this);
@@ -67,6 +76,7 @@ public class PickupController : MonoBehaviour
     {
         if (carrying)
         {
+            sfxManager.PlaySingle(throwSfx);
             carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
@@ -88,6 +98,7 @@ public class PickupController : MonoBehaviour
 
     public Pickupable GetPickupable()
     {
+        if (carriedObject == null) return null;
         if (carriedObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
         {
             return pickupable;

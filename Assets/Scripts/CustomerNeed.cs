@@ -57,7 +57,10 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
             }
         }
     }
-    
+    /// <summary>
+    /// Accepts any interactable item and excecutes the customer's need completion.
+    /// </summary>
+    /// <param name="gameObject"></param>
     public void Interact(GameObject gameObject)
     {
         if(curNeed == Need.Hungry)

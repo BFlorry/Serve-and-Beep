@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handle pickup actions and interactions from player.
+/// </summary>
 public class Pickupable : MonoBehaviour
 {
     [SerializeField]
@@ -12,6 +15,8 @@ public class Pickupable : MonoBehaviour
     AudioClip interactSfx;
 
     PickupController player;
+
+    //TODO: Maybe implement item type this way?
     //[SerializeField]
     //Item type = Item.Crate;
 
@@ -46,9 +51,13 @@ public class Pickupable : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Raycast forward and if there is an iteminteractable object, interact with it and (currently) destroy this object.
+    /// </summary>
     public void InteractWithItem()
     {
         //TODO: This as a separate class?
+        //TODO: Replace with spherecast
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
         foreach (RaycastHit hit in hits)

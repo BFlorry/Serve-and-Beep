@@ -33,16 +33,10 @@ public class CustomerMoodDisplay : MonoBehaviour
     private void Update()
     {
         moodCanvas.transform.LookAt(moodCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
-        SetMoodDisplayValue();
-        SetArrowDisplayValue();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //customer.SfGain(1);
-        //customer.SfFactorGain(-1);
         
+        //TODO: These should probably be called only when the value is changed.
+        SetMoodDisplayValue();
+        SetArrowDisplayValue(customer.SfFactor);
     }
 
     void SetMoodDisplayValue()
@@ -50,21 +44,20 @@ public class CustomerMoodDisplay : MonoBehaviour
         moodImage.fillAmount = (float)customer.Sf / (float)customer.SfMax;
     }
 
-    void SetArrowDisplayValue()
+    //If given value is positive, set arrow display positive,
+    //else set negative.
+    void SetArrowDisplayValue(float value)
     {
-        if (customer.SfFactor >= 0) SetArrowPositive();
-        else SetArrowNegative();
-    }
+        if (value >= 0)
+        {
+            arrowImage.color = Color.green;
+            arrowImage.transform.rotation = posRotation;
+        }
 
-    void SetArrowPositive()
-    {
-        arrowImage.color = Color.green;
-        arrowImage.transform.rotation = posRotation; 
-    }
-
-    void SetArrowNegative()
-    {
-        arrowImage.color = Color.red;
-        arrowImage.transform.rotation = negRotation;
+        else
+        {
+            arrowImage.color = Color.red;
+            arrowImage.transform.rotation = negRotation;
+        }
     }
 }

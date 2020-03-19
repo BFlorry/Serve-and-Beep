@@ -9,6 +9,13 @@ public class PickupController : MonoBehaviour
     GameObject carryPosition;
 
     [SerializeField]
+    private AudioClip throwSfx;
+    [SerializeField]
+    private AudioClip pickupSfx;
+
+    private PlayerSfxManager sfxManager;
+
+    [SerializeField]
     private float throwMagnitude = 100f;
     [SerializeField]
     private float carryOffset = 1f;
@@ -20,6 +27,7 @@ public class PickupController : MonoBehaviour
     private void Start()
     {
         carryPosition = this.gameObject;
+        sfxManager = GetComponent<PlayerSfxManager>();
     }
 
     // Update is called once per frame
@@ -43,13 +51,16 @@ public class PickupController : MonoBehaviour
         
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.tag == "Pickupable") {
-                GameObject p = hit.collider.gameObject;
+            if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable)) {
+                GameObject p = pickupable.gameObject;
                 if (p != null)
-                    {
-                        carrying = true;
-                        carriedObject = p.gameObject;
-                    }
+                {
+                    sfxManager.PlaySingle(pickupSfx);
+                    carrying = true;
+                    carriedObject = p.gameObject;
+                    pickupable.Pickup(this);
+                    return;
+                }
             }
         }
     }
@@ -65,16 +76,34 @@ public class PickupController : MonoBehaviour
     {
         if (carrying)
         {
-            carrying = !carrying;
+            sfxManager.PlaySingle(throwSfx);
+            carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
+            carriedObject.GetComponent<Pickupable>().Pickup(this);
+            carriedObject = null;
         }
     }
 
-    private void DropObject()
+    public void DropObject()
     {
-            carrying = !carrying;
+        if (carrying)
+        {
+            carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);
+            carriedObject = null;
+        }
     }
+
+    public Pickupable GetPickupable()
+    {
+        if (carriedObject == null) return null;
+        if (carriedObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
+        {
+            return pickupable;
+        }
+        else return null;
+    }
+    
 }

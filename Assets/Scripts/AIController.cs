@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,21 +9,11 @@ public class AIController : MonoBehaviour
 {
     //Fields------------------------------------------------------------------------
 
-    //An area where an NPC can move from another area.
+    //Array of area bounds, where an NPC can move.
+    private Bounds[] areaBounds = null;
+
     [SerializeField]
-    private GameObject area1;
-
-    //An area where an NPC can move from another area.
-    [SerializeField]
-    private GameObject area2;
-
-    //An area where an NPC can move from another area.
-    [SerializeField]
-    private GameObject area3;
-
-    private List<GameObject> areas;
-
-    private int areaId = -1;
+    private int areaId = 0; 
 
     private IEnumerator waitAfterMove;
 
@@ -36,25 +25,53 @@ public class AIController : MonoBehaviour
         maxWaitTimeAtDest = 10;
         
     [SerializeField]
-    private NavMeshAgent agent;
+    private NavMeshAgent agent = null;
 
     private bool moving = false;
 
 
     //Methods------------------------------------------------------------------------
 
+    /// <summary>
+    /// Finds a GameObject named CustomerAreas and gets its array of GameObjects.
+    /// Then creates an array of bounds from the GameObjects' MeshRenderers.
+    /// </summary>
     private void Start()
     {
-        areas.Add(new GameObject());
-        areas.Add(area1);
-        areas.Add(area2);
-        areas.Add(area3);
+        GameObject customerAreas = GameObject.Find("CustomerAreas");
+        GameObject[] areaObjects = customerAreas.GetComponent<CustomerAreas>().Areas;
+        areaBounds = new Bounds[areaObjects.Length];
+        for (int i = 0; i < areaBounds.Length; i++)
+        {
+            areaBounds[i] = areaObjects[i].GetComponent<MeshRenderer>().bounds;
+        }
     }
-
 
     void Update()
     {
         MoveRandomly();
+        SetAreaIdWithKeyboard();
+    }
+
+
+    public void MoveToArea(int areaId)
+    {
+        this.areaId = areaId;
+        moving = false;
+        MoveRandomly();
+    }
+
+
+    /// <summary>
+    /// Method for testing. Sets area id as the number key that was pressed.
+    /// </summary>
+    private void SetAreaIdWithKeyboard()
+    {
+        int input = int.Parse(Input.inputString);
+        if (input >= 0 && input <= 9)
+        {
+            MoveToArea(input);
+        }
     }
 
 
@@ -81,10 +98,11 @@ public class AIController : MonoBehaviour
         else if (waitAfterMove == null)
         {
             //If AIController has valid area id, get random point inside area.
-            if (0 <= areaId)
+            if (0 < areaId)
             {
-                GameObject area = areas[areaId];
-                Move(RandomPointInObject(area));
+                Bounds bounds = areaBounds[areaId-1];
+                Vector3 point = RandomPointInObject(bounds);
+                Move(point);
             }
             //If AIController does not have valid area id, get random point inside whole NavMesh.
             else
@@ -140,23 +158,12 @@ public class AIController : MonoBehaviour
 
 
     /// <summary>
-    /// Sets an id of an area where the player will move to.
-    /// </summary>
-    /// <param name="areaId">Id of an area where the player will move to.</param>
-    public void MoveToArea(int areaId)
-    {
-        this.areaId = areaId;
-    }
-
-
-    /// <summary>
     /// Returns random point on NavMesh within given object.
     /// </summary>
     /// <param name="area">The GameObject in which the returned point will be.</param>
     /// <returns>A random point on NavMesh within given object.</returns>
-    public Vector3 RandomPointInObject(GameObject area)
+    public Vector3 RandomPointInObject(Bounds bounds)
     {
-        Bounds bounds = area.GetComponent<Bounds>();
         Vector3 point = new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
             0,

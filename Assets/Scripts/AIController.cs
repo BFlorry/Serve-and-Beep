@@ -12,8 +12,7 @@ public class AIController : MonoBehaviour
     //Array of area bounds, where an NPC can move.
     private Bounds[] areaBounds = null;
 
-    [SerializeField]
-    private int areaId = 0; 
+    private int areaId = 0;
 
     private IEnumerator waitAfterMove;
 
@@ -50,28 +49,22 @@ public class AIController : MonoBehaviour
     void Update()
     {
         MoveRandomly();
-        SetAreaIdWithKeyboard();
+        //SetAreaIdWithKeyboard();
     }
 
 
     public void MoveToArea(int areaId)
     {
+        agent.isStopped = false;
         this.areaId = areaId;
         moving = false;
         MoveRandomly();
     }
 
 
-    /// <summary>
-    /// Method for testing. Sets area id as the number key that was pressed.
-    /// </summary>
-    private void SetAreaIdWithKeyboard()
+    public void StopMovement()
     {
-        int input = int.Parse(Input.inputString);
-        if (input >= 0 && input <= 9)
-        {
-            MoveToArea(input);
-        }
+        agent.isStopped = true;
     }
 
 

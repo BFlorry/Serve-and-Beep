@@ -17095,6 +17095,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1624561169}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1628627421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4433592979135827010, guid: 880e674d909a34b469d222cd2fdd6b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 8485916852385432474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1630032743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21996,6 +22002,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4433592979135827010, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_Name
+      value: Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168446390132491736, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2143555
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168446390132491736, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.142578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916851451985250, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.142578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916851451985261, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_Name
+      value: ThaiMassage
+      objectReference: {fileID: 0}
     - target: {fileID: 8485916852154188668, guid: 880e674d909a34b469d222cd2fdd6b03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22051,10 +22082,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8485916852154188669, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: areas.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852154188669, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: areas.Array.data[3]
+      value: 
+      objectReference: {fileID: 1628627421}
     - target: {fileID: 8485916852154188671, guid: 880e674d909a34b469d222cd2fdd6b03,
         type: 3}
       propertyPath: m_Name
       value: CustomerAreas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852186254850, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_Name
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852186254854, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2143555
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852186254854, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.142578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852430865547, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_Name
+      value: Restaurant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852430865551, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.214355
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485916852430865551, guid: 880e674d909a34b469d222cd2fdd6b03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.142578
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 880e674d909a34b469d222cd2fdd6b03, type: 3}

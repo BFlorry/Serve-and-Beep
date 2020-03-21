@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -30,12 +28,15 @@ public class Customer : MonoBehaviour
     protected float sfFactor = 0.0f;
 
 
-    //Methods-------------------------------------------------------------------------------------------------
+    //Properties----------------------------------------------------------------------------------------------
 
     public int SfMax { get => sfMax; }
     public int Sf { get => sf; }
     public int SfDefault { get => sfDefault; }
     public float SfFactor { get => sfFactor; }
+
+
+    //Properties----------------------------------------------------------------------------------------------
 
     /// <summary>
     /// Set starting Sf as default Sf.

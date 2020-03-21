@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using static Enums.CustomerEnums;
 
 /// <summary>
 /// Class for controlling AI character.
@@ -11,8 +12,10 @@ public class AIController : MonoBehaviour
 
     //Array of area bounds, where an NPC can move.
     private Bounds[] areaBounds = null;
+    private Vector3[] points; = null;
 
     private int areaId = 0;
+    private int pointGroupId = 0;
 
     private IEnumerator waitAfterMove;
 
@@ -38,11 +41,20 @@ public class AIController : MonoBehaviour
     private void Start()
     {
         GameObject customerAreas = GameObject.Find("CustomerAreas");
-        GameObject[] areaObjects = customerAreas.GetComponent<CustomerAreas>().Areas;
+        GameObject[] areaObjects = customerAreas.GetComponent<CustomerDestinations>().Destinations;
         areaBounds = new Bounds[areaObjects.Length];
         for (int i = 0; i < areaBounds.Length; i++)
         {
             areaBounds[i] = areaObjects[i].GetComponent<MeshRenderer>().bounds;
+        }
+
+        GameObject customerPoints = GameObject.Find("CustomerPoints");
+        GameObject[] pointGroups = customerAreas.GetComponent<CustomerDestinations>().Destinations;
+        GameObject[] pointObjects = pointGroups[pointGroupId].GetComponent<CustomerDestinations>().Destinations;
+        points = new Vector3[pointObjects.Length];
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] = pointObjects[i].transform.position;
         }
     }
 
@@ -53,13 +65,26 @@ public class AIController : MonoBehaviour
     }
 
 
-    public void MoveToArea(int areaId)
+    public void MoveToNeedLocation(CustomerNeed custNeed)
     {
         agent.isStopped = false;
-        this.areaId = areaId;
-        moving = false;
-        MoveRandomly();
+
+        this.areaId = (int)custNeed.Area;
+        this.pointGroupId = (int)custNeed.Area;
+
+        if (areaId > 0)
+        {
+            MoveRandomly();
+            moving = false;
+        }
+        else if (pointGroupId > 0)
+        {
+            MoveToPoint()
+        }
+
+
     }
+
 
 
     public void StopMovement()
@@ -95,12 +120,12 @@ public class AIController : MonoBehaviour
             {
                 Bounds bounds = areaBounds[areaId-1];
                 Vector3 point = RandomPointInObject(bounds);
-                Move(point);
+                MoveToPoint(point);
             }
             //If AIController does not have valid area id, get random point inside whole NavMesh.
             else
             {
-                Move(RandomPoint(Vector3.zero, walkRadius)); //could be (transform.position, walkRadius)
+                MoveToPoint(RandomPoint(Vector3.zero, walkRadius)); //could be (transform.position, walkRadius)
             }
             moving = true;
         }
@@ -124,7 +149,7 @@ public class AIController : MonoBehaviour
     /// Sets NavMeshAgent's movement destination as given point.
     /// </summary>
     /// <param name="point">Target point for movement.</param>
-    public void Move(Vector3 point)
+    public void MoveToPoint(Vector3 point)
     {
         agent.SetDestination(point);
         Debug.DrawRay(point, Vector3.up * 5, Color.blue, 10.0f);

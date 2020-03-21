@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using static Enums.CustomerEnums;
 
 /// <summary>
 /// A class that contains and controls a customer's needs and the needs' areas.
 /// </summary>
-public class CustomerNeed : MonoBehaviour, IItemInteractable
+public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
-    //Fields (enums later) ------------------------------------------------------------------
+    //Fields------------------------------------------------------------------
 
     [SerializeField]
-    Need curNeed = Need.Empty;
+    CustomerNeed curNeed = new CustomerNeed(Name.Empty);
+
     [SerializeField]
     float maxValue = 100f;
     [SerializeField]
@@ -39,62 +40,16 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
     public float DefaultValue { get => defaultValue; }
 
 
-    //Enums---------------------------------------------------------------------
-
-    public enum Need
-    {
-        Empty,
-        Hunger,
-        Thirst,
-        ALittlePainInTheLowerBack,
-        AnUrgeToSpeakToTheManager
-    }
-
-    /// <summary>
-    /// Enum number equals area's id.
-    /// </summary>
-    public enum Area
-    {
-        Empty = 0,
-        Restaurant = 1,
-        Bar = 2,
-        ThaiMassage = 3,
-        Info = 4
-    }
-
-
-    //Methods--------------------------------------------------------------------
-
-    /// <summary>
-    /// Defines which need belongs to which area.
-    /// </summary>
-    /// <param name="need">a need</param>
-    /// <returns>area of given need</returns>
-    private Area GetArea(Need need)
-    {
-        switch (need)
-        {
-            case Need.Empty: return Area.Empty;
-            case Need.Hunger: return Area.Restaurant;
-            case Need.Thirst: return Area.Bar;
-            case Need.ALittlePainInTheLowerBack: return Area.ThaiMassage;
-            case Need.AnUrgeToSpeakToTheManager: return Area.Info;
-            default: return Area.Empty;
-        }
-    }
-
-
     /// <summary>
     /// Sets this customer's current need as given need.
     /// Gets area that the given need belongs to.
     /// Sets ai controller's movement to that area.
     /// </summary>
     /// <param name="need">A need to be set to this customer.</param>
-    public void SetNeed(Need need)
+    public void SetNeed(Name name)
     {
-        curNeed = need;
-        int areaId = (int)GetArea(need);
-        aiController.MoveToArea(areaId);
+        curNeed = new CustomerNeed(name);
+        aiController.MoveTo(curNeed.Area);
     }
 
 
@@ -106,7 +61,8 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
         int input = int.Parse(Input.inputString);
         if (input >= 0 && input <= 9)
         {
-            SetNeed((Need)input);
+            CustomerNeed need = new CustomerNeed((Name)input);
+            SetNeed(need);
         }
     }
 
@@ -118,13 +74,14 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
         customer = GetComponent<Customer>();
         aiController = GetComponent<AIController>();
         customerAreas = GetComponent <CustomerAreas>();
-        SetNeed(GetRandomNeed());
+        CustomerNeed need = new CustomerNeed(GetRandomEnum<Name>());
+        SetNeed(need);
     }
 
 
     void Update()
     {
-        if(curNeed == Need.Empty && isWaiting == false)
+        if(curNeed.Need == Name.Empty && isWaiting == false)
         {
             isWaiting = true;
             StartCoroutine(WaitBeforeNext(timeBetweenNeeds));
@@ -138,12 +95,12 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(curNeed == Need.Hunger)
+        if(curNeed.Need == Name.Hunger)
         {
             if (currentValue < maxValue) currentValue += 0.05f;
             else
             {
-                SetNeed(Need.Empty);
+                SetNeed(Name.Empty);
                 customer.SfGain(-satisfactionModifier);
             }
         }
@@ -157,33 +114,33 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
     /// <returns>true if interaction was succesful, else false</returns>
     public bool Interact(GameObject gameObject)
     {
-        switch (curNeed)
+        switch (curNeed.Need)
         {
-            case Need.Empty:
+            case Name.Empty:
                 {
                     return false;
                 }
-            case Need.Hunger:
+            case Name.Hunger:
                 {
-                    SetNeed(Need.Empty);
+                    SetNeed(Name.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Need.Thirst:
+            case Name.Thirst:
                 {
-                    SetNeed(Need.Empty);
+                    SetNeed(Name.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Need.ALittlePainInTheLowerBack:
+            case Name.ALittlePainInTheLowerBack:
                 {
-                    SetNeed(Need.Empty);
+                    SetNeed(Name.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Need.AnUrgeToSpeakToTheManager:
+            case Name.AnUrgeToSpeakToTheManager:
                 {
-                    SetNeed(Need.Empty);
+                    SetNeed(Name.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
@@ -194,24 +151,11 @@ public class CustomerNeed : MonoBehaviour, IItemInteractable
 
     private IEnumerator WaitBeforeNext(float time)
     {
-        this.curNeed = Need.Empty;
+        this.curNeed = Name.Empty;
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
         SetNeed(GetRandomNeed());
         isWaiting = false;
-    }
-
-
-    /// <summary>
-    /// Gets all needs and returns one randomly.
-    /// </summary>
-    /// <returns>random need</returns>
-    public Need GetRandomNeed()
-    {
-        Array needs = Enum.GetValues(typeof(Need));
-        int needInt = UnityEngine.Random.Range(0, needs.Length);
-        object needObj = needs.GetValue(needInt);
-        return (Need)needObj;
     }
 }

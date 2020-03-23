@@ -41,6 +41,14 @@ public class SoundManager : MonoBehaviour
         sfxSource.Play();
     }
 
+    public void PlayMusic(AudioClip clip)
+    {
+        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+        musicSource.clip = clip;
+
+        //Play the clip.
+        musicSource.Play();
+    }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void RandomizeSfx(params AudioClip[] clips)

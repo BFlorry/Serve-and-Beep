@@ -12,9 +12,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
 
-    private void DisableHotPlay()
+    private void DisableHotJoin()
     {
         gameObject.GetComponent<PlayerInputManager>().DisableJoining();
+    }
+
+    public void EnableHotJoin()
+    {
+        gameObject.GetComponent<PlayerInputManager>().EnableJoining();
     }
 
     /// <summary>
@@ -23,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     public void StorePlayers()
     {
         //Disable hot joining when storing players.
-        DisableHotPlay();
+        DisableHotJoin();
 
         m_Players = PlayerInput.all.Select(x => new PlayerData
         {
@@ -65,4 +70,5 @@ public class PlayerManager : MonoBehaviour
         public InputDevice[] devices { get; set; }
         public int index { get; set; }
     }
+
 }

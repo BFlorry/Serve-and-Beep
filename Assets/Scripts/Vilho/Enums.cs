@@ -38,8 +38,7 @@ public static class Enums
             Empty,
             Hunger,
             Thirst,
-            ALittlePainInTheLowerBack,
-            AnUrgeToSpeakToTheManager
+            NeedToPiss
         }
 
         /// <summary>
@@ -47,12 +46,11 @@ public static class Enums
         /// </summary>
         public enum AreaEnum
         {
-            Empty = 0,
+			Empty = 0,
             Restaurant = 1,
             Bar = 2,
-            ThaiMassage = 3,
-            Info = 4
-        }
+			Toilet = 3
+		 }
 
         /// <summary>
         /// A point where the customer goes, when having a need.

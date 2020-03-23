@@ -57,6 +57,11 @@ public class PlayerController : MonoBehaviour
         moveAxis = value.Get<Vector2>();
     }
 
+    void OnRemovePlayer()
+    {
+        Destroy(this.gameObject);
+    }
+
     public void TogglePlayerFreeze()
     {
         if (!frozen)

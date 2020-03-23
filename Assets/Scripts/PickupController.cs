@@ -22,6 +22,10 @@ public class PickupController : MonoBehaviour
 
     [SerializeField]
     private float maxRayDistance = 0.5f;
+    [SerializeField]
+    private float maxRaySphereRadius = 0.5f;
+
+    private Highlightable prevHighlight = null;
 
     // Use this for initialization
     private void Start()
@@ -39,6 +43,42 @@ public class PickupController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        HighLightObjects();
+    }
+
+    private void HighLightObjects()
+    {
+        bool clearPreviousHighlight = true;
+        if (!carrying)
+        {
+            Debug.DrawRay(this.transform.position, this.transform.forward * maxRayDistance, Color.magenta);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.TryGetComponent(out Highlightable curHighlight))
+                {
+                    // If the new object isn't the same as previous, remove highlight from previous and apply to new
+                    if (curHighlight != prevHighlight)
+                    { 
+                        if(prevHighlight != null) prevHighlight.UnHighlight();
+                        curHighlight.Highlight();
+                        prevHighlight = curHighlight;
+                    }
+                    clearPreviousHighlight = false;
+                    break;
+                }
+            }
+        }
+        // If didn't hit any highlightable objects, clear previous highlight.
+        if(clearPreviousHighlight && prevHighlight != null)
+        {
+            prevHighlight.UnHighlight();
+            prevHighlight = null;
+        }
+    }
+
     private void OnPickup()
     {
         if (carrying)
@@ -46,7 +86,8 @@ public class PickupController : MonoBehaviour
             DropObject();
             return;
         }
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
         
         foreach (RaycastHit hit in hits)

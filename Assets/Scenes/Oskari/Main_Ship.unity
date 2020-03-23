@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.52
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -131,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -230,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7861228
@@ -305,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7860999
@@ -357,6 +369,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 22030409}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &58913048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079174887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &70702891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4477030707949804, guid: 00debf980412c49418327c56a1a60db0,
@@ -373,6 +391,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -493,6 +515,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,6 +646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.78614
@@ -682,6 +712,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -803,6 +837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.786118
@@ -903,6 +941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.786118
@@ -960,6 +1002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.786116
@@ -1016,6 +1062,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,6 +1211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2138753
@@ -1289,7 +1343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &313782847
 AudioSource:
@@ -1414,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.786104
@@ -1513,6 +1571,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1639,6 +1701,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1898,6 +1964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.786142
@@ -1955,6 +2025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.786116
@@ -2011,6 +2085,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2618,6 +2696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.786098
@@ -2807,6 +2889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7861104
@@ -2869,6 +2955,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2989,6 +3079,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3316,6 +3410,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3670,6 +3768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7861
@@ -3726,6 +3828,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3842,6 +3948,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 799546842}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &812893194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+    type: 3}
+  m_PrefabInstance: {fileID: 1156883899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &814548413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3852,6 +3964,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3910,6 +4026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.786142
@@ -3966,6 +4086,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4035,6 +4159,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4224,6 +4352,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4419,6 +4551,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4678,6 +4814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.78613
@@ -4734,6 +4874,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4861,6 +5005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.78614
@@ -4924,6 +5072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7861247
@@ -4982,6 +5134,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1438094212}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1079174887
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1587725004}
+    m_Modifications:
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.28184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.584522
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.496758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_Name
+      value: Customer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
 --- !u!4 &1086877574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4477030707949804, guid: 00debf980412c49418327c56a1a60db0,
@@ -4998,6 +5219,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5062,6 +5287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.7861238
@@ -5124,6 +5353,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5363,7 +5596,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 31.468945
+  field of view: 31.934492
   orthographic: 0
   orthographic size: 9
   m_Depth: -1
@@ -5412,6 +5645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.786116
@@ -5458,6 +5695,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+--- !u!1001 &1156883899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1587725004}
+    m_Modifications:
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.28184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.584522
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.496758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_Name
+      value: Customer (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
 --- !u!1001 &1205799012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5525,6 +5831,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5663,6 +5973,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5853,6 +6167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.2138753
@@ -5979,6 +6297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.2138767
@@ -6041,6 +6363,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6105,6 +6431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.213876
@@ -6168,6 +6498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2138753
@@ -6230,6 +6564,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6426,6 +6764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.786106
@@ -6488,6 +6830,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6552,6 +6898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.786127
@@ -6598,6 +6948,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+--- !u!1001 &1439886497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1587725004}
+    m_Modifications:
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.28184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.584522
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.496758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: m_Name
+      value: Customer (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
 --- !u!4 &1452707519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c,
@@ -6724,6 +7143,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 794681715}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1486747045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6298475039252347905, guid: 8badad6709598bb4589d0251bb2f3988,
+    type: 3}
+  m_PrefabInstance: {fileID: 1439886497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1499890269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6797,6 +7222,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6917,6 +7346,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7113,6 +7546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.78614
@@ -7175,6 +7612,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7296,6 +7737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7861228
@@ -7348,6 +7793,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1582063886}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1587725003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587725004}
+  m_Layer: 0
+  m_Name: Customers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587725004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587725003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2181606, y: -50.084522, z: 68.651794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 58913048}
+  - {fileID: 1486747045}
+  - {fileID: 812893194}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1605895613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7358,6 +7836,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7485,6 +7967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7861247
@@ -7553,6 +8039,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7630,7 +8120,7 @@ Transform:
   - {fileID: 751616667}
   - {fileID: 15210450}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!1001 &1672952189
 PrefabInstance:
@@ -7642,6 +8132,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7963,6 +8457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.78614
@@ -8026,6 +8524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.786118
@@ -8082,6 +8584,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8203,6 +8709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.786127
@@ -8259,6 +8769,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8500,6 +9014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.786102
@@ -8575,6 +9093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.786116
@@ -8631,6 +9153,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8694,6 +9220,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8947,6 +9477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.78614
@@ -9003,6 +9537,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9067,6 +9605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.786142
@@ -9129,6 +9671,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9198,6 +9744,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9336,6 +9886,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9652,6 +10206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.786142
@@ -9715,6 +10273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.78614
@@ -9767,6 +10329,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2102195585}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2129442715
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2879544270520769468, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_Name
+      value: NavMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769469, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 425d5f97975716918881411aa7d4d429,
+        type: 2}
+    - target: {fileID: 2879544270520769469, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.16666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879544270520769470, guid: 49466e3a8fbf5824997a0ca4d56cc4ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49466e3a8fbf5824997a0ca4d56cc4ea, type: 3}
 --- !u!1001 &2130322818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9777,6 +10419,10 @@ PrefabInstance:
     - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_Name
       value: Deck_Floor_01_snaps002 (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762725362881492, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c, type: 3}
       propertyPath: m_LocalPosition.x

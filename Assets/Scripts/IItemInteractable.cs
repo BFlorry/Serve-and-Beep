@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface IItemInteractable
 {
-    void Interact(GameObject gameObject);
+    /// <summary>
+    /// Interacts with object.
+    /// </summary>
+    /// <param name="gameObject">interacting gameobject</param>
+    /// <returns>true if interaction was succesful, else false</returns>
+    bool Interact(GameObject gameObject);
 }

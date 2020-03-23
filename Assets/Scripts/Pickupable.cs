@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -37,17 +35,10 @@ public class Pickupable : MonoBehaviour
     public void Pickup (PickupController pickupPlayer)
     {
         if(player == null) player = pickupPlayer;
-        else
+        else if (player.Equals(pickupPlayer) == false)
         {
-            if (player.Equals(pickupPlayer))
-            {
-                player = null;
-            }
-            else
-            {
-                player.DropObject();
-                player = pickupPlayer;
-            }
+            player.DropObject();
+            player = pickupPlayer;
         }
     }
 
@@ -72,10 +63,13 @@ public class Pickupable : MonoBehaviour
                     {
                         if (interactObj.GetType() == interactable.GetType())
                         {
-                            interactable.Interact(this.gameObject);
-                            player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                            player.DropObject();
-                            Destroy(this.gameObject);
+                            bool interactSuccess = interactable.Interact(this.gameObject);
+                            if (interactSuccess == true)
+                            {
+                                player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+                                player.DropObject();
+                                Destroy(this.gameObject);
+                            }
                             return;
                         }
                     }

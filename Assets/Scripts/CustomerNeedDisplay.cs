@@ -12,14 +12,14 @@ public class CustomerNeedDisplay : MonoBehaviour
     [SerializeField]
     private GameObject needCanvas;
 
-    [SerializeField]
-    private CustomerNeed customerNeed;
+    private CustomerNeedController needController = null;
 
     private Camera camera;
 
     // Start is called before the first frame update
     void Start()
     {
+        needController = this.GetComponent<CustomerNeedController>();
         needCanvas.SetActive(true);
         camera = Camera.main;
         needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
@@ -35,10 +35,10 @@ public class CustomerNeedDisplay : MonoBehaviour
 
     void SetProgressDisplayValue()
     {
-        if (customerNeed.CurrentValue >= customerNeed.MaxValue || customerNeed.CurrentValue <= customerNeed.DefaultValue) needCanvas.SetActive(false);
+        if (needController.CurrentValue >= needController.MaxValue || needController.CurrentValue <= needController.DefaultValue) needCanvas.SetActive(false);
         else
         {
-            progressImage.fillAmount = 1 - (customerNeed.CurrentValue / customerNeed.MaxValue);
+            progressImage.fillAmount = 1 - (needController.CurrentValue / needController.MaxValue);
             needCanvas.SetActive(true);
         }
     }

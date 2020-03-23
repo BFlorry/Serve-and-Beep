@@ -30,7 +30,7 @@ public static class Enums
         /// <summary>
         /// Possible needs of a customer.
         /// </summary>
-        public enum Name
+        public enum NeedNameEnum
         {
             Empty,
             Hunger,
@@ -43,7 +43,7 @@ public static class Enums
         /// Area where the customer goes, when having this need.
         /// Enum number equals area id.
         /// </summary>
-        public enum Area
+        public enum AreaEnum
         {
             Empty = 0,
             Restaurant = 1,
@@ -56,7 +56,7 @@ public static class Enums
         /// The point where the customer goes, when having this need.
         /// Enum number equals point id.
         /// </summary>
-        public enum Point
+        public enum PointGroupEnum
         {
             Empty = 0,
             Restaurant = 1,

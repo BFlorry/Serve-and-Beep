@@ -4,32 +4,63 @@ public class CustomerNeed
 {
     //Properties----------------------------------------------------------------
 
-    public Name Need { get; }
-    public Area Area { get; }
-    public Point Point { get; }
+    public NeedNameEnum NeedName { get; } = NeedNameEnum.Empty;
+    public AreaEnum Area { get; } = AreaEnum.Empty;
+    public PointGroupEnum Point { get; } = PointGroupEnum.Empty;
 
 
     //Constructors--------------------------------------------------------------
 
-    public CustomerNeed(Name need)
+    public CustomerNeed(NeedNameEnum need)
     {
-        this.Need = need;
-        this.Area = Area.Empty;
+        this.NeedName = need;
+
+        switch (need)
+        {
+            case NeedNameEnum.Empty:
+                {
+                    break;
+                }
+            case NeedNameEnum.Hunger:
+                {
+                    this.Area = AreaEnum.Restaurant;
+                    break;
+                }
+            case NeedNameEnum.Thirst:
+                {
+                    this.Area = AreaEnum.Bar;
+                    break;
+                }
+            case NeedNameEnum.ALittlePainInTheLowerBack:
+                {
+                    this.Point = PointGroupEnum.ThaiMassage;
+                    break;
+                }
+            case NeedNameEnum.AnUrgeToSpeakToTheManager:
+                {
+                    this.Point = PointGroupEnum.Info;
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 
 
-    public CustomerNeed(Name need, Area area)
+    public CustomerNeed(NeedNameEnum need, AreaEnum area)
     {
-        this.Need = need;
+        this.NeedName = need;
         this.Area = area;
-        this.Point = Point.Empty;
+        this.Point = PointGroupEnum.Empty;
     }
 
 
-    public CustomerNeed(Name need, Point point)
+    public CustomerNeed(NeedNameEnum need, PointGroupEnum point)
     {
-        this.Need = need;
+        this.NeedName = need;
         this.Point = point;
-        this.Area = Area.Empty;
+        this.Area = AreaEnum.Empty;
     }
 }

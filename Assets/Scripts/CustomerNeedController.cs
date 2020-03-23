@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using static Enums.CustomerEnums;
 
@@ -10,7 +11,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     //Fields------------------------------------------------------------------
 
     [SerializeField]
-    CustomerNeed curNeed = new CustomerNeed(Name.Empty);
+    CustomerNeed curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty);
 
     [SerializeField]
     float maxValue = 100f;
@@ -40,16 +41,40 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     public float DefaultValue { get => defaultValue; }
 
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.currentValue = defaultValue;
+        this.customer = GetComponent<Customer>();
+        this.aiController = GetComponent<AIController>();
+        this.customerAreas = GetComponent <CustomerAreas>();
+        SetNeed(GetRandomEnum<NeedNameEnum>());
+    }
+
+
+    void Update()
+    {
+        if(curCustomerNeed.NeedName == NeedNameEnum.Empty && isWaiting == false)
+        {
+            isWaiting = true;
+            StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
+        }
+        
+        //For testing only
+        SetNeedWithKeyboard();
+    }
+
+
     /// <summary>
     /// Sets this customer's current need as given need.
     /// Gets area that the given need belongs to.
     /// Sets ai controller's movement to that area.
     /// </summary>
     /// <param name="need">A need to be set to this customer.</param>
-    public void SetNeed(Name name)
+    public void SetNeed(NeedNameEnum needName)
     {
-        curNeed = new CustomerNeed(name);
-        aiController.MoveTo(curNeed.Area);
+        curCustomerNeed = new CustomerNeed(needName);
+        aiController.MoveToNeedDestination(curCustomerNeed);
     }
 
 
@@ -58,49 +83,26 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     private void SetNeedWithKeyboard()
     {
-        int input = int.Parse(Input.inputString);
-        if (input >= 0 && input <= 9)
+        int number;
+        if (Int32.TryParse(Input.inputString, out number))
         {
-            CustomerNeed need = new CustomerNeed((Name)input);
-            SetNeed(need);
+            if (number >= 0 && number <= 9)
+            {
+                SetNeed((NeedNameEnum)number);
+            }
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentValue = defaultValue;
-        customer = GetComponent<Customer>();
-        aiController = GetComponent<AIController>();
-        customerAreas = GetComponent <CustomerAreas>();
-        CustomerNeed need = new CustomerNeed(GetRandomEnum<Name>());
-        SetNeed(need);
-    }
-
-
-    void Update()
-    {
-        if(curNeed.Need == Name.Empty && isWaiting == false)
-        {
-            isWaiting = true;
-            StartCoroutine(WaitBeforeNext(timeBetweenNeeds));
-        }
-        
-        //For testing only
-        SetNeedWithKeyboard();
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(curNeed.Need == Name.Hunger)
+        if(curCustomerNeed.NeedName == NeedNameEnum.Hunger)
         {
             if (currentValue < maxValue) currentValue += 0.05f;
             else
             {
-                SetNeed(Name.Empty);
+                SetNeed(NeedNameEnum.Empty);
                 customer.SfGain(-satisfactionModifier);
             }
         }
@@ -114,33 +116,33 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <returns>true if interaction was succesful, else false</returns>
     public bool Interact(GameObject gameObject)
     {
-        switch (curNeed.Need)
+        switch (curCustomerNeed.NeedName)
         {
-            case Name.Empty:
+            case NeedNameEnum.Empty:
                 {
                     return false;
                 }
-            case Name.Hunger:
+            case NeedNameEnum.Hunger:
                 {
-                    SetNeed(Name.Empty);
+                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Name.Thirst:
+            case NeedNameEnum.Thirst:
                 {
-                    SetNeed(Name.Empty);
+                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Name.ALittlePainInTheLowerBack:
+            case NeedNameEnum.ALittlePainInTheLowerBack:
                 {
-                    SetNeed(Name.Empty);
+                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
-            case Name.AnUrgeToSpeakToTheManager:
+            case NeedNameEnum.AnUrgeToSpeakToTheManager:
                 {
-                    SetNeed(Name.Empty);
+                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
                     return true;
                 }
@@ -149,13 +151,14 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     }
 
 
-    private IEnumerator WaitBeforeNext(float time)
+    private IEnumerator WaitBeforeNextNeed(float time)
     {
-        this.curNeed = Name.Empty;
+        isWaiting = true;
+        curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty);
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
-        SetNeed(GetRandomNeed());
+        SetNeed(GetRandomEnum<NeedNameEnum>());
         isWaiting = false;
     }
 }

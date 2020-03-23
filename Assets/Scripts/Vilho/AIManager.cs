@@ -18,7 +18,7 @@ public class AIManager : MonoBehaviour
     //Methods-------------------------------------------------------------------------------
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         CustomerAreaBounds = FindObjectOfType<CustomerAreas>().Bounds;
         customerPointGroups = FindObjectsOfType<CustomerPointGroup>();

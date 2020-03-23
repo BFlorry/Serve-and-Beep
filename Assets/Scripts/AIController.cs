@@ -23,7 +23,6 @@ public class AIController : MonoBehaviour
     [SerializeField]
     private bool moveRandomlyInAreas = true;
 
-    private readonly string gameManagerName = "GameManager";
     private AIManager aiManager = null;
     private CustomerPoint curCustomerPoint = null;
     private AreaEnum curArea = AreaEnum.Empty;
@@ -72,8 +71,7 @@ public class AIController : MonoBehaviour
     /// </summary>
     private void SetAIManager()
     {
-        GameObject gameManager = GameObject.Find(gameManagerName);
-        aiManager = gameManager.GetComponent<AIManager>();
+        aiManager = FindObjectOfType<AIManager>();
     }
 
 

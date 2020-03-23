@@ -20,21 +20,8 @@ public class AIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        SetCustomerAreaBounds();
-        SetCustomerPointGroups();
-    }
-
-    private void SetCustomerAreaBounds()
-    {
-        GameObject customerAreasObj = GameObject.Find("CustomerAreas");
-        CustomerAreas customerAreasScript = customerAreasObj.GetComponent<CustomerAreas>();
-        CustomerAreaBounds = customerAreasScript.Bounds;
-    }
-
-    private void SetCustomerPointGroups()
-    {
-        GameObject customerPointGroupsObj = GameObject.Find("CustomerPointGroups");
-        this.customerPointGroups = customerPointGroupsObj.GetComponentsInChildren<CustomerPointGroup>();
+        CustomerAreaBounds = FindObjectOfType<CustomerAreas>().Bounds;
+        customerPointGroups = FindObjectsOfType<CustomerPointGroup>();
     }
 
 

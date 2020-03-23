@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// Class that contains nested enum classes and a method for getting random enum.
+/// </summary>
 public static class Enums
 {
     //Methods--------------------------------------------------------
@@ -21,7 +24,7 @@ public static class Enums
     //Nested classes-------------------------------------------------
 
     /// <summary>
-    /// A class for containing enums.
+    /// A class for containing customer enums.
     /// </summary>
     public static class CustomerEnums
     {
@@ -40,8 +43,7 @@ public static class Enums
         }
 
         /// <summary>
-        /// Area where the customer goes, when having this need.
-        /// Enum number equals area id.
+        /// An area where the customer goes, when having a need.
         /// </summary>
         public enum AreaEnum
         {
@@ -53,8 +55,7 @@ public static class Enums
         }
 
         /// <summary>
-        /// The point where the customer goes, when having this need.
-        /// Enum number equals point id.
+        /// A point where the customer goes, when having a need.
         /// </summary>
         public enum PointGroupEnum
         {

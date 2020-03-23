@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using static Enums.CustomerEnums;
 
 /// <summary>
-/// Class for controlling AI character.
+/// Class for controlling AI character's movement.
 /// </summary>
 public class AIController : MonoBehaviour
 {
@@ -23,12 +23,11 @@ public class AIController : MonoBehaviour
     [SerializeField]
     private bool moveRandomlyInAreas = true;
 
-    private CustomerPoint curCustomerPoint = null;
-
+    private readonly string gameManagerName = "GameManager";
     private AIManager aiManager = null;
+    private CustomerPoint curCustomerPoint = null;
     private AreaEnum curArea = AreaEnum.Empty;
     private IEnumerator wait;
-
     private bool moving = false;
 
 
@@ -43,6 +42,11 @@ public class AIController : MonoBehaviour
         SetAIManager();
     }
 
+
+    /// <summary>
+    /// Checks if customer has reached destination and if yes, sets
+    /// the customer waiting. Also handles random customer movement.
+    /// </summary>
     void Update()
     {
         if (moving == true)
@@ -63,13 +67,21 @@ public class AIController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Initializes 
+    /// </summary>
     private void SetAIManager()
     {
-        GameObject gameManager = GameObject.Find("GameManager");
+        GameObject gameManager = GameObject.Find(gameManagerName);
         aiManager = gameManager.GetComponent<AIManager>();
     }
 
 
+    /// <summary>
+    /// If customer has active point, move there.
+    /// Else move to area, empty or not.
+    /// </summary>
+    /// <param name="customerNeed">customer need</param>
     public void MoveToNeedDestination(CustomerNeed customerNeed)
     {
         if (customerNeed.Point != PointGroupEnum.Empty)
@@ -83,6 +95,13 @@ public class AIController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Makes sure that possible customer point is set unoccupied
+    /// and sets current customer point to null. Sets current area.
+    /// If area is empty, moves to random point on map in walk radius.
+    /// Else moves to random point on given area.
+    /// </summary>
+    /// <param name="area">are to move</param>
     public void MoveToArea(AreaEnum area)
     {
         if(curCustomerPoint != null)
@@ -97,31 +116,54 @@ public class AIController : MonoBehaviour
 
         if (area == AreaEnum.Empty)
         {
-            aiManager.GetRandomPointInMap(this.gameObject.transform.position, walkRadius);
+            Vector3 position = this.gameObject.transform.position;
+            MoveToPoint(aiManager.GetRandomPointInMap(position, walkRadius));
         }
         else MoveToPoint(aiManager.GetRandomPointInArea(area));
     }
 
 
+    /// <summary>
+    /// Gets random free point from according to given point group.
+    /// Sets possible previous current customer point unoccupied and
+    /// sets new point as current customer point. Sets current area empty.
+    /// Sets movement towards the new point.
+    /// </summary>
+    /// <param name="pointGroup">point group that determines possible destinations</param>
     public void MoveToPointGroup(PointGroupEnum pointGroup)
     {
-        this.agent.isStopped = false;
-
         CustomerPoint customerPoint = aiManager.GetRandomFreePoint(pointGroup);
-        if (curCustomerPoint != false)
+
+        if (curCustomerPoint != null)
         {
             curCustomerPoint.IsOccupied = false;
         }
-        curCustomerPoint = customerPoint;
-        this.curArea = AreaEnum.Empty;
 
+        this.curCustomerPoint = customerPoint;
+        this.curArea = AreaEnum.Empty;
+        this.agent.isStopped = false;
         MoveToPoint(customerPoint.Position);
     }
 
 
+    /// <summary>
+    /// Sets NavMeshAgent's movement destination as given point.
+    /// </summary>
+    /// <param name="point">target point for movement</param>
+    private void MoveToPoint(Vector3 point)
+    {
+        agent.SetDestination(point);
+        Debug.DrawRay(point, Vector3.up * 5, Color.blue, 10.0f);
+        Debug.Log("Target position: " + point);
+    }
+
+
+    /// <summary>
+    /// Sets NavMesh Agent stopped.
+    /// </summary>
     public void StopMovement()
     {
-        agent.isStopped = true;
+        this.agent.isStopped = true;
     }
 
 
@@ -134,17 +176,5 @@ public class AIController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         wait = null;
-    }
-
-
-    /// <summary>
-    /// Sets NavMeshAgent's movement destination as given point.
-    /// </summary>
-    /// <param name="point">Target point for movement.</param>
-    private void MoveToPoint(Vector3 point)
-    {
-        agent.SetDestination(point);
-        Debug.DrawRay(point, Vector3.up * 5, Color.blue, 10.0f);
-        Debug.Log("Target position: " + point);
     }
 }

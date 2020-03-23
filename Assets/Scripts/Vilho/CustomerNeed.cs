@@ -1,5 +1,8 @@
 ﻿using static Enums.CustomerEnums;
 
+/// <summary>
+/// Class that contains customr's need name, area and point group.
+/// </summary>
 public class CustomerNeed
 {
     //Properties----------------------------------------------------------------
@@ -11,11 +14,16 @@ public class CustomerNeed
 
     //Constructors--------------------------------------------------------------
 
-    public CustomerNeed(NeedNameEnum need)
+    /// <summary>
+    /// Default constructor that adds area or point
+    /// group according to given name of need.
+    /// </summary>
+    /// <param name="needName">name of need</param>
+    public CustomerNeed(NeedNameEnum needName)
     {
-        this.NeedName = need;
+        this.NeedName = needName;
 
-        switch (need)
+        switch (needName)
         {
             case NeedNameEnum.Empty:
                 {
@@ -49,18 +57,30 @@ public class CustomerNeed
     }
 
 
-    public CustomerNeed(NeedNameEnum need, AreaEnum area)
+    /// <summary>
+    /// Constructor that makes it possible to create custom need
+    /// that has different area than the default for same name.
+    /// </summary>
+    /// <param name="needName">name of the need</param>
+    /// <param name="area">area of the need</param>
+    public CustomerNeed(NeedNameEnum needName, AreaEnum area)
     {
-        this.NeedName = need;
+        this.NeedName = needName;
         this.Area = area;
         this.Point = PointGroupEnum.Empty;
     }
 
 
-    public CustomerNeed(NeedNameEnum need, PointGroupEnum point)
+    /// <summary>
+    /// Constructor that makes it possible to create custom need
+    /// that has different point group than the default for same name.
+    /// </summary>
+    /// <param name="needName">name of the need</param>
+    /// <param name="pointGroup">area of the need</param>
+    public CustomerNeed(NeedNameEnum needName, PointGroupEnum pointGroup)
     {
-        this.NeedName = need;
-        this.Point = point;
+        this.NeedName = needName;
+        this.Point = pointGroup;
         this.Area = AreaEnum.Empty;
     }
 }

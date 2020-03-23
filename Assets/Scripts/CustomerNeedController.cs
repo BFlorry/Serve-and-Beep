@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using static Enums.CustomerEnums;
 
 /// <summary>
-/// A class that contains and controls a customer's needs and the needs' areas.
+/// A class that contains and controls a customer's needs and areas of the needs.
 /// </summary>
 public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
-    //Fields------------------------------------------------------------------
+    //Fields----------------------------------------------------------------------
 
     [SerializeField]
     CustomerNeed curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty);
@@ -27,21 +26,21 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     Customer customer;
     AIController aiController;
     CustomerAreas customerAreas;
-
-    //The customer will be waiting for a new
-    //need after finishing previous one.
+    private IEnumerator waitAfterMove;
     private bool isWaiting = false;
 
-    private IEnumerator waitAfterMove;
-
-    //Properties----------------------------------------------------------------
+    //Properties------------------------------------------------------------------
 
     public float MaxValue { get => maxValue; }
     public float CurrentValue { get => currentValue; }
     public float DefaultValue { get => defaultValue; }
 
 
-    // Start is called before the first frame update
+    //Methods---------------------------------------------------------------------
+
+    /// <summary>
+    /// Initializes customer need controller's attributes.
+    /// </summary>
     void Start()
     {
         this.currentValue = defaultValue;
@@ -52,6 +51,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     }
 
 
+    /// <summary>
+    /// If customer has no need, sets it waiting for a new one.
+    /// </summary>
     void Update()
     {
         if(curCustomerNeed.NeedName == NeedNameEnum.Empty && isWaiting == false)
@@ -66,9 +68,8 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
 
     /// <summary>
-    /// Sets this customer's current need as given need.
-    /// Gets area that the given need belongs to.
-    /// Sets ai controller's movement to that area.
+    /// Sets current need. Sets AI controller's movement
+    /// to the area where the need belongs to.
     /// </summary>
     /// <param name="need">A need to be set to this customer.</param>
     public void SetNeed(NeedNameEnum needName)
@@ -83,8 +84,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     private void SetNeedWithKeyboard()
     {
-        int number;
-        if (Int32.TryParse(Input.inputString, out number))
+        if (int.TryParse(Input.inputString, out int number))
         {
             if (number >= 0 && number <= 9)
             {
@@ -94,7 +94,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     }
 
 
-    // Update is called once per frame
+    /// <summary>
+    /// Makes continuous changes to the state of customer's need.
+    /// </summary>
     void FixedUpdate()
     {
         if(curCustomerNeed.NeedName == NeedNameEnum.Hunger)
@@ -151,6 +153,12 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     }
 
 
+    /// <summary>
+    /// Resets customer's need and waits for given time.
+    /// Sets new random need.
+    /// </summary>
+    /// <param name="time">wait time as seconds</param>
+    /// <returns>IEnumerator</returns>
     private IEnumerator WaitBeforeNextNeed(float time)
     {
         isWaiting = true;

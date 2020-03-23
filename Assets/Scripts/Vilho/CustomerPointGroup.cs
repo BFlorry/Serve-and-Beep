@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that contains customer points.
+/// </summary>
 public class CustomerPointGroup : MonoBehaviour
 {
     //Fields--------------------------------------------------------------------
@@ -11,7 +14,10 @@ public class CustomerPointGroup : MonoBehaviour
 
     //Methods-------------------------------------------------------------------
 
-    
+    /// <summary>
+    /// Lists unoccupied points and returns one randomly.
+    /// </summary>
+    /// <returns></returns>
     public CustomerPoint GetRandomFreePoint()
     {
         List<CustomerPoint> freePoints = new List<CustomerPoint>();

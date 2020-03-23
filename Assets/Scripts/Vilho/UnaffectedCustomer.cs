@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// A customer that starts with default satisfaction after giving review.
@@ -29,4 +27,6 @@ public class UnaffectedCustomer : Customer
     {
         sf = sfDefault;
     }
+
+
 }

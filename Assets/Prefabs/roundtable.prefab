@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 412961159311456671}
   - component: {fileID: 6235137579000333670}
   - component: {fileID: 6737937419388986159}
+  - component: {fileID: 3122551715645977565}
   m_Layer: 0
   m_Name: roundtable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8710004850467128233
 Transform:
@@ -89,8 +90,22 @@ MeshCollider:
   m_GameObject: {fileID: 5673267361928655290}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -908542513191656149, guid: 74f3835ee9bbc1643b9deb09af39012f, type: 3}
+--- !u!136 &3122551715645977565
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673267361928655290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 3.5399995
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.22307801}

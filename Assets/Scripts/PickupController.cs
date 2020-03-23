@@ -59,7 +59,6 @@ public class PickupController : MonoBehaviour
             {
                 if (hit.transform.gameObject.TryGetComponent(out Highlightable curHighlight))
                 {
-                    //Highlightable curHighlight = pickupable.GetComponentInChildren<Highlightable>();
                     // If the new object isn't the same as previous, remove highlight from previous and apply to new
                     if (curHighlight != prevHighlight)
                     { 
@@ -87,7 +86,7 @@ public class PickupController : MonoBehaviour
             DropObject();
             return;
         }
-        //RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
         

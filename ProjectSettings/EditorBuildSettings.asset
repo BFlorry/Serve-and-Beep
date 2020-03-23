@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mikko/Olds/TestWindow.unity
     guid: 8b064b73e6e7afe44a4e31ddd4d7ad07
+  - enabled: 1
+    path: Assets/Scenes/Mikko/Character_Select.unity
+    guid: 62045a3c36462644aaacd2c821ed1ad8
   m_configObjects: {}

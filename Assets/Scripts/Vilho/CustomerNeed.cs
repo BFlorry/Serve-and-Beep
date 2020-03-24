@@ -41,11 +41,11 @@ public class CustomerNeed : MonoBehaviour
                     this.Area = AreaEnum.Bar;
                     break;
                 }
-            case NeedNameEnum.NeedToPiss:
-                {
-                    this.Area = AreaEnum.Toilet;
-                    break;
-                }
+            //case NeedNameEnum.NeedToPiss:
+            //    {
+            //        this.Area = AreaEnum.Toilet;
+            //        break;
+            //    }
             default:
                 {
                     break;

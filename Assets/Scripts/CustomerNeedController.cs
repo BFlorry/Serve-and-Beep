@@ -52,7 +52,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.customerAreas = GetComponent<CustomerAreas>();
         this.display = GetComponent<CustomerNeedDisplay>();
         this.needImages = FindObjectOfType<AIManager>().GetImages();
-        SetNeed(GetRandomEnum<NeedNameEnum>());
+        SetNeed(GetRandomNeed());
     }
 
 
@@ -61,12 +61,13 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     void Update()
     {
+        /*
         if(curCustomerNeed.NeedName == NeedNameEnum.Empty && isWaiting == false)
         {
-            isWaiting = true;
             StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
         }
-        
+        */    
+
         //For testing only
         SetNeedWithKeyboard();
     }
@@ -84,12 +85,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         {
             Sprite needImg = needImages[(int)needName-1];
             curCustomerNeed = new CustomerNeed(needName, needImg);
+            display.SetNeedImage(curCustomerNeed.Image);
         }
-        else
-        {
-            curCustomerNeed = new CustomerNeed(needName, null);
-        }
-        display.SetNeedImage(curCustomerNeed.Image);
+        isWaiting = false;
         aiController.MoveToNeedDestination(curCustomerNeed);
     }
 
@@ -119,8 +117,17 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             if (currentValue < maxValue) currentValue += 0.05f;
             else
             {
-                SetNeed(NeedNameEnum.Empty);
                 customer.SfGain(-satisfactionModifier);
+                WaitBeforeNextNeed(timeBetweenNeeds);
+            }
+        }
+        else if (curCustomerNeed.NeedName == NeedNameEnum.Thirst)
+        {
+            if (currentValue < maxValue) currentValue += 0.10f;
+            else
+            {
+                customer.SfGain(-satisfactionModifier);
+                WaitBeforeNextNeed(timeBetweenNeeds);
             }
         }
     }
@@ -137,14 +144,14 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         {
             case NeedNameEnum.Hunger:
                 {
-                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
+                    StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
                     return true;
                 }
             case NeedNameEnum.Thirst:
                 {
-                    SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);
+                    StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
                     return true;
                 }
             default: return false;
@@ -160,12 +167,14 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <returns>IEnumerator</returns>
     private IEnumerator WaitBeforeNextNeed(float time)
     {
+        display.SetNeedCanvasActivity(false);
         isWaiting = true;
         curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty, null);
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
-        SetNeed(GetRandomEnum<NeedNameEnum>());
+        SetNeed(GetRandomNeed());
         isWaiting = false;
+        display.SetNeedCanvasActivity(true);
     }
 }

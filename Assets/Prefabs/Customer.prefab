@@ -670,8 +670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressImage: {fileID: 3526284642556410667}
-  needImage: {fileID: 2181142290098829550}
   needCanvas: {fileID: 873067167754848678}
+  moodCanvas: {fileID: 6298475037561102074}
 --- !u!136 &237174004
 CapsuleCollider:
   m_ObjectHideFlags: 0

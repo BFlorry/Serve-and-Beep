@@ -3639,7 +3639,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 0}
+  secondarySfxSource: {fileID: 0}
   musicSource: {fileID: 313782847}
+  secondaryMusicSource: {fileID: 0}
   lowPitchRange: 0.95
   highPitchRange: 1.05
 --- !u!1001 &316645577
@@ -6676,6 +6678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 2
+  maxRaySphereRadius: 0.5
   interactSfx: {fileID: 0}
   targetInteractableObjects: []
 --- !u!1 &567787699
@@ -8081,6 +8084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 2
+  maxRaySphereRadius: 0.5
   interactSfx: {fileID: 0}
   targetInteractableObjects: []
 --- !u!1001 &680694779
@@ -8807,6 +8811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 2
+  maxRaySphereRadius: 0.5
   interactSfx: {fileID: 0}
   targetInteractableObjects: []
 --- !u!1001 &731452199
@@ -13850,6 +13855,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00debf980412c49418327c56a1a60db0, type: 3}
+--- !u!1 &1290323561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6298475037561102074, guid: 8badad6709598bb4589d0251bb2f3988,
+    type: 3}
+  m_PrefabInstance: {fileID: 1367353318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1294240983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14678,6 +14689,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer
       objectReference: {fileID: 0}
+    - target: {fileID: 7589029067965355615, guid: 8badad6709598bb4589d0251bb2f3988,
+        type: 3}
+      propertyPath: moodCanvas
+      value: 
+      objectReference: {fileID: 1290323561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
 --- !u!1001 &1367717606
@@ -17298,6 +17314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 2
+  maxRaySphereRadius: 0.5
   interactSfx: {fileID: 0}
   targetInteractableObjects: []
 --- !u!1001 &1644953702

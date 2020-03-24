@@ -120,10 +120,6 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     {
         switch (curCustomerNeed.NeedName)
         {
-            case NeedNameEnum.Empty:
-                {
-                    return false;
-                }
             case NeedNameEnum.Hunger:
                 {
                     SetNeed(NeedNameEnum.Empty);
@@ -131,18 +127,6 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
                     return true;
                 }
             case NeedNameEnum.Thirst:
-                {
-                    SetNeed(NeedNameEnum.Empty);
-                    customer.SfGain(satisfactionModifier);
-                    return true;
-                }
-            case NeedNameEnum.ALittlePainInTheLowerBack:
-                {
-                    SetNeed(NeedNameEnum.Empty);
-                    customer.SfGain(satisfactionModifier);
-                    return true;
-                }
-            case NeedNameEnum.AnUrgeToSpeakToTheManager:
                 {
                     SetNeed(NeedNameEnum.Empty);
                     customer.SfGain(satisfactionModifier);

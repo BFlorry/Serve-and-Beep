@@ -262,6 +262,19 @@ MonoBehaviour:
   interactSfx: {fileID: 8300000, guid: 5ee7db6cb0919354f9b3a46bc2456728, type: 3}
   progressBarImage: {fileID: 1377726528}
   progressBarCanvas: {fileID: 367150761}
+--- !u!114 &8773149661345599472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267835081669385244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d49dec85f33ce43a667759281cc33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineWidth: 0.05
 --- !u!1001 &7266797015769257750
 PrefabInstance:
   m_ObjectHideFlags: 0

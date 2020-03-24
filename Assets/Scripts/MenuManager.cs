@@ -41,12 +41,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync(1);
-    }
-
-    public void OpenCredits()
-    {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync("Character_Select");
     }
 
     public void ExitGame()

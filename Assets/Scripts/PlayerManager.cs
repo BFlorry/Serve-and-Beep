@@ -64,7 +64,6 @@ public class PlayerManager : MonoBehaviour
         LoadPlayers();
     }
 
-
     private class PlayerData
     {
         public InputDevice[] devices { get; set; }

@@ -8,7 +8,7 @@ public class LevelStart : TimedInteractionController
     PlayerManager playerManager;
     private void Start()
     {
-        playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
     }
     public override void InteractionAction()
     {

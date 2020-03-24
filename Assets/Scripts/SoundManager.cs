@@ -5,8 +5,10 @@ public class SoundManager : MonoBehaviour
 {
     //Drag a reference to the audio source which will play the sound effects.
     public AudioSource sfxSource;
+    public AudioSource secondarySfxSource;
     //Drag a reference to the audio source which will play the music.
     public AudioSource musicSource;
+    public AudioSource secondaryMusicSource;
     //Allows other scripts to call functions from SoundManager.
     public static SoundManager instance = null;
     //The lowest a sound effect will be randomly pitched.
@@ -34,11 +36,8 @@ public class SoundManager : MonoBehaviour
     //Used to play single sound clips.
     public void PlaySingle(AudioClip clip)
     {
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        sfxSource.clip = clip;
-
         //Play the clip.
-        sfxSource.Play();
+        sfxSource.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip)
@@ -48,6 +47,21 @@ public class SoundManager : MonoBehaviour
 
         //Play the clip.
         musicSource.Play();
+    }
+
+    public void PlaySecondaryMusic(AudioClip clip)
+    {
+        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+        secondaryMusicSource.clip = clip;
+
+        //Play the clip.
+        secondaryMusicSource.Play();
+    }
+
+    public void StopSecondaryMusic()
+    {
+        //Stop the clip.
+        secondaryMusicSource.Stop();
     }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.

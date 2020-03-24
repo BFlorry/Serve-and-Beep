@@ -1,11 +1,16 @@
-﻿using static Enums.CustomerEnums;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using static Enums.CustomerEnums;
 
 /// <summary>
 /// Class that contains customr's need name, area and point group.
 /// </summary>
-public class CustomerNeed
+public class CustomerNeed : MonoBehaviour
 {
     //Properties----------------------------------------------------------------
+
+    [SerializeField]
+    public Sprite Image { get; private set; }
 
     public NeedNameEnum NeedName { get; } = NeedNameEnum.Empty;
     public AreaEnum Area { get; } = AreaEnum.Empty;
@@ -19,8 +24,9 @@ public class CustomerNeed
     /// group according to given name of need.
     /// </summary>
     /// <param name="needName">name of need</param>
-    public CustomerNeed(NeedNameEnum needName)
+    public CustomerNeed(NeedNameEnum needName, Sprite needImg)
     {
+        this.Image = needImg;
         this.NeedName = needName;
 
         switch (needName)

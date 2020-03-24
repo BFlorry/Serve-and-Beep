@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using static Enums.CustomerEnums;
 
 /// <summary>
@@ -9,8 +10,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
     //Fields----------------------------------------------------------------------
 
-    [SerializeField]
-    CustomerNeed curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty);
+    CustomerNeed curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty, null);
 
     [SerializeField]
     float maxValue = 100f;
@@ -26,8 +26,11 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     Customer customer;
     AIController aiController;
     CustomerAreas customerAreas;
+    CustomerNeedDisplay display;
     private IEnumerator waitAfterMove;
     private bool isWaiting = false;
+
+    private Sprite[] needImages;
 
     //Properties------------------------------------------------------------------
 
@@ -46,7 +49,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.currentValue = defaultValue;
         this.customer = GetComponent<Customer>();
         this.aiController = GetComponent<AIController>();
-        this.customerAreas = GetComponent <CustomerAreas>();
+        this.customerAreas = GetComponent<CustomerAreas>();
+        this.display = GetComponent<CustomerNeedDisplay>();
+        this.needImages = FindObjectOfType<AIManager>().GetImages();
         SetNeed(GetRandomEnum<NeedNameEnum>());
     }
 
@@ -74,7 +79,17 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <param name="need">A need to be set to this customer.</param>
     public void SetNeed(NeedNameEnum needName)
     {
-        curCustomerNeed = new CustomerNeed(needName);
+        //TODO: Image to customer need, not in this class
+        if (needName != NeedNameEnum.Empty)
+        {
+            Sprite needImg = needImages[(int)needName-1];
+            curCustomerNeed = new CustomerNeed(needName, needImg);
+        }
+        else
+        {
+            curCustomerNeed = new CustomerNeed(needName, null);
+        }
+        display.SetNeedImage(curCustomerNeed.Image);
         aiController.MoveToNeedDestination(curCustomerNeed);
     }
 
@@ -162,7 +177,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private IEnumerator WaitBeforeNextNeed(float time)
     {
         isWaiting = true;
-        curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty);
+        curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty, null);
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);

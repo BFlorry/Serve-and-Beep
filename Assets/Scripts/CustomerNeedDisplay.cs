@@ -7,8 +7,7 @@ public class CustomerNeedDisplay : MonoBehaviour
 {
     [SerializeField]
     private Image progressImage;
-    [SerializeField]
-    private Image needImage;
+
     [SerializeField]
     private GameObject needCanvas;
 
@@ -45,6 +44,12 @@ public class CustomerNeedDisplay : MonoBehaviour
 
     void SetNeedDisplayValue()
     {
+        
+    }
 
+    public void SetNeedImage(Sprite image)
+    {
+        Image needImg = GetComponentInChildren<Image>();
+        needImg.sprite = image;
     }
 }

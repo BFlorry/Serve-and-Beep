@@ -31,10 +31,6 @@ public class CustomerNeed : MonoBehaviour
 
         switch (needName)
         {
-            case NeedNameEnum.Empty:
-                {
-                    break;
-                }
             case NeedNameEnum.Hunger:
                 {
                     this.Area = AreaEnum.Restaurant;
@@ -45,14 +41,9 @@ public class CustomerNeed : MonoBehaviour
                     this.Area = AreaEnum.Bar;
                     break;
                 }
-            case NeedNameEnum.ALittlePainInTheLowerBack:
+            case NeedNameEnum.NeedToPiss:
                 {
-                    this.Point = PointGroupEnum.ThaiMassage;
-                    break;
-                }
-            case NeedNameEnum.AnUrgeToSpeakToTheManager:
-                {
-                    this.Point = PointGroupEnum.Info;
+                    this.Area = AreaEnum.Toilet;
                     break;
                 }
             default:

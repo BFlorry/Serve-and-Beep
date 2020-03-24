@@ -22,7 +22,7 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
     [SerializeField]
     private GameObject progressBarCanvas;
 
-    void Start()
+    void Awake()
     {
         Camera camera = Camera.main;
         progressBarCanvas.transform.LookAt(progressBarCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
@@ -73,7 +73,7 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
         isInteracting = false;
     }
 
-    public void InteractionEvent()
+    void InteractionEvent()
     {
         playerController.TogglePlayerFreeze();
         DeInteract();
@@ -81,6 +81,11 @@ public class TimedInteractionController : MonoBehaviour, IInteractable
         interactionTimeLeft = interactionTime;
         Debug.Log("Counter interaction event.");
         playerController.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+        InteractionAction();
+    }
+
+    public virtual void InteractionAction()
+    {
         Destroy(gameObject);
     }
 

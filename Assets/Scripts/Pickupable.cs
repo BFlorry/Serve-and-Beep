@@ -10,6 +10,9 @@ public class Pickupable : MonoBehaviour
     private float maxRayDistance = 2.0f;
 
     [SerializeField]
+    private float maxRaySphereRadius = 0.5f;
+
+    [SerializeField]
     AudioClip interactSfx;
 
     PickupController player;
@@ -49,7 +52,7 @@ public class Pickupable : MonoBehaviour
     {
         //TODO: This as a separate class?
         //TODO: Replace with spherecast
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
         foreach (RaycastHit hit in hits)
         {

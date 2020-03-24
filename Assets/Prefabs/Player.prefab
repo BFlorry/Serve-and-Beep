@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 5588795269810305739}
   - component: {fileID: 67645879464638401}
   - component: {fileID: 5609420379761832610}
-  - component: {fileID: -152955963471259302}
+  - component: {fileID: 8697540354899510023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -154,11 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5115bce8a7ebfbb43a94c875b47ebf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSfx: {fileID: 8300000, guid: b89b9237a35b475409576cb658b09044, type: 3}
-  pickupSfx: {fileID: 8300000, guid: e1774f34414b4a24992b310230fa68d5, type: 3}
+  throwSfx: {fileID: 8300000, guid: 60fafb3a900667a4393e9f2fa7965e10, type: 3}
+  pickupSfx: {fileID: 8300000, guid: 79e6b960907a15b4bbc510ad468bab40, type: 3}
   throwMagnitude: 400
   carryOffset: 1.1
   maxRayDistance: 1.1
+  maxRaySphereRadius: 0.5
 --- !u!136 &5588795269810305739
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-152955963471259302
+--- !u!114 &8697540354899510023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5588795269810305779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dc9ba94a984734298934f21fb909fd, type: 3}
+  m_Script: {fileID: 11500000, guid: a7f2bfd94f9783d40a07b93c50346930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5555681635863536662

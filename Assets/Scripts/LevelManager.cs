@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundManager = FindObjectOfType<SoundManager>();
+        //soundManager = FindObjectOfType<SoundManager>();
         levelState = LevelPhase.Start;
         timeLeft = levelTimeLimit;
     }
@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
         {
             case LevelPhase.Start:
                 {
+                    soundManager = FindObjectOfType<SoundManager>();
                     soundManager.PlayMusic(bgmMusic);
                     levelState = LevelPhase.Normal;
                     break;

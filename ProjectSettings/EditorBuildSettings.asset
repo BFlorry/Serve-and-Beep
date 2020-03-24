@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Mikko/Main_Menu.unity
-    guid: 62045a3c36462644aaacd2c821ed1ad8
+    path: Assets/Scenes/_Main/Main_Menu.unity
+    guid: da144bdbadfb82b43b831e5c1a62d303
   - enabled: 1
-    path: Assets/Scenes/Mikko/Character_Select.unity
-    guid: 1c5026a08336e7042b811b46f3761b00
+    path: Assets/Scenes/_Main/Character_Select.unity
+    guid: 2cd66a76013305a449391422522395ed
   - enabled: 1
-    path: Assets/Scenes/Vilho/Mikko_proto_3/Main_Ship.unity
-    guid: b11cb28303430d1419786cf3227ba94a
-  - enabled: 1
-    path: Assets/Scenes/Mikko/Olds/TestWindow.unity
-    guid: 8b064b73e6e7afe44a4e31ddd4d7ad07
+    path: Assets/Scenes/_Main/Main_Ship.unity
+    guid: bd69b5df30bd16443a679d08f7d0b921
   m_configObjects: {}

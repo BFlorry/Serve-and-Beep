@@ -373,8 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb4648278260324f9279d3da7027d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimeLimit: 5
-  hurryUpTime: 3
+  levelTimeLimit: 180
+  hurryUpTime: 10
   timerText: {fileID: 7493962269436485375}
   bgmMusic: {fileID: 8300000, guid: 02921844694387349a14092da7808257, type: 3}
   timeRunningOutSfx: {fileID: 8300000, guid: 10f8f705963b6664cac03527801407ba, type: 3}

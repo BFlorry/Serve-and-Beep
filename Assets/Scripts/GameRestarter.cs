@@ -8,6 +8,6 @@ public class GameRestarter : MonoBehaviour
     private void OnReset()
     {
         GameObject.FindObjectOfType<PlayerManager>().EnableHotJoin();
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
     }
 }

@@ -28,6 +28,11 @@ public class LevelManager : MonoBehaviour
     private TextMeshProUGUI timerText;
 
     [SerializeField]
+    private TextMeshProUGUI scoreText;
+
+    private int levelScore;
+
+    [SerializeField]
     private AudioClip bgmMusic;
 
     [SerializeField]
@@ -35,6 +40,15 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip timeOverSfx;
+
+    [SerializeField]
+    private AudioClip posReviewSfx;
+
+    [SerializeField]
+    private AudioClip negReviewSfx;
+
+    [SerializeField]
+    private GameObject gameOverText;
 
     private SoundManager soundManager;
 
@@ -44,6 +58,16 @@ public class LevelManager : MonoBehaviour
         //soundManager = FindObjectOfType<SoundManager>();
         levelState = LevelPhase.Start;
         timeLeft = levelTimeLimit;
+        levelScore = 0;
+        scoreText.text = levelScore.ToString();
+    }
+
+    public void ChangeScore(int amount)
+    {
+        if (amount > 0) soundManager.PlaySingle(posReviewSfx);
+        else soundManager.PlaySingle(negReviewSfx);
+        levelScore += amount;
+        scoreText.text = levelScore.ToString();
     }
 
     private void Update()
@@ -86,6 +110,7 @@ public class LevelManager : MonoBehaviour
                 {
                     soundManager.StopSecondaryMusic();
                     soundManager.PlaySingle(timeOverSfx);
+                    gameOverText.SetActive(true);
                     break;
                 }
         }

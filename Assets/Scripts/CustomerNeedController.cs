@@ -118,7 +118,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             else
             {
                 customer.SfGain(-satisfactionModifier);
-                WaitBeforeNextNeed(timeBetweenNeeds);
+                StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
             }
         }
         else if (curCustomerNeed.NeedName == NeedNameEnum.Thirst)
@@ -127,7 +127,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             else
             {
                 customer.SfGain(-satisfactionModifier);
-                WaitBeforeNextNeed(timeBetweenNeeds);
+                StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
             }
         }
     }

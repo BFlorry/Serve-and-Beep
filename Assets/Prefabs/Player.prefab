@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6498094831906926071
+--- !u!114 &4087279639346381379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,6 +8,47 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4483423680684227871}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07eec2534f97be942bc291954ea297ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 729d62c122e2748499954b4ac8506c4e, type: 2}
+  - {fileID: 2100000, guid: 63c17638d7415c7498e4606cc6724592, type: 2}
+  - {fileID: 2100000, guid: 4709735425b69e4469fc587dd8c69130, type: 2}
+  - {fileID: 2100000, guid: 3d06ac95159b3ee428413d9a281994a1, type: 2}
+  - {fileID: 2100000, guid: 8660347b99d76454faf5923bb8699632, type: 2}
+  - {fileID: 2100000, guid: 21608c81e6c5b7b4dba6d443e0fea14a, type: 2}
+  - {fileID: 2100000, guid: ecbbe6a0d29b05e4bad346001c0adecd, type: 2}
+  - {fileID: 2100000, guid: daeb24451ba00c441be228a37ee4b0ce, type: 2}
+  - {fileID: 2100000, guid: d3379a1c1bbf22341bc8f69a42691daa, type: 2}
+  - {fileID: 2100000, guid: 01f019d19096ee24ca2991be4fb28d37, type: 2}
+  - {fileID: 2100000, guid: cba8c2f8538ae8f4c9da7cd2a0532bbd, type: 2}
+  - {fileID: 2100000, guid: 5e682b6da84f9d648a9a54651f6af6c9, type: 2}
+  - {fileID: 2100000, guid: b946954465fae534e9335cd689bcb12b, type: 2}
+  - {fileID: 2100000, guid: 12e3745d805b8d545be10fa0b94c9123, type: 2}
+  - {fileID: 2100000, guid: aa1f7e0ecc1d46d4fbc6678599f80e9a, type: 2}
+  - {fileID: 2100000, guid: f5a2b2ac5d2547f4bbbb3a73444e9aa4, type: 2}
+  - {fileID: 2100000, guid: 9bec61632bc47a34fb9eae9a96dcfb5a, type: 2}
+  - {fileID: 2100000, guid: 37012fe65a7324c47acbc783cd74bda7, type: 2}
+  - {fileID: 2100000, guid: 92b8f94ce8bb1a14fae95fb007cfa7d2, type: 2}
+  - {fileID: 2100000, guid: 8c1738039561dde4483a2e83e0e09e9a, type: 2}
+  - {fileID: 2100000, guid: dc6131bf18cb63b46bf64facaead325e, type: 2}
+  - {fileID: 2100000, guid: bfa0fb74528866643982e569a72b3338, type: 2}
+  - {fileID: 2100000, guid: 2b44dd0df1f9f1c4299ba6a81c6bdfd3, type: 2}
+  - {fileID: 2100000, guid: 20fff724c69e553478768a1517c6dc3e, type: 2}
+  - {fileID: 2100000, guid: f9033e893c92ad243aec1b9fff2aa548, type: 2}
+  - {fileID: 2100000, guid: c1dfb6a69a93f414abdab8c73d15846c, type: 2}
+  - {fileID: 2100000, guid: 81350ec903452524191f1616a51ccc41, type: 2}
+  - {fileID: 2100000, guid: 1559ad492132dd34a825655e374cbecd, type: 2}
+--- !u!114 &6498094831906926071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483423680684227871}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: babea8d3e4c7ff74abe738a370e4b21b, type: 3}
   m_Name: 
@@ -304,6 +345,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5588795269810305742}
     m_Modifications:
+    - target: {fileID: -5178661895559278292, guid: c9f8ab495a9e78b49ad84f463893a2d8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8066583947313894683, guid: 5a5f474f6922b59488d983c5fd8ee4e5,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: c9f8ab495a9e78b49ad84f463893a2d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,6 +406,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c9f8ab495a9e78b49ad84f463893a2d8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c9f8ab495a9e78b49ad84f463893a2d8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: c9f8ab495a9e78b49ad84f463893a2d8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: c9f8ab495a9e78b49ad84f463893a2d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1559ad492132dd34a825655e374cbecd, type: 2}
     - target: {fileID: -927199367670048503, guid: c9f8ab495a9e78b49ad84f463893a2d8,
         type: 3}
       propertyPath: m_Name

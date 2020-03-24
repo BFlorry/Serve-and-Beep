@@ -207,11 +207,13 @@ public class Customer : MonoBehaviour
     public void ReviewPos()
     {
         //TODO Affect game manager or something like that.
+        FindObjectOfType<LevelManager>().ChangeScore(100);
     }
 
     //Gives negative review. (According to review class?)
     public void ReviewNeg()
     {
         //TODO Affect game manager or something like that.
+        FindObjectOfType<LevelManager>().ChangeScore(-50);
     }
 }

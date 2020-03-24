@@ -7,11 +7,13 @@ public class CustomerNeedDisplay : MonoBehaviour
 {
     [SerializeField]
     private Image progressImage;
-    [SerializeField]
-    private Image needImage;
+
     [SerializeField]
     private GameObject needCanvas;
+    [SerializeField]
+    private GameObject moodCanvas;
 
+    private Image needImg;
     private CustomerNeedController needController = null;
 
     private Camera camera;
@@ -23,6 +25,7 @@ public class CustomerNeedDisplay : MonoBehaviour
         needCanvas.SetActive(true);
         camera = Camera.main;
         needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+        needImg = GetComponentInChildren<Image>();
     }
 
     // Update is called once per frame
@@ -35,16 +38,27 @@ public class CustomerNeedDisplay : MonoBehaviour
 
     void SetProgressDisplayValue()
     {
-        if (needController.CurrentValue >= needController.MaxValue || needController.CurrentValue <= needController.DefaultValue) needCanvas.SetActive(false);
+        if (needController.CurrentValue >= needController.MaxValue || needController.CurrentValue <= needController.DefaultValue) ;
         else
         {
             progressImage.fillAmount = 1 - (needController.CurrentValue / needController.MaxValue);
-            needCanvas.SetActive(true);
         }
     }
 
     void SetNeedDisplayValue()
     {
+        
+    }
 
+    public void SetNeedImage(Sprite image)
+    {
+        needImg.sprite = image;
+    }
+
+
+    public void SetNeedCanvasActivity(bool b)
+    {
+        needCanvas.SetActive(b);
+        moodCanvas.SetActive(b);
     }
 }

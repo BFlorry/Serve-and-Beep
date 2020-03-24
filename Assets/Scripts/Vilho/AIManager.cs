@@ -1,16 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using static Enums.CustomerEnums;
 
 public class AIManager : MonoBehaviour
 {
     //Fields--------------------------------------------------------------------------------
 
-    private CustomerPointGroup[] customerPointGroups = null;
-    
+    private CustomerPointGroup[] customerPointGroups;
+
 
     //Properties----------------------------------------------------------------------------
+
+    [SerializeField]
+    private Sprite[] needImages;
 
     public Bounds[] CustomerAreaBounds { get; private set; } = null;
 
@@ -65,5 +69,11 @@ public class AIManager : MonoBehaviour
     {
         CustomerPointGroup customerPointGroup = customerPointGroups[(int)pointGroupId-1];
         return customerPointGroup.GetRandomFreePoint();
+    }
+
+
+    public Sprite[] GetImages()
+    {
+        return needImages;
     }
 }

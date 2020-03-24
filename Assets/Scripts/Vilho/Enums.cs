@@ -38,7 +38,7 @@ public static class Enums
             Empty,
             Hunger,
             Thirst,
-            NeedToPiss
+            //NeedToPiss
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ public static class Enums
 			Empty = 0,
             Restaurant = 1,
             Bar = 2,
-			Toilet = 3
+			//Toilet = 3
 		 }
 
         /// <summary>
@@ -60,8 +60,8 @@ public static class Enums
             Empty = 0,
             Restaurant = 1,
             Bar = 2,
-            ThaiMassage = 3,
-            Info = 4
+            //ThaiMassage = 3,
+            //Info = 4
         }
 
 
@@ -75,6 +75,19 @@ public static class Enums
         public static T GetRandomEnum<T>() where T : Enum
         {
             return Enums.GetRandomEnum<T>();
+        }
+
+
+        /// <summary>
+        /// Returns need that is not empty.
+        /// </summary>
+        /// <returns>need that is not empty</returns>
+        public static NeedNameEnum GetRandomNeed()
+        {
+            Array enums = Enum.GetValues(typeof(NeedNameEnum));
+            int enumInt = UnityEngine.Random.Range(1, enums.Length);
+            object enumObj = enums.GetValue(enumInt);
+            return (NeedNameEnum)enumObj;
         }
     }
 }

@@ -23,6 +23,19 @@ public static class Enums
 
     //Nested classes-------------------------------------------------
 
+    public static class Pickupables
+    {
+        //Fields--------------------------------------------------------------------
+
+        public enum ItemType
+        {
+            Food,
+            Drink
+        }
+    }
+
+
+    /*
     /// <summary>
     /// A class for containing customer enums.
     /// </summary>
@@ -90,4 +103,5 @@ public static class Enums
             return (NeedNameEnum)enumObj;
         }
     }
+    */
 }

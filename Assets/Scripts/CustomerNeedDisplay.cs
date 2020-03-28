@@ -18,8 +18,7 @@ public class CustomerNeedDisplay : MonoBehaviour
 
     private Camera camera;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         needController = this.GetComponent<CustomerNeedController>();
         needCanvas.SetActive(true);
@@ -27,32 +26,38 @@ public class CustomerNeedDisplay : MonoBehaviour
         needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
         needImg = GetComponentInChildren<Image>();
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if(needCanvas.activeSelf) needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
-        SetProgressDisplayValue();
-        SetNeedDisplayValue();
+        if(needCanvas.activeSelf)
+        {
+            needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+        }
+
     }
 
-    void SetProgressDisplayValue()
+    public void SetProgressDisplayValue(float curValue, float maxValue, float defaultValue)
     {
-        if (needController.CurrentValue >= needController.MaxValue || needController.CurrentValue <= needController.DefaultValue) ;
+        if (curValue >= maxValue || curValue <= defaultValue) ;
         else
         {
-            progressImage.fillAmount = 1 - (needController.CurrentValue / needController.MaxValue);
+            progressImage.fillAmount = 1 - (curValue / maxValue);
         }
     }
 
-    void SetNeedDisplayValue()
-    {
-        
-    }
 
-    public void SetNeedImage(Sprite image)
+    public void SetNeedSprite(Sprite sprite)
     {
-        needImg.sprite = image;
+        if (sprite != null)
+        {
+            needImg.sprite = sprite;
+        }
+        else
+        {
+            Debug.Log("Need sprite is null and not set.");
+        }
     }
 
 

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using static Enums.CustomerEnums;
 
 /// <summary>
 /// A class that contains and controls a customer's needs and areas of the needs.
@@ -10,19 +8,14 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
     //Fields----------------------------------------------------------------------
 
-    CustomerNeed curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty, null);
+    CustomerNeed curNeed;
 
-    [SerializeField]
-    float maxValue = 100f;
-    [SerializeField]
-    float currentValue;
-    [SerializeField]
-    float defaultValue = 0f;
-    [SerializeField]
-    int satisfactionModifier = 20;
-    [SerializeField]
-    float timeBetweenNeeds = 3f;
+    public float currentValue;
+    private float defaultValue = 0f;
+    private float minWaitTime = 6f;
+    private float maxWaitTime = 3f;
 
+    CustomerNeedManager needManager;
     Customer customer;
     AIController aiController;
     CustomerAreas customerAreas;
@@ -30,14 +23,8 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private IEnumerator waitAfterMove;
     private bool isWaiting = false;
 
-    private Sprite[] needImages;
-
-    //Properties------------------------------------------------------------------
-
-    public float MaxValue { get => maxValue; }
-    public float CurrentValue { get => currentValue; }
-    public float DefaultValue { get => defaultValue; }
-
+    //For testing and debugging only.
+    private bool allowDebugCommands = false;
 
     //Methods---------------------------------------------------------------------
 
@@ -46,13 +33,13 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     void Start()
     {
+        this.needManager = FindObjectOfType<CustomerNeedManager>();
         this.currentValue = defaultValue;
         this.customer = GetComponent<Customer>();
         this.aiController = GetComponent<AIController>();
         this.customerAreas = GetComponent<CustomerAreas>();
         this.display = GetComponent<CustomerNeedDisplay>();
-        this.needImages = FindObjectOfType<AIManager>().GetImages();
-        SetNeed(GetRandomNeed());
+        SetNeed(needManager.GetRandomNeed());
     }
 
 
@@ -70,25 +57,25 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
         //For testing only
         SetNeedWithKeyboard();
+
+        if (curNeed != null)
+        {
+            display.SetProgressDisplayValue(currentValue, curNeed.MaxValue, defaultValue);
+        }
     }
 
 
     /// <summary>
     /// Sets current need. Sets AI controller's movement
-    /// to the area where the need belongs to.
+    /// to the area where the need belongs to. Accepts null.
     /// </summary>
     /// <param name="need">A need to be set to this customer.</param>
-    public void SetNeed(NeedNameEnum needName)
+    public void SetNeed(CustomerNeed need)
     {
-        //TODO: Image to customer need, not in this class
-        if (needName != NeedNameEnum.Empty)
-        {
-            Sprite needImg = needImages[(int)needName-1];
-            curCustomerNeed = new CustomerNeed(needName, needImg);
-            display.SetNeedImage(curCustomerNeed.Image);
-        }
+        curNeed = need;
+        display.SetNeedSprite(curNeed.Sprite);
         isWaiting = false;
-        aiController.MoveToNeedDestination(curCustomerNeed);
+        aiController.MoveToNeedDestination(need);
     }
 
 
@@ -97,13 +84,37 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     private void SetNeedWithKeyboard()
     {
-        if (int.TryParse(Input.inputString, out int number))
+        if (allowDebugCommands == true)
         {
-            if (number >= 0 && number <= 9)
+            allowDebugCommands = false;
+            if (int.TryParse(Input.inputString, out int number))
             {
-                SetNeed((NeedNameEnum)number);
+                if (number >= 0 && number <= 9)
+                {
+                    if (number < needManager.Needs.Length)
+                    {
+                        SetNeed(needManager.Needs[number]);
+                        Debug.Log("Customers' needs set as " + number + ". need.");
+                    }
+                    else
+                    {
+                        Debug.Log("Pressed key is not in area of needs.");
+                    }
+                }
+                else if (Input.GetKeyDown(KeyCode.N))
+                {
+                    SetNeed(null);
+                }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.D) &&
+            Input.GetKeyDown(KeyCode.B) &&
+            Input.GetKeyDown(KeyCode.G))
+        {
+            allowDebugCommands = true;
+        }
+
     }
 
 
@@ -112,24 +123,24 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     void FixedUpdate()
     {
-        if(curCustomerNeed.NeedName == NeedNameEnum.Hunger)
+        if (curNeed != null)
         {
-            if (currentValue < maxValue) currentValue += 0.05f;
+            if (currentValue < curNeed.MaxValue)
+            {
+                currentValue += 0.05f; 
+            }
             else
             {
-                customer.SfGain(-satisfactionModifier);
-                StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
+                customer.SfGain(-curNeed.NegReview);
+                StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
             }
         }
-        else if (curCustomerNeed.NeedName == NeedNameEnum.Thirst)
-        {
-            if (currentValue < maxValue) currentValue += 0.10f;
-            else
-            {
-                customer.SfGain(-satisfactionModifier);
-                StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
-            }
-        }
+    }
+
+
+    private float RandWaitTime()
+    {
+        return Random.Range(maxWaitTime, minWaitTime);
     }
 
 
@@ -140,21 +151,17 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <returns>true if interaction was succesful, else false</returns>
     public bool Interact(GameObject gameObject)
     {
-        switch (curCustomerNeed.NeedName)
+        Pickupable pickupable = gameObject.GetComponent<Pickupable>();
+        if (pickupable != null && curNeed.SatisfItem == pickupable.ItemType)
         {
-            case NeedNameEnum.Hunger:
-                {
-                    customer.SfGain(satisfactionModifier);
-                    StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
-                    return true;
-                }
-            case NeedNameEnum.Thirst:
-                {
-                    customer.SfGain(satisfactionModifier);
-                    StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
-                    return true;
-                }
-            default: return false;
+            customer.SfGain(curNeed.PosReview);
+            StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+            return true;
+        }
+        else
+        {
+            Debug.Log("Target is not pickupable. Pickupable component is null.");
+            return false;
         }
     }
 
@@ -169,11 +176,11 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     {
         display.SetNeedCanvasActivity(false);
         isWaiting = true;
-        curCustomerNeed = new CustomerNeed(NeedNameEnum.Empty, null);
+        curNeed = null;
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
-        SetNeed(GetRandomNeed());
+        SetNeed(needManager.GetRandomNeed());
         isWaiting = false;
         display.SetNeedCanvasActivity(true);
     }

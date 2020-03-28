@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using static Enums.CustomerEnums;
 
 /// <summary>
 /// Class for controlling AI character's movement.
@@ -14,18 +13,18 @@ public class AIController : MonoBehaviour
     private readonly float
         walkRadius = 7.0f,
         destinationReachedTreshold = 2f,
-        minWaitTimeAtDest = 2,
-        maxWaitTimeAtDest = 10;
+        minWaitTime = 2,
+        maxWaitTime = 10;
 
     [SerializeField]
-    private NavMeshAgent agent = null;
+    private NavMeshAgent agent;
 
     [SerializeField]
-    private bool moveRandomlyInAreas = true;
+    private bool moveRandomlyInAreas;
 
-    private AIManager aiManager = null;
-    private CustomerPoint curCustomerPoint = null;
-    private AreaEnum curArea = AreaEnum.Empty;
+    private AIManager aiManager;
+    private CustomerPoint curCustomerPoint;
+    private GameObject curArea;
     private IEnumerator wait;
     private bool moving = false;
 
@@ -53,8 +52,7 @@ public class AIController : MonoBehaviour
             if (agent.remainingDistance < destinationReachedTreshold)
             {
                 moving = false;
-                float waitTime = Random.Range(minWaitTimeAtDest, maxWaitTimeAtDest);
-                Debug.Log("Wait time: " + waitTime);
+                float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 wait = Wait(waitTime);
                 StartCoroutine(wait);
             }
@@ -82,13 +80,13 @@ public class AIController : MonoBehaviour
     /// <param name="customerNeed">customer need</param>
     public void MoveToNeedDestination(CustomerNeed customerNeed)
     {
-        if (customerNeed.Point != PointGroupEnum.Empty)
+        if (customerNeed.pointGroup != null)
         {
-            MoveToPointGroup(customerNeed.Point);
+            MoveToPointGroup(customerNeed.pointGroup);
         }
         else
         {
-            MoveToArea(customerNeed.Area);
+            MoveToArea(customerNeed.area);
         }
     }
 
@@ -100,7 +98,7 @@ public class AIController : MonoBehaviour
     /// Else moves to random point on given area.
     /// </summary>
     /// <param name="area">are to move</param>
-    public void MoveToArea(AreaEnum area)
+    public void MoveToArea(GameObject area)
     {
         if(curCustomerPoint != null)
         {
@@ -112,7 +110,7 @@ public class AIController : MonoBehaviour
         this.moving = true;
         this.curArea = area;
 
-        if (area == AreaEnum.Empty)
+        if (area == null)
         {
             Vector3 position = this.gameObject.transform.position;
             MoveToPoint(aiManager.GetRandomPointInMap(position, walkRadius));
@@ -128,7 +126,7 @@ public class AIController : MonoBehaviour
     /// Sets movement towards the new point.
     /// </summary>
     /// <param name="pointGroup">point group that determines possible destinations</param>
-    public void MoveToPointGroup(PointGroupEnum pointGroup)
+    public void MoveToPointGroup(GameObject pointGroup)
     {
         CustomerPoint customerPoint = aiManager.GetRandomFreePoint(pointGroup);
 
@@ -138,7 +136,7 @@ public class AIController : MonoBehaviour
         }
 
         this.curCustomerPoint = customerPoint;
-        this.curArea = AreaEnum.Empty;
+        this.curArea = null;
         this.agent.isStopped = false;
         MoveToPoint(customerPoint.Position);
     }
@@ -172,6 +170,7 @@ public class AIController : MonoBehaviour
     /// <returns>IEnumerator stuff?</returns>
     private IEnumerator Wait(float time)
     {
+        Debug.Log("Wait " + time + " seconds after movement.");
         yield return new WaitForSeconds(time);
         wait = null;
     }

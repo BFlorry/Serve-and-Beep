@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Enums.Pickupables;
 
 /// <summary>
 /// Handle pickup actions and interactions from player.
 /// </summary>
 public class Pickupable : MonoBehaviour
 {
+    [SerializeField]
+    public ItemType ItemType { get; }
+
     [SerializeField]
     private float maxRayDistance = 2.0f;
 
@@ -51,9 +55,7 @@ public class Pickupable : MonoBehaviour
     public void InteractWithItem()
     {
         //TODO: This as a separate class?
-        //TODO: Replace with spherecast
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-        Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
         foreach (RaycastHit hit in hits)
         {
             MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();

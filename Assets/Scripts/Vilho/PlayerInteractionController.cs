@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerInteractionController : MonoBehaviour
 {
     [SerializeField]
-    private float maxRayDistance = 2.0f;
+    private float maxRayDistance = 0.5f;
+    [SerializeField]
+    private float maxRaySphereRadius = 0.5f;
 
     PickupController pickupController;
 
@@ -31,7 +33,7 @@ public class PlayerInteractionController : MonoBehaviour
         }
         else
         {
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
             Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
 
             foreach (RaycastHit hit in hits)

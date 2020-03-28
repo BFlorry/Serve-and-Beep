@@ -31,16 +31,25 @@ public class MenuManager : MonoBehaviour
 
     public void NavSound()
     {
-        if(navSfx != null) soundManager.PlaySingle(navSfx);
+        if (navSfx != null)
+        {
+            soundManager.PlaySingle(navSfx);
+        }
+        else Debug.Log("Couldn't play sound effect: " + navSfx + ". ", navSfx);
     }
 
     public void ClickSound()
     {
-        soundManager.PlaySingle(clickSfx);
+        if (clickSfx != null)
+        {
+            soundManager.PlaySingle(clickSfx);
+        }
+        else Debug.Log("Couldn't play sound effect: " + clickSfx + ". ", clickSfx);
     }
 
     public void StartGame()
     {
+        ClickSound();
         FindObjectOfType<GameStateController>().LoadLobby();
     }
 

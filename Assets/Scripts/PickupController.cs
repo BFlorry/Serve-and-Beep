@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
-    bool carrying;
+    private bool carrying;
     GameObject carriedObject;
     GameObject carryPosition;
 
@@ -27,6 +27,8 @@ public class PickupController : MonoBehaviour
 
     private Highlightable prevHighlight = null;
 
+    public bool Carrying { get => carrying; private set => carrying = value; }
+
     // Use this for initialization
     private void Start()
     {
@@ -37,51 +39,15 @@ public class PickupController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (carrying)
+        if (Carrying)
         {
             Carry(carriedObject);
         }
     }
 
-    void Update()
-    {
-        HighLightObjects();
-    }
-
-    private void HighLightObjects()
-    {
-        bool clearPreviousHighlight = true;
-        if (!carrying)
-        {
-            Debug.DrawRay(this.transform.position, this.transform.forward * maxRayDistance, Color.magenta);
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-            foreach (RaycastHit hit in hits)
-            {
-                if (hit.transform.gameObject.TryGetComponent(out Highlightable curHighlight))
-                {
-                    // If the new object isn't the same as previous, remove highlight from previous and apply to new
-                    if (curHighlight != prevHighlight)
-                    { 
-                        if(prevHighlight != null) prevHighlight.UnHighlight();
-                        curHighlight.Highlight();
-                        prevHighlight = curHighlight;
-                    }
-                    clearPreviousHighlight = false;
-                    break;
-                }
-            }
-        }
-        // If didn't hit any highlightable objects, clear previous highlight.
-        if(clearPreviousHighlight && prevHighlight != null)
-        {
-            prevHighlight.UnHighlight();
-            prevHighlight = null;
-        }
-    }
-
     private void OnPickup()
     {
-        if (carrying)
+        if (Carrying)
         {
             DropObject();
             return;
@@ -97,7 +63,7 @@ public class PickupController : MonoBehaviour
                 if (p != null)
                 {
                     sfxManager.PlaySingle(pickupSfx);
-                    carrying = true;
+                    Carrying = true;
                     carriedObject = p.gameObject;
                     pickupable.Pickup(this);
                     return;
@@ -115,10 +81,10 @@ public class PickupController : MonoBehaviour
 
     private void OnThrow()
     {
-        if (carrying)
+        if (Carrying)
         {
             sfxManager.PlaySingle(throwSfx);
-            carrying = false;
+            Carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
             carriedObject.GetComponent<Pickupable>().Pickup(this);
@@ -128,9 +94,9 @@ public class PickupController : MonoBehaviour
 
     public void DropObject()
     {
-        if (carrying)
+        if (Carrying)
         {
-            carrying = false;
+            Carrying = false;
             carriedObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);
             carriedObject = null;

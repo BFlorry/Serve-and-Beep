@@ -165,10 +165,12 @@ MonoBehaviour:
   m_text: 'PRESS ANY BUTTON TO JOIN
 
 
-    START GAME BY INTERACTING WITH BOX'
+    WHEN ALL PLAYERS ARE READY, START GAME
+    BY INTERACTING WITH BOX'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9c01c80a350d6534190bf5738cefbeb2, type: 2}
+  m_sharedMaterial: {fileID: 6715009133072976277, guid: 9c01c80a350d6534190bf5738cefbeb2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -193,8 +195,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -205,7 +207,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -30
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -234,12 +236,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -23.757113, w: 0}
   m_textInfo:
     textComponent: {fileID: 5734806686937773289}
-    characterCount: 60
+    characterCount: 88
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 11
+    spaceCount: 16
+    wordCount: 16
     linkCount: 0
-    lineCount: 4
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -540,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTime: 5
-  interactSfx: {fileID: 8300000, guid: b5e22095f1938974ab22a8a0ab4d1304, type: 3}
+  interactSfx: {fileID: 8300000, guid: d88556cd9e1c8bd4c98e7ff209f9a302, type: 3}
   progressBarImage: {fileID: 5734806687155164758}
   progressBarCanvas: {fileID: 5734806687304388829}
 --- !u!114 &5734806687588511220

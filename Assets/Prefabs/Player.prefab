@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 5588795269810305738}
   - component: {fileID: 5588795269810305740}
   - component: {fileID: 5588795269810305737}
+  - component: {fileID: 7551367485553071536}
   - component: {fileID: 5588795269810305739}
   - component: {fileID: 67645879464638401}
   - component: {fileID: 5609420379761832610}
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRayDistance: 1.1
+  maxRaySphereRadius: 0.5
 --- !u!54 &5588795269810305740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -201,6 +203,26 @@ MonoBehaviour:
   carryOffset: 1.1
   maxRayDistance: 1.1
   maxRaySphereRadius: 0.5
+--- !u!114 &7551367485553071536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588795269810305779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecca93b60d87fc4abc319f493f945ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highLightWithoutCarryingLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  highLightWhenCarryingLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxRayDistance: 0.5
+  maxRaySphereRadius: 0.5
 --- !u!136 &5588795269810305739
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -208,7 +230,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5588795269810305779}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b09476ea3deda9f4bb0ef3408a9917a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5

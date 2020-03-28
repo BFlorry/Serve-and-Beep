@@ -48,6 +48,6 @@ public class PauseManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        FindObjectOfType<GameStateController>().QuitGame();
     }
 }

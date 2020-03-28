@@ -11,7 +11,9 @@ public class Highlightable : MonoBehaviour, IHighlightable
 
     void Start()
     {
-        mat = GetComponent<Renderer>().material;
+        TryGetComponent(out Renderer rend);
+        if (rend == null) rend = GetComponentInChildren<Renderer>();
+        mat = rend.material;
         UnHighlight();
     }
 

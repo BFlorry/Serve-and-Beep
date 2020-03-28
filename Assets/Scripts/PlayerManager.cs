@@ -46,6 +46,12 @@ public class PlayerManager : MonoBehaviour
             PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
     }
 
+    public void DeserializePlayers()
+    {
+        /*foreach (var player in m_Players)
+            PlayerInput.Destroy()*/
+    }
+
     public void LoadScene()
     {
         StartCoroutine(LoadSceneAsync());
@@ -54,7 +60,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         StorePlayers();
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main_Ship");
+        AsyncOperation asyncLoad = FindObjectOfType<GameStateController>().LoadStage();
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

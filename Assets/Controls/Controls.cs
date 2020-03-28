@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Controls/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -59,7 +59,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Reset"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""328f28ae-1dbd-46ef-9ce1-209d81c033cd"",
                     ""expectedControlType"": """",
@@ -259,7 +259,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Reset"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -270,7 +270,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p1"",
-                    ""action"": ""Reset"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -595,6 +595,22 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Main menu"",
+            ""bindingGroup"": ""Main menu"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -605,7 +621,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
-        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_RemovePlayer = m_Player.FindAction("Remove Player", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
@@ -666,7 +682,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_Start;
-    private readonly InputAction m_Player_Reset;
+    private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_RemovePlayer;
     public struct PlayerActions
     {
@@ -677,7 +693,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputAction @Start => m_Wrapper.m_Player_Start;
-        public InputAction @Reset => m_Wrapper.m_Player_Reset;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @RemovePlayer => m_Wrapper.m_Player_RemovePlayer;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -703,9 +719,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
-                @Reset.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
-                @Reset.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
-                @Reset.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @RemovePlayer.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
                 @RemovePlayer.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
                 @RemovePlayer.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
@@ -728,9 +744,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
-                @Reset.started += instance.OnReset;
-                @Reset.performed += instance.OnReset;
-                @Reset.canceled += instance.OnReset;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
                 @RemovePlayer.started += instance.OnRemovePlayer;
                 @RemovePlayer.performed += instance.OnRemovePlayer;
                 @RemovePlayer.canceled += instance.OnRemovePlayer;
@@ -814,6 +830,15 @@ public class @Controls : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_Keyboardp2SchemeIndex];
         }
     }
+    private int m_MainmenuSchemeIndex = -1;
+    public InputControlScheme MainmenuScheme
+    {
+        get
+        {
+            if (m_MainmenuSchemeIndex == -1) m_MainmenuSchemeIndex = asset.FindControlSchemeIndex("Main menu");
+            return asset.controlSchemes[m_MainmenuSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -821,7 +846,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnPickup(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
-        void OnReset(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnRemovePlayer(InputAction.CallbackContext context);
     }
     public interface IMenuActions

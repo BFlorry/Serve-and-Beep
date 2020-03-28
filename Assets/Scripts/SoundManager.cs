@@ -5,7 +5,6 @@ public class SoundManager : MonoBehaviour
 {
     //Drag a reference to the audio source which will play the sound effects.
     public AudioSource sfxSource;
-    public AudioSource secondarySfxSource;
     //Drag a reference to the audio source which will play the music.
     public AudioSource musicSource;
     public AudioSource secondaryMusicSource;
@@ -14,9 +13,16 @@ public class SoundManager : MonoBehaviour
     //The lowest a sound effect will be randomly pitched.
     public float lowPitchRange = .95f;
     //The highest a sound effect will be randomly pitched.
-    public float highPitchRange = 1.05f;            
+    public float highPitchRange = 1.05f;
 
-
+    private void OnEnable()
+    {
+        GameStateController.OnSceneChange += UnregisterSounds;
+    }
+    private void OnDisable()
+    {
+        GameStateController.OnSceneChange -= UnregisterSounds;
+    }
     void Awake()
     {
         //Check if there is already an instance of SoundManager
@@ -37,31 +43,37 @@ public class SoundManager : MonoBehaviour
     public void PlaySingle(AudioClip clip)
     {
         //Play the clip.
-        sfxSource.PlayOneShot(clip);
+        if(sfxSource != null) sfxSource.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip)
     {
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        musicSource.clip = clip;
+        if (musicSource != null)
+        {
+            //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+            musicSource.clip = clip;
 
-        //Play the clip.
-        musicSource.Play();
+            //Play the clip.
+            musicSource.Play();
+        }
     }
 
     public void PlaySecondaryMusic(AudioClip clip)
     {
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        secondaryMusicSource.clip = clip;
+        if(secondaryMusicSource != null)
+        {
+            //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+            secondaryMusicSource.clip = clip;
 
-        //Play the clip.
-        secondaryMusicSource.Play();
+            //Play the clip.
+            secondaryMusicSource.Play();
+        }
     }
 
     public void StopSecondaryMusic()
     {
         //Stop the clip.
-        secondaryMusicSource.Stop();
+        if (secondaryMusicSource != null) secondaryMusicSource.Stop();
     }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
@@ -81,5 +93,12 @@ public class SoundManager : MonoBehaviour
 
         //Play the clip.
         sfxSource.Play();
+    }
+
+    void UnregisterSounds()
+    {
+        if(sfxSource.isPlaying) sfxSource.Stop();
+        //if(musicSource.isPlaying) musicSource.Stop();
+        if(secondaryMusicSource.isPlaying) secondaryMusicSource.Stop();
     }
 }

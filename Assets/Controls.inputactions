@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Reset",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "328f28ae-1dbd-46ef-9ce1-209d81c033cd",
                     "expectedControlType": "",
@@ -246,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Reset",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -257,7 +257,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Reset",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -364,6 +364,14 @@
                     "name": "Start",
                     "type": "Button",
                     "id": "7ad55517-28df-420e-9048-f671f5eff3fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SkipSplash",
+                    "type": "Button",
+                    "id": "60f5dd64-e778-47e2-81bb-5bd7fc538c47",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -545,6 +553,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a0e91ee-ef55-45e3-bff1-111487b5f9da",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipSplash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -576,6 +595,22 @@
             "name": "Keyboard p2",
             "bindingGroup": "Keyboard p2",
             "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Main menu",
+            "bindingGroup": "Main menu",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
                 {
                     "devicePath": "<Keyboard>",
                     "isOptional": false,

@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
     private SoundManager soundManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
         soundManager.PlayMusic(menuMusic);
@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
 
     public void NavSound()
     {
-        soundManager.PlaySingle(navSfx);
+        if(navSfx != null) soundManager.PlaySingle(navSfx);
     }
 
     public void ClickSound()
@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Character_Select");
+        FindObjectOfType<GameStateController>().LoadLobby();
     }
 
     public void ExitGame()

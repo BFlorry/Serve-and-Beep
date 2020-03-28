@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8958164325509707190}
   - component: {fileID: 8958164325509707191}
+  - component: {fileID: -6037800608547211832}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -44,3 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: ef0ce394b2e07274e8c4554c95589a47, type: 3}
+--- !u!114 &-6037800608547211832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958164325509707192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba06dec071a057488ddf4e1dc3013a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

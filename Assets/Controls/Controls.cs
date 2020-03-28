@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Controls/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -380,14 +380,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""SkipSplash"",
-                    ""type"": ""Button"",
-                    ""id"": ""60f5dd64-e778-47e2-81bb-5bd7fc538c47"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -566,17 +558,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9a0e91ee-ef55-45e3-bff1-111487b5f9da"",
-                    ""path"": ""<Keyboard>/anyKey"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SkipSplash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -647,7 +628,6 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Menu_Movement = m_Menu.FindAction("Movement", throwIfNotFound: true);
         m_Menu_Interact = m_Menu.FindAction("Interact", throwIfNotFound: true);
         m_Menu_Start = m_Menu.FindAction("Start", throwIfNotFound: true);
-        m_Menu_SkipSplash = m_Menu.FindAction("SkipSplash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -781,7 +761,6 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Menu_Movement;
     private readonly InputAction m_Menu_Interact;
     private readonly InputAction m_Menu_Start;
-    private readonly InputAction m_Menu_SkipSplash;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -789,7 +768,6 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Menu_Movement;
         public InputAction @Interact => m_Wrapper.m_Menu_Interact;
         public InputAction @Start => m_Wrapper.m_Menu_Start;
-        public InputAction @SkipSplash => m_Wrapper.m_Menu_SkipSplash;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -808,9 +786,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
-                @SkipSplash.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSkipSplash;
-                @SkipSplash.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSkipSplash;
-                @SkipSplash.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSkipSplash;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -824,9 +799,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
-                @SkipSplash.started += instance.OnSkipSplash;
-                @SkipSplash.performed += instance.OnSkipSplash;
-                @SkipSplash.canceled += instance.OnSkipSplash;
             }
         }
     }
@@ -882,6 +854,5 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
-        void OnSkipSplash(InputAction.CallbackContext context);
     }
 }

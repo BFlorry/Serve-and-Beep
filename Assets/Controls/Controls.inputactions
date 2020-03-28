@@ -367,14 +367,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "SkipSplash",
-                    "type": "Button",
-                    "id": "60f5dd64-e778-47e2-81bb-5bd7fc538c47",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -551,17 +543,6 @@
                     "processors": "",
                     "groups": "Keyboard p2",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9a0e91ee-ef55-45e3-bff1-111487b5f9da",
-                    "path": "<Keyboard>/anyKey",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SkipSplash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

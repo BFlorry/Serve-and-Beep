@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    void OnPause()
+    {
+        FindObjectOfType<PauseManager>().TogglePause();
+    }
+
     public void TogglePlayerFreeze()
     {
         if (!frozen)

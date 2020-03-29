@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Reset",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "328f28ae-1dbd-46ef-9ce1-209d81c033cd",
                     "expectedControlType": "",
@@ -246,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Reset",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -257,7 +257,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Reset",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -576,6 +576,22 @@
             "name": "Keyboard p2",
             "bindingGroup": "Keyboard p2",
             "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Main menu",
+            "bindingGroup": "Main menu",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
                 {
                     "devicePath": "<Keyboard>",
                     "isOptional": false,

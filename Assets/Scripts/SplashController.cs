@@ -22,7 +22,10 @@ public class SplashController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.anyKey)
+        {
+            OnSkipSplash();
+        }
     }
 
     IEnumerator WaitUntilFadeOut()
@@ -41,4 +44,9 @@ public class SplashController : MonoBehaviour
         }
         SceneManager.LoadSceneAsync("Main_Menu");
     }*/
+
+    void OnSkipSplash()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
 }

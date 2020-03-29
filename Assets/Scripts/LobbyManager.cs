@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameRestarter : MonoBehaviour
+public class LobbyManager : MonoBehaviour
 {
-    private void OnReset()
+
+    void Start()
     {
         GameObject.FindObjectOfType<PlayerManager>().EnableHotJoin();
-        FindObjectOfType<GameStateController>().LoadMenu();
     }
 }

@@ -7105,13 +7105,9 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 817442989, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 817442989, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
+    - target: {fileID: 798806804, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1753088721, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
       propertyPath: m_AnchorMin.y
@@ -7131,6 +7127,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1753088721, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753088721, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2010818105135251680, guid: 2ad3f18e43d3217438a475caac4d5a56,
@@ -7192,16 +7192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8838812933589263817, guid: 2ad3f18e43d3217438a475caac4d5a56,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8838812933589263817, guid: 2ad3f18e43d3217438a475caac4d5a56,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad3f18e43d3217438a475caac4d5a56, type: 3}

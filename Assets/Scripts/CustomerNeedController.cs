@@ -12,8 +12,8 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
     public float currentValue;
     private float defaultValue = 0f;
-    private float minWaitTime = 6f;
-    private float maxWaitTime = 3f;
+    private float minWaitTime = 3f;
+    private float maxWaitTime = 6f;
 
     CustomerNeedManager needManager;
     Customer customer;
@@ -109,6 +109,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
                         int needInt = number - 1;
                         CustomerNeed need = needManager.Needs[needInt];
                         SetNeed(need);
+                        currentValue = defaultValue;
                     }
                     else
                     {
@@ -149,7 +150,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
     private float RandWaitTime()
     {
-        return Random.Range(maxWaitTime, minWaitTime);
+        return Random.Range(minWaitTime, maxWaitTime);
     }
 
 

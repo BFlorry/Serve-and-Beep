@@ -13,8 +13,8 @@ public class AIController : MonoBehaviour
     private readonly float
         walkRadius = 7.0f,
         destinationReachedTreshold = 2f,
-        minWaitTime = 2,
-        maxWaitTime = 10;
+        minWaitTime = 4f,
+        maxWaitTime = 10f;
 
     [SerializeField]
     private NavMeshAgent agent;

@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
         {
             soundManager.PlaySingle(navSfx);
         }
-        else Debug.Log("Couldn't play sound effect: " + navSfx + ". ", navSfx);
+        else Debug.LogWarning("Couldn't play sound effect: " + navSfx + ". ", navSfx);
     }
 
     public void ClickSound()
@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
         {
             soundManager.PlaySingle(clickSfx);
         }
-        else Debug.Log("Couldn't play sound effect: " + clickSfx + ". ", clickSfx);
+        else Debug.LogWarning("Couldn't play sound effect: " + clickSfx + ". ", clickSfx);
     }
 
     public void StartGame()

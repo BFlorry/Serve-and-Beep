@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
-    private bool carrying;
     GameObject carriedObject;
     GameObject carryPosition;
 
@@ -25,9 +24,7 @@ public class PickupController : MonoBehaviour
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
 
-    private Highlightable prevHighlight = null;
-
-    public bool Carrying { get => carrying; private set => carrying = value; }
+    public bool Carrying { get; private set; }
 
     // Use this for initialization
     private void Start()

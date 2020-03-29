@@ -28,7 +28,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (pickupable != null)
         {
             pickupable.InteractWithItem();
-            Debug.Log("Sending interaction call to picked up item");
+            Debug.Log("Sending interaction call to picked up item...");
             
         }
         else
@@ -54,7 +54,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             IInteractable interactable = (IInteractable)mb;
             interactable.Interact(gameobject);
-            Debug.Log("Sending interaction call to interactable target.");
+            Debug.Log("Sending interaction call to interactable target...");
         }
     }
 

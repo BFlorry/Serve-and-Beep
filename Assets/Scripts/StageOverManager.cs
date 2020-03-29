@@ -22,9 +22,4 @@ public class StageOverManager : MonoBehaviour
         menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
         quitButton.onClick.AddListener(() => gameStateController.QuitGame());
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

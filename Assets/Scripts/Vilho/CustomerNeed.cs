@@ -8,26 +8,26 @@ public class CustomerNeed : MonoBehaviour
     //Fields--------------------------------------------------------------
 
     [SerializeField]
-    public ItemType satisfItem;
+    private ItemType satisfItem;
 
     [SerializeField]
-    public int tokenAmount;
+    private int tokenAmount;
     [SerializeField]
-    public int posReview;
+    private int posReview;
     [SerializeField]
-    public int negReview;
+    private int negReview;
     [SerializeField]
-    public int decreaseSpeed;
+    private int decreaseSpeed;
     [SerializeField]
-    public float maxValue;
+    private float maxValue;
 
     [SerializeField]
-    public Sprite sprite;
+    private Sprite sprite;
 
     [SerializeField]
-    public GameObject area;
+    private GameObject area;
     [SerializeField]
-    public GameObject pointGroup;
+    private GameObject pointGroup;
 
 
     //Properties---------------------------------------------------------

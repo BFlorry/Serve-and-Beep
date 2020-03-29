@@ -20,14 +20,13 @@ public class AIController : MonoBehaviour
     private NavMeshAgent agent;
 
     [SerializeField]
-    private bool moveRandomlyInAreas;
+    private bool moveRandomlyInAreas = true;
 
     private AIManager aiManager;
-    private CustomerPoint curCustomerPoint;
-    private GameObject curArea;
+    private CustomerNeed curNeed;
+    private CustomerPoint curPoint;
     private IEnumerator wait;
     private bool moving = false;
-
 
     //Methods------------------------------------------------------------------------
 
@@ -57,9 +56,9 @@ public class AIController : MonoBehaviour
                 StartCoroutine(wait);
             }
         }
-        else if (wait == null && moveRandomlyInAreas && curCustomerPoint == null)
+        else if (wait == null && moveRandomlyInAreas && curPoint == null)
         {
-            MoveToArea(curArea);
+            MoveToArea(curNeed.Area);
         }
     }
 
@@ -80,13 +79,15 @@ public class AIController : MonoBehaviour
     /// <param name="customerNeed">customer need</param>
     public void MoveToNeedDestination(CustomerNeed customerNeed)
     {
-        if (customerNeed.pointGroup != null)
+        curNeed = customerNeed;
+
+        if (customerNeed.PointGroup != null)
         {
-            MoveToPointGroup(customerNeed.pointGroup);
+            MoveToPointGroup(customerNeed.PointGroup);
         }
         else
         {
-            MoveToArea(customerNeed.area);
+            MoveToArea(customerNeed.Area);
         }
     }
 
@@ -100,22 +101,24 @@ public class AIController : MonoBehaviour
     /// <param name="area">are to move</param>
     public void MoveToArea(GameObject area)
     {
-        if(curCustomerPoint != null)
+        if (curPoint != null)
         {
-            curCustomerPoint.IsOccupied = false;
-            curCustomerPoint = null;
+            curPoint.IsOccupied = false;
+            curPoint = null;
         }
 
         this.agent.isStopped = false;
         this.moving = true;
-        this.curArea = area;
 
         if (area == null)
         {
             Vector3 position = this.gameObject.transform.position;
             MoveToPoint(aiManager.GetRandomPointInMap(position, walkRadius));
         }
-        else MoveToPoint(aiManager.GetRandomPointInArea(area));
+        else
+        {
+            MoveToPoint(aiManager.GetRandomPointInArea(area));
+        }
     }
 
 
@@ -130,15 +133,21 @@ public class AIController : MonoBehaviour
     {
         CustomerPoint customerPoint = aiManager.GetRandomFreePoint(pointGroup);
 
-        if (curCustomerPoint != null)
+        if (customerPoint != null)
         {
-            curCustomerPoint.IsOccupied = false;
+            if (curPoint != null)
+            {
+                curPoint.IsOccupied = false;
+            }
+                this.curPoint = customerPoint;
+                this.agent.isStopped = false;
+                MoveToPoint(customerPoint.Position);
+        }
+        else
+        {
+            MoveToArea(curNeed.Area);
         }
 
-        this.curCustomerPoint = customerPoint;
-        this.curArea = null;
-        this.agent.isStopped = false;
-        MoveToPoint(customerPoint.Position);
     }
 
 
@@ -173,5 +182,10 @@ public class AIController : MonoBehaviour
         Debug.Log("Wait " + time + " seconds after movement.");
         yield return new WaitForSeconds(time);
         wait = null;
+
+        if (curNeed.PointGroup != null && curPoint == null)
+        {
+            MoveToPointGroup(curNeed.PointGroup);
+        }
     }
 }

@@ -18,13 +18,13 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     CustomerNeedManager needManager;
     Customer customer;
     AIController aiController;
-    CustomerAreas customerAreas;
     CustomerNeedDisplay display;
     private IEnumerator waitAfterMove;
-    private bool isWaiting = false;
 
     //For testing and debugging only.
-    private bool allowDebugCommands = false;
+    private bool testCmdsActive = false;
+    KeyCode testCmdKey1 = KeyCode.F1;
+    KeyCode testCmdKey2 = KeyCode.F12;
 
     //Methods---------------------------------------------------------------------
 
@@ -37,7 +37,6 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.currentValue = defaultValue;
         this.customer = GetComponent<Customer>();
         this.aiController = GetComponent<AIController>();
-        this.customerAreas = GetComponent<CustomerAreas>();
         this.display = GetComponent<CustomerNeedDisplay>();
         SetNeed(needManager.GetRandomNeed());
     }
@@ -48,20 +47,13 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     void Update()
     {
-        /*
-        if(curCustomerNeed.NeedName == NeedNameEnum.Empty && isWaiting == false)
-        {
-            StartCoroutine(WaitBeforeNextNeed(timeBetweenNeeds));
-        }
-        */    
-
-        //For testing only
-        SetNeedWithKeyboard();
-
         if (curNeed != null)
         {
             display.SetProgressDisplayValue(currentValue, curNeed.MaxValue, defaultValue);
         }
+
+        //For testing only
+        SetNeedWithKeyboard();
     }
 
 
@@ -73,8 +65,15 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     public void SetNeed(CustomerNeed need)
     {
         curNeed = need;
-        display.SetNeedSprite(curNeed.Sprite);
-        isWaiting = false;
+        if (need != null)
+        {
+            display.SetNeedSprite(curNeed.Sprite);
+            Debug.Log("Customers needs set as " + need.gameObject.name);
+        }
+        else
+        {
+            Debug.Log("Customers need set as null.");
+        }
         aiController.MoveToNeedDestination(need);
     }
 
@@ -84,36 +83,46 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     private void SetNeedWithKeyboard()
     {
-        if (allowDebugCommands == true)
+        if (Input.GetKey(testCmdKey1) && Input.GetKey(testCmdKey2))
         {
-            allowDebugCommands = false;
+            if (testCmdsActive == true)
+            {
+                testCmdsActive = false;
+                Debug.Log("Test commands unactivated.");
+            }
+            else
+            {
+                testCmdsActive = true;
+                Debug.Log("Test commands activated. Next key pressed acts as a command, if it has one defined." + "\n" +
+                    "Unactivate test commands by pressing. " + testCmdKey1 + " and " + testCmdKey2 + "simultaneously.");
+            }
+        }
+
+        if (testCmdsActive == true)
+        {
             if (int.TryParse(Input.inputString, out int number))
             {
-                if (number >= 0 && number <= 9)
+                if (number >= 1 && number <= 9)
                 {
-                    if (number < needManager.Needs.Length)
+                    if (number <= needManager.Needs.Length)
                     {
-                        SetNeed(needManager.Needs[number]);
-                        Debug.Log("Customers' needs set as " + number + ". need.");
+                        int needInt = number - 1;
+                        CustomerNeed need = needManager.Needs[needInt];
+                        SetNeed(need);
                     }
                     else
                     {
-                        Debug.Log("Pressed key is not in area of needs.");
+                        Debug.Log("Pressed number is not in area of needs. There are " +
+                            needManager.Needs.Length + " needs.");
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.N))
+                else if (number == 0)
                 {
                     SetNeed(null);
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D) &&
-            Input.GetKeyDown(KeyCode.B) &&
-            Input.GetKeyDown(KeyCode.G))
-        {
-            allowDebugCommands = true;
-        }
 
     }
 
@@ -175,13 +184,11 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private IEnumerator WaitBeforeNextNeed(float time)
     {
         display.SetNeedCanvasActivity(false);
-        isWaiting = true;
         curNeed = null;
         aiController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetRandomNeed());
-        isWaiting = false;
-        display.SetNeedCanvasActivity(true);
+        display.SetNeedCanvasActivity(true); 
     }
 }

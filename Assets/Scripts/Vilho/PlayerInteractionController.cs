@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerInteractionController : MonoBehaviour
 {
     [SerializeField]
-    private float maxRayDistance = 2.0f;
+    private float maxRayDistance = 0.5f;
+    [SerializeField]
+    private float maxRaySphereRadius = 0.5f;
 
     PickupController pickupController;
 
@@ -26,12 +28,12 @@ public class PlayerInteractionController : MonoBehaviour
         if (pickupable != null)
         {
             pickupable.InteractWithItem();
-            Debug.Log("Sending interaction call to picked up item");
+            Debug.Log("Sending interaction call to picked up item...");
             
         }
         else
         {
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, maxRayDistance);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
             Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
 
             foreach (RaycastHit hit in hits)
@@ -52,7 +54,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             IInteractable interactable = (IInteractable)mb;
             interactable.Interact(gameobject);
-            Debug.Log("Sending interaction call to interactable target.");
+            Debug.Log("Sending interaction call to interactable target...");
         }
     }
 

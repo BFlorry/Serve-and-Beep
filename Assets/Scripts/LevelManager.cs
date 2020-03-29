@@ -48,7 +48,10 @@ public class LevelManager : MonoBehaviour
     private AudioClip negReviewSfx;
 
     [SerializeField]
-    private GameObject gameOverText;
+    private AudioClip stageOverMusic;
+
+    [SerializeField]
+    private GameObject gameOverMenu;
 
     private SoundManager soundManager;
 
@@ -60,6 +63,7 @@ public class LevelManager : MonoBehaviour
         timeLeft = levelTimeLimit;
         levelScore = 0;
         scoreText.text = levelScore.ToString();
+        Time.timeScale = 1f;
     }
 
     public void ChangeScore(int amount)
@@ -110,7 +114,10 @@ public class LevelManager : MonoBehaviour
                 {
                     soundManager.StopSecondaryMusic();
                     soundManager.PlaySingle(timeOverSfx);
-                    gameOverText.SetActive(true);
+                    soundManager.StopMusic();
+                    soundManager.PlayMusic(stageOverMusic);
+                    gameOverMenu.SetActive(true);
+                    Time.timeScale = 0f;
                     break;
                 }
         }

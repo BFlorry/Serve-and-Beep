@@ -56,6 +56,7 @@ public class SoundManager : MonoBehaviour
             //Play the clip.
             musicSource.Play();
         }
+        else Debug.LogWarning("Music source was null: ", musicSource);
     }
 
     public void PlaySecondaryMusic(AudioClip clip)
@@ -68,12 +69,21 @@ public class SoundManager : MonoBehaviour
             //Play the clip.
             secondaryMusicSource.Play();
         }
+        else Debug.LogWarning("Music source was null: ", secondaryMusicSource);
+    }
+
+    public void StopMusic()
+    {
+        //Stop the clip.
+        if (musicSource != null) musicSource.Stop();
+        else Debug.LogWarning("Music source was null: ", musicSource);
     }
 
     public void StopSecondaryMusic()
     {
         //Stop the clip.
         if (secondaryMusicSource != null) secondaryMusicSource.Stop();
+        else Debug.LogWarning("Music source was null: ", secondaryMusicSource);
     }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
@@ -97,8 +107,8 @@ public class SoundManager : MonoBehaviour
 
     void UnregisterSounds()
     {
-        if(sfxSource.isPlaying) sfxSource.Stop();
+        //if(sfxSource.isPlaying) sfxSource.Stop();
         //if(musicSource.isPlaying) musicSource.Stop();
-        if(secondaryMusicSource.isPlaying) secondaryMusicSource.Stop();
+        //if(secondaryMusicSource.isPlaying) secondaryMusicSource.Stop();
     }
 }

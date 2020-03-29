@@ -52,15 +52,15 @@ public class PlayerManager : MonoBehaviour
             PlayerInput.Destroy()*/
     }
 
-    public void LoadScene()
+    public void LoadScene(string scene)
     {
-        StartCoroutine(LoadSceneAsync());
+        StartCoroutine(LoadSceneAsync(scene));
     }
 
-    IEnumerator LoadSceneAsync()
+    IEnumerator LoadSceneAsync(string scene)
     {
         StorePlayers();
-        AsyncOperation asyncLoad = FindObjectOfType<GameStateController>().LoadStage();
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

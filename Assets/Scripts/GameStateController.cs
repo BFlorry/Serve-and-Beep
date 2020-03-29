@@ -8,10 +8,12 @@ public class GameStateController : MonoBehaviour
     public delegate void SceneAction();
     public static event SceneAction OnSceneChange;
 
+    private PlayerManager playerManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        TryGetComponent(out playerManager);
     }
 
     // Update is called once per frame
@@ -24,17 +26,31 @@ public class GameStateController : MonoBehaviour
     {
         OnSceneChange?.Invoke();
         SceneManager.LoadSceneAsync("Main_Menu");
+        Time.timeScale = 1f;
     }
     
     public void LoadLobby()
     {
         OnSceneChange?.Invoke();
         SceneManager.LoadSceneAsync("Character_Select");
+        Time.timeScale = 1f;
     }
 
-    public AsyncOperation LoadStage()
+    public void LoadStage(string scene)
     {
         OnSceneChange?.Invoke();
-        return SceneManager.LoadSceneAsync("Main_Ship");
+        Time.timeScale = 1f;
+        playerManager.LoadScene(scene);
+    }
+
+    public void RestartScene()
+    {
+        Scene curScene = SceneManager.GetActiveScene();
+        LoadStage(curScene.name);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

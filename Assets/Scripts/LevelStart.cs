@@ -5,14 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelStart : TimedInteractionController
 {
-    PlayerManager playerManager;
-    private void Start()
-    {
-        //playerManager = FindObjectOfType<PlayerManager>();
-    }
     public override void InteractionAction()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
-        playerManager.LoadScene();
+        FindObjectOfType<GameStateController>().LoadStage(("Main_Ship"));
     }
 }

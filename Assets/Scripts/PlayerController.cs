@@ -57,11 +57,6 @@ public class PlayerController : MonoBehaviour
         moveAxis = value.Get<Vector2>();
     }
 
-    void OnRemovePlayer()
-    {
-        Destroy(this.gameObject);
-    }
-
     void OnPause()
     {
         FindObjectOfType<PauseManager>().TogglePause();

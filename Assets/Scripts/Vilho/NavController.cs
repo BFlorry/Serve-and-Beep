@@ -1,32 +1,33 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using static HelpMethods;
 
 /// <summary>
 /// Class for controlling AI character's movement.
 /// </summary>
-public class AIController : MonoBehaviour
+public class NavController : MonoBehaviour
 {
     //Fields------------------------------------------------------------------------
 
     [SerializeField]
     private readonly float
         walkRadius = 7.0f,
-        destinationReachedTreshold = 2f,
+        destReachTreshold = 0.1f,
         minWaitTime = 4f,
-        maxWaitTime = 10f;
-
-    [SerializeField]
-    private NavMeshAgent agent;
+        maxWaitTime = 10f,
+        destRotSpeed = 0.002f;
 
     [SerializeField]
     private bool moveRandomlyInAreas = true;
 
-    private AIManager aiManager;
+    private NavManager navManager;
+    private NavMeshAgent agent;
     private CustomerNeed curNeed;
     private CustomerPoint curPoint;
     private IEnumerator wait;
     private bool moving = false;
+
 
     //Methods------------------------------------------------------------------------
 
@@ -36,7 +37,8 @@ public class AIController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        SetAIManager();
+        this.navManager = FindObjectOfType<NavManager>();
+        this.agent = GetComponent<NavMeshAgent>();
     }
 
 
@@ -48,12 +50,18 @@ public class AIController : MonoBehaviour
     {
         if (moving == true)
         {
-            if (agent.remainingDistance < destinationReachedTreshold)
+            if (agent.remainingDistance < destReachTreshold)
             {
                 moving = false;
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 wait = Wait(waitTime);
                 StartCoroutine(wait);
+
+                if (curPoint != null)
+                {
+                    StartCoroutine(RotateTo(curPoint.gameObject.transform));
+                }
+
             }
         }
         else if (wait == null && moveRandomlyInAreas && curPoint == null)
@@ -63,14 +71,17 @@ public class AIController : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Initializes 
-    /// </summary>
-    private void SetAIManager()
+    private IEnumerator RotateTo(Transform destTransform)
     {
-        aiManager = FindObjectOfType<AIManager>();
+        agent.updateRotation = false;
+        while (Approximately(this.transform.rotation.y, destTransform.rotation.y, 0.1f) == false)
+        {
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, destTransform.rotation, destRotSpeed * Time.time);
+            yield return null;
+        }
+        agent.updateRotation = true;
+        yield break;
     }
-
 
     /// <summary>
     /// If customer has active point, move there.
@@ -107,17 +118,19 @@ public class AIController : MonoBehaviour
             curPoint = null;
         }
 
+        StopAllCoroutines();
         this.agent.isStopped = false;
+        this.agent.updateRotation = true;
         this.moving = true;
 
         if (area == null)
         {
             Vector3 position = this.gameObject.transform.position;
-            MoveToPoint(aiManager.GetRandomPointInMap(position, walkRadius));
+            MoveToPoint(navManager.GetRandomPointInMap(position, walkRadius));
         }
         else
         {
-            MoveToPoint(aiManager.GetRandomPointInArea(area));
+            MoveToPoint(navManager.GetRandomPointInArea(area));
         }
     }
 
@@ -131,7 +144,7 @@ public class AIController : MonoBehaviour
     /// <param name="pointGroup">point group that determines possible destinations</param>
     public void MoveToPointGroup(GameObject pointGroup)
     {
-        CustomerPoint customerPoint = aiManager.GetRandomFreePoint(pointGroup);
+        CustomerPoint customerPoint = navManager.GetRandomFreePoint(pointGroup);
 
         if (customerPoint != null)
         {
@@ -148,6 +161,10 @@ public class AIController : MonoBehaviour
             MoveToArea(curNeed.Area);
         }
 
+        StopAllCoroutines();
+        this.agent.isStopped = false;
+        this.agent.updateRotation = true;
+        this.moving = true;
     }
 
 
@@ -182,6 +199,10 @@ public class AIController : MonoBehaviour
         Debug.Log("Wait " + time + " seconds after movement.");
         yield return new WaitForSeconds(time);
         wait = null;
+        StopAllCoroutines();
+        this.agent.isStopped = false;
+        this.agent.updateRotation = true;
+        this.moving = true;
 
         if (curNeed.PointGroup != null && curPoint == null)
         {

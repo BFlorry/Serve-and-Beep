@@ -8,23 +8,23 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
     //Fields----------------------------------------------------------------------
 
-    CustomerNeed curNeed;
+    private CustomerNeed curNeed;
 
-    public float currentValue;
+    private float currentValue;
     private float defaultValue = 0f;
     private float minWaitTime = 3f;
     private float maxWaitTime = 6f;
 
-    CustomerNeedManager needManager;
-    Customer customer;
-    AIController aiController;
-    CustomerNeedDisplay display;
+    private CustomerNeedManager needManager;
+    private Customer customer;
+    private NavController navController;
+    private CustomerNeedDisplay display;
     private IEnumerator waitAfterMove;
 
     //For testing and debugging only.
     private bool testCmdsActive = false;
-    KeyCode testCmdKey1 = KeyCode.F1;
-    KeyCode testCmdKey2 = KeyCode.F12;
+    private KeyCode testCmdKey1 = KeyCode.F1;
+    private KeyCode testCmdKey2 = KeyCode.F12;
 
     //Methods---------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.needManager = FindObjectOfType<CustomerNeedManager>();
         this.currentValue = defaultValue;
         this.customer = GetComponent<Customer>();
-        this.aiController = GetComponent<AIController>();
+        this.navController = GetComponent<NavController>();
         this.display = GetComponent<CustomerNeedDisplay>();
         SetNeed(needManager.GetRandomNeed());
     }
@@ -74,7 +74,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         {
             Debug.Log("Customers need set as null.");
         }
-        aiController.MoveToNeedDestination(need);
+        navController.MoveToNeedDestination(need);
     }
 
 
@@ -137,7 +137,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         {
             if (currentValue < curNeed.MaxValue)
             {
-                currentValue += 0.05f; 
+                currentValue += curNeed.DecreaseSpeed; 
             }
             else
             {
@@ -186,7 +186,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     {
         display.SetNeedCanvasActivity(false);
         curNeed = null;
-        aiController.StopMovement();
+        navController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetRandomNeed());

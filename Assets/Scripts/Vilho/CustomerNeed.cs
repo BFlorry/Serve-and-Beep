@@ -12,12 +12,13 @@ public class CustomerNeed : MonoBehaviour
 
     [SerializeField]
     private int tokenAmount;
+
     [SerializeField]
-    private int posReview;
+    private float posReview;
     [SerializeField]
-    private int negReview;
+    private float negReview;
     [SerializeField]
-    private int decreaseSpeed;
+    private float decreaseSpeed;
     [SerializeField]
     private float maxValue;
 
@@ -34,9 +35,9 @@ public class CustomerNeed : MonoBehaviour
 
     public ItemType SatisfItem { get => satisfItem; }
     public int TokenAmount { get => tokenAmount; }
-    public int PosReview { get => posReview; }
-    public int NegReview { get => negReview; }
-    public int DecreaseSpeed { get => decreaseSpeed; }
+    public float PosReview { get => posReview; }
+    public float NegReview { get => negReview; }
+    public float DecreaseSpeed { get => decreaseSpeed; }
     public float MaxValue { get => maxValue; }
     public Sprite Sprite { get => sprite; }
     public GameObject Area { get => area; }

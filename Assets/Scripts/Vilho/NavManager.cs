@@ -1,34 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class AIManager : MonoBehaviour
+public class NavManager : MonoBehaviour
 {
-    /*
-    //Fields--------------------------------------------------------------------------------
-
-
-    
-    private CustomerPointGroup[] customerPointGroups;
-
-
-    //Properties----------------------------------------------------------------------------
-
-    [SerializeField]
-    private Sprite[] needImages;
-
-    public Bounds[] CustomerAreaBounds { get; private set; } = null;
-
-
-    //Methods-------------------------------------------------------------------------------
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        CustomerAreaBounds = FindObjectOfType<CustomerAreas>().Bounds;
-        customerPointGroups = FindObjectsOfType<CustomerPointGroup>();
-    }
-    */
-
     /// <summary>
     /// Returns random point on NavMesh within given object.
     /// </summary>

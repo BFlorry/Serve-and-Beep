@@ -122,7 +122,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: PROTO_2020-03-24
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -641,8 +642,8 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: f29338bc-3b38-441d-b8f1-6d6e01eb05e6
   framebufferDepthMemorylessMode: 0
-  projectName: Slower-Than-Light-Comeback
-  organizationId: hacklabgames
+  projectName: Space Panic
+  organizationId: noir-hirvi
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 1
   disableOldInputManagerSupport: 0

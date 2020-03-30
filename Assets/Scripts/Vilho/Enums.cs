@@ -29,6 +29,7 @@ public static class Enums
 
         public enum ItemType
         {
+            Empty,
             Food,
             Drink
         }

@@ -8,23 +8,21 @@ public class Pickupable : MonoBehaviour
 {
     [SerializeField]
     private float maxRayDistance = 2.0f;
-
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
-
     [SerializeField]
-    AudioClip interactSfx;
+    private AudioClip interactSfx;
+    [SerializeField]
+    private GameObject[] targetInteractableObjects;
 
-    PickupController player;
 
     //TODO: Maybe implement item type this way?
     //[SerializeField]
     //Item type = Item.Crate;
 
-    [SerializeField]
-    GameObject[] targetInteractableObjects;
 
-    List<IItemInteractable> targetInteractables;
+    public PickupController Player { get; private set; }
+    private List<IItemInteractable> targetInteractables;
 
     private void Start()
     {
@@ -37,11 +35,11 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup (PickupController pickupPlayer)
     {
-        if(player == null) player = pickupPlayer;
-        else if (player.Equals(pickupPlayer) == false)
+        if(Player == null) Player = pickupPlayer;
+        else if (Player.Equals(pickupPlayer) == false)
         {
-            player.DropObject();
-            player = pickupPlayer;
+            Player.DropObject();
+            Player = pickupPlayer;
         }
     }
 
@@ -69,8 +67,8 @@ public class Pickupable : MonoBehaviour
                             bool interactSuccess = interactable.Interact(this.gameObject);
                             if (interactSuccess == true)
                             {
-                                player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                player.DropObject();
+                                Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+                                Player.DropObject();
                                 Destroy(this.gameObject);
                             }
                             return;

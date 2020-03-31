@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882603e2a17582e44afe47e5e13db521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRayDistance: 1.1
-  maxRaySphereRadius: 0.5
+  maxRayDistance: 0.6
+  maxRaySphereRadius: 0.6
 --- !u!54 &5588795269810305740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -217,12 +217,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highLightWithoutCarryingLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   highLightWhenCarryingLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxRayDistance: 0.5
-  maxRaySphereRadius: 0.5
+  maxRayDistance: 0.6
+  maxRaySphereRadius: 0.6
 --- !u!136 &5588795269810305739
 CapsuleCollider:
   m_ObjectHideFlags: 0

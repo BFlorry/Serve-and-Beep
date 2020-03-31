@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
-    GameObject carriedObject;
-    GameObject carryPosition;
+    private GameObject carriedObject;
+    private GameObject carryPosition;
 
     [SerializeField]
     private AudioClip throwSfx;
@@ -55,19 +55,27 @@ public class PickupController : MonoBehaviour
         
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable)) {
-                GameObject p = pickupable.gameObject;
-                if (p != null)
-                {
-                    sfxManager.PlaySingle(pickupSfx);
-                    Carrying = true;
-                    carriedObject = p.gameObject;
-                    pickupable.Pickup(this);
-                    return;
-                }
+            if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
+            {
+                Pickup(pickupable);
             }
         }
     }
+
+
+    public void Pickup(Pickupable pickupable)
+    {
+        GameObject p = pickupable.gameObject;
+        if (p != null)
+        {
+            sfxManager.PlaySingle(pickupSfx);
+            Carrying = true;
+            carriedObject = p.gameObject;
+            pickupable.Pickup(this);
+            return;
+        }
+    }
+
 
     private void Carry(GameObject o)
     {

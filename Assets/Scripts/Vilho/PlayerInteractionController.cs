@@ -22,8 +22,6 @@ public class PlayerInteractionController : MonoBehaviour
     /// </summary>
     public void OnInteract()
     {
-        
-
         Pickupable pickupable = pickupController.GetPickupable();
         if (pickupable != null)
         {
@@ -34,7 +32,6 @@ public class PlayerInteractionController : MonoBehaviour
         else
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-            Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
 
             foreach (RaycastHit hit in hits)
             {
@@ -42,7 +39,6 @@ public class PlayerInteractionController : MonoBehaviour
                 foreach (MonoBehaviour mb in targetList)
                 {
                     SendInteract(mb, this.gameObject);
-                    return;
                 }
             }
         }

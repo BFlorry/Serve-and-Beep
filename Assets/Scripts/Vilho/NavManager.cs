@@ -1,42 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
-using static Enums.CustomerEnums;
-
-public class AIManager : MonoBehaviour
+public class NavManager : MonoBehaviour
 {
-    //Fields--------------------------------------------------------------------------------
-
-    private CustomerPointGroup[] customerPointGroups;
-
-
-    //Properties----------------------------------------------------------------------------
-
-    [SerializeField]
-    private Sprite[] needImages;
-
-    public Bounds[] CustomerAreaBounds { get; private set; } = null;
-
-
-    //Methods-------------------------------------------------------------------------------
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        CustomerAreaBounds = FindObjectOfType<CustomerAreas>().Bounds;
-        customerPointGroups = FindObjectsOfType<CustomerPointGroup>();
-    }
-
-
     /// <summary>
     /// Returns random point on NavMesh within given object.
     /// </summary>
     /// <param name="area">The GameObject in which the returned point will be.</param>
     /// <returns>A random point on NavMesh within given object.</returns>
-    public Vector3 GetRandomPointInArea(AreaEnum area)
+    public Vector3 GetRandomPointInArea(GameObject area)
     {
-        Bounds bounds = CustomerAreaBounds[(int)area-1];
+        Bounds bounds = area.GetComponent<MeshRenderer>().bounds;
         Vector3 point = new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
             0,
@@ -65,15 +39,9 @@ public class AIManager : MonoBehaviour
     }
 
 
-    public CustomerPoint GetRandomFreePoint(PointGroupEnum pointGroupId)
+    public CustomerPoint GetRandomFreePoint(GameObject pointGroupObj)
     {
-        CustomerPointGroup customerPointGroup = customerPointGroups[(int)pointGroupId-1];
-        return customerPointGroup.GetRandomFreePoint();
-    }
-
-
-    public Sprite[] GetImages()
-    {
-        return needImages;
+        CustomerPointGroup pointGroup = pointGroupObj.GetComponent<CustomerPointGroup>();
+        return pointGroup.GetRandomFreePoint();
     }
 }

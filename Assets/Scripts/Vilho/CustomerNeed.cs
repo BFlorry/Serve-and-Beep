@@ -1,83 +1,45 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using static Enums.CustomerEnums;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static Enums.Pickupables;
 
-/// <summary>
-/// Class that contains customr's need name, area and point group.
-/// </summary>
 public class CustomerNeed : MonoBehaviour
 {
-    //Properties----------------------------------------------------------------
+    //Fields--------------------------------------------------------------
 
     [SerializeField]
-    public Sprite Image { get; private set; }
+    private ItemType satisfItem;
 
-    public NeedNameEnum NeedName { get; } = NeedNameEnum.Empty;
-    public AreaEnum Area { get; } = AreaEnum.Empty;
-    public PointGroupEnum Point { get; } = PointGroupEnum.Empty;
+    [SerializeField]
+    private int tokenAmount;
 
+    [SerializeField]
+    private float posReview;
+    [SerializeField]
+    private float negReview;
+    [SerializeField]
+    private float decreaseSpeed;
+    [SerializeField]
+    private float maxValue;
 
-    //Constructors--------------------------------------------------------------
+    [SerializeField]
+    private Sprite sprite;
 
-    /// <summary>
-    /// Default constructor that adds area or point
-    /// group according to given name of need.
-    /// </summary>
-    /// <param name="needName">name of need</param>
-    public CustomerNeed(NeedNameEnum needName, Sprite needImg)
-    {
-        this.Image = needImg;
-        this.NeedName = needName;
-
-        switch (needName)
-        {
-            case NeedNameEnum.Hunger:
-                {
-                    this.Area = AreaEnum.Restaurant;
-                    break;
-                }
-            case NeedNameEnum.Thirst:
-                {
-                    this.Area = AreaEnum.Bar;
-                    break;
-                }
-            //case NeedNameEnum.NeedToPiss:
-            //    {
-            //        this.Area = AreaEnum.Toilet;
-            //        break;
-            //    }
-            default:
-                {
-                    break;
-                }
-        }
-    }
+    [SerializeField]
+    private GameObject area;
+    [SerializeField]
+    private GameObject pointGroup;
 
 
-    /// <summary>
-    /// Constructor that makes it possible to create custom need
-    /// that has different area than the default for same name.
-    /// </summary>
-    /// <param name="needName">name of the need</param>
-    /// <param name="area">area of the need</param>
-    public CustomerNeed(NeedNameEnum needName, AreaEnum area)
-    {
-        this.NeedName = needName;
-        this.Area = area;
-        this.Point = PointGroupEnum.Empty;
-    }
+    //Properties---------------------------------------------------------
 
-
-    /// <summary>
-    /// Constructor that makes it possible to create custom need
-    /// that has different point group than the default for same name.
-    /// </summary>
-    /// <param name="needName">name of the need</param>
-    /// <param name="pointGroup">area of the need</param>
-    public CustomerNeed(NeedNameEnum needName, PointGroupEnum pointGroup)
-    {
-        this.NeedName = needName;
-        this.Point = pointGroup;
-        this.Area = AreaEnum.Empty;
-    }
+    public ItemType SatisfItem { get => satisfItem; }
+    public int TokenAmount { get => tokenAmount; }
+    public float PosReview { get => posReview; }
+    public float NegReview { get => negReview; }
+    public float DecreaseSpeed { get => decreaseSpeed; }
+    public float MaxValue { get => maxValue; }
+    public Sprite Sprite { get => sprite; }
+    public GameObject Area { get => area; }
+    public GameObject PointGroup { get => pointGroup; }
 }

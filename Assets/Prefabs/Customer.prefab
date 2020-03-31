@@ -668,11 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c057800a715c8a499ced51a52bc67bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 100
-  currentValue: 0
-  defaultValue: 0
-  satisfactionModifier: 20
-  timeBetweenNeeds: 5
 --- !u!114 &7589029067965355615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4857813a80b10264493c86fd4d7ad5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1463456135}
   moveRandomlyInAreas: 1
 --- !u!195 &1463456135
 NavMeshAgent:

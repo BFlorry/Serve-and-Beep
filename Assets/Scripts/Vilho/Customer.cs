@@ -66,10 +66,9 @@ public class Customer : MonoBehaviour
     /// Check if satisfaction is full or empty after summing and act accordingly.
     /// </summary>
     /// <param name="value">Value that determines the value to be added to satisfaction.</param>
-    public void SfGain(int value)
+    public void SfGain(float value)
     {
-        float f = SfGainValue(value);
-        sf += Convert.ToInt32(f);
+        sf += Convert.ToInt32(value);
 
         //Check if satisfaction is empty.
         if (sf <= 0)

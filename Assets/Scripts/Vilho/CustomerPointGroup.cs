@@ -8,11 +8,16 @@ public class CustomerPointGroup : MonoBehaviour
 {
     //Fields--------------------------------------------------------------------
 
-    [SerializeField]
-    private CustomerPoint[] customerPoints = null;
+    private CustomerPoint[] customerPoints;
 
 
     //Methods-------------------------------------------------------------------
+
+    private void Awake()
+    {
+        customerPoints = GetComponentsInChildren<CustomerPoint>();
+    }
+
 
     /// <summary>
     /// Lists unoccupied points and returns one randomly.
@@ -28,6 +33,11 @@ public class CustomerPointGroup : MonoBehaviour
             {
                 freePoints.Add(point);
             }
+        }
+
+        if (freePoints.Count < 1)
+        {
+            return null;
         }
 
         int pointIndex = Random.Range(0, freePoints.Count);

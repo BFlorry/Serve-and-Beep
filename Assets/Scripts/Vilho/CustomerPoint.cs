@@ -8,10 +8,6 @@ public class CustomerPoint : MonoBehaviour
 {
     //Properties--------------------------------------------------------------
 
-    //Not necessary but may help at organization.
-    [SerializeField]
-    private string Name { get; }
-
     public bool IsOccupied { get; set; } = false;
     public Vector3 Position { get => this.gameObject.transform.position; }
 }

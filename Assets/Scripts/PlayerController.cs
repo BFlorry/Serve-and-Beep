@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         animator.SetFloat("Velocity", GetComponent<Rigidbody>().velocity.magnitude);
+        animator.SetBool("Carrying", GetComponent<PickupController>().Carrying);
     }
 
     void PlayerMovementNew()

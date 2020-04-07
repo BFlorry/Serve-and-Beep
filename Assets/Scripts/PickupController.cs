@@ -71,6 +71,7 @@ public class PickupController : MonoBehaviour
             sfxManager.PlaySingle(pickupSfx);
             Carrying = true;
             CarriedObject = p.gameObject;
+            CarriedObject.GetComponent<Pickupable>().Carried = true;
             pickupable.Pickup(this);
             return;
         }
@@ -88,6 +89,7 @@ public class PickupController : MonoBehaviour
     {
         if (Carrying)
         {
+            CarriedObject.GetComponent<Pickupable>().Carried = false;
             sfxManager.PlaySingle(throwSfx);
             Carrying = false;
             CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -101,6 +103,7 @@ public class PickupController : MonoBehaviour
     {
         if (Carrying)
         {
+            CarriedObject.GetComponent<Pickupable>().Carried = false;
             Carrying = false;
             CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
             CarriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);

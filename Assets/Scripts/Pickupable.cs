@@ -7,8 +7,10 @@ using static Enums.Pickupables;
 /// </summary>
 public class Pickupable : MonoBehaviour
 {
+    //Fields---------------------------------------------------------------------------
+
     [SerializeField]
-    public ItemType ItemType { get; }
+    private ItemType itemType;
 
     [SerializeField]
     private float maxRayDistance = 2.0f;
@@ -25,8 +27,18 @@ public class Pickupable : MonoBehaviour
     //Item type = Item.Crate;
 
 
-    public PickupController Player { get; private set; }
     private List<IItemInteractable> targetInteractables;
+
+
+    //Properties-----------------------------------------------------------------------
+
+    public PickupController Player { get; private set; }
+    public bool Carried { get; set; } = false;
+
+    public ItemType ItemType { get => itemType; }
+
+
+    //Methods--------------------------------------------------------------------------
 
     private void Start()
     {
@@ -39,7 +51,10 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup (PickupController pickupPlayer)
     {
-        if(Player == null) Player = pickupPlayer;
+        if (Player == null)
+        {
+            Player = pickupPlayer;
+        }
         else if (Player.Equals(pickupPlayer) == false)
         {
             Player.DropObject();

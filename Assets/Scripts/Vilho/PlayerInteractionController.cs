@@ -17,13 +17,11 @@ public class PlayerInteractionController : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates RayCast from this GameObject, and a list of objects hit, that implement IInteractable.
+    /// Creates SphereCast from this GameObject, and a list of objects hit, that implement IInteractable.
     /// Calls every list member's Interact function.
     /// </summary>
     public void OnInteract()
     {
-        
-
         Pickupable pickupable = pickupController.GetPickupable();
         if (pickupable != null)
         {
@@ -34,15 +32,17 @@ public class PlayerInteractionController : MonoBehaviour
         else
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-            Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.red, 0.0f);
 
             foreach (RaycastHit hit in hits)
             {
                 MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
                 foreach (MonoBehaviour mb in targetList)
                 {
-                    SendInteract(mb, this.gameObject);
-                    return;
+                    if (mb is IInteractable)
+                    {
+                        SendInteract(mb, this.gameObject);
+                        return;
+                    }
                 }
             }
         }
@@ -50,12 +50,9 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void SendInteract(MonoBehaviour mb, GameObject gameobject)
     {
-        if (mb is IInteractable)
-        {
-            IInteractable interactable = (IInteractable)mb;
-            interactable.Interact(gameobject);
-            Debug.Log("Sending interaction call to interactable target...");
-        }
+        IInteractable interactable = (IInteractable)mb;
+        interactable.Interact(gameobject);
+        Debug.Log("Sending interaction call to interactable target...");
     }
 
 }

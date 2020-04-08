@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotateSpeed = 1f;
 
+    [SerializeField]
+    private Animator animator;
+
     private float playerSpeedStore;
 
     AudioListener audioListener;
@@ -37,6 +40,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovementNew();
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("Velocity", GetComponent<Rigidbody>().velocity.magnitude);
+        animator.SetBool("Carrying", GetComponent<PickupController>().Carrying);
     }
 
     void PlayerMovementNew()

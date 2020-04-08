@@ -9,7 +9,7 @@ public class ItemDestroyer : MonoBehaviour
 
     private float alpha;
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerStay(Collider collider)
     {
         Transform parent = collider.transform.parent;
         if (parent != null)

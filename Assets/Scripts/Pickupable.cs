@@ -45,11 +45,11 @@ public class Pickupable : MonoBehaviour
         targetInteractables = new List<IItemInteractable>();
         foreach (GameObject interactableObject in targetInteractableObjects)
         {
-            if(interactableObject.TryGetComponent(out IItemInteractable interactable)) targetInteractables.Add(interactable);
+            if (interactableObject.TryGetComponent(out IItemInteractable interactable)) targetInteractables.Add(interactable);
         }
     }
 
-    public void Pickup (PickupController pickupPlayer)
+    public void Pickup(PickupController pickupPlayer)
     {
         if (Player == null)
         {
@@ -57,9 +57,18 @@ public class Pickupable : MonoBehaviour
         }
         else if (Player.Equals(pickupPlayer) == false)
         {
-            Player.DropObject();
+            RemoveFromPlayer();
             Player = pickupPlayer;
         }
+    }
+
+    public void RemoveFromPlayer()
+    {
+        if (Player != null)
+        {
+            Player.DropObject(); Player = null;
+        }
+
     }
 
     /// <summary>
@@ -85,7 +94,7 @@ public class Pickupable : MonoBehaviour
                             if (interactSuccess == true)
                             {
                                 Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                Player.DropObject();
+                                RemoveFromPlayer();
                                 Destroy(this.gameObject);
                             }
                             return;

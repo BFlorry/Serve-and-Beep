@@ -36,13 +36,12 @@ public class ItemDestroyer : MonoBehaviour
         {
             GameObject item = parent.gameObject;
 
-            Pickupable pickupable = item.GetComponent<Pickupable>();
-
-            if (pickupable != null)
+            if (item.TryGetComponent(out Pickupable pickupable))
             {
                 if (pickupable.Carried == false)
                 {
-                    pickupable.Carried = true;
+                    //pickupable.Carried = true;
+                    pickupable.RemoveFromPlayer();
                     Destroy(pickupable);
 
                     MeshRenderer[] rends = SetTransparentWithChildren(item);

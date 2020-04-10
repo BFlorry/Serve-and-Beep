@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a1abd49b562f6409cc6c9e3ba1d5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeOutTime: 2
 --- !u!1 &545861631044105570
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +132,6 @@ GameObject:
   - component: {fileID: 545861631044105571}
   - component: {fileID: 545861631044105502}
   - component: {fileID: 545861631044105501}
-  - component: {fileID: 545861631044105500}
   m_Layer: 12
   m_Name: SnapPoint
   m_TagString: Untagged
@@ -200,16 +200,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &545861631044105500
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545861631044105570}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

@@ -21,6 +21,10 @@ public class FileExtensionGUI
         ".raw",
         ".fbx",
         ".obj",
+        ".blend",
+        ".ogg",
+        ".mp3",
+        ".wav",
     };
 
     static FileExtensionGUI()

@@ -50,8 +50,8 @@ public class ItemDestroyer : MonoBehaviour
                         Color startColor = rend.material.color;
                         Color destColor = new Color(startColor.r, startColor.g, startColor.b, 0);
                         StartCoroutine(LerpMeshRendererColor(rend, fadeOutTime, startColor, destColor));
-                        StartCoroutine(DestroyAfterTime(item, fadeOutTime));
                     }
+                    StartCoroutine(DestroyAfterTime(item, fadeOutTime));
                 }
             }
         }
@@ -124,7 +124,6 @@ public class ItemDestroyer : MonoBehaviour
                 lerping = false;
             }
         }
-        yield return true;
     }
 
 
@@ -138,10 +137,6 @@ public class ItemDestroyer : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        foreach (Transform child in obj.transform)
-        {
-            Destroy(child.gameObject);
-        }
         Destroy(obj);
     }
 }

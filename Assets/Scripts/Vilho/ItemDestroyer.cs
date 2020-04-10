@@ -40,7 +40,6 @@ public class ItemDestroyer : MonoBehaviour
             {
                 if (pickupable.Carried == false)
                 {
-                    //pickupable.Carried = true;
                     pickupable.RemoveFromPlayer();
                     Destroy(pickupable);
 

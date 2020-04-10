@@ -13,14 +13,17 @@ public class ItemDestroyer : MonoBehaviour
     private float fadeOutTime = 2f;
 
     private float alpha;
-    private Shader transparent;
+    private Shader standardShader;
+    private Material transparentMat;
+    private AudioSource audio;
 
 
     //Methods-----------------------------------------------------------------------------------------
 
     private void Awake()
     {
-        transparent = Shader.Find("UI/Lit/Transparent");
+        standardShader = Shader.Find("Standard");
+        audio = this.GetComponentInParent<AudioSource>();
     }
 
 
@@ -42,6 +45,7 @@ public class ItemDestroyer : MonoBehaviour
                 {
                     pickupable.RemoveFromPlayer();
                     Destroy(pickupable);
+                    audio.PlayOneShot(audio.clip);
 
                     MeshRenderer[] rends = SetTransparentWithChildren(item);
 
@@ -74,19 +78,43 @@ public class ItemDestroyer : MonoBehaviour
             if (rend != null)
             {
                 rends.Add(rend);
-                rend.material.shader = transparent;
+                rend.material.shader = standardShader;
+                rend.material = ToFadeMode(rend.material);
                 Color childColor = rend.material.color;
             }
         }
+
         MeshRenderer meshRend = obj.GetComponent<MeshRenderer>();
 
         if (meshRend != null)
         {
             rends.Add(meshRend);
-            meshRend.material.shader = transparent;
+            meshRend.material.shader = standardShader;
+            meshRend.material = ToFadeMode(meshRend.material);
             Color childColor = meshRend.material.color;
         }
         return rends.ToArray();
+    }
+
+
+    /// <summary>
+    /// Makes copy of given material and changes its render mode to Fade.
+    /// https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs#L359
+    /// </summary>
+    /// <param name="mat">Material</param>
+    /// <returns>Copy of given material with render mode changed to fade.</returns>
+    private Material ToFadeMode(Material mat)
+    {
+        Material material = new Material(mat);
+        material.SetOverrideTag("RenderType", "Transparent");
+        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        material.SetInt("_ZWrite", 0);
+        material.DisableKeyword("_ALPHATEST_ON");
+        material.EnableKeyword("_ALPHABLEND_ON");
+        material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        return material;
     }
 
 

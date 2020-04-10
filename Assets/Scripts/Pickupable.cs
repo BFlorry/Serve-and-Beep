@@ -7,46 +7,68 @@ using static Enums.Pickupables;
 /// </summary>
 public class Pickupable : MonoBehaviour
 {
+    //Fields---------------------------------------------------------------------------
+
     [SerializeField]
-    public ItemType ItemType { get; }
+    private ItemType itemType;
 
     [SerializeField]
     private float maxRayDistance = 2.0f;
-
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
-
     [SerializeField]
-    AudioClip interactSfx;
+    private AudioClip interactSfx;
+    [SerializeField]
+    private GameObject[] targetInteractableObjects;
 
-    PickupController player;
 
     //TODO: Maybe implement item type this way?
     //[SerializeField]
     //Item type = Item.Crate;
 
-    [SerializeField]
-    GameObject[] targetInteractableObjects;
 
-    List<IItemInteractable> targetInteractables;
+    private List<IItemInteractable> targetInteractables;
+
+
+    //Properties-----------------------------------------------------------------------
+
+    public PickupController Player { get; private set; }
+    public bool Carried { get; set; } = false;
+
+    public ItemType ItemType { get => itemType; }
+
+
+    //Methods--------------------------------------------------------------------------
 
     private void Start()
     {
         targetInteractables = new List<IItemInteractable>();
         foreach (GameObject interactableObject in targetInteractableObjects)
         {
-            if(interactableObject.TryGetComponent(out IItemInteractable interactable)) targetInteractables.Add(interactable);
+            if (interactableObject.TryGetComponent(out IItemInteractable interactable)) targetInteractables.Add(interactable);
         }
     }
 
-    public void Pickup (PickupController pickupPlayer)
+    public void Pickup(PickupController pickupPlayer)
     {
-        if(player == null) player = pickupPlayer;
-        else if (player.Equals(pickupPlayer) == false)
+        if (Player == null)
         {
-            player.DropObject();
-            player = pickupPlayer;
+            Player = pickupPlayer;
         }
+        else if (Player.Equals(pickupPlayer) == false)
+        {
+            RemoveFromPlayer();
+            Player = pickupPlayer;
+        }
+    }
+
+    public void RemoveFromPlayer()
+    {
+        if (Player != null)
+        {
+            Player.DropObject(); Player = null;
+        }
+
     }
 
     /// <summary>
@@ -71,8 +93,8 @@ public class Pickupable : MonoBehaviour
                             bool interactSuccess = interactable.Interact(this.gameObject);
                             if (interactSuccess == true)
                             {
-                                player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                player.DropObject();
+                                Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+                                RemoveFromPlayer();
                                 Destroy(this.gameObject);
                             }
                             return;

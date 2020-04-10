@@ -19,6 +19,7 @@ TagManager:
   - Pickupable
   - Player
   - NPC
+  - Interactable
   - Invisible
   - 
   - 

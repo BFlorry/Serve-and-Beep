@@ -141,7 +141,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             }
             else
             {
-                customer.SfGain(-curNeed.NegReview);
+                // TODO: If this change is final, remove this and following line
+                //customer.SfGain(-curNeed.NegReview);
+                customer.ReviewNeg();
                 StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
             }
         }
@@ -164,7 +166,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         Pickupable pickupable = gameObject.GetComponent<Pickupable>();
         if (pickupable != null && curNeed.SatisfItem == pickupable.ItemType)
         {
-            customer.SfGain(curNeed.PosReview);
+            // TODO: If this change is final, remove this and following line
+            //customer.SfGain(curNeed.PosReview);
+            customer.ReviewPos();
             StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
             return true;
         }

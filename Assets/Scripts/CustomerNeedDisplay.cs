@@ -13,6 +13,7 @@ public class CustomerNeedDisplay : MonoBehaviour
     [SerializeField]
     private GameObject moodCanvas;
 
+    [SerializeField]
     private Image needImg;
     private CustomerNeedController needController = null;
 
@@ -24,7 +25,6 @@ public class CustomerNeedDisplay : MonoBehaviour
         needCanvas.SetActive(true);
         camera = Camera.main;
         needCanvas.transform.LookAt(needCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
-        needImg = GetComponentInChildren<Image>();
     }
     
 

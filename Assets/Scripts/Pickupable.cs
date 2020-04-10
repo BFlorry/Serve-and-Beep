@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static Enums.Pickupables;
 
@@ -74,7 +75,7 @@ public class Pickupable : MonoBehaviour
     /// <summary>
     /// Raycast forward and if there is an iteminteractable object, interact with it and (currently) destroy this object.
     /// </summary>
-    public void InteractWithItem()
+    public bool InteractWithItem()
     {
         //TODO: This as a separate class?
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
@@ -95,13 +96,28 @@ public class Pickupable : MonoBehaviour
                             {
                                 Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
                                 RemoveFromPlayer();
-                                Destroy(this.gameObject);
+                                StartCoroutine(DestroyAfterTime(this.gameObject, 0f));
+                                return true;
                             }
-                            return;
+                            return false;
                         }
                     }
                 }
             }
         }
+        return false;
+    }
+
+    /// <summary>
+    /// Destroys item and its children after given time.
+    /// </summary>
+    /// <param name="obj">GameObject to be destroyed.</param>
+    /// <param name="time">time to be waited</param>
+    /// <returns>IEnumerator</returns>
+    private IEnumerator DestroyAfterTime(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Destroy(obj);
     }
 }

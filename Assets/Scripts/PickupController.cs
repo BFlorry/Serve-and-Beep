@@ -42,7 +42,7 @@ public class PickupController : MonoBehaviour
         }
     }
 
-    private void OnPickup()
+    public void Pickup()
     {
         if (Carrying)
         {

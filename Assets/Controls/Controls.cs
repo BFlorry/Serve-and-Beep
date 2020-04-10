@@ -35,7 +35,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pickup"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""9ffaf306-65aa-439a-bd73-5cebfa8cc6d0"",
                     ""expectedControlType"": """",
@@ -167,22 +167,22 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""862180c4-cbfa-4792-b64e-7f7d1e6498f5"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p1"",
-                    ""action"": ""Pickup"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""a12cca25-a6ad-45c7-8974-f82516b2afd0"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Pickup"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -193,14 +193,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p2"",
-                    ""action"": ""Pickup"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""d3b0ca5a-976d-4785-a625-9a2e16778d5e"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p1"",
@@ -211,7 +211,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ed8d002c-fb47-4ef2-863f-7037c447768c"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -618,7 +618,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
@@ -679,7 +679,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Pickup;
+    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_Start;
     private readonly InputAction m_Player_Pause;
@@ -690,7 +690,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
@@ -710,9 +710,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Pickup.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
-                @Pickup.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
-                @Pickup.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickup;
+                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Throw.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrow;
@@ -735,9 +735,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @Pickup.started += instance.OnPickup;
-                @Pickup.performed += instance.OnPickup;
-                @Pickup.canceled += instance.OnPickup;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
@@ -843,7 +843,7 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnPickup(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);

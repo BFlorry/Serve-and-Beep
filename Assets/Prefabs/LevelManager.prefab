@@ -680,7 +680,7 @@ MonoBehaviour:
   hurryUpTime: 10
   timerText: {fileID: 7493962269436485375}
   scoreText: {fileID: 1753088720}
-  bgmMusic: {fileID: 8300000, guid: 02921844694387349a14092da7808257, type: 3}
+  bgmMusic: {fileID: 8300000, guid: c43d901e7d491344ab669ee198b631c4, type: 3}
   timeRunningOutSfx: {fileID: 8300000, guid: 10f8f705963b6664cac03527801407ba, type: 3}
   timeOverSfx: {fileID: 8300000, guid: 97f8470753387ab41a944ce7555389d0, type: 3}
   posReviewSfx: {fileID: 8300000, guid: cc9b717d1fa75254ebde4cca125fa8a5, type: 3}

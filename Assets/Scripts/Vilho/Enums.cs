@@ -27,11 +27,18 @@ public static class Enums
     {
         //Fields--------------------------------------------------------------------
 
-        public enum ItemType
+        [Flags] public enum ItemType
         {
             Empty,
             Food,
-            Drink
+            Drink,
+            RedDrink,
+            BlueDrink,
+            YellowDrink,
+            OrangeDrink,
+            PurpleDrink,
+            GreenDrink,
+            BlackDrink,
         }
     }
 }

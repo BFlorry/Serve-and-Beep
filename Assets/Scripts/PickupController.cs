@@ -120,5 +120,27 @@ public class PickupController : MonoBehaviour
         }
         else return null;
     }
-    
+
+    public void ChangeObject(Pickupable pickupable)
+    {
+        if (CarriedObject != null)
+        {
+            Destroy(CarriedObject);
+        }
+
+        SilentPickup(pickupable);
+    }
+
+
+    public void SilentPickup(Pickupable pickupable)
+    {
+        if (TryGetComponent<GameObject>(out var obj))
+        {
+            Carrying = true;
+            CarriedObject = obj.gameObject;
+            pickupable.Pickup(this);
+            return;
+        }
+    }
+
 }

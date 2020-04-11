@@ -52,6 +52,7 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
+        Carried = true;
         if (Player == null)
         {
             Player = pickupPlayer;
@@ -89,18 +90,15 @@ public class Pickupable : MonoBehaviour
                     IItemInteractable interactable = (IItemInteractable)mb;
                     foreach (IItemInteractable interactObj in targetInteractables)
                     {
-                        if (interactObj.GetType() == interactable.GetType())
+                        bool interactSuccess = interactable.Interact(this.gameObject);
+                        if (interactSuccess == true)
                         {
-                            bool interactSuccess = interactable.Interact(this.gameObject);
-                            if (interactSuccess == true)
-                            {
-                                Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                RemoveFromPlayer();
-                                StartCoroutine(DestroyAfterTime(this.gameObject, 0f));
-                                return true;
-                            }
-                            return false;
+                            Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+                            RemoveFromPlayer();
+                            StartCoroutine(DestroyAfterTime(this.gameObject, 0f));
+                            return true;
                         }
+                        return false;
                     }
                 }
             }

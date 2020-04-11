@@ -29,6 +29,18 @@ public class NavController : MonoBehaviour
     private bool moving = false;
 
 
+    private enum CustomerState
+    {
+        Default,
+        ReadyToExit,
+        Exiting
+    }
+    [SerializeField]
+    CustomerState state = CustomerState.Default;
+
+    private CustomerState State { get => state; set => state = value; }
+
+
     //Methods------------------------------------------------------------------------
 
     /// <summary>
@@ -52,6 +64,7 @@ public class NavController : MonoBehaviour
         {
             if (agent.remainingDistance < destReachTreshold)
             {
+                if (State == CustomerState.Exiting) Destroy(this.gameObject);
                 moving = false;
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 wait = Wait(waitTime);
@@ -176,7 +189,7 @@ public class NavController : MonoBehaviour
     {
         agent.SetDestination(point);
         Debug.DrawRay(point, Vector3.up * 5, Color.blue, 10.0f);
-        Debug.Log("Target position: " + point);
+        //Debug.Log("Target position: " + point);
     }
 
 
@@ -188,6 +201,11 @@ public class NavController : MonoBehaviour
         this.agent.isStopped = true;
     }
 
+    public void SetReadyToExit()
+    {
+        State = CustomerState.ReadyToExit;
+    }
+
 
     /// <summary>
     /// Waits given time (seconds) and sets wait after move to null.
@@ -196,7 +214,7 @@ public class NavController : MonoBehaviour
     /// <returns>IEnumerator stuff?</returns>
     private IEnumerator Wait(float time)
     {
-        Debug.Log("Wait " + time + " seconds after movement.");
+        //Debug.Log("Wait " + time + " seconds after movement.");
         yield return new WaitForSeconds(time);
         wait = null;
         StopAllCoroutines();
@@ -208,5 +226,6 @@ public class NavController : MonoBehaviour
         {
             MoveToPointGroup(curNeed.PointGroup);
         }
+        if (State == CustomerState.ReadyToExit) State = CustomerState.Exiting;
     }
 }

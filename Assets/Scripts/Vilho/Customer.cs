@@ -35,6 +35,8 @@ public class Customer : MonoBehaviour
     public int SfDefault { get => sfDefault; }
     public float SfFactor { get => sfFactor; }
 
+    CustomerController customerController;
+
 
     //Properties----------------------------------------------------------------------------------------------
 
@@ -46,6 +48,8 @@ public class Customer : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        customerController = GetComponent<CustomerController>();
+
         //If sfDefault is not valid, set it as sfMax / 2.
         if (sfDefault <= 0 || sfMax < sfDefault)
         {
@@ -207,6 +211,7 @@ public class Customer : MonoBehaviour
     {
         //TODO Affect game manager or something like that.
         FindObjectOfType<LevelManager>().ChangeScore(100);
+        customerController.RaiseNeed();
     }
 
     //Gives negative review. (According to review class?)
@@ -214,5 +219,6 @@ public class Customer : MonoBehaviour
     {
         //TODO Affect game manager or something like that.
         FindObjectOfType<LevelManager>().ChangeScore(-50);
+        customerController.RaiseNeed();
     }
 }

@@ -144,11 +144,21 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
                 // TODO: If this change is final, remove this and following line
                 //customer.SfGain(-curNeed.NegReview);
                 customer.ReviewNeg();
-                StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+                NextNeed();
             }
         }
     }
 
+    private void NextNeed()
+    {
+        StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+    }
+
+    public void ExitNeed()
+    {
+        StartCoroutine(WaitAndExit(RandWaitTime()));
+        navController.SetReadyToExit();
+    }
 
     private float RandWaitTime()
     {
@@ -169,7 +179,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
             customer.ReviewPos();
-            StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+            NextNeed();
             return true;
         }
         else
@@ -195,5 +205,16 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetRandomNeed());
         display.SetNeedCanvasActivity(true); 
+    }
+
+    private IEnumerator WaitAndExit(float time)
+    {
+        display.SetNeedCanvasActivity(false);
+        curNeed = null;
+        navController.StopMovement();
+        currentValue = defaultValue;
+        yield return new WaitForSeconds(time);
+        SetNeed(needManager.GetExitNeed());
+        display.SetNeedCanvasActivity(true);
     }
 }

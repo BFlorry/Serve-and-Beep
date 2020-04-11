@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: ef0ce394b2e07274e8c4554c95589a47, type: 3}
   navSfx: {fileID: 8300000, guid: e5ae7908ec5e38049b8afbe2a0681263, type: 3}
-  clickSfx: {fileID: 8300000, guid: e04740d8e14fd7b4ab42d17da8e1f850, type: 3}
+  clickSfx: {fileID: 8300000, guid: adab2ea5a21e66b48b3502d16677667c, type: 3}

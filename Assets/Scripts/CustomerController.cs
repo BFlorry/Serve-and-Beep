@@ -13,12 +13,9 @@ public class CustomerController : MonoBehaviour
 
     private GameObject exit;
 
-    CustomerNeedController customerNeedController;
-
     // Start is called before the first frame update
     void Start()
     {
-        TryGetComponent(out customerNeedController);
         exit = FindObjectOfType<CustomerSpawner>().gameObject;
     }
 

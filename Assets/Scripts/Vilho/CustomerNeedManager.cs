@@ -14,6 +14,10 @@ public class CustomerNeedManager : MonoBehaviour
         Needs = FindObjectsOfType<CustomerNeed>();
         List<CustomerNeed> listNeeds = new List<CustomerNeed>(Needs);
         exitNeed = listNeeds.Find(x => x.gameObject.name == "ExitNeed");
+
+        //TODO: Completely change Needs to a list for easier handling
+        listNeeds.Remove(exitNeed);
+        Needs = listNeeds.ToArray();
     }
 
     public CustomerNeed GetRandomNeed()

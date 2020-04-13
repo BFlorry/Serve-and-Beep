@@ -14,7 +14,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField]
     float customerSpawnInterval = 10f;
 
-    List<GameObject> customers;
+    List<GameObject> customers = new List<GameObject>();
 
     Vector3 spawnPosition;
     Quaternion spawnRotation;
@@ -32,7 +32,6 @@ public class CustomerSpawner : MonoBehaviour
     {
         spawnPosition = this.transform.position + Vector3.back;
         spawnRotation = this.transform.rotation;
-        customers = new List<GameObject>();
         StartCoroutine(SpawnCustomer());
     }
 

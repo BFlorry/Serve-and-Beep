@@ -28,6 +28,9 @@ public class NavController : MonoBehaviour
     private IEnumerator wait;
     private bool moving = false;
 
+    public bool Moving { get => moving; private set => moving = value; }
+
+
 
     //Methods------------------------------------------------------------------------
 
@@ -176,9 +179,8 @@ public class NavController : MonoBehaviour
     {
         agent.SetDestination(point);
         Debug.DrawRay(point, Vector3.up * 5, Color.blue, 10.0f);
-        Debug.Log("Target position: " + point);
+        //Debug.Log("Target position: " + point);
     }
-
 
     /// <summary>
     /// Sets NavMesh Agent stopped.
@@ -188,7 +190,6 @@ public class NavController : MonoBehaviour
         this.agent.isStopped = true;
     }
 
-
     /// <summary>
     /// Waits given time (seconds) and sets wait after move to null.
     /// </summary>
@@ -196,7 +197,7 @@ public class NavController : MonoBehaviour
     /// <returns>IEnumerator stuff?</returns>
     private IEnumerator Wait(float time)
     {
-        Debug.Log("Wait " + time + " seconds after movement.");
+        //Debug.Log("Wait " + time + " seconds after movement.");
         yield return new WaitForSeconds(time);
         wait = null;
         StopAllCoroutines();

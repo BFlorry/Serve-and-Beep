@@ -21,6 +21,8 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private CustomerNeedDisplay display;
     private IEnumerator waitAfterMove;
 
+    CustomerController customerController;
+
     //For testing and debugging only.
     private bool testCmdsActive = false;
     private KeyCode testCmdKey1 = KeyCode.F1;
@@ -38,6 +40,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.customer = GetComponent<Customer>();
         this.navController = GetComponent<NavController>();
         this.display = GetComponent<CustomerNeedDisplay>();
+        TryGetComponent(out customerController);
         SetNeed(needManager.GetRandomNeed());
     }
 
@@ -144,11 +147,20 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
                 // TODO: If this change is final, remove this and following line
                 //customer.SfGain(-curNeed.NegReview);
                 customer.ReviewNeg();
-                StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+                NextNeed();
             }
         }
     }
 
+    private void NextNeed()
+    {
+        if(customerController.TimeToExit()) StartCoroutine(WaitAndExit(RandWaitTime()));
+        else
+        {
+            StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+            customerController.RaiseNeed();
+        }
+    }
 
     private float RandWaitTime()
     {
@@ -169,7 +181,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
             customer.ReviewPos();
-            StartCoroutine(WaitBeforeNextNeed(RandWaitTime()));
+            NextNeed();
             return true;
         }
         else
@@ -195,5 +207,26 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetRandomNeed());
         display.SetNeedCanvasActivity(true); 
+    }
+
+    private IEnumerator WaitAndExit(float time)
+    {
+        display.SetNeedCanvasActivity(false);
+        curNeed = null;
+        navController.StopMovement();
+        currentValue = defaultValue;
+        yield return new WaitForSeconds(time);
+        SetNeed(needManager.GetExitNeed());
+        display.SetNeedCanvasActivity(true);
+        StartCoroutine(CheckForExitCondition());
+    }
+
+    private IEnumerator CheckForExitCondition()
+    {
+        while(navController.Moving == true)
+        {
+            yield return null;
+        }
+        FindObjectOfType<CustomerSpawner>().DespawnCustomer(this.gameObject);
     }
 }

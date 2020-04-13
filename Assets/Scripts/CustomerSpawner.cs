@@ -19,6 +19,7 @@ public class CustomerSpawner : MonoBehaviour
     Vector3 spawnPosition;
     Quaternion spawnRotation;
 
+
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
@@ -39,6 +40,12 @@ public class CustomerSpawner : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void DespawnCustomer(GameObject customer)
+    {
+        customers.Remove(customer);
+        Destroy(customer);
     }
 
     IEnumerator SpawnCustomer()

@@ -25,11 +25,19 @@ public class CustomerController : MonoBehaviour
     public void RaiseNeed()
     {
         currentNeed++;
-        if(currentNeed >= maximumNeedsBeforeExit)
+        /*if(currentNeed >= maximumNeedsBeforeExit)
         {
             //TODO: Make customer go towards exit
             customerNeedController.ExitNeed();
-        }
+        }*/
     }
 
+    public bool TimeToExit()
+    {
+        if (currentNeed >= maximumNeedsBeforeExit)
+        {
+            return true;
+        }
+        else return false;
+    }
 }

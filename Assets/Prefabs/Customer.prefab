@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveRandomlyInAreas: 1
+  state: 0
 --- !u!195 &1463456135
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -792,6 +793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae96480e6d18d34eb4196fc036e37f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumNeedsBeforeExit: 1
+  currentNeed: 0
 --- !u!1 &6814636860081546378
 GameObject:
   m_ObjectHideFlags: 0

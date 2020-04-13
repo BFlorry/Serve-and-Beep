@@ -28,17 +28,8 @@ public class NavController : MonoBehaviour
     private IEnumerator wait;
     private bool moving = false;
 
+    public bool Moving { get => moving; private set => moving = value; }
 
-    private enum CustomerState
-    {
-        Default,
-        ReadyToExit,
-        Exiting
-    }
-    [SerializeField]
-    CustomerState state = CustomerState.Default;
-
-    private CustomerState State { get => state; set => state = value; }
 
 
     //Methods------------------------------------------------------------------------
@@ -64,7 +55,6 @@ public class NavController : MonoBehaviour
         {
             if (agent.remainingDistance < destReachTreshold)
             {
-                if (State == CustomerState.Exiting) Destroy(this.gameObject);
                 moving = false;
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 wait = Wait(waitTime);
@@ -192,7 +182,6 @@ public class NavController : MonoBehaviour
         //Debug.Log("Target position: " + point);
     }
 
-
     /// <summary>
     /// Sets NavMesh Agent stopped.
     /// </summary>
@@ -200,12 +189,6 @@ public class NavController : MonoBehaviour
     {
         this.agent.isStopped = true;
     }
-
-    public void SetReadyToExit()
-    {
-        State = CustomerState.ReadyToExit;
-    }
-
 
     /// <summary>
     /// Waits given time (seconds) and sets wait after move to null.
@@ -226,6 +209,5 @@ public class NavController : MonoBehaviour
         {
             MoveToPointGroup(curNeed.PointGroup);
         }
-        if (State == CustomerState.ReadyToExit) State = CustomerState.Exiting;
     }
 }

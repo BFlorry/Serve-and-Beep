@@ -124,6 +124,7 @@ PlayerSettings:
   bundleVersion: PROTO_2020-03-24
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

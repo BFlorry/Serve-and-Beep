@@ -18,8 +18,6 @@ public class Pickupable : MonoBehaviour
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
     [SerializeField]
-    private AudioClip interactSfx;
-    [SerializeField]
     private GameObject[] targetInteractableObjects;
 
 
@@ -52,6 +50,7 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
+        Carried = true;
         if (Player == null)
         {
             Player = pickupPlayer;
@@ -89,23 +88,23 @@ public class Pickupable : MonoBehaviour
                     IItemInteractable interactable = (IItemInteractable)mb;
                     foreach (IItemInteractable interactObj in targetInteractables)
                     {
-                        if (interactObj.GetType() == interactable.GetType())
+                        bool interactSuccess = interactable.Interact(this.gameObject);
+                        if (interactSuccess == true)
                         {
-                            bool interactSuccess = interactable.Interact(this.gameObject);
-                            if (interactSuccess == true)
-                            {
-                                Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                RemoveFromPlayer();
-                                StartCoroutine(DestroyAfterTime(this.gameObject, 0f));
-                                return true;
-                            }
-                            return false;
+
+                            return true;
                         }
+                        return false;
                     }
                 }
             }
         }
         return false;
+    }
+
+    public void DestroyPickupable(float time = 0f)
+    {
+        StartCoroutine(DestroyAfterTime(this.gameObject, time));
     }
 
     /// <summary>

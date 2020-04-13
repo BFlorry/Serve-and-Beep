@@ -42,7 +42,7 @@ public class PickupController : MonoBehaviour
         }
     }
 
-    public void Pickup()
+    public void TryPickup()
     {
         if (Carrying)
         {
@@ -62,21 +62,29 @@ public class PickupController : MonoBehaviour
         }
     }
 
-
     public void Pickup(Pickupable pickupable)
     {
-        GameObject p = pickupable.gameObject;
-        if (p != null)
-        {
-            sfxManager.PlaySingle(pickupSfx);
-            Carrying = true;
-            CarriedObject = p.gameObject;
-            CarriedObject.GetComponent<Pickupable>().Carried = true;
-            pickupable.Pickup(this);
-            return;
-        }
+        sfxManager.PlaySingle(pickupSfx);
+        PickupAction(pickupable);
     }
 
+    public void Pickup(Pickupable pickupable, AudioClip sfx)
+    {
+        if (sfx != null)
+        {
+            sfxManager.PlaySingle(sfx);
+        }
+        PickupAction(pickupable);
+    }
+
+    public void PickupAction(Pickupable pickupable)
+    {
+        GameObject p = pickupable.gameObject;
+        Carrying = true;
+        CarriedObject = p.gameObject;
+        CarriedObject.GetComponent<Pickupable>().Carried = true;
+        pickupable.Pickup(this);
+    }
 
     private void Carry(GameObject o)
     {
@@ -120,5 +128,4 @@ public class PickupController : MonoBehaviour
         }
         else return null;
     }
-    
 }

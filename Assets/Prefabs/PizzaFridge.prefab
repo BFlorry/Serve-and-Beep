@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e785d143af4e34bb295a59b5913e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useDefaultPickupSound: 1
+  spawnSound: {fileID: 0}
   itemPrefab: {fileID: 705012613684027041, guid: a1f2392fd7329d046b2c8210ab087daa,
     type: 3}
 --- !u!1001 &2024827044112127134

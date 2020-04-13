@@ -8,6 +8,11 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 {
     //Fields----------------------------------------------------------------------
 
+    [SerializeField]
+    private AudioClip interactSfx;
+    [SerializeField]
+    private float needObjDestroyTime = 0f;
+
     private CustomerNeed curNeed;
 
     private float currentValue;
@@ -178,6 +183,10 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         Pickupable pickupable = gameObject.GetComponent<Pickupable>();
         if (pickupable != null && curNeed.SatisfItem == pickupable.ItemType)
         {
+            pickupable.Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
+            pickupable.RemoveFromPlayer();
+            pickupable.DestroyPickupable(needObjDestroyTime);
+
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
             customer.ReviewPos();

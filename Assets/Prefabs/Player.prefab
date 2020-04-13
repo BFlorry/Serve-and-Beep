@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Bits: 2304
   highLightWhenCarryingLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3328
   maxRayDistance: 0.6
   maxRaySphereRadius: 0.6
 --- !u!136 &5588795269810305739

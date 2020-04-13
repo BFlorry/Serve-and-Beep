@@ -4,10 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Enums.Pickupables;
 
+/// <summary>
+/// Changes item in player's hands according to the interacter's itemType.
+/// </summary>
 public class ConditionalItemSpawner : MonoBehaviour, IItemInteractable
 {
+    //Fields--------------------------------------------------------------------------------------------
+
+    [Tooltip("If checked, overrides Spawn Sound.")]
     [SerializeField]
-    private GameObject itemPrefab;
+    private bool useDefaultPickupSound = false;
+
+    [Tooltip("If this is left empty and Use Default Pickup Sound is false, no sound will be played.")]
+    [SerializeField]
+    private AudioClip spawnSound = null;
 
     [Serializable]
     private class ItemPair
@@ -16,19 +26,31 @@ public class ConditionalItemSpawner : MonoBehaviour, IItemInteractable
         public GameObject spawnItem;
     }
 
-
     [SerializeField]
     private ItemPair[] itemPairArray;
 
+
+    //Methods--------------------------------------------------------------------------------------------
+
+    /// <summary>
+    /// Checks if there is same ItemType in itemPairArray as the interacter's
+    /// Pickupable component's Itemtype. If yes calls for spawner accordingly.
+    /// </summary>
+    /// <param name="interacter">GameObject that interacts.</param>
+    /// <returns>True if interact was succesful, else false.</returns>
     public bool Interact(GameObject interacter)
     {
-        if (interacter.TryGetComponent<Pickupable>(out var pickupable))
+        if (interacter.TryGetComponent(out Pickupable pickupable))
         {
             foreach (ItemPair itempair in itemPairArray)
             {
                 if (pickupable.ItemType.Equals(itempair.interactItemType))
                 {
-                    SpawnItemInHands(interacter, itempair.spawnItem);
+                    if (pickupable.Player.TryGetComponent(out PickupController pickupCtrl))
+                    {
+                        SpawnItemInHands(pickupCtrl, itempair.spawnItem, interacter.transform);
+
+                    }
                     return true;
                 }
             }
@@ -37,31 +59,32 @@ public class ConditionalItemSpawner : MonoBehaviour, IItemInteractable
     }
 
 
-    private void SpawnItemInHands(GameObject player, GameObject prefab)
+    /// <summary>
+    /// Spawns item in hands.
+    /// </summary>
+    /// <param name="pickupCtrl">PickupController to pickup spawned item.</param>
+    /// <param name="prefab">Prefab that is instantiated.</param>
+    /// <param name="spawnTransform">Spawn transform.</param>
+    private void SpawnItemInHands(PickupController pickupCtrl, GameObject prefab, Transform spawnTransform)
     {
-        GameObject spawnedItem = Instantiate(prefab);
-        if (spawnedItem.TryGetComponent<Pickupable>(out var pickupable))
-        player.GetComponent<PickupController>().ChangeObject(pickupable);
+        if (pickupCtrl.CarriedObject.TryGetComponent(out Pickupable curPickupable))
+        {
+            pickupCtrl.DropObject();
+            curPickupable.DestroyPickupable();
+        }
+
+        GameObject spawnedItem = Instantiate(prefab, spawnTransform.position, spawnTransform.rotation);
+        
+        if (spawnedItem.TryGetComponent<Pickupable>(out Pickupable pickupable))
+        {
+            if (useDefaultPickupSound == true)
+            {
+                pickupCtrl.Pickup(pickupable);
+            }
+            else
+            {
+                pickupCtrl.Pickup(pickupable, spawnSound);
+            }
+        }
     }
-
-
-    //    PickupController pCon = interacter.GetComponent<PickupController>();
-    //    if (pCon != null)
-    //    {
-    //        Pickupable itemPickupable = Instantiate(itemPrefab).GetComponent<Pickupable>();
-    //        if (itemPickupable != null)
-    //        {
-    //            pCon.Pickup(itemPickupable);
-    //            Debug.Log(interacter.name + " picked up item " + itemPrefab.name);
-    //        }
-    //        else
-    //        {
-    //            Debug.LogWarning("Item Prefab " + itemPrefab.name + " has no Pickupable component. Can't be pickuped.");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Interacter " + interacter.name + " has no PickupController component. Can't pick up item " + itemPrefab.name + ".");
-    //    }
-    //}
 }

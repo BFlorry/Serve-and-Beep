@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     void OnInteract()
     {
         bool interacted = playerInteractionController.Interact();
-        if (interacted == false) pickupController.Pickup();
+        if (interacted == false) pickupController.TryPickup();
     }
 
     public void TogglePlayerFreeze()

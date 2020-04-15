@@ -129,6 +129,7 @@ Shader "Outlined/UltimateOutlineShadows"
 
 		struct Input {
 			float2 uv_MainTex;
+			float4 screenPos;   // built in param used for transparency stippling
 		};
 
 		void surf(Input IN, inout SurfaceOutput  o) {
@@ -136,6 +137,7 @@ Shader "Outlined/UltimateOutlineShadows"
 			o.Albedo = c.rgb;
 			o.Alpha = 1;
 		}
+
 		ENDCG
 	}
 	Fallback "Diffuse"

@@ -168,7 +168,8 @@ MonoBehaviour:
   throwSfx: {fileID: 8300000, guid: 60fafb3a900667a4393e9f2fa7965e10, type: 3}
   pickupSfx: {fileID: 8300000, guid: 79e6b960907a15b4bbc510ad468bab40, type: 3}
   throwMagnitude: 400
-  carryOffset: 1.1
+  carryOffsetFwd: 1.1
+  carryOffsetUp: 0.45
   maxRayDistance: 1.1
   maxRaySphereRadius: 0.5
 --- !u!114 &7551367485553071536

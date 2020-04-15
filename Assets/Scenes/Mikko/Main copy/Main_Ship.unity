@@ -6004,6 +6004,8 @@ GameObject:
   - component: {fileID: 1147963425}
   - component: {fileID: 1147963424}
   - component: {fileID: 1147963426}
+  - component: {fileID: 1147963429}
+  - component: {fileID: 1147963430}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6145,6 +6147,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 54.07, y: 0, z: 0}
+--- !u!114 &1147963429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147963423}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ded81b07774904884cc004623c3df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curZoomOutScale: 0
+  defaultZoomOutScale: 10
+  minZoomOutScale: 5
+  maxZoomOutScale: 13
+  zoomVector: {x: 0, y: 1, z: -1}
+--- !u!114 &1147963430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147963423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e5fe06018eb54fbd2cf038824bf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  offset: {x: 0, y: 14, z: -10}
+  smoothTime: 5
+  minZoom: 85
+  maxZoom: 25
+  zoomLimiter: 50
 --- !u!4 &1153143697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4632245330311850, guid: d386f8832054e9c4ebb7feebef84fb0c,
@@ -11048,7 +11085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2017399680
 Transform:
   m_ObjectHideFlags: 0

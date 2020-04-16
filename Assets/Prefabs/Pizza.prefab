@@ -41,9 +41,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef86a4ea990937947afad19b1e3b9d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   maxRayDistance: 1
   maxRaySphereRadius: 0.5
-  interactSfx: {fileID: 8300000, guid: 613a1c19dc169ce40a31c947905bf765, type: 3}
+  interactSfx: {fileID: 0}
   targetInteractableObjects:
   - {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
 --- !u!1 &1656319150757641816

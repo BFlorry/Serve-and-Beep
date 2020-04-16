@@ -1666,7 +1666,8 @@ AudioSource:
   m_GameObject: {fileID: 4205046818713436390}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8337318018696630188, guid: 8efd0a0636b98be42886028ff379d1a7,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 02921844694387349a14092da7808257, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -1762,7 +1763,8 @@ AudioSource:
   m_GameObject: {fileID: 4205046818713436390}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1110118767794071378, guid: 8efd0a0636b98be42886028ff379d1a7,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 10f8f705963b6664cac03527801407ba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -1858,7 +1860,8 @@ AudioSource:
   m_GameObject: {fileID: 4205046818713436390}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1110118767794071378, guid: 8efd0a0636b98be42886028ff379d1a7,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 97f8470753387ab41a944ce7555389d0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -1958,6 +1961,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 453178926}
+  levelSnapshot: {fileID: 24500006, guid: 8efd0a0636b98be42886028ff379d1a7, type: 2}
+  pauseSnapshot: {fileID: 7009150214812738158, guid: 8efd0a0636b98be42886028ff379d1a7,
+    type: 2}
+  pauseSfx: {fileID: 8300000, guid: d88556cd9e1c8bd4c98e7ff209f9a302, type: 3}
+  resumeSfx: {fileID: 8300000, guid: d4e00825c005cfa4c8cdedf5dcae3e8d, type: 3}
+  Audio: {fileID: 4205046818713436389}
 --- !u!114 &2925129890881825815
 MonoBehaviour:
   m_ObjectHideFlags: 0

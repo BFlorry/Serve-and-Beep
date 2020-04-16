@@ -46,6 +46,7 @@ public class Customer : MonoBehaviour
     /// </summary>
     private void Start()
     {
+
         //If sfDefault is not valid, set it as sfMax / 2.
         if (sfDefault <= 0 || sfMax < sfDefault)
         {

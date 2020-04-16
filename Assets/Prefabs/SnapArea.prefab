@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 545861630682018558}
   - component: {fileID: 545861630682018557}
   - component: {fileID: 545861630682018556}
-  - component: {fileID: 6008006346097772828}
   m_Layer: 12
   m_Name: SnapArea
   m_TagString: Untagged
@@ -108,19 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85b8ac708d189e4c846b940b93d70e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6008006346097772828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545861630682018498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a1abd49b562f6409cc6c9e3ba1d5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 2
 --- !u!1 &545861631044105570
 GameObject:
   m_ObjectHideFlags: 0

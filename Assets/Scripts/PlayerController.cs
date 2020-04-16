@@ -24,11 +24,17 @@ public class PlayerController : MonoBehaviour
 
     Quaternion turnRotation;
 
+    PickupController pickupController;
+
+    PlayerInteractionController playerInteractionController;
+
     void Start()
     {
         playerSpeedStore = playerSpeed;
         audioListener = this.GetComponentInChildren<AudioListener>();
         turnRotation = this.transform.rotation;
+        this.TryGetComponent(out pickupController);
+        this.TryGetComponent(out playerInteractionController);
     }
 
     void OnDeviceLost(PlayerInput pi)
@@ -69,6 +75,15 @@ public class PlayerController : MonoBehaviour
     void OnPause()
     {
         FindObjectOfType<PauseManager>().TogglePause();
+    }
+
+    /// <summary>
+    /// When pressing interact-button, first try interacting and if an interact didn't happen, perform a pickup
+    /// </summary>
+    void OnInteract()
+    {
+        bool interacted = playerInteractionController.Interact();
+        if (interacted == false) pickupController.TryPickup();
     }
 
     public void TogglePlayerFreeze()

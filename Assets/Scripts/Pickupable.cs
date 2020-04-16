@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static Enums.Pickupables;
 
@@ -16,8 +17,6 @@ public class Pickupable : MonoBehaviour
     private float maxRayDistance = 2.0f;
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
-    [SerializeField]
-    private AudioClip interactSfx;
     [SerializeField]
     private GameObject[] targetInteractableObjects;
 
@@ -51,6 +50,7 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
+        Carried = true;
         if (Player == null)
         {
             Player = pickupPlayer;
@@ -74,7 +74,7 @@ public class Pickupable : MonoBehaviour
     /// <summary>
     /// Raycast forward and if there is an iteminteractable object, interact with it and (currently) destroy this object.
     /// </summary>
-    public void InteractWithItem()
+    public bool InteractWithItem()
     {
         //TODO: This as a separate class?
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
@@ -88,20 +88,35 @@ public class Pickupable : MonoBehaviour
                     IItemInteractable interactable = (IItemInteractable)mb;
                     foreach (IItemInteractable interactObj in targetInteractables)
                     {
-                        if (interactObj.GetType() == interactable.GetType())
+                        bool interactSuccess = interactable.Interact(this.gameObject);
+                        if (interactSuccess == true)
                         {
-                            bool interactSuccess = interactable.Interact(this.gameObject);
-                            if (interactSuccess == true)
-                            {
-                                Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-                                RemoveFromPlayer();
-                                Destroy(this.gameObject);
-                            }
-                            return;
+
+                            return true;
                         }
+                        return false;
                     }
                 }
             }
         }
+        return false;
+    }
+
+    public void DestroyPickupable(float time = 0f)
+    {
+        StartCoroutine(DestroyAfterTime(this.gameObject, time));
+    }
+
+    /// <summary>
+    /// Destroys item and its children after given time.
+    /// </summary>
+    /// <param name="obj">GameObject to be destroyed.</param>
+    /// <param name="time">time to be waited</param>
+    /// <returns>IEnumerator</returns>
+    private IEnumerator DestroyAfterTime(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        Destroy(obj);
     }
 }

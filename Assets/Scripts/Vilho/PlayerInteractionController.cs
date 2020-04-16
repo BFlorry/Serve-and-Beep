@@ -20,14 +20,14 @@ public class PlayerInteractionController : MonoBehaviour
     /// Creates SphereCast from this GameObject, and a list of objects hit, that implement IInteractable.
     /// Calls every list member's Interact function.
     /// </summary>
-    public void OnInteract()
+    /// <returns>Returns whether interact happened</returns>
+    public bool Interact()
     {
         Pickupable pickupable = pickupController.GetPickupable();
         if (pickupable != null)
         {
-            pickupable.InteractWithItem();
             Debug.Log("Sending interaction call to picked up item...");
-            
+            return pickupable.InteractWithItem();
         }
         else
         {
@@ -41,11 +41,13 @@ public class PlayerInteractionController : MonoBehaviour
                     if (mb is IInteractable)
                     {
                         SendInteract(mb, this.gameObject);
-                        return;
+                        Debug.Log("Sending interaction call to interactable item...");
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
     private void SendInteract(MonoBehaviour mb, GameObject gameobject)

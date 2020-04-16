@@ -3,7 +3,13 @@ guid: 15aaf4360da6d8e4f83e615434c13c07
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pauseMenuUI: {instanceID: 0}
+  - levelSnapshot: {instanceID: 0}
+  - pauseSnapshot: {instanceID: 0}
+  - pauseAudio: {fileID: 8300000, guid: d88556cd9e1c8bd4c98e7ff209f9a302, type: 3}
+  - Audio: {instanceID: 0}
+  - resumeAudio: {fileID: 8300000, guid: d4e00825c005cfa4c8cdedf5dcae3e8d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

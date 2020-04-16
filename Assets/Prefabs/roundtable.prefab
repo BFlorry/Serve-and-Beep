@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8710004850467128233}
   - component: {fileID: 412961159311456671}
   - component: {fileID: 6235137579000333670}
-  - component: {fileID: 6737937419388986159}
-  - component: {fileID: 3122551715645977565}
+  - component: {fileID: 877713614066259627}
   m_Layer: 0
   m_Name: roundtable
   m_TagString: Untagged
@@ -81,31 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6737937419388986159
+--- !u!64 &877713614066259627
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673267361928655290}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b09476ea3deda9f4bb0ef3408a9917a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -908542513191656149, guid: 74f3835ee9bbc1643b9deb09af39012f, type: 3}
---- !u!136 &3122551715645977565
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5673267361928655290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 1.4413763
-  m_Height: 4.1988792
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}

@@ -7,6 +7,6 @@ public class LevelStart : TimedInteractionController
 {
     public override void InteractionAction()
     {
-        FindObjectOfType<GameStateController>().LoadStage(("Main_Ship"));
+        FindObjectOfType<GameStateController>().LoadStage(("Stage_1"));
     }
 }

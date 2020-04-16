@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 101295730773999325}
   - component: {fileID: 2669195167906634142}
   - component: {fileID: 4964288091344700704}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: NeedCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873067167754848678}
-  m_LocalRotation: {x: 0.50015116, y: -0, z: -0, w: 0.8659381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.003501892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 9057435914626734404}
   m_Father: {fileID: 5779668209870058099}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.4270018}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5779668209870058099}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: CustomerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2604246706853631532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8902934265253572619}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 9057435914626734404}
   - component: {fileID: 8044382071215831833}
   - component: {fileID: 2181142290098829550}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Need
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 5322362707290861107}
   - component: {fileID: 3771695625380904910}
   - component: {fileID: 3526284642556410667}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 6298475037561102054}
   - component: {fileID: 6298475037561102055}
   - component: {fileID: 6298475037561102072}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: MoodCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 6298475038063069735}
   - component: {fileID: 6298475038063069752}
   - component: {fileID: 6298475038063069753}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 6298475038633310775}
   - component: {fileID: 6298475038633310773}
   - component: {fileID: 6298475038633310774}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Bar BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 6298475038755176910}
   - component: {fileID: 6298475038755176908}
   - component: {fileID: 6298475038755176909}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,6 +686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c057800a715c8a499ced51a52bc67bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSfx: {fileID: 0}
+  needObjDestroyTime: 0
+  minWaitTime: 3
+  maxWaitTime: 6
 --- !u!114 &7589029067965355615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +732,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4857813a80b10264493c86fd4d7ad5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkRadius: 7
+  destReachTreshold: 0.3
+  minWaitTime: 4
+  maxWaitTime: 10
+  destRotSpeed: 0.003
   moveRandomlyInAreas: 1
 --- !u!195 &1463456135
 NavMeshAgent:
@@ -739,10 +748,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 0.5
+  m_Speed: 2
+  m_Acceleration: 0.7
   avoidancePriority: 50
-  m_AngularSpeed: 50
+  m_AngularSpeed: 75
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -805,7 +814,7 @@ GameObject:
   - component: {fileID: 6206578911490150912}
   - component: {fileID: 1455436340682038363}
   - component: {fileID: 4106322069687426599}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: NeedBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +887,7 @@ GameObject:
   - component: {fileID: 7188611090142260846}
   - component: {fileID: 7047771968363702637}
   - component: {fileID: 4892012408076456657}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Bar BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

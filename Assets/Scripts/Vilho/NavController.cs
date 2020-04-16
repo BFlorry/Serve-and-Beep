@@ -11,7 +11,7 @@ public class NavController : MonoBehaviour
     //Fields------------------------------------------------------------------------
 
     [SerializeField]
-    private readonly float
+    private float
         walkRadius = 7.0f,
         destReachTreshold = 0.1f,
         minWaitTime = 4f,

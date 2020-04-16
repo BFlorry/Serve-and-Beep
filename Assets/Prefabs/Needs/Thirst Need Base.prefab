@@ -128,7 +128,7 @@ MonoBehaviour:
   tokenAmount: 1
   posReview: 10
   negReview: 5
-  decreaseSpeed: 0.02
+  decreaseSpeed: 0.03
   maxValue: 100
   sprite: {fileID: 21300000, guid: 4322662e72e572b4c8750078617b6699, type: 3}
   area: {fileID: 687028829852349430}

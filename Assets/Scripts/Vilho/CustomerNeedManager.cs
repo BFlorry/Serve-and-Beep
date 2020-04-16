@@ -6,7 +6,6 @@ public class CustomerNeedManager : MonoBehaviour
 {
     public CustomerNeed[] Needs { get; private set; }
 
-    [SerializeField]
     private CustomerNeed exitNeed;
 
     private void Awake()

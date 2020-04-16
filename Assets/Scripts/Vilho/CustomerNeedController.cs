@@ -17,14 +17,15 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
     private float currentValue;
     private float defaultValue = 0f;
+    [SerializeField]
     private float minWaitTime = 3f;
-    private float maxWaitTime = 6f;
+    [SerializeField]
+    private float maxWaitTime = 10f;
 
     private CustomerNeedManager needManager;
     private Customer customer;
     private NavController navController;
     private CustomerNeedDisplay display;
-    private IEnumerator waitAfterMove;
 
     CustomerController customerController;
 

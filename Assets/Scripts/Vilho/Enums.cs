@@ -31,7 +31,7 @@ public static class Enums
         {
             Empty,
             Food,
-            Drink,
+            DrinkEmpty,
             RedDrink,
             BlueDrink,
             YellowDrink,

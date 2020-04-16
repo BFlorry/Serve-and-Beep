@@ -17,7 +17,9 @@ public class PickupController : MonoBehaviour
     [SerializeField]
     private float throwMagnitude = 100f;
     [SerializeField]
-    private float carryOffset = 1f;
+    private float carryOffsetFwd = 1f;
+    [SerializeField]
+    private float carryOffsetUp = 0.5f;
 
     [SerializeField]
     private float maxRayDistance = 0.5f;
@@ -89,7 +91,7 @@ public class PickupController : MonoBehaviour
     private void Carry(GameObject o)
     {
         o.GetComponent<Rigidbody>().isKinematic = true;
-        o.transform.position = carryPosition.transform.position + carryPosition.transform.forward * carryOffset;
+        o.transform.position = carryPosition.transform.position + carryPosition.transform.forward * carryOffsetFwd + carryPosition.transform.up * carryOffsetUp;
         o.transform.rotation = carryPosition.transform.rotation;
     }
 

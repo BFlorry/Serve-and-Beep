@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 585978374678777715}
   - component: {fileID: 4939404141952602812}
   m_Layer: 12
-  m_Name: Thirst
+  m_Name: Thirst Need Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   tokenAmount: 1
   posReview: 10
   negReview: 5
-  decreaseSpeed: 0.03
+  decreaseSpeed: 0.07
   maxValue: 100
   sprite: {fileID: 21300000, guid: 4322662e72e572b4c8750078617b6699, type: 3}
   area: {fileID: 687028829852349430}

@@ -70,7 +70,14 @@ public class LevelManager : MonoBehaviour
     {
         if (amount > 0) soundManager.PlaySingle(posReviewSfx);
         else soundManager.PlaySingle(negReviewSfx);
-        levelScore += amount;
+        if((levelScore + amount) >= 0)
+        {
+            levelScore += amount;
+        }
+        else if((levelScore + amount) < 0)
+        {
+            levelScore = 0;
+        }
         scoreText.text = levelScore.ToString();
     }
 

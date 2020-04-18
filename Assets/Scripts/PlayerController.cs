@@ -14,27 +14,41 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private float dashForce = 80f;
+
+    [SerializeField]
+    private float dashDistance = 3f;
+
     private float playerSpeedStore;
 
     AudioListener audioListener;
 
     private Vector2 moveAxis;
-
     private bool frozen = false;
+    private Quaternion turnRotation;
 
-    Quaternion turnRotation;
+    private PickupController pickupController;
+    private PlayerInteractionController playerInteractionController;
 
-    PickupController pickupController;
+    private Rigidbody rigidbody;
+    private PlayerSfxManager sfxManager;
 
-    PlayerInteractionController playerInteractionController;
+    [SerializeField]
+    private AudioClip dashSfx;
+
+    [SerializeField]
+    private GameObject dashParticle;
 
     void Start()
     {
         playerSpeedStore = playerSpeed;
         audioListener = this.GetComponentInChildren<AudioListener>();
+        rigidbody = GetComponent<Rigidbody>();
         turnRotation = this.transform.rotation;
         this.TryGetComponent(out pickupController);
         this.TryGetComponent(out playerInteractionController);
+        sfxManager = GetComponent<PlayerSfxManager>();
     }
 
     void OnDeviceLost(PlayerInput pi)
@@ -50,15 +64,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Velocity", new Vector2(GetComponent<Rigidbody>().velocity.x, GetComponent<Rigidbody>().velocity.z).magnitude);
+        animator.SetFloat("Velocity", new Vector2(rigidbody.velocity.x, rigidbody.velocity.z).magnitude);
         animator.SetBool("Carrying", GetComponent<PickupController>().Carrying);
     }
 
     void PlayerMovementNew()
     {
         Vector3 targetVelocity = new Vector3(moveAxis.x, 0, moveAxis.y);
-        Vector3 fallingVelocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y, 0);
-        GetComponent<Rigidbody>().velocity = fallingVelocity + (targetVelocity * playerSpeed);
+        Vector3 fallingVelocity = new Vector3(0, rigidbody.velocity.y, 0);
+        rigidbody.velocity = fallingVelocity + (targetVelocity * playerSpeed);
 
         if(targetVelocity.magnitude > 0 && !frozen) {
             //Rotate player
@@ -70,6 +84,29 @@ public class PlayerController : MonoBehaviour
     public void OnMovement(InputValue value)
     {
         moveAxis = value.Get<Vector2>();
+    }
+
+    public void OnDash()
+    {
+        Vector3 dashVector = new Vector3(moveAxis.x, 0f, moveAxis.y) * dashDistance;
+        if (moveAxis.magnitude > 0)
+        {
+            RaycastHit hit;
+            sfxManager.PlayRandomized(dashSfx);
+            if (Physics.Raycast(rigidbody.position, dashVector.normalized, out hit, dashVector.magnitude))
+            {
+                // If hit something, then cause player to fall
+                rigidbody.MovePosition(rigidbody.position + dashVector.normalized * hit.distance - dashVector.normalized * 0.8f);
+                animator.Play("Bump");
+            }
+            else
+            {
+                // Didn't hit anything
+                Instantiate(dashParticle, this.transform.position, Quaternion.identity);
+                //rigidbody.AddForce(new Vector3(moveAxis.x, 0f, moveAxis.y) * dashForce, ForceMode.VelocityChange);
+                rigidbody.MovePosition(rigidbody.position + dashVector);
+            }
+        }
     }
 
     void OnPause()

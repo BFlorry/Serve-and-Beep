@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 5609420379761832610}
   - component: {fileID: 8697540354899510023}
   - component: {fileID: 2327816025047351871}
+  - component: {fileID: 5878729960356958587}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -346,6 +347,23 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.06}
   m_TimeToStationary: 0.5
+--- !u!114 &5878729960356958587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588795269810305779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8391f527d68263243bef103acc9c411c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 8660347b99d76454faf5923bb8699632, type: 2}
+  - {fileID: 2100000, guid: 5e682b6da84f9d648a9a54651f6af6c9, type: 2}
+  - {fileID: 2100000, guid: 92b8f94ce8bb1a14fae95fb007cfa7d2, type: 2}
+  - {fileID: 2100000, guid: c1dfb6a69a93f414abdab8c73d15846c, type: 2}
 --- !u!114 &750691806271287237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +371,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7088557921957557911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07eec2534f97be942bc291954ea297ec, type: 3}
   m_Name: 

@@ -1,20 +1,8 @@
 fileFormatVersion: 2
-guid: 174e8daef7f981e41ae2fe013334d15b
+guid: 14085f39e9ac435438a10b8264696cc2
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: -3894124611563714263
-    second: drinktap|Action
-  - first:
-      74: -8039943755758778415
-    second: drinktap|usetap
-  - first:
-      74: 885944232402757753
-    second: Armature|Action
-  - first:
-      74: -4253110050398380627
-    second: Armature|usetap
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1

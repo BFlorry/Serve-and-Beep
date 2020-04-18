@@ -1059,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37119072}
   m_Layer: 0
-  m_Name: RestaurantTable
+  m_Name: RestaurantTableLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,7 +1073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37119071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.515121, y: 0, z: -1.7759743}
+  m_LocalPosition: {x: -9.515121, y: 17, z: -1.7759743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 500851094}
@@ -8471,7 +8471,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: b4637ac7ccc03b54086c594f51417a3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b4637ac7ccc03b54086c594f51417a3d,
         type: 3}
@@ -10382,7 +10382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500851093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.25, y: 18.210001, z: -14.2354965}
+  m_LocalPosition: {x: 3.25, y: 1.5, z: -14.2354965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 564887631}
@@ -31198,7 +31198,7 @@ PrefabInstance:
     - target: {fileID: 8950933399301196941, guid: 42e2b2bc10372854cbde5d7133157492,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.58
+      value: 16.449999
       objectReference: {fileID: 0}
     - target: {fileID: 8950933399301196941, guid: 42e2b2bc10372854cbde5d7133157492,
         type: 3}
@@ -37286,7 +37286,7 @@ PrefabInstance:
     - target: {fileID: 8497256653517894758, guid: 0c84c5d852e62b347a2c2f0a4c1ec039,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.26
+      value: 17.13
       objectReference: {fileID: 0}
     - target: {fileID: 8497256653517894758, guid: 0c84c5d852e62b347a2c2f0a4c1ec039,
         type: 3}
@@ -40174,7 +40174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763371189}
   m_Layer: 0
-  m_Name: BarTable
+  m_Name: BarTableLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40188,7 +40188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763371188}
   m_LocalRotation: {x: -0.7071069, y: 0.00000026822087, z: 0.00000015965388, w: 0.70710677}
-  m_LocalPosition: {x: 8.89, y: 16.71, z: -14.275974}
+  m_LocalPosition: {x: 8.89, y: 17, z: -14.275974}
   m_LocalScale: {x: 6, y: 0.50593126, z: 1}
   m_Children:
   - {fileID: 686622366}

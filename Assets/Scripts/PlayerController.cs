@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float dashDistance = 3f;
 
+    [SerializeField]
+    private float dashCooldown = 0.2f;
+
+    private float nextDash = 0f;
+
     private float playerSpeedStore;
 
     AudioListener audioListener;
@@ -90,8 +95,11 @@ public class PlayerController : MonoBehaviour
     public void OnDash()
     {
         Vector3 dashVector = new Vector3(moveAxis.x, 0f, moveAxis.y) * dashDistance;
-        if (moveAxis.magnitude > 0)
+        if (moveAxis.magnitude > 0 && Time.time >= nextDash)
         {
+            // Calculate cooldown
+            nextDash = Time.time + dashCooldown;
+
             RaycastHit hit;
             sfxManager.PlayRandomized(dashSfx);
             if (Physics.Raycast(rigidbody.position, dashVector.normalized, out hit, dashVector.magnitude))

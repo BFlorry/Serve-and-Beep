@@ -42,4 +42,9 @@ public class CustomerNeed : MonoBehaviour
     public Sprite Sprite { get => sprite; }
     public GameObject Area { get => area; }
     public GameObject PointGroup { get => pointGroup; }
+
+    public bool ItemTypeEquals(ItemType itemType)
+    {
+        return satisfItem.Equals(itemType);
+    }
 }

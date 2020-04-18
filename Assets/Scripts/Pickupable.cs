@@ -108,6 +108,7 @@ public class Pickupable : MonoBehaviour
 
     public void DestroyPickupable(float time = 0f)
     {
+        RemoveFromPlayer();
         StartCoroutine(DestroyAfterTime(this.gameObject, time));
     }
 
@@ -120,7 +121,6 @@ public class Pickupable : MonoBehaviour
     private IEnumerator DestroyAfterTime(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
-        Carried = false;
         GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
     }
 }

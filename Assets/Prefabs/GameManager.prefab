@@ -1558,6 +1558,7 @@ GameObject:
   - component: {fileID: 7118986199394677799}
   - component: {fileID: 8599514392593763594}
   - component: {fileID: 2925129890881825815}
+  - component: {fileID: 7450136444963319354}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1979,3 +1980,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e461a50bc0ad0245894cad2faf38bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7450136444963319354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205046818713436390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c51771945ac9c4a8e8cd927183fe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmountOfPickupables: 10
+  pickupableCheckInterval: 0.5

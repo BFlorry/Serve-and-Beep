@@ -50,20 +50,24 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
-        Carried = true;
         if (Player == null)
         {
+            // No player carrying, set this player
+            Carried = true;
             Player = pickupPlayer;
         }
         else if (Player.Equals(pickupPlayer) == false)
         {
+            // Change player
             RemoveFromPlayer();
+            Carried = true;
             Player = pickupPlayer;
         }
     }
 
     public void RemoveFromPlayer()
     {
+        Carried = false;
         if (Player != null)
         {
             Player.DropObject(); Player = null;
@@ -116,7 +120,7 @@ public class Pickupable : MonoBehaviour
     private IEnumerator DestroyAfterTime(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
-
-        Destroy(obj);
+        Carried = false;
+        GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
     }
 }

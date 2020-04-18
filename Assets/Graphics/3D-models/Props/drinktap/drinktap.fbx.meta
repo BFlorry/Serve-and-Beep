@@ -7,6 +7,15 @@ ModelImporter:
       74: 885944232402757753
     second: Armature|Action
   - first:
+<<<<<<< HEAD
+=======
+      74: -8039943755758778415
+    second: drinktap|usetap
+  - first:
+      74: 885944232402757753
+    second: Armature|Action
+  - first:
+>>>>>>> master
       74: -4253110050398380627
     second: Armature|usetap
   externalObjects: {}

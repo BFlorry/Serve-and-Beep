@@ -73,8 +73,8 @@ public class ConditionalItemSpawner : MonoBehaviour, IItemInteractable
             curPickupable.DestroyPickupable();
         }
 
-        GameObject spawnedItem = Instantiate(prefab, spawnTransform.position, spawnTransform.rotation);
-        
+        GameObject spawnedItem = FindObjectOfType<PickupableManager>().SpawnPickupable(prefab, spawnTransform.position, spawnTransform.rotation);
+
         if (spawnedItem.TryGetComponent<Pickupable>(out Pickupable pickupable))
         {
             if (useDefaultPickupSound == true)

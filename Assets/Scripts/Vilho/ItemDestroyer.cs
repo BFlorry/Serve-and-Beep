@@ -165,6 +165,6 @@ public class ItemDestroyer : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        Destroy(obj);
+        GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
     }
 }

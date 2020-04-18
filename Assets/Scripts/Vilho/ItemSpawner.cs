@@ -26,7 +26,7 @@ public class ItemSpawner : MonoBehaviour, IInteractable
     {
         if (interacter.TryGetComponent(out PickupController pCon))
         {
-            GameObject spawnedItem = Instantiate(itemPrefab);
+            GameObject spawnedItem =  FindObjectOfType<PickupableManager>().SpawnPickupable(itemPrefab, this.transform.position, this.transform.rotation);
             if (spawnedItem.TryGetComponent(out Pickupable itemPickupable))
             {
                 if (useDefaultPickupSound == true)

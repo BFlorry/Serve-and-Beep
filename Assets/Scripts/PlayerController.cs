@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    [SerializeField]
-    private float dashForce = 80f;
+    // TODO: Remove this when decided on dash style
+    //[SerializeField]
+    //private float dashForce = 80f;
 
     [SerializeField]
     private float dashDistance = 3f;
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Didn't hit anything
                 Instantiate(dashParticle, this.transform.position, Quaternion.identity);
+                // TODO: Remove this when decided on dash style
                 //rigidbody.AddForce(new Vector3(moveAxis.x, 0f, moveAxis.y) * dashForce, ForceMode.VelocityChange);
                 rigidbody.MovePosition(rigidbody.position + dashVector);
             }

@@ -22,6 +22,18 @@ public class PlayerManager : MonoBehaviour
         gameObject.GetComponent<PlayerInputManager>().EnableJoining();
     }
 
+    private void OnPlayerJoined()
+    {
+        foreach(PlayerInput playerInput in PlayerInput.all)
+        {
+            playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
+            if(playerMaterialManager != null)
+            {
+                playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
+            }
+        }
+    }
+
     /// <summary>
     /// Store players for scene change
     /// </summary>
@@ -42,7 +54,7 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     public void LoadPlayers()
     {
-        foreach (var player in m_Players)
+        foreach (PlayerData player in m_Players)
             PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
     }
 
@@ -74,6 +86,7 @@ public class PlayerManager : MonoBehaviour
     {
         public InputDevice[] devices { get; set; }
         public int index { get; set; }
+        public Material playerMaterial { get; set; }
     }
 
 }

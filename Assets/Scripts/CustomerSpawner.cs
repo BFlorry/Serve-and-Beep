@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CustomerSpawner : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class CustomerSpawner : MonoBehaviour
 
     Vector3 spawnPosition;
     Quaternion spawnRotation;
+
+    public AudioClip enterSfx;
+
+    public AudioSource Audio;
 
 
     private void OnDrawGizmos()
@@ -55,6 +60,8 @@ public class CustomerSpawner : MonoBehaviour
             {
                 Debug.Log("Spawning a new customer...");
                 customers.Add(Instantiate(customer, spawnPosition, spawnRotation));
+                Audio.PlayOneShot(enterSfx);
+
             }
             else
             {

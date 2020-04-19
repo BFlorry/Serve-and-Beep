@@ -4,11 +4,14 @@ ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -3894124611563714263
-    second: drinktap|Action
+      74: 885944232402757753
+    second: Armature|Action
   - first:
-      74: -8039943755758778415
-    second: drinktap|usetap
+      0: 0
+    second: 
+  - first:
+      74: -4253110050398380627
+    second: Armature|usetap
   externalObjects: {}
   materials:
     materialImportMode: 1

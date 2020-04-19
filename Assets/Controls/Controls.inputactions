@@ -154,7 +154,7 @@
                 {
                     "name": "",
                     "id": "862180c4-cbfa-4792-b64e-7f7d1e6498f5",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
@@ -345,7 +345,7 @@
             "id": "b610d8a5-fbf4-4e7f-be07-56cd2e482b1b",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Move",
                     "type": "Value",
                     "id": "ab9f2feb-ddd7-47c3-8e82-64746ce84e28",
                     "expectedControlType": "Stick",
@@ -353,18 +353,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "Accept",
                     "type": "Button",
                     "id": "894a7960-d237-42de-b91d-95065607fb7e",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Start",
-                    "type": "Button",
-                    "id": "7ad55517-28df-420e-9048-f671f5eff3fe",
-                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -377,7 +369,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -388,7 +380,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -399,7 +391,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -410,7 +402,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -421,7 +413,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -432,7 +424,7 @@
                     "interactions": "",
                     "processors": "StickDeadzone",
                     "groups": "Gamepad",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -443,7 +435,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Interact",
+                    "action": "Accept",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -454,29 +446,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bfea3d0a-e3e2-40b7-b6b4-9ddacc712a38",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ae6c789b-02b1-4e36-a3f2-1ec241f8cc53",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard p1",
-                    "action": "Start",
+                    "action": "Accept",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -487,7 +457,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -498,7 +468,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -509,7 +479,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -520,7 +490,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -531,7 +501,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -542,7 +512,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Interact",
+                    "action": "Accept",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

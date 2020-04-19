@@ -14,13 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_Main/Character_Select.unity
     guid: 2cd66a76013305a449391422522395ed
-  - enabled: 0
-    path: Assets/Scenes/_Main/Old_Main_Ship.unity
-    guid: bd69b5df30bd16443a679d08f7d0b921
-  - enabled: 0
-    path: Assets/Scenes/Oskari/Main_Ship.unity
-    guid: ff7eaaf2ddf3e264b8b68834613de967
   - enabled: 1
     path: Assets/Scenes/_Main/Stage_1.unity
-    guid: d4a7a16f885cc5e4ca472342dd9923c4
+    guid: 99996bface8031c498375097f6096988
   m_configObjects: {}

@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour
 {
     //Drag a reference to the audio source which will play the sound effects.
     public AudioSource sfxSource;
+    public AudioSource secondarySfxSource;
     //Drag a reference to the audio source which will play the music.
     public AudioSource musicSource;
     public AudioSource secondaryMusicSource;
@@ -44,6 +45,46 @@ public class SoundManager : MonoBehaviour
     {
         //Play the clip.
         if(sfxSource != null) sfxSource.PlayOneShot(clip);
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
+
+    //Used to play single sound clips.
+    public void PlaySingleSecondary(AudioClip clip)
+    {
+        //Play the clip.
+        if (secondarySfxSource != null) secondarySfxSource.PlayOneShot(clip);
+        else Debug.LogWarning("Secondary SFX source was null: ", secondarySfxSource);
+    }
+
+    public void PlaySingleStoppable(AudioClip clip)
+    {
+        //Play the clip.
+        if (sfxSource != null)
+        {
+            sfxSource.clip = clip;
+            sfxSource.Play();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
+
+    public bool IsSFXPlaying()
+    {
+        //Play the clip.
+        if (sfxSource != null)
+        {
+            return sfxSource.isPlaying;
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+        return false;
+    }
+    public void StopSingleStoppable()
+    {
+        //Stop the clip.
+        if (sfxSource != null)
+        {
+            sfxSource.Stop();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
     }
 
     public void PlayMusic(AudioClip clip)

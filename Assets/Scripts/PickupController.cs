@@ -26,6 +26,9 @@ public class PickupController : MonoBehaviour
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
 
+    [SerializeField]
+    private LayerMask carryCollideLayerMask;
+
     public bool Carrying { get; private set; }
 
     // Use this for initialization
@@ -54,7 +57,7 @@ public class PickupController : MonoBehaviour
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
-        
+
         foreach (RaycastHit hit in hits)
         {
             if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
@@ -90,8 +93,9 @@ public class PickupController : MonoBehaviour
 
     private void Carry(GameObject o)
     {
-        o.GetComponent<Rigidbody>().isKinematic = true;
-        o.transform.position = carryPosition.transform.position + carryPosition.transform.forward * carryOffsetFwd + carryPosition.transform.up * carryOffsetUp;
+        //o.GetComponent<Rigidbody>().isKinematic = true;
+        o.GetComponent<Rigidbody>().useGravity = false;
+        MovePickupable(o);
         o.transform.rotation = carryPosition.transform.rotation;
     }
 
@@ -102,7 +106,8 @@ public class PickupController : MonoBehaviour
             CarriedObject.GetComponent<Pickupable>().Carried = false;
             sfxManager.PlaySingle(throwSfx);
             Carrying = false;
-            CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
+            //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
+            CarriedObject.GetComponent<Rigidbody>().useGravity = true;
             CarriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
             CarriedObject.GetComponent<Pickupable>().Pickup(this);
             CarriedObject = null;
@@ -115,7 +120,8 @@ public class PickupController : MonoBehaviour
         {
             CarriedObject.GetComponent<Pickupable>().Carried = false;
             Carrying = false;
-            CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
+            //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
+            CarriedObject.GetComponent<Rigidbody>().useGravity = true;
             CarriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);
             CarriedObject = null;
         }
@@ -130,4 +136,22 @@ public class PickupController : MonoBehaviour
         }
         else return null;
     }
+
+    private void MovePickupable(GameObject o)
+    {
+        Vector3 carryVector = carryPosition.transform.forward * carryOffsetFwd + carryPosition.transform.up * carryOffsetUp;
+
+        RaycastHit hit;
+        if (Physics.Raycast(carryPosition.transform.position, carryVector.normalized, out hit, carryVector.magnitude, carryCollideLayerMask))
+        {
+            // If hit something, keep object closer
+            o.GetComponent<Rigidbody>().MovePosition(carryPosition.transform.position + carryVector.normalized * hit.distance);
+        }
+        else
+        {
+            // Didn't hit anything
+            o.GetComponent<Rigidbody>().MovePosition(carryPosition.transform.position + carryVector);
+        }
+    }
+
 }

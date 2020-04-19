@@ -141,13 +141,18 @@ PrefabInstance:
         type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2ad621e0fc63e7c4599ec4935f5f7918,
+      objectReference: {fileID: 21300000, guid: 082994ed152bfc04d97f2df2a1f93185,
         type: 3}
     - target: {fileID: 4939404141952602812, guid: ed20b487ab8ad614b8c0c1da4c069456,
         type: 3}
       propertyPath: satisfItem
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4939404141952602812, guid: ed20b487ab8ad614b8c0c1da4c069456,
+        type: 3}
+      propertyPath: area
+      value: 
+      objectReference: {fileID: 6627594655397024519}
     - target: {fileID: 6259384265044120156, guid: ed20b487ab8ad614b8c0c1da4c069456,
         type: 3}
       propertyPath: m_Name
@@ -198,6 +203,12 @@ PrefabInstance:
 --- !u!4 &7026257572915079134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8747500394171140905, guid: ed20b487ab8ad614b8c0c1da4c069456,
+    type: 3}
+  m_PrefabInstance: {fileID: 1794426384323013879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6627594655397024519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4836557532881158128, guid: ed20b487ab8ad614b8c0c1da4c069456,
     type: 3}
   m_PrefabInstance: {fileID: 1794426384323013879}
   m_PrefabAsset: {fileID: 0}

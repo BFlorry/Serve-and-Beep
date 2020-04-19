@@ -1,9 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     private GameObject playerPrefab;
+
+    public AudioClip joinSfx;
+
+    public AudioSource Audio;
+
+    public string myFirstScene;
 
     private void DisableHotJoin()
     {
@@ -24,6 +31,17 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerJoined()
     {
+        // Return the current Active Scene in order to get the current Scene name.
+        Scene scene = SceneManager.GetActiveScene();
+
+        // Check if the name of the current Active Scene is your first Scene.
+        if (scene.name == myFirstScene)
+        {
+            Audio.PlayOneShot(joinSfx);
+
+        }
+
+
         foreach (PlayerInput playerInput in PlayerInput.all)
         {
             playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);

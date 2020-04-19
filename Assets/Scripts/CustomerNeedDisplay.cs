@@ -64,6 +64,5 @@ public class CustomerNeedDisplay : MonoBehaviour
     public void SetNeedCanvasActivity(bool b)
     {
         needCanvas.SetActive(b);
-        moodCanvas.SetActive(b);
     }
 }

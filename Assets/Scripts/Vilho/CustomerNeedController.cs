@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static Enums.Pickupables;
 
 /// <summary>
 /// A class that contains and controls a customer's needs and areas of the needs.
@@ -12,11 +13,6 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private AudioClip interactSfx;
     [SerializeField]
     private float needObjDestroyTime = 0f;
-
-    private CustomerNeed curNeed;
-
-    private float currentValue;
-    private float defaultValue = 0f;
     [SerializeField]
     private float minWaitTime = 3f;
     [SerializeField]
@@ -26,13 +22,19 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     private Customer customer;
     private NavController navController;
     private CustomerNeedDisplay display;
+    private CustomerController customerController;
 
-    CustomerController customerController;
+    private float currentValue;
+    private float defaultValue = 0f;
+    private bool needActive = false;
 
     //For testing and debugging only.
     private bool testCmdsActive = false;
     private KeyCode testCmdKey1 = KeyCode.F1;
     private KeyCode testCmdKey2 = KeyCode.F12;
+
+    //Properties------------------------------------------------------------------
+    public CustomerNeed CurNeed { get; private set; }
 
     //Methods---------------------------------------------------------------------
 
@@ -48,6 +50,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         this.display = GetComponent<CustomerNeedDisplay>();
         TryGetComponent(out customerController);
         SetNeed(needManager.GetRandomNeed());
+        SetNeedActivity(false);
     }
 
 
@@ -56,9 +59,9 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// </summary>
     void Update()
     {
-        if (curNeed != null)
+        if (CurNeed != null)
         {
-            display.SetProgressDisplayValue(currentValue, curNeed.MaxValue, defaultValue);
+            display.SetProgressDisplayValue(currentValue, CurNeed.MaxValue, defaultValue);
         }
 
         //For testing only
@@ -73,10 +76,10 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <param name="need">A need to be set to this customer.</param>
     public void SetNeed(CustomerNeed need)
     {
-        curNeed = need;
+        CurNeed = need;
         if (need != null)
         {
-            display.SetNeedSprite(curNeed.Sprite);
+            display.SetNeedSprite(CurNeed.Sprite);
             Debug.Log("Customers needs set as " + need.gameObject.name);
         }
         else
@@ -136,17 +139,16 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
     }
 
-
     /// <summary>
     /// Makes continuous changes to the state of customer's need.
     /// </summary>
     void FixedUpdate()
     {
-        if (curNeed != null)
+        if (CurNeed != null && needActive)
         {
-            if (currentValue < curNeed.MaxValue)
+            if (currentValue < CurNeed.MaxValue)
             {
-                currentValue += curNeed.DecreaseSpeed; 
+                currentValue += CurNeed.DecreaseSpeed; 
             }
             else
             {
@@ -173,6 +175,20 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         return Random.Range(minWaitTime, maxWaitTime);
     }
 
+    public void SetNeedActivity(bool b)
+    {
+        display.SetNeedCanvasActivity(b);
+        needActive = b;
+    }
+
+    public bool ItemTypeEquals(ItemType itemType)
+    {
+        if (CurNeed != null)
+        {
+            return CurNeed.ItemTypeEquals(itemType);
+        }
+        return false;
+    }
 
     /// <summary>
     /// Accepts any interactable item and excecutes the customer's need completion.
@@ -182,7 +198,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     public bool Interact(GameObject gameObject)
     {
         Pickupable pickupable = gameObject.GetComponent<Pickupable>();
-        if (pickupable != null && curNeed.SatisfItem == pickupable.ItemType)
+        if (pickupable != null && CurNeed.SatisfItem == pickupable.ItemType)
         {
             pickupable.Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
             pickupable.RemoveFromPlayer();
@@ -201,7 +217,6 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         }
     }
 
-
     /// <summary>
     /// Resets customer's need and waits for given time.
     /// Sets new random need.
@@ -210,24 +225,22 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     /// <returns>IEnumerator</returns>
     private IEnumerator WaitBeforeNextNeed(float time)
     {
-        display.SetNeedCanvasActivity(false);
-        curNeed = null;
+        SetNeedActivity(false);
+        CurNeed = null;
         navController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetRandomNeed());
-        display.SetNeedCanvasActivity(true); 
     }
 
     private IEnumerator WaitAndExit(float time)
     {
-        display.SetNeedCanvasActivity(false);
-        curNeed = null;
+        SetNeedActivity(false);
+        CurNeed = null;
         navController.StopMovement();
         currentValue = defaultValue;
         yield return new WaitForSeconds(time);
         SetNeed(needManager.GetExitNeed());
-        display.SetNeedCanvasActivity(true);
         StartCoroutine(CheckForExitCondition());
     }
 

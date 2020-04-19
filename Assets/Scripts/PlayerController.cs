@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject dashParticle;
+
+    [SerializeField]
+    private AudioClip bumpSfx;
+
 
     void Start()
     {
@@ -107,6 +111,7 @@ public class PlayerController : MonoBehaviour
                 // If hit something, then cause player to fall
                 rigidbody.MovePosition(rigidbody.position + dashVector.normalized * hit.distance - dashVector.normalized * 0.8f);
                 animator.Play("Bump");
+                sfxManager.PlayRandomized(bumpSfx);
             }
             else
             {

@@ -26,10 +26,11 @@ public class NavController : MonoBehaviour
     private CustomerNeed curNeed;
     private CustomerPoint curPoint;
     private IEnumerator wait;
-    private bool moving = false;
 
-    public bool Moving { get => moving; private set => moving = value; }
 
+    //Properties---------------------------------------------------------------------
+
+    public bool Moving { get; private set; } = false;
 
 
     //Methods------------------------------------------------------------------------
@@ -51,11 +52,11 @@ public class NavController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (moving == true)
+        if (Moving == true)
         {
             if (agent.remainingDistance < destReachTreshold)
             {
-                moving = false;
+                Moving = false;
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 wait = Wait(waitTime);
                 StartCoroutine(wait);
@@ -124,7 +125,7 @@ public class NavController : MonoBehaviour
         StopAllCoroutines();
         this.agent.isStopped = false;
         this.agent.updateRotation = true;
-        this.moving = true;
+        this.Moving = true;
 
         if (area == null)
         {
@@ -167,7 +168,7 @@ public class NavController : MonoBehaviour
         StopAllCoroutines();
         this.agent.isStopped = false;
         this.agent.updateRotation = true;
-        this.moving = true;
+        this.Moving = true;
     }
 
 
@@ -203,7 +204,7 @@ public class NavController : MonoBehaviour
         StopAllCoroutines();
         this.agent.isStopped = false;
         this.agent.updateRotation = true;
-        this.moving = true;
+        this.Moving = true;
 
         if (curNeed.PointGroup != null && curPoint == null)
         {

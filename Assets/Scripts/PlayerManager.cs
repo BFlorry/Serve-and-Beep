@@ -31,7 +31,6 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerJoined()
     {
-
         // Return the current Active Scene in order to get the current Scene name.
         Scene scene = SceneManager.GetActiveScene();
 
@@ -41,7 +40,6 @@ public class PlayerManager : MonoBehaviour
             Audio.PlayOneShot(joinSfx);
 
         }
-
 
 
         foreach (PlayerInput playerInput in PlayerInput.all)

@@ -14,6 +14,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private AudioClip clickSfx;
 
+    [SerializeField]
+    private GameObject optionsMenu;
+
     private SoundManager soundManager;
 
     // Start is called before the first frame update
@@ -51,6 +54,12 @@ public class MenuManager : MonoBehaviour
     {
         ClickSound();
         FindObjectOfType<GameStateController>().LoadLobby();
+    }
+
+    public void Options()
+    {
+        ClickSound();
+        optionsMenu.SetActive(true);
     }
 
     public void ExitGame()

@@ -25,12 +25,13 @@ public class LevelManager : MonoBehaviour
     private float hurryUpTime = 170f;
 
     [SerializeField]
+    private int[] requiredScore = new int[]{750, 1500, 2800};
+
+    [SerializeField]
     private TextMeshProUGUI timerText;
 
     [SerializeField]
     private TextMeshProUGUI scoreText;
-
-    private int levelScore;
 
     [SerializeField]
     private AudioClip bgmMusic;
@@ -59,6 +60,7 @@ public class LevelManager : MonoBehaviour
     private SoundManager soundManager;
 
     public GameObject[] PlayerSpawnpoints { get => playerSpawnpoints; }
+    public int LevelScore { get; private set; }
 
 
     // Start is called before the first frame update
@@ -67,28 +69,43 @@ public class LevelManager : MonoBehaviour
         //soundManager = FindObjectOfType<SoundManager>();
         levelState = LevelPhase.Start;
         timeLeft = levelTimeLimit;
-        levelScore = 0;
-        scoreText.text = levelScore.ToString();
+        LevelScore = 0;
+        scoreText.text = LevelScore.ToString();
         Time.timeScale = 1f;
+    }
+
+    public int GetLevelStars()
+    {
+        int starCount = 0;
+        foreach(int starLimit in requiredScore)
+        {
+            if (LevelScore >= starLimit) starCount++;
+        }
+        return starCount;
     }
 
     public void ChangeScore(int amount)
     {
         if (amount > 0) soundManager.PlaySingle(posReviewSfx);
         else soundManager.PlaySingle(negReviewSfx);
-        if((levelScore + amount) >= 0)
+        if((LevelScore + amount) >= 0)
         {
-            levelScore += amount;
+            LevelScore += amount;
         }
-        else if((levelScore + amount) < 0)
+        else if((LevelScore + amount) < 0)
         {
-            levelScore = 0;
+            LevelScore = 0;
         }
-        scoreText.text = levelScore.ToString();
+        scoreText.text = LevelScore.ToString();
     }
 
     private void Update()
     {
+        #if (UNITY_EDITOR)
+        if (Input.GetKeyDown(KeyCode.PageUp)) ChangeScore(100);
+        if (Input.GetKeyDown(KeyCode.PageDown)) ChangeScore(-100);
+        #endif
+
         if (levelState != LevelPhase.Finish)
         {
             timeLeft -= Time.deltaTime;
@@ -126,11 +143,12 @@ public class LevelManager : MonoBehaviour
             case LevelPhase.Finish:
                 {
                     soundManager.StopSecondaryMusic();
-                    soundManager.PlaySingle(timeOverSfx);
                     soundManager.StopMusic();
-                    soundManager.PlayMusic(stageOverMusic);
-                    gameOverMenu.SetActive(true);
                     Time.timeScale = 0f;
+                    // TODO: Figure out why PlaySingle bugs out here! An unity bug?
+                    //soundManager.PlaySingle(timeOverSfx);
+                    //soundManager.PlayMusic(stageOverMusic);
+                    gameOverMenu.SetActive(true);
                     break;
                 }
         }

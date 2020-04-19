@@ -24,10 +24,10 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerJoined()
     {
-        foreach(PlayerInput playerInput in PlayerInput.all)
+        foreach (PlayerInput playerInput in PlayerInput.all)
         {
             playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
-            if(playerMaterialManager != null)
+            if (playerMaterialManager != null)
             {
                 playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
             }

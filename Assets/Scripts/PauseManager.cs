@@ -20,6 +20,9 @@ public class PauseManager : MonoBehaviour
 
     public AudioSource Audio;
 
+    [SerializeField]
+    private GameObject options;
+
 
 
     public void TogglePause()
@@ -61,6 +64,11 @@ public class PauseManager : MonoBehaviour
         Resume();
         //SceneManager.LoadScene("Main_Menu");
         FindObjectOfType<GameStateController>().LoadMenu();
+    }
+
+    public void Options()
+    {
+        options.SetActive(true);
     }
 
     public void QuitGame()

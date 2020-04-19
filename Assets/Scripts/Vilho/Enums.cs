@@ -27,7 +27,7 @@ public static class Enums
     {
         //Fields--------------------------------------------------------------------
 
-        [Flags] public enum ItemType
+        public enum ItemType
         {
             Empty,
             Food,

@@ -1640,6 +1640,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5588795269810305779, guid: 2d3b39714d285be409fcca291ee05b45,
     type: 3}
+  joinSfx: {fileID: 8300000, guid: 2e476e9448126f44d9d501205261f539, type: 3}
+  Audio: {fileID: 4205046818713436389}
+  myFirstScene: Character_Select
 --- !u!114 &4205046818713436314
 MonoBehaviour:
   m_ObjectHideFlags: 0

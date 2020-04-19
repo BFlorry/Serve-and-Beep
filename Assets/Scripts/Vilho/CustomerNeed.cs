@@ -30,7 +30,6 @@ public class CustomerNeed : MonoBehaviour
     [SerializeField]
     private GameObject pointGroup;
 
-
     //Properties---------------------------------------------------------
 
     public ItemType SatisfItem { get => satisfItem; }

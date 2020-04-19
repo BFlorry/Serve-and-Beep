@@ -25,7 +25,7 @@ public class CustomerArea : MonoBehaviour
             {
                 if (custNeedCtrl.ItemTypeEquals(itemType))
                 {
-                    custNeedCtrl.SetNeedDisplayActivity(true);
+                    custNeedCtrl.SetNeedActivity(true);
                     return;
                 }
             }

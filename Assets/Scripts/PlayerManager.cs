@@ -72,8 +72,12 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     public void LoadPlayers()
     {
+        GameObject[] spawnPoints = FindObjectOfType<LevelManager>().PlayerSpawnpoints;
         foreach (PlayerData player in m_Players)
-            PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
+        {
+            PlayerInput input = PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
+            input.transform.position = spawnPoints[player.index].transform.position;
+        }
     }
 
     public void DeserializePlayers()

@@ -53,7 +53,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverMenu;
 
+    [SerializeField]
+    private GameObject[] playerSpawnpoints;
+
     private SoundManager soundManager;
+
+    public GameObject[] PlayerSpawnpoints { get => playerSpawnpoints; }
+
 
     // Start is called before the first frame update
     void Start()

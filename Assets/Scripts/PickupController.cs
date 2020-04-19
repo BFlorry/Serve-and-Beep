@@ -89,6 +89,7 @@ public class PickupController : MonoBehaviour
         CarriedObject = p.gameObject;
         CarriedObject.GetComponent<Pickupable>().Carried = true;
         pickupable.Pickup(this);
+        CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     private void Carry(GameObject o)

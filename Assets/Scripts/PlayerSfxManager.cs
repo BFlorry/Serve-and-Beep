@@ -23,6 +23,7 @@ public class PlayerSfxManager : MonoBehaviour
     public void PlaySingle(AudioClip clip)
     {
         //Play the clip.
+        sfxSource.pitch = 1.00f;
         sfxSource.PlayOneShot(clip);
     }
 

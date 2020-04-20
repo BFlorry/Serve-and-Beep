@@ -14,7 +14,7 @@ public class Pickupable : MonoBehaviour
     private ItemType itemType;
 
     [SerializeField]
-    private float maxRayDistance = 2.0f;
+    private float maxRayDistance = 1.0f;
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
     [SerializeField]

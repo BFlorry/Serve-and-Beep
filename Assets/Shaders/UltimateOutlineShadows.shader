@@ -7,7 +7,7 @@ Shader "Outlined/UltimateOutlineShadows"
 		_Color("Main Color", Color) = (0.5,0.5,0.5,1)
 		_MainTex("Texture", 2D) = "white" {}
 
-		_FirstOutlineColor("Outline color", Color) = (0,0,0,0.5)
+		_FirstOutlineColor("Outline color", Color) = (1,1,1,0.5)
 		_FirstOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.05
 
 		_SecondOutlineColor("Outline color", Color) = (0,0,1,1)

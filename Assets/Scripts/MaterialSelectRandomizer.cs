@@ -7,7 +7,7 @@ public class MaterialSelectRandomizer : MonoBehaviour
     [SerializeField]
     Material[] materials;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         int randInt = Random.Range(0, materials.Length);
         GetComponent<Renderer>().material = materials[randInt];

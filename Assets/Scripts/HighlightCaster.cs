@@ -38,7 +38,7 @@ public class HighlightCaster : MonoBehaviour
         else curLayerMask = highLightWithoutCarryingLayer;
 
         Debug.DrawRay(this.transform.position, this.transform.forward * maxRayDistance, Color.magenta);
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance, curLayerMask);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position + transform.forward, maxRaySphereRadius, transform.forward, maxRayDistance, curLayerMask);
         foreach (RaycastHit hit in hits)
         {
             if (hit.transform.gameObject.TryGetComponent(out Highlightable curHighlight))

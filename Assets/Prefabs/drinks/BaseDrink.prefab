@@ -7,15 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375105205525561793, guid: 528b806e0abdbcd4d94bab367fc7127b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2384607032162854149, guid: 528b806e0abdbcd4d94bab367fc7127b,
         type: 3}
       propertyPath: itemType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4633659745328714397, guid: 528b806e0abdbcd4d94bab367fc7127b,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 5298104256137315382, guid: 528b806e0abdbcd4d94bab367fc7127b,
         type: 3}
       propertyPath: m_Name
-      value: Drink
+      value: BaseDrink
       objectReference: {fileID: 0}
     - target: {fileID: 5302331937732957604, guid: 528b806e0abdbcd4d94bab367fc7127b,
         type: 3}

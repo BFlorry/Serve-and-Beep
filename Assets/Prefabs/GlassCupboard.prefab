@@ -32,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8417365777377223076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8610086332995959610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc91d7f1371b4942a47f43b4789be3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &7571094654015088222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -167,7 +155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c22e8b290fdd0ef4f8071026177253ab, type: 2}
+      objectReference: {fileID: 2100000, guid: a7e40115ff4d96844b6e2d50fb4c40cc, type: 2}
     - target: {fileID: -1504981713932161579, guid: da767b236794f9f4fa06c2aa5c3d4445,
         type: 3}
       propertyPath: m_ReceiveShadows
@@ -427,12 +415,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18852eace61f0c54ebc25aba9a0d4590, type: 3}
---- !u!1 &8610086332995959610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7738462415712628644, guid: 18852eace61f0c54ebc25aba9a0d4590,
-    type: 3}
-  m_PrefabInstance: {fileID: 2024827044112127134}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7700130961731229963 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8558525015095659925, guid: 18852eace61f0c54ebc25aba9a0d4590,

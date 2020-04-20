@@ -9,6 +9,9 @@ public class MenuManager : MonoBehaviour
     private AudioClip menuMusic;
 
     [SerializeField]
+    private AudioClip titleJingle;
+
+    [SerializeField]
     private AudioClip navSfx;
 
     [SerializeField]
@@ -23,6 +26,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        soundManager.PlaySingle(titleJingle);
         soundManager.PlayMusic(menuMusic);
     }
 

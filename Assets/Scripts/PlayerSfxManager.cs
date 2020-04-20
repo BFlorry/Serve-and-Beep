@@ -27,6 +27,36 @@ public class PlayerSfxManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
+    public void PlaySingleStoppable(AudioClip clip)
+    {
+        //Play the clip.
+        if (sfxSource != null)
+        {
+            sfxSource.clip = clip;
+            sfxSource.Play();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
+
+    public bool IsSFXPlaying()
+    {
+        //Play the clip.
+        if (sfxSource != null)
+        {
+            return sfxSource.isPlaying;
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+        return false;
+    }
+    public void StopSingleStoppable()
+    {
+        //Stop the clip.
+        if (sfxSource != null)
+        {
+            sfxSource.Stop();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
 
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void PlayRandomized(params AudioClip[] clips)

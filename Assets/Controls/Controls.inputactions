@@ -54,12 +54,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PlayerSound",
+                    "name": "PlayerSoundDown",
                     "type": "Button",
                     "id": "5ce2fd1e-a96f-4ce2-8914-e52b748d5d17",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "PlayerSoundUp",
+                    "type": "Button",
+                    "id": "3d80498a-f7c5-4b4c-b689-7315b8ec9f9c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -334,7 +342,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "PlayerSound",
+                    "action": "PlayerSoundDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -345,7 +353,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "PlayerSound",
+                    "action": "PlayerSoundDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c8306d0-bfb0-437b-a496-3a501b82e5f5",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard p1",
+                    "action": "PlayerSoundUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84ab9cff-c5f0-41a7-b57c-d1f5fed160bd",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayerSoundUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

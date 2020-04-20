@@ -44656,7 +44656,7 @@ PrefabInstance:
     - target: {fileID: 4205046818713436390, guid: 726fafa37b6afa94bba2ade4ab095e9b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4205046818713436391, guid: 726fafa37b6afa94bba2ade4ab095e9b,
         type: 3}
@@ -51178,6 +51178,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158884804753718768, guid: 27370ca4d3f3eb848a2a7982ab980adf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: bd77824cb7358834392521519d2200ff,
+        type: 2}
+    - target: {fileID: 4158884804753718768, guid: 27370ca4d3f3eb848a2a7982ab980adf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27370ca4d3f3eb848a2a7982ab980adf, type: 3}

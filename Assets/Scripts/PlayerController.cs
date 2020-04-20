@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rigidbody.position, dashVector.normalized, out hit, dashVector.magnitude))
             {
                 // If hit something, then cause player to fall
+                Instantiate(dashParticle, this.transform.position, Quaternion.identity);
                 rigidbody.MovePosition(rigidbody.position + dashVector.normalized * hit.distance - dashVector.normalized * 0.8f);
                 animator.Play("Bump");
                 sfxManager.PlayRandomized(bumpSfx);
@@ -141,11 +142,16 @@ public class PlayerController : MonoBehaviour
         if (interacted == false) pickupController.TryPickup();
     }
 
-    void OnPlayerSound()
+    void OnPlayerSoundDown()
     {
         int randInt = Random.Range(0, beepSfx.Length);
-        sfxManager.PlaySingle(beepSfx[randInt]);
+        sfxManager.PlaySingleStoppable(beepSfx[randInt]);
+    }
 
+    void OnPlayerSoundUp()
+    {
+        int randInt = Random.Range(0, beepSfx.Length);
+        sfxManager.StopSingleStoppable();
     }
 
     public void TogglePlayerFreeze()

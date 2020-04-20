@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private AudioClip bumpSfx;
 
     [SerializeField]
-    private AudioClip beepSfx;
+    private AudioClip[] beepSfx;
 
 
     void Start()
@@ -143,7 +143,9 @@ public class PlayerController : MonoBehaviour
 
     void OnPlayerSound()
     {
-        sfxManager.PlaySingle(beepSfx);
+        int randInt = Random.Range(0, beepSfx.Length);
+        sfxManager.PlaySingle(beepSfx[randInt]);
+
     }
 
     public void TogglePlayerFreeze()

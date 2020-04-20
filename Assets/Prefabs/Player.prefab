@@ -77,8 +77,8 @@ MonoBehaviour:
   playerSpeed: 5
   rotateSpeed: 20
   animator: {fileID: 750759800903914228}
-  dashDistance: 3
-  dashCooldown: 0.2
+  dashDistance: 1.6
+  dashCooldown: 0.6
   dashSfx: {fileID: 8300000, guid: f60cafdb11495bd4983ac9d50c866efa, type: 3}
   dashParticle: {fileID: 8203022364779615837, guid: 6604ee052450b2445a93a99aa8bee0a8,
     type: 3}

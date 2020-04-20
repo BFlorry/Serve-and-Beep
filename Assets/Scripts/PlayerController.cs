@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip bumpSfx;
 
+    [SerializeField]
+    private AudioClip beepSfx;
+
 
     void Start()
     {
@@ -136,6 +139,11 @@ public class PlayerController : MonoBehaviour
     {
         bool interacted = playerInteractionController.Interact();
         if (interacted == false) pickupController.TryPickup();
+    }
+
+    void OnPlayerSound()
+    {
+        sfxManager.PlaySingle(beepSfx);
     }
 
     public void TogglePlayerFreeze()

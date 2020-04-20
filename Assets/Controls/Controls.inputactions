@@ -54,9 +54,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Remove Player",
+                    "name": "PlayerSound",
                     "type": "Button",
-                    "id": "d07a4a16-4dd2-4d7b-a739-1a23ab0c9573",
+                    "id": "5ce2fd1e-a96f-4ce2-8914-e52b748d5d17",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -154,7 +154,7 @@
                 {
                     "name": "",
                     "id": "862180c4-cbfa-4792-b64e-7f7d1e6498f5",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
@@ -187,7 +187,7 @@
                 {
                     "name": "",
                     "id": "d3b0ca5a-976d-4785-a625-9a2e16778d5e",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
@@ -262,17 +262,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "ea02a93d-b291-49e5-b71a-1eafe4cb7228",
-                    "path": "<Keyboard>/delete",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard p1",
-                    "action": "Remove Player",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Arrowkeys",
                     "id": "3e5b0f1f-347a-4fcd-87fb-db3f839cd1a1",
                     "path": "2DVector",
@@ -335,6 +324,28 @@
                     "processors": "",
                     "groups": "Keyboard p2",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "192522c2-adfd-450a-b395-bc7080c43224",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard p1",
+                    "action": "PlayerSound",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccd3c7dd-8812-45f0-9eff-18de8d4c6956",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PlayerSound",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -67,9 +67,9 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Remove Player"",
+                    ""name"": ""PlayerSound"",
                     ""type"": ""Button"",
-                    ""id"": ""d07a4a16-4dd2-4d7b-a739-1a23ab0c9573"",
+                    ""id"": ""5ce2fd1e-a96f-4ce2-8914-e52b748d5d17"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -167,7 +167,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""862180c4-cbfa-4792-b64e-7f7d1e6498f5"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p1"",
@@ -200,7 +200,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d3b0ca5a-976d-4785-a625-9a2e16778d5e"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard p1"",
@@ -275,17 +275,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ea02a93d-b291-49e5-b71a-1eafe4cb7228"",
-                    ""path"": ""<Keyboard>/delete"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard p1"",
-                    ""action"": ""Remove Player"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Arrowkeys"",
                     ""id"": ""3e5b0f1f-347a-4fcd-87fb-db3f839cd1a1"",
                     ""path"": ""2DVector"",
@@ -348,6 +337,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard p2"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""192522c2-adfd-450a-b395-bc7080c43224"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard p1"",
+                    ""action"": ""PlayerSound"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccd3c7dd-8812-45f0-9eff-18de8d4c6956"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PlayerSound"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -592,7 +603,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_RemovePlayer = m_Player.FindAction("Remove Player", throwIfNotFound: true);
+        m_Player_PlayerSound = m_Player.FindAction("PlayerSound", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
@@ -652,7 +663,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_Start;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_RemovePlayer;
+    private readonly InputAction m_Player_PlayerSound;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -663,7 +674,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @RemovePlayer => m_Wrapper.m_Player_RemovePlayer;
+        public InputAction @PlayerSound => m_Wrapper.m_Player_PlayerSound;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -691,9 +702,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @RemovePlayer.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
-                @RemovePlayer.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
-                @RemovePlayer.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemovePlayer;
+                @PlayerSound.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayerSound;
+                @PlayerSound.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayerSound;
+                @PlayerSound.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlayerSound;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -716,9 +727,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @RemovePlayer.started += instance.OnRemovePlayer;
-                @RemovePlayer.performed += instance.OnRemovePlayer;
-                @RemovePlayer.canceled += instance.OnRemovePlayer;
+                @PlayerSound.started += instance.OnPlayerSound;
+                @PlayerSound.performed += instance.OnPlayerSound;
+                @PlayerSound.canceled += instance.OnPlayerSound;
             }
         }
     }
@@ -808,7 +819,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnThrow(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnRemovePlayer(InputAction.CallbackContext context);
+        void OnPlayerSound(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

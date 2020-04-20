@@ -27,7 +27,9 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Main_Menu"))
+        // Don't toggle pause if current scene is main menu and that StageOverManager is not enabled
+        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Main_Menu")
+            && !FindObjectOfType<StageOverManager>())
         {
             if (GameIsPaused)
             {

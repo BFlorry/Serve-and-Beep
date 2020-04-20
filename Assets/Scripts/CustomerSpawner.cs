@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObject customer;
+    private GameObject customer;
 
     [SerializeField]
-    int maxAmountOfCustomers = 5;
+    private int customersPerPlayer = 5;
+
+    private int totalCustomerAmount = 0;
 
     [SerializeField]
-    float customerSpawnInterval = 10f;
+    private float customerSpawnInterval = 10f;
 
     List<GameObject> customers = new List<GameObject>();
 
@@ -35,15 +38,31 @@ public class CustomerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerInput.all.Count > 0)
+        {
+            totalCustomerAmount = customersPerPlayer * PlayerInput.all.Count;
+        }
+        else
+        {
+            totalCustomerAmount = customersPerPlayer;
+            StartCoroutine(LateCheckPlayerAmount());
+        }
         spawnPosition = this.transform.position + Vector3.back;
         spawnRotation = this.transform.rotation;
         StartCoroutine(SpawnCustomer());
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Players might not be loaded to scene before after Start(), so wait for 0.5 seconds and check again.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator LateCheckPlayerAmount()
     {
-
+        yield return new WaitForSeconds(0.5f);
+        if (PlayerInput.all.Count > 0)
+        {
+            totalCustomerAmount = customersPerPlayer * PlayerInput.all.Count;
+        }
     }
 
     public void DespawnCustomer(GameObject customer)
@@ -56,7 +75,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (customers.Count < maxAmountOfCustomers)
+            if (customers.Count < totalCustomerAmount)
             {
                 Debug.Log("Spawning a new customer...");
                 customers.Add(Instantiate(customer, spawnPosition, spawnRotation));

@@ -207,6 +207,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
             customer.ReviewPos();
+            customerController.PlayEatAnimation();
             NextNeed();
             return true;
         }

@@ -13,10 +13,13 @@ public class CustomerController : MonoBehaviour
 
     private GameObject exit;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         exit = FindObjectOfType<CustomerSpawner>().gameObject;
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void RaiseNeed()
@@ -36,5 +39,10 @@ public class CustomerController : MonoBehaviour
             return true;
         }
         else return false;
+    }
+
+    public void PlayEatAnimation()
+    {
+        animator.SetTrigger("eat");
     }
 }

@@ -13,11 +13,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
 
-    public AudioClip joinSfx;
-
-    public AudioSource Audio;
+    [SerializeField]
+    private AudioClip joinSfx;
 
     public string myFirstScene;
+
+    private SoundManager soundManager;
 
     private void DisableHotJoin()
     {
@@ -37,7 +38,8 @@ public class PlayerManager : MonoBehaviour
         // Check if the name of the current Active Scene is your first Scene.
         if (scene.name == myFirstScene)
         {
-            Audio.PlayOneShot(joinSfx);
+            soundManager = FindObjectOfType<SoundManager>();
+            soundManager.PlaySingle(joinSfx);
 
         }
 

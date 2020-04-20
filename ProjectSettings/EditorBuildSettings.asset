@@ -13,11 +13,8 @@ EditorBuildSettings:
     guid: da144bdbadfb82b43b831e5c1a62d303
   - enabled: 1
     path: Assets/Scenes/_Main/Character_Select.unity
-    guid: 2cd66a76013305a449391422522395ed
-  - enabled: 0
-    path: Assets/Scenes/_Main/Olds/Stage_1_old.unity
-    guid: d8e902ee33601bf5ba0df85bf2f450c2
+    guid: 0854ecff61cc10b4cb60c52f6fcb06d8
   - enabled: 1
     path: Assets/Scenes/_Main/Stage_1.unity
-    guid: 27be3f37cc2a3c54b89901dd0e5a7dfc
+    guid: 11589b147e78c504d9fcdc765a06e8ff
   m_configObjects: {}

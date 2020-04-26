@@ -30,12 +30,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Throw",
+                    "name": "PickupDown",
                     "type": "Button",
                     "id": "f538d84b-16ed-4b34-8c1b-8d1f3988d363",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "PickupUp",
+                    "type": "Button",
+                    "id": "daaa81b7-6561-4ddf-95b3-2a12e58e2b19",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 },
                 {
                     "name": "Start",
@@ -199,7 +207,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p1",
-                    "action": "Throw",
+                    "action": "PickupDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -210,7 +218,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Throw",
+                    "action": "PickupDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -221,7 +229,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard p2",
-                    "action": "Throw",
+                    "action": "PickupDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -376,6 +384,39 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "PlayerSoundUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa8a0afb-380b-43ba-8fc0-c719a88f04f8",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard p1",
+                    "action": "PickupUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4d741f3-b4bf-4840-805d-04d7b437dc3b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PickupUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2feac73c-27d8-4f56-8aba-4fca28e49db7",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard p2",
+                    "action": "PickupUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

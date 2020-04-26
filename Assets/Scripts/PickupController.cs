@@ -100,7 +100,11 @@ public class PickupController : MonoBehaviour
         o.transform.rotation = carryPosition.transform.rotation;
     }
 
-    private void OnThrow()
+    /// <summary>
+    /// Try to throw the pickupable the player is holding
+    /// </summary>
+    /// <returns>Did the throw succeed</returns>
+    public bool Throw()
     {
         if (Carrying)
         {
@@ -112,7 +116,10 @@ public class PickupController : MonoBehaviour
             CarriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
             CarriedObject.GetComponent<Pickupable>().Pickup(this);
             CarriedObject = null;
+
+            return true;
         }
+        else return false;
     }
 
     public void DropObject()

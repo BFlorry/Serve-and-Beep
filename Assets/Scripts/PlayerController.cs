@@ -52,6 +52,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip[] beepSfx;
 
+    [SerializeField]
+    private float throwHoldTime = 2.0f;
+    private float pickupButtonHeld = float.MaxValue;
+
+    [SerializeField]
+    private GameObject throwChargedParticle;
+
+    [SerializeField]
+    private AudioClip throwChargedSfx;
+
 
     void Start()
     {
@@ -70,9 +80,9 @@ public class PlayerController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        PlayerMovementNew();
+        Move();
     }
 
     private void Update()
@@ -81,13 +91,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Carrying", GetComponent<PickupController>().Carrying);
     }
 
-    void PlayerMovementNew()
+    private void Move()
     {
         Vector3 targetVelocity = new Vector3(moveAxis.x, 0, moveAxis.y);
         Vector3 fallingVelocity = new Vector3(0, rigidbody.velocity.y, 0);
         rigidbody.velocity = fallingVelocity + (targetVelocity * playerSpeed);
 
-        if(targetVelocity.magnitude > 0 && !frozen) {
+        if (targetVelocity.magnitude > 0 && !frozen)
+        {
             //Rotate player
             turnRotation = Quaternion.LookRotation(targetVelocity);
         }
@@ -138,8 +149,37 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void OnInteract()
     {
-        bool interacted = playerInteractionController.Interact();
-        if (interacted == false) pickupController.TryPickup();
+        playerInteractionController.Interact();
+    }
+
+    void OnPickupDown()
+    {
+        pickupButtonHeld = Time.time + throwHoldTime;
+        StartCoroutine(WaitForThrowCharge());
+    }
+
+    void OnPickupUp()
+    {
+        StopAllCoroutines();
+        if (Time.time >= pickupButtonHeld)
+        {
+            bool throwSuccess = pickupController.Throw();
+            if (!throwSuccess) pickupController.TryPickup();
+        }
+        else
+        {
+            pickupController.TryPickup();
+        }
+    }
+
+    private IEnumerator WaitForThrowCharge()
+    {
+        yield return new WaitForSeconds(throwHoldTime);
+        if (Time.time >= pickupButtonHeld)
+        {
+            Instantiate(throwChargedParticle, this.transform.position, Quaternion.identity);
+            sfxManager.PlayRandomized(throwChargedSfx);
+        }
     }
 
     void OnPlayerSoundDown()
@@ -150,7 +190,6 @@ public class PlayerController : MonoBehaviour
 
     void OnPlayerSoundUp()
     {
-        int randInt = Random.Range(0, beepSfx.Length);
         sfxManager.StopSingleStoppable();
     }
 
@@ -167,6 +206,6 @@ public class PlayerController : MonoBehaviour
             playerSpeed = playerSpeedStore;
         }
     }
-    
+
 
 }

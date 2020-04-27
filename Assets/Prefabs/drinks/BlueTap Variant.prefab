@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 6649615374568337089, guid: d290632403479d94aa734c3a2d0f2f0b,
         type: 3}
       propertyPath: itemPairArray.Array.data[0].interactItemType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6649615374568337089, guid: d290632403479d94aa734c3a2d0f2f0b,
         type: 3}

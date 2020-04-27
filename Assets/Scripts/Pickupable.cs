@@ -32,7 +32,10 @@ public class Pickupable : MonoBehaviour
     //Properties-----------------------------------------------------------------------
 
     public PickupController Player { get; private set; }
-    public bool Carried { get; set; } = false;
+    public ItemSnap ItemSnap {
+        get;
+        set; } = null;
+    public bool Carried { get; private set; } = false;
 
     public ItemType ItemType { get => itemType; }
 
@@ -52,6 +55,7 @@ public class Pickupable : MonoBehaviour
     {
         if (Player == null)
         {
+            NullifyItemSnap();
             // No player carrying, set this player
             Carried = true;
             Player = pickupPlayer;
@@ -70,9 +74,15 @@ public class Pickupable : MonoBehaviour
         Carried = false;
         if (Player != null)
         {
-            Player.DropObject(); Player = null;
+            Player.DropObject();
+            Player = null;
         }
+    }
 
+    public void Jotain()
+    {
+        Carried = false;
+        Player = null;
     }
 
     /// <summary>
@@ -95,7 +105,7 @@ public class Pickupable : MonoBehaviour
                         bool interactSuccess = interactable.Interact(this.gameObject);
                         if (interactSuccess == true)
                         {
-
+                            NullifyItemSnap();
                             return true;
                         }
                         return false;
@@ -122,5 +132,14 @@ public class Pickupable : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
+    }
+
+    public void NullifyItemSnap()
+    {
+        if (ItemSnap != null)
+        {
+            ItemSnap.SnappedItem = null;
+            ItemSnap = null;
+        }
     }
 }

@@ -35,7 +35,7 @@ public class Pickupable : MonoBehaviour
     public ItemSnap ItemSnap {
         get;
         set; } = null;
-    public bool Carried { get; private set; } = false;
+    public bool Carried { get; set; } = false;
 
     public ItemType ItemType { get => itemType; }
 
@@ -63,13 +63,13 @@ public class Pickupable : MonoBehaviour
         else if (Player.Equals(pickupPlayer) == false)
         {
             // Change player
-            RemoveFromPlayer();
+            DropObject();
             Carried = true;
             Player = pickupPlayer;
         }
     }
 
-    public void RemoveFromPlayer()
+    public void DropObject()
     {
         Carried = false;
         if (Player != null)
@@ -79,7 +79,7 @@ public class Pickupable : MonoBehaviour
         }
     }
 
-    public void Jotain()
+    public void RemoveFromPlayer()
     {
         Carried = false;
         Player = null;
@@ -105,7 +105,6 @@ public class Pickupable : MonoBehaviour
                         bool interactSuccess = interactable.Interact(this.gameObject);
                         if (interactSuccess == true)
                         {
-                            NullifyItemSnap();
                             return true;
                         }
                         return false;
@@ -118,7 +117,7 @@ public class Pickupable : MonoBehaviour
 
     public void DestroyPickupable(float time = 0f)
     {
-        RemoveFromPlayer();
+        DropObject();
         StartCoroutine(DestroyAfterTime(this.gameObject, time));
     }
 

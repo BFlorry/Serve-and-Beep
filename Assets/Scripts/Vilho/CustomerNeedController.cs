@@ -201,7 +201,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
         if (pickupable != null && CurNeed.SatisfItem == pickupable.ItemType)
         {
             pickupable.Player.GetComponent<PlayerSfxManager>().PlaySingle(interactSfx);
-            pickupable.RemoveFromPlayer();
+            pickupable.DropObject();
             pickupable.DestroyPickupable(needObjDestroyTime);
 
             // TODO: If this change is final, remove this and following line

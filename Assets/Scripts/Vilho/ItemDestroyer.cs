@@ -53,7 +53,7 @@ public class ItemDestroyer : MonoBehaviour, IItemInteractable
             {
                 if (pickupable.Carried == false)
                 {
-                    pickupable.RemoveFromPlayer();
+                    pickupable.DropObject();
                     Destroy(pickupable);
                     audio.PlayOneShot(audio.clip);
 

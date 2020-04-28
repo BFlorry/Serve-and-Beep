@@ -1,9 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -22,6 +23,15 @@ public class OptionsMenu : MonoBehaviour
     private Toggle fullscreenToggle;
     [SerializeField]
     private TMP_Dropdown resolutionDropdown;
+    [SerializeField]
+    private AudioClip sliderSfx;
+    [SerializeField]
+    private AudioClip checkBoxSfx;
+    [SerializeField]
+    private AudioClip exitSfx;
+    
+
+    private SoundManager soundManager;
 
     private GameObject pauseMenu;
 
@@ -126,6 +136,8 @@ public class OptionsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("SFXVolume", volume);
         PlayerPrefs.SetFloat("SFXVolume", volume);
+        soundManager = FindObjectOfType<SoundManager>();
+        soundManager.PlaySingle(sliderSfx);
     }
 
     public void SetQuality(int qualityIndex)
@@ -136,6 +148,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
+        soundManager.PlaySingle(checkBoxSfx);
         Screen.fullScreen = isFullscreen;
         PlayerPrefs.SetInt("Fullscreen", System.Convert.ToInt32(isFullscreen));
     }
@@ -150,6 +163,7 @@ public class OptionsMenu : MonoBehaviour
     public void BackButton()
     {
         pauseMenu.SetActive(true);
+        soundManager.PlaySingle(exitSfx);
         this.gameObject.SetActive(false);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,24 +31,26 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        //Start the coroutine we define below named ExampleCoroutine.
-        StartCoroutine(ExampleCoroutine());
+        StartCoroutine(WaitBeforePlayingBgm());
     }
 
-    IEnumerator ExampleCoroutine()
+    IEnumerator WaitBeforePlayingBgm()
     {
-        //Print the time of when the function is first called.
+        // Check if timescale not 1 (if returning from stageover, time is 0)
+        if (Time.timeScale != 1f)
+        {
+            Time.timeScale = 1f;
+        }
+
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
         soundManager = FindObjectOfType<SoundManager>();
         soundManager.PlaySingle(titleJingle);
 
-        //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(2);
 
         soundManager.PlayMusic(menuMusic);
 
-        //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 

@@ -3529,7 +3529,6 @@ MonoBehaviour:
   qualityDropdown: {fileID: 7134138535784148}
   fullscreenToggle: {fileID: 7134138757654987}
   resolutionDropdown: {fileID: 7134138401860391}
---- !u!114 &3829276438455332641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3542,7 +3541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementToFocus: {fileID: 6969355168231738856}
---- !u!1 &7134139672045361
+  sliderSfx: {fileID: 8300000, guid: 3b14a54ffd7235f40b9cd89ed0c7a6b2, type: 3}
+  checkBoxSfx: {fileID: 8300000, guid: 79c22c9c809314e45aeb2314a26d4633, type: 3}
+  exitSfx: {fileID: 8300000, guid: adab2ea5a21e66b48b3502d16677667c, type: 3}
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

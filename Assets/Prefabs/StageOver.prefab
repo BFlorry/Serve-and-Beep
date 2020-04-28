@@ -2586,6 +2586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6096475227853828467}
   - component: {fileID: 3509382750093216005}
+  - component: {fileID: 2112575135328955221}
   m_Layer: 0
   m_Name: StageOver
   m_TagString: Untagged
@@ -2645,6 +2646,19 @@ MonoBehaviour:
   - {fileID: 2596421073860901537}
   - {fileID: 2609097151766433890}
   levelEndSfx: {fileID: 0}
+--- !u!114 &2112575135328955221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049184188842050139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4d0038ead3b044beaffc8a1f09fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementToFocus: {fileID: 5667116309947754312}
 --- !u!1 &7052115281135897489
 GameObject:
   m_ObjectHideFlags: 0

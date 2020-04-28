@@ -51,14 +51,6 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void NavSound()
     {
         if (navSfx != null)

@@ -1265,6 +1265,7 @@ GameObject:
   - component: {fileID: 235307553}
   - component: {fileID: 235307552}
   - component: {fileID: 235307551}
+  - component: {fileID: 235307555}
   m_Layer: 5
   m_Name: Body
   m_TagString: Untagged
@@ -1376,6 +1377,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235307549}
   m_CullTransparentMesh: 0
+--- !u!114 &235307555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235307549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4d0038ead3b044beaffc8a1f09fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementToFocus: {fileID: 726560914}
 --- !u!1 &238611309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955717454}
   - component: {fileID: 955717455}
+  - component: {fileID: 955717456}
   m_Layer: 5
   m_Name: Credits Frame
   m_TagString: Untagged
@@ -3498,6 +3513,19 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &955717456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955717453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e4d0038ead3b044beaffc8a1f09fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementToFocus: {fileID: 1695748194}
 --- !u!1 &966848901
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,12 +40,14 @@ public class GameStateController : MonoBehaviour
     private void EnablePlayerInput()
     {
         mainMenuInput.enabled = true;
+        Cursor.visible = true;
     }
 
     public void DisableEventSystem()
     {
         mainMenuInput.enabled = false;
         eventSystem.SetActive(false);
+        Cursor.visible = false;
     }
 
     public void LoadMenu()

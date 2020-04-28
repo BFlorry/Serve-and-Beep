@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class StageOverManager : MonoBehaviour
 {
+    public delegate void StageOverAction();
+    public static event StageOverAction OnStageOver;
+
     [SerializeField]
     private Button restartButton;
 
@@ -48,6 +51,7 @@ public class StageOverManager : MonoBehaviour
         scoreText.text = score.ToString();
         stars = levelManager.GetLevelStars();
 
+        OnStageOver?.Invoke();
         StartCoroutine(WaitBeforeScorescreen());
     }
 

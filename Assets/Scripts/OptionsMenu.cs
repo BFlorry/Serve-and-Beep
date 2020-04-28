@@ -23,9 +23,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField]
     private TMP_Dropdown resolutionDropdown;
 
+    private GameObject pauseMenu;
+
     Resolution[] resolutions;
 
     private int activeResolutionIndex = -1;
+
+    public GameObject PauseMenu { get => pauseMenu; set => pauseMenu = value; }
 
     private void OnEnable()
     {
@@ -145,6 +149,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void BackButton()
     {
+        pauseMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }

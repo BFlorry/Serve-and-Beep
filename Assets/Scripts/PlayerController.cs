@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -72,6 +74,35 @@ public class PlayerController : MonoBehaviour
         this.TryGetComponent(out pickupController);
         this.TryGetComponent(out playerInteractionController);
         sfxManager = GetComponent<PlayerSfxManager>();
+        ForceCheckCamera();
+    }
+
+    private void OnEnable()
+    {
+        PauseManager.OnPause += EnableMenuControls;
+        PauseManager.OnResume += EnablePlayerControls;
+        StageOverManager.OnStageOver += EnableMenuControls;
+        GameStateController.OnSceneRestart += EnablePlayerControls;
+    }
+
+    private void OnDisable()
+    {
+        PauseManager.OnPause -= EnableMenuControls;
+        PauseManager.OnResume -= EnablePlayerControls;
+        StageOverManager.OnStageOver -= EnableMenuControls;
+        GameStateController.OnSceneRestart -= EnablePlayerControls;
+    }
+
+    private void EnablePlayerControls()
+    {
+        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+    }
+
+    private void EnableMenuControls()
+    {
+        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Menu");
+        this.GetComponent<PlayerInput>().uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
+        this.GetComponent<PlayerInput>().camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
     }
 
     void OnDeviceLost(PlayerInput pi)
@@ -207,5 +238,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ForceCheckCamera()
+    {
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        if (playerInput.camera == null) playerInput.camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
 }

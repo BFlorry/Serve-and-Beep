@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -32,10 +32,11 @@ public class OptionsMenu : MonoBehaviour
     
 
     private SoundManager soundManager;
-
     Resolution[] resolutions;
 
     private int activeResolutionIndex = -1;
+
+    public GameObject PauseMenu { get; set; }
 
     private void OnEnable()
     {
@@ -158,6 +159,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void BackButton()
     {
+        PauseMenu.SetActive(true);
         soundManager.PlaySingle(exitSfx);
         this.gameObject.SetActive(false);
     }

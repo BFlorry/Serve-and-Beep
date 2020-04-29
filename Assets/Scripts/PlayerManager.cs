@@ -84,8 +84,12 @@ public class PlayerManager : MonoBehaviour
 
     public void DeserializePlayers()
     {
-        /*foreach (var player in m_Players)
-            PlayerInput.Destroy()*/
+        foreach (var player in PlayerInput.all)
+        {
+            player.user.UnpairDevicesAndRemoveUser();
+            player.DeactivateInput();
+            Destroy(player);
+        }
     }
 
     public void LoadScene(string scene)

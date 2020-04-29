@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         Start();
+        Cursor.visible = true;
     }
 
     void Start()
@@ -52,14 +53,6 @@ public class MenuManager : MonoBehaviour
         soundManager.PlayMusic(menuMusic);
 
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void NavSound()

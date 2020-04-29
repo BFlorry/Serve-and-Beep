@@ -32,14 +32,11 @@ public class OptionsMenu : MonoBehaviour
     
 
     private SoundManager soundManager;
-
-    private GameObject pauseMenu;
-
     Resolution[] resolutions;
 
     private int activeResolutionIndex = -1;
 
-    public GameObject PauseMenu { get => pauseMenu; set => pauseMenu = value; }
+    public GameObject PauseMenu { get; set; }
 
     private void OnEnable()
     {
@@ -162,7 +159,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void BackButton()
     {
-        pauseMenu.SetActive(true);
+        PauseMenu.SetActive(true);
         soundManager.PlaySingle(exitSfx);
         this.gameObject.SetActive(false);
     }

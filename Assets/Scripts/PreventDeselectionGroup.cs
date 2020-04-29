@@ -7,9 +7,8 @@ using UnityEngine.UI;
 
 public class PreventDeselectionGroup : MonoBehaviour
 {
-    EventSystem evt;
-    PlayerInput playerInput;
-    GameObject selected = null;
+    private EventSystem evt;
+    private GameObject selected = null;
 
     private void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Script that is attached to a trigger area. Destroys pickupable item that is dropped in that area.
 /// </summary>
-public class ItemDestroyer : MonoBehaviour
+public class ItemDestroyer : MonoBehaviour, IItemInteractable
 {
     //Fields------------------------------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ public class ItemDestroyer : MonoBehaviour
     private Shader standardShader;
     private Material transparentMat;
     private AudioSource audio;
-
+    private ItemSnap itemSnap;
 
     //Methods-----------------------------------------------------------------------------------------
 
@@ -24,8 +24,18 @@ public class ItemDestroyer : MonoBehaviour
     {
         standardShader = Shader.Find("Standard");
         audio = this.GetComponentInParent<AudioSource>();
+        itemSnap = this.gameObject.GetComponent<ItemSnap>();
     }
 
+    public bool Interact(GameObject obj)
+    {
+        if (obj.TryGetComponent(out Pickupable pickupable))
+        {
+            pickupable.Player.DropObject();
+            itemSnap.SetToPoint(obj);
+        }
+        return false;
+    }
 
     /// <summary>
     /// Gets pickupable from parent.
@@ -43,7 +53,7 @@ public class ItemDestroyer : MonoBehaviour
             {
                 if (pickupable.Carried == false)
                 {
-                    pickupable.RemoveFromPlayer();
+                    pickupable.DropObjFromPlayer();
                     Destroy(pickupable);
                     audio.PlayOneShot(audio.clip);
 
@@ -166,5 +176,6 @@ public class ItemDestroyer : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
+        itemSnap.SnappedItem = null;
     }
 }

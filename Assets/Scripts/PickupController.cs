@@ -63,6 +63,7 @@ public class PickupController : MonoBehaviour
             if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
             {
                 Pickup(pickupable);
+                return;
             }
         }
     }
@@ -87,7 +88,7 @@ public class PickupController : MonoBehaviour
         GameObject p = pickupable.gameObject;
         Carrying = true;
         CarriedObject = p.gameObject;
-        CarriedObject.GetComponent<Pickupable>().Carried = true;
+        CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
         pickupable.Pickup(this);
         CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
@@ -126,7 +127,7 @@ public class PickupController : MonoBehaviour
     {
         if (Carrying)
         {
-            CarriedObject.GetComponent<Pickupable>().Carried = false;
+            CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
             Carrying = false;
             //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
             CarriedObject.GetComponent<Rigidbody>().useGravity = true;
@@ -161,5 +162,4 @@ public class PickupController : MonoBehaviour
             o.GetComponent<Rigidbody>().MovePosition(carryPosition.transform.position + carryVector);
         }
     }
-
 }

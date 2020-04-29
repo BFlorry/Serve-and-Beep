@@ -72,7 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useDefaultPickupSound: 1
   spawnSound: {fileID: 0}
-  itemPrefab: {fileID: 705012613684027041, guid: a1f2392fd7329d046b2c8210ab087daa,
+  itemPrefab: {fileID: 3753178248819769629, guid: 8fececf7e01816f459fbf2820b30909e,
     type: 3}
 --- !u!114 &1517594007599946412
 MonoBehaviour:

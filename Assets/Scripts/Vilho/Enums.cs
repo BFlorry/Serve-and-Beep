@@ -30,7 +30,9 @@ public static class Enums
         public enum ItemType
         {
             Empty,
-            Food,
+            ColdPizza,
+            WarmPizza,
+            BurntPizza,
             DrinkEmpty,
             RedDrink,
             BlueDrink,

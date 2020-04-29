@@ -64,20 +64,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip throwChargedSfx;
 
-
-    void Start()
-    {
-        playerSpeedStore = playerSpeed;
-        audioListener = this.GetComponentInChildren<AudioListener>();
-        rigidbody = GetComponent<Rigidbody>();
-        turnRotation = this.transform.rotation;
-        this.TryGetComponent(out pickupController);
-        this.TryGetComponent(out playerInteractionController);
-        sfxManager = GetComponent<PlayerSfxManager>();
-        ForceCheckCamera();
-    }
-
-    private void OnEnable()
+private void OnEnable()
     {
         PauseManager.OnPause += EnableMenuControls;
         PauseManager.OnResume += EnablePlayerControls;
@@ -91,6 +78,19 @@ public class PlayerController : MonoBehaviour
         PauseManager.OnResume -= EnablePlayerControls;
         StageOverManager.OnStageOver -= EnableMenuControls;
         GameStateController.OnSceneRestart -= EnablePlayerControls;
+    }
+
+    void Start()
+    {
+        playerSpeedStore = playerSpeed;
+        audioListener = this.GetComponentInChildren<AudioListener>();
+        rigidbody = GetComponent<Rigidbody>();
+        turnRotation = this.transform.rotation;
+        this.TryGetComponent(out pickupController);
+        this.TryGetComponent(out playerInteractionController);
+        sfxManager = GetComponent<PlayerSfxManager>();
+        ForceCheckCamera();
+        EnablePlayerControls();
     }
 
     private void EnablePlayerControls()

@@ -63,13 +63,13 @@ public class Pickupable : MonoBehaviour
         else if (Player.Equals(pickupPlayer) == false)
         {
             // Change player
-            DropObject();
+            DropObjFromPlayer();
             Carried = true;
             Player = pickupPlayer;
         }
     }
 
-    public void DropObject()
+    public void DropObjFromPlayer()
     {
         Carried = false;
         if (Player != null)
@@ -117,7 +117,7 @@ public class Pickupable : MonoBehaviour
 
     public void DestroyPickupable(float time = 0f)
     {
-        DropObject();
+        DropObjFromPlayer();
         StartCoroutine(DestroyAfterTime(this.gameObject, time));
     }
 

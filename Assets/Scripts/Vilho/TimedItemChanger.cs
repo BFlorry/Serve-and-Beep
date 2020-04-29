@@ -31,7 +31,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
 
     public bool Interact(GameObject obj)
     {
-        if (obj.TryGetComponent(out Pickupable pickupable))
+        if (obj.TryGetComponent(out Pickupable pickupable) && itemSnap.SnappedItem == null)
         {
             pickupable.Player.DropObject();
             itemSnap.SetToPoint(obj);
@@ -51,11 +51,23 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
 
             if (item.TryGetComponent(out Pickupable pickupable))
             {
-                if (pickupable.Carried == false && itemSnap.SnappedItem == null)
+                if (pickupable.Carried == false && curObj == null)
                 {
                     StopAllCoroutines();
                     StartCoroutine(ChangeItems(item));
                 }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        Transform parent = collider.transform.parent;
+        if (parent != null)
+        {
+            if (parent.gameObject.Equals(curObj))
+            {
+                curObj = null;
             }
         }
     }

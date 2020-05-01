@@ -47,8 +47,13 @@ public class PickupController : MonoBehaviour
         }
     }
 
-    public void TryPickup()
+    public bool TryPickup()
     {
+        if (Carrying)
+        {
+            return false;
+        }
+
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
 
@@ -57,9 +62,10 @@ public class PickupController : MonoBehaviour
             if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
             {
                 Pickup(pickupable);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void TryDrop()
@@ -69,6 +75,22 @@ public class PickupController : MonoBehaviour
             DropObject();
             return;
         }
+    }
+
+    public bool TryDropOnSnap()
+    {
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
+        Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.gameObject.TryGetComponent<ItemSnap>(out ItemSnap itemSnap))
+            {
+                TryDrop();
+                return true;
+            }
+        }
+        return false;
     }
 
     public void Pickup(Pickupable pickupable)

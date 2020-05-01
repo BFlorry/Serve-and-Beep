@@ -181,7 +181,14 @@ private void OnEnable()
     void OnInteract()
     {
         bool interacted = playerInteractionController.Interact();
-        if (interacted == false) pickupController.TryPickup();
+        if (interacted == false)
+        {
+            bool pickupped = pickupController.TryPickup();
+            if(pickupped == false)
+            {
+                pickupController.TryDropOnSnap();
+            }
+        }
     }
 
     void OnPickupDown()

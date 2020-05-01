@@ -199,7 +199,9 @@ private void OnEnable()
         }
         else
         {
-            pickupController.TryPickup();
+            bool didPickupSpawnItem = playerInteractionController.InteractWithItemSpawner();
+            if(!didPickupSpawnItem)
+                pickupController.TryPickup();
         }
     }
 

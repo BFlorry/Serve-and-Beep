@@ -49,12 +49,6 @@ public class PickupController : MonoBehaviour
 
     public void TryPickup()
     {
-        if (Carrying)
-        {
-            DropObject();
-            return;
-        }
-
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
 
@@ -65,6 +59,15 @@ public class PickupController : MonoBehaviour
                 Pickup(pickupable);
                 return;
             }
+        }
+    }
+
+    public void TryDrop()
+    {
+        if (Carrying)
+        {
+            DropObject();
+            return;
         }
     }
 

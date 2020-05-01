@@ -180,7 +180,8 @@ private void OnEnable()
     /// </summary>
     void OnInteract()
     {
-        playerInteractionController.Interact();
+        bool interacted = playerInteractionController.Interact();
+        if (interacted == false) pickupController.TryPickup();
     }
 
     void OnPickupDown()
@@ -195,11 +196,11 @@ private void OnEnable()
         if (Time.time >= pickupButtonHeld)
         {
             bool throwSuccess = pickupController.Throw();
-            if (!throwSuccess) pickupController.TryPickup();
+            if (!throwSuccess) pickupController.TryDrop();
         }
         else
         {
-            pickupController.TryPickup();
+            pickupController.TryDrop();
         }
     }
 

@@ -32,6 +32,9 @@ public class Pickupable : MonoBehaviour
     //Properties-----------------------------------------------------------------------
 
     public PickupController Player { get; private set; }
+    public ItemSnap ItemSnap {
+        get;
+        set; } = null;
     public bool Carried { get; set; } = false;
 
     public ItemType ItemType { get => itemType; }
@@ -52,6 +55,7 @@ public class Pickupable : MonoBehaviour
     {
         if (Player == null)
         {
+            NullifyItemSnap();
             // No player carrying, set this player
             Carried = true;
             Player = pickupPlayer;
@@ -59,20 +63,26 @@ public class Pickupable : MonoBehaviour
         else if (Player.Equals(pickupPlayer) == false)
         {
             // Change player
-            RemoveFromPlayer();
+            DropObjFromPlayer();
             Carried = true;
             Player = pickupPlayer;
+        }
+    }
+
+    public void DropObjFromPlayer()
+    {
+        Carried = false;
+        if (Player != null)
+        {
+            Player.DropObject();
+            Player = null;
         }
     }
 
     public void RemoveFromPlayer()
     {
         Carried = false;
-        if (Player != null)
-        {
-            Player.DropObject(); Player = null;
-        }
-
+        Player = null;
     }
 
     /// <summary>
@@ -95,7 +105,6 @@ public class Pickupable : MonoBehaviour
                         bool interactSuccess = interactable.Interact(this.gameObject);
                         if (interactSuccess == true)
                         {
-
                             return true;
                         }
                         return false;
@@ -108,7 +117,7 @@ public class Pickupable : MonoBehaviour
 
     public void DestroyPickupable(float time = 0f)
     {
-        RemoveFromPlayer();
+        DropObjFromPlayer();
         StartCoroutine(DestroyAfterTime(this.gameObject, time));
     }
 
@@ -122,5 +131,14 @@ public class Pickupable : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         GameObject.FindObjectOfType<PickupableManager>().DespawnPickupable(obj);
+    }
+
+    public void NullifyItemSnap()
+    {
+        if (ItemSnap != null)
+        {
+            ItemSnap.SnappedItem = null;
+            ItemSnap = null;
+        }
     }
 }

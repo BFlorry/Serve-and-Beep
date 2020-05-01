@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class ItemSnap : MonoBehaviour
 {
-    private Vector3 point;
+    //Fields------------------------------------------------------------
+    [SerializeField]
+    private AudioClip snapSound;
 
+    private Vector3 point;
+    private AudioSource audioSource;
+
+    //Properties--------------------------------------------------------
+    public GameObject SnappedItem {
+        get;
+        set; }
+
+    //Methods-----------------------------------------------------------
     private void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
+
         GameObject pointObj = transform.GetChild(0).gameObject;
         if (pointObj != null)
         {
@@ -20,22 +33,32 @@ public class ItemSnap : MonoBehaviour
         }
     }
 
-
     private void OnTriggerStay(Collider collider)
     {
         Transform parent = collider.transform.parent;
         if (parent != null)
         {
             GameObject item = parent.gameObject;
+            SetToPoint(item);
+        }
+    }
 
-            Pickupable pickupable = item.GetComponent<Pickupable>();
-
-            if (pickupable != null)
+    public void SetToPoint(GameObject item)
+    {
+        if (SnappedItem == null)
+        {
+            if (item.TryGetComponent(out Pickupable pickupable))
             {
-                if (pickupable.Carried == false)
+                if (pickupable.Carried == false && pickupable.ItemSnap == null)
                 {
+                    pickupable.ItemSnap = this;
                     item.transform.position = point;
-                    parent.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    item.GetComponent<Rigidbody>().isKinematic = true;
+                    SnappedItem = item;
+                    if (audioSource.isPlaying == false)
+                    {
+                        audioSource.PlayOneShot(snapSound);
+                    }
                 }
             }
         }

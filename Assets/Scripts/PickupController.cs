@@ -63,6 +63,7 @@ public class PickupController : MonoBehaviour
             if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
             {
                 Pickup(pickupable);
+                return;
             }
         }
     }
@@ -87,7 +88,7 @@ public class PickupController : MonoBehaviour
         GameObject p = pickupable.gameObject;
         Carrying = true;
         CarriedObject = p.gameObject;
-        CarriedObject.GetComponent<Pickupable>().Carried = true;
+        CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
         pickupable.Pickup(this);
         CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
@@ -100,7 +101,11 @@ public class PickupController : MonoBehaviour
         o.transform.rotation = carryPosition.transform.rotation;
     }
 
-    private void OnThrow()
+    /// <summary>
+    /// Try to throw the pickupable the player is holding
+    /// </summary>
+    /// <returns>Did the throw succeed</returns>
+    public bool Throw()
     {
         if (Carrying)
         {
@@ -112,14 +117,17 @@ public class PickupController : MonoBehaviour
             CarriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
             CarriedObject.GetComponent<Pickupable>().Pickup(this);
             CarriedObject = null;
+
+            return true;
         }
+        else return false;
     }
 
     public void DropObject()
     {
         if (Carrying)
         {
-            CarriedObject.GetComponent<Pickupable>().Carried = false;
+            CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
             Carrying = false;
             //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
             CarriedObject.GetComponent<Rigidbody>().useGravity = true;
@@ -154,5 +162,4 @@ public class PickupController : MonoBehaviour
             o.GetComponent<Rigidbody>().MovePosition(carryPosition.transform.position + carryVector);
         }
     }
-
 }

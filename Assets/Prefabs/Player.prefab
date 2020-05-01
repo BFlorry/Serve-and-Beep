@@ -130,6 +130,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8e1ad9875f453924384a2a3e7bcf2dd3, type: 3}
   - {fileID: 8300000, guid: 63ec69bc1f11a5d4b808357b6586c737, type: 3}
   - {fileID: 8300000, guid: e27265b3bd97cdf4580d8b4fa2f8ea41, type: 3}
+  throwHoldTime: 0.3
+  throwChargedParticle: {fileID: 8203022364779615837, guid: 96bd1491269f4074aa515b5f6c879b71,
+    type: 3}
+  throwChargedSfx: {fileID: 8300000, guid: 3715e85a5a0ccc24c89821f2b3a1f9ea, type: 3}
 --- !u!114 &5588795269810305736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +178,7 @@ MonoBehaviour:
     m_ActionName: Player/Throw[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &5588795269810305738

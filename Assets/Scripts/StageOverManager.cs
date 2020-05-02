@@ -16,7 +16,7 @@ public class StageOverManager : MonoBehaviour
     private Button menuButton;
 
     [SerializeField]
-    private Button quitButton;
+    private Button nextButton;
 
     [SerializeField]
     private TMP_Text scoreText;
@@ -50,6 +50,7 @@ public class StageOverManager : MonoBehaviour
         int score = levelManager.LevelScore;
         scoreText.text = score.ToString();
         stars = levelManager.GetLevelStars();
+        Cursor.visible = true;
 
         OnStageOver?.Invoke();
         StartCoroutine(WaitBeforeScorescreen());
@@ -73,7 +74,7 @@ public class StageOverManager : MonoBehaviour
         GameStateController gameStateController = FindObjectOfType<GameStateController>();
         restartButton.onClick.AddListener(() => gameStateController.RestartScene());
         menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
-        quitButton.onClick.AddListener(() => gameStateController.QuitGame());
+        nextButton.onClick.AddListener(() => gameStateController.NextStage());
 
         dspFanfareTime = (float)AudioSettings.dspTime;
         soundManager.PlaySingleSecondary(starAudios[stars]);

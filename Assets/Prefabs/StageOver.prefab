@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3014022706751159978}
   - component: {fileID: 3285107164513703404}
   m_Layer: 0
-  m_Name: QuitButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 7097892471489063036}
   - component: {fileID: 180042424114045690}
   m_Layer: 0
-  m_Name: QuitText
+  m_Name: NextText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: NEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c01c80a350d6534190bf5738cefbeb2, type: 2}
   m_sharedMaterial: {fileID: 6715009133072976277, guid: 9c01c80a350d6534190bf5738cefbeb2,

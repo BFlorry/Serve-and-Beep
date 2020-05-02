@@ -76,6 +76,15 @@ public class GameStateController : MonoBehaviour
         DisableEventSystem();
     }
 
+    public void NextStage()
+    {
+        int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Scene nextScene = SceneManager.GetSceneAt(curSceneIndex + 1);
+
+        LoadStage(nextScene.name);
+        DisableEventSystem();
+    }
+
     public void RestartScene()
     {
         OnSceneRestart?.Invoke();

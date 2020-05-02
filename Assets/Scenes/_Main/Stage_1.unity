@@ -50460,6 +50460,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaFridge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6043303453347461943, guid: 1bc7443583f45cc4db03c787f22c7df1,
+        type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 6761194121998309291, guid: a1f2392fd7329d046b2c8210ab087daa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bc7443583f45cc4db03c787f22c7df1, type: 3}
 --- !u!1 &2058492813

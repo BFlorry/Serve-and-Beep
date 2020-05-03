@@ -19,6 +19,8 @@ public class HighlightCaster : MonoBehaviour
 
     PickupController pickupController;
 
+    public GameObject TargetObject { get; private set; } = null;
+
     private void Awake()
     {
         TryGetComponent(out pickupController);
@@ -51,6 +53,7 @@ public class HighlightCaster : MonoBehaviour
                     prevHighlight = curHighlight;
                 }
                 clearPreviousHighlight = false;
+                TargetObject = hit.transform.gameObject;
                 break;
             }
         }

@@ -9,11 +9,14 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField]
     private float maxRaySphereRadius = 0.5f;
 
-    PickupController pickupController;
+    private PickupController pickupController;
+    private HighlightCaster highlightCaster;
+
 
     private void Start()
     {
         pickupController = this.GetComponent<PickupController>();
+        highlightCaster = this.GetComponent<HighlightCaster>();
     }
 
     /// <summary>
@@ -31,7 +34,20 @@ public class PlayerInteractionController : MonoBehaviour
         }
         else
         {
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
+            MonoBehaviour[] targetList = highlightCaster.TargetObject.GetComponents<MonoBehaviour>();
+
+            foreach (MonoBehaviour mb in targetList)
+            {
+                if (mb is IInteractable)
+                {
+                    SendInteract(mb, this.gameObject);
+                    Debug.Log("Sending interaction call to interactable item...");
+                    return true;
+                }
+            }
+
+            // TODO: Clean this up when this change has been deemed working
+            /*RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
 
             foreach (RaycastHit hit in hits)
             {
@@ -45,7 +61,7 @@ public class PlayerInteractionController : MonoBehaviour
                         return true;
                     }
                 }
-            }
+            }*/
         }
         return false;
     }

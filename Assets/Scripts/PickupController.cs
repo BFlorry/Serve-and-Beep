@@ -13,7 +13,7 @@ public class PickupController : MonoBehaviour
     private AudioClip pickupSfx;
 
     private PlayerSfxManager sfxManager;
-
+    private HighlightCaster highlightCaster;
     [SerializeField]
     private float throwMagnitude = 100f;
     [SerializeField]
@@ -36,6 +36,7 @@ public class PickupController : MonoBehaviour
     {
         carryPosition = this.gameObject;
         sfxManager = GetComponent<PlayerSfxManager>();
+        highlightCaster = this.GetComponent<HighlightCaster>();
     }
 
     // Update is called once per frame
@@ -55,7 +56,14 @@ public class PickupController : MonoBehaviour
             return;
         }
 
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
+        if (highlightCaster.TargetObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
+        {
+            Pickup(pickupable);
+            return;
+        }
+
+        // TODO: Clean this up when this change has been deemed working
+        /*RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
         Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
 
         foreach (RaycastHit hit in hits)
@@ -65,7 +73,7 @@ public class PickupController : MonoBehaviour
                 Pickup(pickupable);
                 return;
             }
-        }
+        }*/
     }
 
     public void Pickup(Pickupable pickupable)

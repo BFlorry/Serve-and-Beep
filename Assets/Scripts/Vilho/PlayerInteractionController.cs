@@ -45,23 +45,6 @@ public class PlayerInteractionController : MonoBehaviour
                     return true;
                 }
             }
-
-            // TODO: Clean this up when this change has been deemed working
-            /*RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-
-            foreach (RaycastHit hit in hits)
-            {
-                MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
-                foreach (MonoBehaviour mb in targetList)
-                {
-                    if (mb is IInteractable)
-                    {
-                        SendInteract(mb, this.gameObject);
-                        Debug.Log("Sending interaction call to interactable item...");
-                        return true;
-                    }
-                }
-            }*/
         }
         return false;
     }

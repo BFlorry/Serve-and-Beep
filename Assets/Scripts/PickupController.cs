@@ -61,19 +61,6 @@ public class PickupController : MonoBehaviour
             Pickup(pickupable);
             return;
         }
-
-        // TODO: Clean this up when this change has been deemed working
-        /*RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-        Debug.DrawRay(transform.position, transform.forward * maxRayDistance, Color.blue, 0.0f);
-
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.transform.gameObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
-            {
-                Pickup(pickupable);
-                return;
-            }
-        }*/
     }
 
     public void Pickup(Pickupable pickupable)

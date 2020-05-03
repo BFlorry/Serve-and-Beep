@@ -63,6 +63,7 @@ public class HighlightCaster : MonoBehaviour
         {
             prevHighlight.UnHighlight();
             prevHighlight = null;
+            TargetObject = null;
         }
     }
 }

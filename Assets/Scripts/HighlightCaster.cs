@@ -19,6 +19,8 @@ public class HighlightCaster : MonoBehaviour
 
     PickupController pickupController;
 
+    public GameObject TargetObject { get; private set; } = null;
+
     private void Awake()
     {
         TryGetComponent(out pickupController);
@@ -34,6 +36,8 @@ public class HighlightCaster : MonoBehaviour
     {
         bool clearPreviousHighlight = true;
         LayerMask curLayerMask;
+        Highlightable curHighlight;
+
         if (carrying) curLayerMask = highLightWhenCarryingLayer;
         else curLayerMask = highLightWithoutCarryingLayer;
 
@@ -41,17 +45,45 @@ public class HighlightCaster : MonoBehaviour
         RaycastHit[] hits = Physics.SphereCastAll(transform.position + transform.forward, maxRaySphereRadius, transform.forward, maxRayDistance, curLayerMask);
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.TryGetComponent(out Highlightable curHighlight))
+            MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour mb in targetList)
             {
-                // If the new object isn't the same as previous, remove highlight from previous and apply to new
-                if (curHighlight != prevHighlight)
+                if (carrying)
                 {
-                    if (prevHighlight != null) prevHighlight.UnHighlight();
-                    curHighlight.Highlight();
-                    prevHighlight = curHighlight;
+                    if (mb is IItemInteractable)
+                    {
+                        if (hit.transform.gameObject.TryGetComponent(out curHighlight))
+                        {
+                            clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
+                            TargetObject = hit.transform.gameObject;
+                            break;
+                        }
+                    }
                 }
-                clearPreviousHighlight = false;
-                break;
+                else if (mb is Pickupable)
+                {
+                    if (hit.transform.gameObject.TryGetComponent(out curHighlight))
+                    {
+                        clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
+                        TargetObject = hit.transform.gameObject;
+                        break;
+                    }
+                }
+                else if (mb is IInteractable)
+                {
+                    if (hit.transform.gameObject.TryGetComponent(out curHighlight))
+                    {
+                        clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
+                        TargetObject = hit.transform.gameObject;
+                        break;
+                    }
+                }
+                else if (hit.transform.gameObject.TryGetComponent(out curHighlight))
+                {
+                    clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
+                    TargetObject = hit.transform.gameObject;
+                    break;
+                }
             }
         }
 
@@ -60,6 +92,21 @@ public class HighlightCaster : MonoBehaviour
         {
             prevHighlight.UnHighlight();
             prevHighlight = null;
+            TargetObject = null;
         }
+    }
+
+    private bool ApplyHighlight (Highlightable curHighlight, bool clearPreviousHighlight)
+    {
+        // If the new object isn't the same as previous, remove highlight from previous and apply to new
+        if (curHighlight != prevHighlight)
+        {
+            if (prevHighlight != null) prevHighlight.UnHighlight();
+            curHighlight.Highlight();
+            prevHighlight = curHighlight;
+        }
+        clearPreviousHighlight = false;
+
+        return clearPreviousHighlight;
     }
 }

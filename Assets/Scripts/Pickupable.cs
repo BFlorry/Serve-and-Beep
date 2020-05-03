@@ -19,6 +19,7 @@ public class Pickupable : MonoBehaviour
     private float maxRaySphereRadius = 0.5f;
     [SerializeField]
     private GameObject[] targetInteractableObjects;
+    private HighlightCaster highlightCaster = null;
 
 
     //TODO: Maybe implement item type this way?
@@ -32,9 +33,11 @@ public class Pickupable : MonoBehaviour
     //Properties-----------------------------------------------------------------------
 
     public PickupController Player { get; private set; }
-    public ItemSnap ItemSnap {
+    public ItemSnap ItemSnap
+    {
         get;
-        set; } = null;
+        set;
+    } = null;
     public bool Carried { get; set; } = false;
 
     public ItemType ItemType { get => itemType; }
@@ -53,6 +56,7 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
+        highlightCaster = pickupPlayer.GetComponent<HighlightCaster>();
         if (Player == null)
         {
             NullifyItemSnap();
@@ -71,6 +75,7 @@ public class Pickupable : MonoBehaviour
 
     public void DropObjFromPlayer()
     {
+        highlightCaster = null;
         Carried = false;
         if (Player != null)
         {
@@ -83,6 +88,7 @@ public class Pickupable : MonoBehaviour
     {
         Carried = false;
         Player = null;
+        highlightCaster = null;
     }
 
     /// <summary>
@@ -91,25 +97,26 @@ public class Pickupable : MonoBehaviour
     public bool InteractWithItem()
     {
         //TODO: This as a separate class?
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-        foreach (RaycastHit hit in hits)
+        MonoBehaviour[] targetList = highlightCaster.TargetObject.GetComponents<MonoBehaviour>();
+
+        foreach (MonoBehaviour mb in targetList)
         {
-            MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour mb in targetList)
+            if (mb is IItemInteractable)
             {
-                if (mb is IItemInteractable)
+                IItemInteractable interactable = (IItemInteractable)mb;
+                // TODO: Do we want to keep this? This is now fixed, but has not ever been used so I'll disable it for now.
+                /*foreach (IItemInteractable interactObj in targetInteractables)
                 {
-                    IItemInteractable interactable = (IItemInteractable)mb;
-                    foreach (IItemInteractable interactObj in targetInteractables)
-                    {
+                    if (interactable.GetType() == interactObj.GetType())
+                    {*/
                         bool interactSuccess = interactable.Interact(this.gameObject);
                         if (interactSuccess == true)
                         {
                             return true;
                         }
                         return false;
-                    }
-                }
+                    /*}
+                }*/
             }
         }
         return false;

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef86a4ea990937947afad19b1e3b9d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 4
+  itemType: 5
   maxRayDistance: 1
   maxRaySphereRadius: 0.5
   targetInteractableObjects:

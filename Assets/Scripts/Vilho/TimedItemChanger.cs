@@ -16,6 +16,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
         public ItemType itemType;
         public GameObject spawnItem;
         public float preparationTime;
+        public AudioClip changeSound;
     }
 
     [SerializeField]
@@ -24,13 +25,15 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
     private ItemSnap itemSnap;
     private PickupableManager pickupableManager;
     private GameObject curObj;
+    private SoundManager soundManager;
 
     //Methods-----------------------------------------------------------------
     private void Awake()
     {
         itemSnap = transform.parent.GetComponentInChildren<ItemSnap>();
         pickupableManager = FindObjectOfType<PickupableManager>();
-    }
+        soundManager = FindObjectOfType<SoundManager>();
+    }   
 
     public bool Interact(GameObject obj)
     {
@@ -98,10 +101,15 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                     {
                         yield return new WaitForSeconds(itemPairs[j].preparationTime);
 
-                        if ((itemSnap != null && itemSnap.SnappedItem != null) || itemSnap == null)
+                        if ((itemSnap != null && itemSnap.SnappedItem != null) || itemSnap == null || multipleItemsAtATime)
                         {
+                            if (itemPairs[j].changeSound != null)
+                            {
+                                soundManager.PlaySingle(itemPairs[j].changeSound);
+                            }
                             pickupableManager.DespawnPickupable(curObj);
                             curObj = pickupableManager.SpawnPickupable(itemPairs[j].spawnItem, curObj.transform.position, curObj.transform.rotation);
+                            
                         }
                     }
                     yield break;

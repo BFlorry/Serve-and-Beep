@@ -34,7 +34,7 @@ public class PlayerInteractionController : MonoBehaviour
         }
         else
         {
-            MonoBehaviour[] targetList = highlightCaster.TargetObject.GetComponents<MonoBehaviour>();
+            MonoBehaviour[] targetList = highlightCaster.GetTargetObjects();
 
             foreach (MonoBehaviour mb in targetList)
             {

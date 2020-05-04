@@ -109,4 +109,13 @@ public class HighlightCaster : MonoBehaviour
 
         return clearPreviousHighlight;
     }
+
+    public MonoBehaviour[] GetTargetObjects()
+    {
+        if (TargetObject != null)
+        {
+            return TargetObject.GetComponents<MonoBehaviour>();
+        }
+        return new MonoBehaviour[0];
+    }
 }

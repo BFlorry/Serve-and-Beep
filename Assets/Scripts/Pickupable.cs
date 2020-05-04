@@ -97,7 +97,7 @@ public class Pickupable : MonoBehaviour
     public bool InteractWithItem()
     {
         //TODO: This as a separate class?
-        MonoBehaviour[] targetList = highlightCaster.TargetObject.GetComponents<MonoBehaviour>();
+        MonoBehaviour[] targetList = highlightCaster.GetTargetObjects();
 
         foreach (MonoBehaviour mb in targetList)
         {

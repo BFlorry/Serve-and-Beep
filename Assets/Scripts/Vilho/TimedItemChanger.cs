@@ -7,12 +7,16 @@ using static Enums.Pickupables;
 public class TimedItemChanger : MonoBehaviour, IItemInteractable
 {
     //Fields------------------------------------------------------------------
+    [SerializeField]
+    private bool multipleItemsAtATime;
+
     [Serializable]
     private class ItemPair
     {
         public ItemType itemType;
         public GameObject spawnItem;
         public float preparationTime;
+        public AudioClip changeSound;
     }
 
     [SerializeField]
@@ -21,13 +25,15 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
     private ItemSnap itemSnap;
     private PickupableManager pickupableManager;
     private GameObject curObj;
+    private SoundManager soundManager;
 
     //Methods-----------------------------------------------------------------
     private void Awake()
     {
         itemSnap = transform.parent.GetComponentInChildren<ItemSnap>();
         pickupableManager = FindObjectOfType<PickupableManager>();
-    }
+        soundManager = FindObjectOfType<SoundManager>();
+    }   
 
     public bool Interact(GameObject obj)
     {
@@ -44,6 +50,16 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
 
     private void OnTriggerStay(Collider collider)
     {
+        CheckIfStartChange(collider);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        CheckIfStartChange(collision.collider);
+    }
+
+    private void CheckIfStartChange(Collider collider)
+    {
         Transform parent = collider.transform.parent;
         if (parent != null)
         {
@@ -51,7 +67,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
 
             if (item.TryGetComponent(out Pickupable pickupable))
             {
-                if (pickupable.Carried == false && curObj == null)
+                if ((pickupable.Carried == false && curObj == null) || multipleItemsAtATime == true)
                 {
                     StopAllCoroutines();
                     StartCoroutine(ChangeItems(item));
@@ -84,10 +100,16 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                     for (int j = i; j < itemPairs.Length; j++)
                     {
                         yield return new WaitForSeconds(itemPairs[j].preparationTime);
-                        if (itemSnap.SnappedItem != null)
+
+                        if ((itemSnap != null && itemSnap.SnappedItem != null) || itemSnap == null || multipleItemsAtATime)
                         {
+                            if (itemPairs[j].changeSound != null)
+                            {
+                                soundManager.PlaySingle(itemPairs[j].changeSound);
+                            }
                             pickupableManager.DespawnPickupable(curObj);
                             curObj = pickupableManager.SpawnPickupable(itemPairs[j].spawnItem, curObj.transform.position, curObj.transform.rotation);
+                            
                         }
                     }
                     yield break;

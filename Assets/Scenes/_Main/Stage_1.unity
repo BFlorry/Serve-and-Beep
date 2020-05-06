@@ -31524,7 +31524,7 @@ PrefabInstance:
     - target: {fileID: 6826620046183700063, guid: 63a1968bf3d70ee419a30f8db11d96ce,
         type: 3}
       propertyPath: itemPairs.Array.data[0].preparationTime
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6826620046183700063, guid: 63a1968bf3d70ee419a30f8db11d96ce,
         type: 3}

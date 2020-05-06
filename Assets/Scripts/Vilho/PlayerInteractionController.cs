@@ -50,26 +50,21 @@ public class PlayerInteractionController : MonoBehaviour
     }
 
     /// <summary>
-    /// This is TEMPORARY class until a final solution has been decided on regarding controls
+    /// Creates SphereCast from this GameObject, and a list of objects hit, that is an ItemSpawner.
+    /// Calls every list member's Interact function.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns whether interact happened</returns>
     public bool InteractWithItemSpawner()
     {
-        Pickupable pickupable = pickupController.GetPickupable();
+        MonoBehaviour[] targetList = highlightCaster.GetTargetObjects();
 
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
-
-        foreach (RaycastHit hit in hits)
+        foreach (MonoBehaviour mb in targetList)
         {
-            MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour mb in targetList)
+            if (mb is ItemSpawner)
             {
-                if (mb is ItemSpawner)
-                {
-                    SendInteract(mb, this.gameObject);
-                    Debug.Log("Sending interaction call to interactable item...");
-                    return true;
-                }
+                SendInteract(mb, this.gameObject);
+                Debug.Log("Sending interaction call to interactable item...");
+                return true;
             }
         }
 

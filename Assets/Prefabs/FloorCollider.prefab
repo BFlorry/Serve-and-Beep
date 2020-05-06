@@ -62,5 +62,5 @@ MonoBehaviour:
   - itemType: 2
     spawnItem: {fileID: 8356362984735592215, guid: 4086164c533c23c43aae3211bbaba2d5,
       type: 3}
-    preparationTime: 0.5
+    preparationTime: 0
     changeSound: {fileID: 0}

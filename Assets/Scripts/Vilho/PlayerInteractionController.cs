@@ -49,6 +49,33 @@ public class PlayerInteractionController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// This is TEMPORARY class until a final solution has been decided on regarding controls
+    /// </summary>
+    /// <returns></returns>
+    public bool InteractWithItemSpawner()
+    {
+        Pickupable pickupable = pickupController.GetPickupable();
+
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, maxRaySphereRadius, transform.forward, maxRayDistance);
+
+        foreach (RaycastHit hit in hits)
+        {
+            MonoBehaviour[] targetList = hit.transform.gameObject.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour mb in targetList)
+            {
+                if (mb is ItemSpawner)
+                {
+                    SendInteract(mb, this.gameObject);
+                    Debug.Log("Sending interaction call to interactable item...");
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     private void SendInteract(MonoBehaviour mb, GameObject gameobject)
     {
         IInteractable interactable = (IInteractable)mb;

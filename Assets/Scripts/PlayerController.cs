@@ -210,7 +210,7 @@ private void OnEnable()
         yield return new WaitForSeconds(throwHoldTime);
         if (Time.time >= pickupButtonHeld)
         {
-            Instantiate(throwChargedParticle, this.transform.position, Quaternion.identity);
+            Instantiate(throwChargedParticle, this.transform.position + Vector3.up * 1.5f, Quaternion.identity);
             sfxManager.PlayRandomized(throwChargedSfx);
         }
     }

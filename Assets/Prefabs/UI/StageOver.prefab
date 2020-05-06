@@ -2623,7 +2623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButton: {fileID: 460923435977759453}
   menuButton: {fileID: 131461071280584207}
-  quitButton: {fileID: 3285107164513703404}
+  nextButton: {fileID: 3285107164513703404}
   scoreText: {fileID: 1347276630981818434}
   starAudios:
   - {fileID: 8300000, guid: 0dc13371b654fd14db98db80593ab491, type: 3}

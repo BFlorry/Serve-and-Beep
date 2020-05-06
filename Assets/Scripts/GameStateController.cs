@@ -76,12 +76,21 @@ public class GameStateController : MonoBehaviour
         DisableEventSystem();
     }
 
+    public void LoadStage(int scene)
+    {
+        OnSceneChange?.Invoke();
+        Time.timeScale = 1f;
+        playerManager.LoadScene(scene);
+        DisableEventSystem();
+    }
+
     public void NextStage()
     {
         int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Scene nextScene = SceneManager.GetSceneAt(curSceneIndex + 1);
+        //int nextSceneIndex = SceneManager.GetSceneByBuildIndex(curSceneIndex + 1);
+        int nextSceneIndex = curSceneIndex + 1;
 
-        LoadStage(nextScene.name);
+        LoadStage(nextSceneIndex);
         DisableEventSystem();
     }
 

@@ -97,7 +97,25 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(LoadSceneAsync(scene));
     }
 
+    public void LoadScene(int scene)
+    {
+        StartCoroutine(LoadSceneAsync(scene));
+    }
+
     IEnumerator LoadSceneAsync(string scene)
+    {
+        StorePlayers();
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        LoadPlayers();
+    }
+
+    IEnumerator LoadSceneAsync(int scene)
     {
         StorePlayers();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);

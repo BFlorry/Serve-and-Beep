@@ -34,7 +34,7 @@ public class GameStateController : MonoBehaviour
 
     public void EnableEventSystem()
     {
-        eventSystem.SetActive(true);
+        //eventSystem.SetActive(true);
     }
 
     private void EnablePlayerInput()
@@ -53,6 +53,7 @@ public class GameStateController : MonoBehaviour
     public void LoadMenu()
     {
         OnSceneChange?.Invoke();
+        TryGetComponent(out playerManager);
         playerManager.DeserializePlayers();
         SceneManager.LoadSceneAsync("Main_Menu");
         Time.timeScale = 1f;
@@ -72,6 +73,7 @@ public class GameStateController : MonoBehaviour
     {
         OnSceneChange?.Invoke();
         Time.timeScale = 1f;
+        TryGetComponent(out playerManager);
         playerManager.LoadScene(scene);
         DisableEventSystem();
     }
@@ -80,6 +82,7 @@ public class GameStateController : MonoBehaviour
     {
         OnSceneChange?.Invoke();
         Time.timeScale = 1f;
+        TryGetComponent(out playerManager);
         playerManager.LoadScene(scene);
         DisableEventSystem();
     }

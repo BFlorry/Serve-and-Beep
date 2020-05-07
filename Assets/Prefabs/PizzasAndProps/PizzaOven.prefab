@@ -143,15 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2785caeb22729f4c9c8b6979092988c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multipleItemsAtATime: 0
   itemPairs:
   - itemType: 1
     spawnItem: {fileID: 6761194121998309291, guid: a1f2392fd7329d046b2c8210ab087daa,
       type: 3}
-    preparationTime: 5
+    preparationTime: 8
+    changeSound: {fileID: 0}
   - itemType: 2
     spawnItem: {fileID: 322006110348598537, guid: df5177445a4571e4cb5d9b5778f6e406,
       type: 3}
-    preparationTime: 5
+    preparationTime: 15
+    changeSound: {fileID: 0}
 --- !u!1 &5306379688718997296
 GameObject:
   m_ObjectHideFlags: 0

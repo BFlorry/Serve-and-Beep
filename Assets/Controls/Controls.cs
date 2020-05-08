@@ -59,14 +59,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=1)""
                 },
                 {
-                    ""name"": ""Start"",
-                    ""type"": ""Button"",
-                    ""id"": ""2fc17106-71ab-4581-8824-ad5b81e5d385"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""328f28ae-1dbd-46ef-9ce1-209d81c033cd"",
@@ -259,41 +251,19 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""47787dee-af81-47b7-9ac9-34f95d9a2b8f"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6cb4f957-4185-41d6-9fcf-d984679892d7"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""46530678-2b52-4358-9c06-277377d8b271"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard p1"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""385769a0-a0f7-449b-a993-dadb852495c8"",
                     ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""427231ab-7f8d-437a-90b0-33296c79ff8c"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -796,7 +766,6 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_PickupDown = m_Player.FindAction("PickupDown", throwIfNotFound: true);
         m_Player_PickupUp = m_Player.FindAction("PickupUp", throwIfNotFound: true);
-        m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_PlayerSoundDown = m_Player.FindAction("PlayerSoundDown", throwIfNotFound: true);
         m_Player_PlayerSoundUp = m_Player.FindAction("PlayerSoundUp", throwIfNotFound: true);
@@ -861,7 +830,6 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_PickupDown;
     private readonly InputAction m_Player_PickupUp;
-    private readonly InputAction m_Player_Start;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_PlayerSoundDown;
     private readonly InputAction m_Player_PlayerSoundUp;
@@ -874,7 +842,6 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @PickupDown => m_Wrapper.m_Player_PickupDown;
         public InputAction @PickupUp => m_Wrapper.m_Player_PickupUp;
-        public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @PlayerSoundDown => m_Wrapper.m_Player_PlayerSoundDown;
         public InputAction @PlayerSoundUp => m_Wrapper.m_Player_PlayerSoundUp;
@@ -902,9 +869,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PickupUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupUp;
                 @PickupUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupUp;
                 @PickupUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickupUp;
-                @Start.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
-                @Start.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
-                @Start.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
@@ -933,9 +897,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PickupUp.started += instance.OnPickupUp;
                 @PickupUp.performed += instance.OnPickupUp;
                 @PickupUp.canceled += instance.OnPickupUp;
-                @Start.started += instance.OnStart;
-                @Start.performed += instance.OnStart;
-                @Start.canceled += instance.OnStart;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1057,7 +1018,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnPickupDown(InputAction.CallbackContext context);
         void OnPickupUp(InputAction.CallbackContext context);
-        void OnStart(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnPlayerSoundDown(InputAction.CallbackContext context);
         void OnPlayerSoundUp(InputAction.CallbackContext context);

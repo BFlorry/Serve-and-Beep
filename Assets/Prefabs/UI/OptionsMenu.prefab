@@ -3487,6 +3487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7134139604684101}
   - component: {fileID: 884997261}
+  - component: {fileID: 9019806841049006398}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -3532,6 +3533,19 @@ MonoBehaviour:
   sliderSfx: {fileID: 0}
   checkBoxSfx: {fileID: 0}
   exitSfx: {fileID: 0}
+--- !u!114 &9019806841049006398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134139604684098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e4b47cc11403442a63c7f24bd8b3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIElementToSelect: {fileID: 6969355168231738856}
 --- !u!1 &7134139750949826
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,7 +7705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5796509250861315344
 Transform:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class GameStateController : MonoBehaviour
 
     public void EnableEventSystem()
     {
-        //eventSystem.SetActive(true);
+        eventSystem.SetActive(true);
     }
 
     private void EnablePlayerInput()

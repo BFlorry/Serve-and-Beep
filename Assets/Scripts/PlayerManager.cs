@@ -91,12 +91,13 @@ public class PlayerManager : MonoBehaviour
 
     public void DeserializePlayers()
     {
-        foreach (var player in PlayerInput.all)
+        foreach (PlayerInput player in PlayerInput.all)
         {
             player.user.UnpairDevicesAndRemoveUser();
             player.DeactivateInput();
             Destroy(player);
         }
+        DisableHotJoin();
     }
 
     public void LoadScene(string scene)

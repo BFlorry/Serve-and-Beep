@@ -79,7 +79,7 @@ public class CustomerSpawner : MonoBehaviour
             {
                 Debug.Log("Spawning a new customer...");
                 customers.Add(Instantiate(customer, spawnPosition, spawnRotation));
-                Audio.PlayOneShot(enterSfx);
+                //Audio.PlayOneShot(enterSfx);
 
             }
             else

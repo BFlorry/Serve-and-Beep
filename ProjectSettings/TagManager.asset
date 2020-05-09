@@ -8,6 +8,9 @@ TagManager:
   - ProgressBar
   - NavMesh
   - UICamera
+  - LevelEnter
+  - NPC
+  - Customer
   layers:
   - Default
   - TransparentFX

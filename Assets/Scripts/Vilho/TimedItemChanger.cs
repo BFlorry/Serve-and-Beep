@@ -30,7 +30,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
     //Methods-----------------------------------------------------------------
     private void Awake()
     {
-        itemSnap = transform.parent.GetComponentInChildren<ItemSnap>();
+        itemSnap = GetComponentInChildren<ItemSnap>();
         pickupableManager = FindObjectOfType<PickupableManager>();
         soundManager = FindObjectOfType<SoundManager>();
     }   

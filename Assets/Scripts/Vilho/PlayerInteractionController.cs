@@ -38,7 +38,7 @@ public class PlayerInteractionController : MonoBehaviour
 
             foreach (MonoBehaviour mb in targetList)
             {
-                if (mb is IInteractable)
+                if (mb is IInteractable && !(mb is ItemSpawner))
                 {
                     SendInteract(mb, this.gameObject);
                     Debug.Log("Sending interaction call to interactable item...");

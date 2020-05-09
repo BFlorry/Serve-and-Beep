@@ -1698,8 +1698,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Oskari Alanko
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1856,8 +1856,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2012,8 +2012,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Laura Koskinen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2231,8 +2231,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Music
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2310,7 +2310,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2463,8 +2463,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Graphics
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -2596,8 +2596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 284.76, y: -25}
-  m_SizeDelta: {x: 569.52, y: 50}
+  m_AnchoredPosition: {x: 284.765, y: -25}
+  m_SizeDelta: {x: 569.53, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687071155
 MonoBehaviour:
@@ -2619,8 +2619,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Mikko M\xE4ntyl\xE4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9d7519cb5d82a8b4d87812939f0414a6, type: 2}
-  m_sharedMaterial: {fileID: -7193973366937067883, guid: 9d7519cb5d82a8b4d87812939f0414a6,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2995,8 +2995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 837.26, y: -25}
-  m_SizeDelta: {x: 535.48, y: 50}
+  m_AnchoredPosition: {x: 837.265, y: -25}
+  m_SizeDelta: {x: 535.47, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779381285
 MonoBehaviour:
@@ -3018,8 +3018,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vilho Polamo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3097,7 +3097,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -3537,8 +3537,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Onni Elonen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3616,7 +3616,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -4063,8 +4063,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Producer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -4347,8 +4347,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Programming
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4426,7 +4426,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -5172,8 +5172,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pinja Peltonen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5251,7 +5251,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -6299,8 +6299,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Jari Niemi\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: acc5d9660dd4b5749a9b28fbed8e28f3, type: 2}
-  m_sharedMaterial: {fileID: -502021917224969677, guid: acc5d9660dd4b5749a9b28fbed8e28f3,
+  m_fontAsset: {fileID: 11400000, guid: 9f9bf9b0a5bcf784583307298aacc1a5, type: 2}
+  m_sharedMaterial: {fileID: -502021917224969677, guid: 9f9bf9b0a5bcf784583307298aacc1a5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6378,7 +6378,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}

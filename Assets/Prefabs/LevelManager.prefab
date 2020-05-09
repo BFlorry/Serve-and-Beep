@@ -1372,15 +1372,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimeLimit: 180
   hurryUpTime: 10
-  requiredScore: ee020000dc050000f00a0000
+  requiredScorePerPlayer: ee020000dc050000f00a0000
   timerText: {fileID: 7185816678170122843}
   scoreText: {fileID: 1753088720}
+  newScorePopup: {fileID: 5356935087662312133, guid: b146acba936a0034b8644e932561c0f4,
+    type: 3}
+  tipScorePopup: {fileID: 3225548211272402649, guid: 958bb2508d7ab1f4f82ba42fde80fd73,
+    type: 3}
   bgmMusic: {fileID: 8300000, guid: c43d901e7d491344ab669ee198b631c4, type: 3}
   timeRunningOutSfx: {fileID: 8300000, guid: 10f8f705963b6664cac03527801407ba, type: 3}
   timeOverSfx: {fileID: 8300000, guid: 97f8470753387ab41a944ce7555389d0, type: 3}
   posReviewSfx: {fileID: 8300000, guid: cc9b717d1fa75254ebde4cca125fa8a5, type: 3}
   negReviewSfx: {fileID: 8300000, guid: cbbe1392faf4af44f85cdba89e5b74f8, type: 3}
   stageOverMusic: {fileID: 8300000, guid: 2cbc0acd9907a134ea7b9a24aec6cf8d, type: 3}
+  tipSfx: {fileID: 8300000, guid: 19f304a1c7cc531419ba1151653d7f52, type: 3}
   gameOverMenu: {fileID: 3359133449006991382}
   playerSpawnpoints:
   - {fileID: 6398886468956822123}

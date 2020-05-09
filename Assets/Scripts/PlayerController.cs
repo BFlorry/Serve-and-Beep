@@ -195,7 +195,7 @@ private void OnEnable()
         if (Time.time >= pickupButtonHeld)
         {
             bool throwSuccess = pickupController.Throw();
-            if (!throwSuccess) pickupController.TryPickup();
+            if (!throwSuccess) Pickup();
         }
         else
         {
@@ -203,6 +203,13 @@ private void OnEnable()
             if(!didPickupSpawnItem)
                 pickupController.TryPickup();
         }
+    }
+
+    void Pickup()
+    {
+        bool didPickupSpawnItem = playerInteractionController.InteractWithItemSpawner();
+        if (!didPickupSpawnItem)
+            pickupController.TryPickup();
     }
 
     private IEnumerator WaitForThrowCharge()

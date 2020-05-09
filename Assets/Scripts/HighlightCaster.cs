@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class HighlightCaster : MonoBehaviour
 {
+    enum Actions
+    {
+        Interact,
+        Pickup
+    }
+
     [SerializeField]
     private LayerMask highLightWithoutCarryingLayer;
     [SerializeField]
@@ -19,17 +25,32 @@ public class HighlightCaster : MonoBehaviour
 
     PickupController pickupController;
 
+    ButtonPromptController buttonPrompt;
+
     public GameObject TargetObject { get; private set; } = null;
 
     private void Awake()
     {
         TryGetComponent(out pickupController);
+        TryGetComponent(out buttonPrompt);
     }
 
     void Update()
     {
         carrying = pickupController.Carrying;
         HighLightObjects();
+    }
+
+    private void ShowButtonPrompt(Actions action)
+    {
+        if (action == Actions.Interact)
+        {
+            buttonPrompt.ShowInteract();
+        }
+        else if (action == Actions.Pickup)
+        {
+            buttonPrompt.ShowPickup();
+        }
     }
 
     private void HighLightObjects()
@@ -54,6 +75,7 @@ public class HighlightCaster : MonoBehaviour
                     {
                         if (hit.transform.gameObject.TryGetComponent(out curHighlight))
                         {
+                            ShowButtonPrompt(Actions.Interact);
                             clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
                             TargetObject = hit.transform.gameObject;
                             break;
@@ -64,6 +86,7 @@ public class HighlightCaster : MonoBehaviour
                 {
                     if (hit.transform.gameObject.TryGetComponent(out curHighlight))
                     {
+                        ShowButtonPrompt(Actions.Pickup);
                         clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
                         TargetObject = hit.transform.gameObject;
                         break;
@@ -73,6 +96,11 @@ public class HighlightCaster : MonoBehaviour
                 {
                     if (hit.transform.gameObject.TryGetComponent(out curHighlight))
                     {
+                        if (mb is ItemSpawner)
+                        {
+                            ShowButtonPrompt(Actions.Pickup);
+                        }
+                        else ShowButtonPrompt(Actions.Interact);
                         clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
                         TargetObject = hit.transform.gameObject;
                         break;
@@ -80,6 +108,8 @@ public class HighlightCaster : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.TryGetComponent(out curHighlight))
                 {
+                    // This case seems to happen with pickups
+                    ShowButtonPrompt(Actions.Pickup);
                     clearPreviousHighlight = ApplyHighlight(curHighlight, clearPreviousHighlight);
                     TargetObject = hit.transform.gameObject;
                     break;
@@ -90,6 +120,7 @@ public class HighlightCaster : MonoBehaviour
         // If didn't hit any highlightable objects, clear previous highlight.
         if (clearPreviousHighlight && prevHighlight != null)
         {
+            buttonPrompt.ClearPrompt();
             prevHighlight.UnHighlight();
             prevHighlight = null;
             TargetObject = null;

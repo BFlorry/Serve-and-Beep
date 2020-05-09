@@ -1404,8 +1404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c51771945ac9c4a8e8cd927183fe5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmountOfPickupables: 10
-  pickupableCheckInterval: 0.5
+  maxAmountOfPickupables: 50
+  pickupableCheckInterval: 1
 --- !u!1 &7940596655281025884
 GameObject:
   m_ObjectHideFlags: 0

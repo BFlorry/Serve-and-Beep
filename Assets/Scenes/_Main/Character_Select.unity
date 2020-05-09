@@ -7732,7 +7732,7 @@ GameObject:
   - component: {fileID: 667133744}
   - component: {fileID: 667133743}
   m_Layer: 5
-  m_Name: Controls (ENABLE THIS WHEN CONTROLS FIXED!)
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

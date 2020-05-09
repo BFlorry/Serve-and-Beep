@@ -53,7 +53,7 @@ public class ButtonPromptController : MonoBehaviour
             buttonPrompt.sprite = dualshockInteract;
             return;
         }
-        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("Xbox"))
+        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("XInput"))
         {
             buttonPrompt.sprite = xboxInteract;
             return;
@@ -76,7 +76,7 @@ public class ButtonPromptController : MonoBehaviour
             buttonPrompt.sprite = dualshockPickup;
             return;
         }
-        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("Xbox"))
+        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("XInput"))
         {
             buttonPrompt.sprite = xboxPickup;
             return;

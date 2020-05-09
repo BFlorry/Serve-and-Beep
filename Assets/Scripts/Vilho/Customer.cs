@@ -203,11 +203,14 @@ public class Customer : MonoBehaviour
     }
 
 
-    //Gives positive review. (According to review class?)
-    public void ReviewPos()
+    /// <summary>
+    /// Gives positive review. (According to review class?)
+    /// </summary>
+    /// <param name="tipAmount">Extra tip on top of the base score</param>
+    public void ReviewPos(int tipAmount = 0)
     {
         //TODO Affect game manager or something like that.
-        FindObjectOfType<LevelManager>().ChangeScore(100);
+        FindObjectOfType<LevelManager>().ChangeScore(100, tipAmount);
     }
 
     //Gives negative review. (According to review class?)

@@ -37,6 +37,12 @@ public class LevelManager : MonoBehaviour
     private TextMeshProUGUI scoreText;
 
     [SerializeField]
+    private GameObject newScorePopup;
+
+    [SerializeField]
+    private GameObject tipScorePopup;
+
+    [SerializeField]
     private AudioClip bgmMusic;
 
     [SerializeField]
@@ -121,6 +127,8 @@ public class LevelManager : MonoBehaviour
         {
             LevelScore = 0;
         }
+        GameObject scorePopup = Instantiate(newScorePopup);
+        scorePopup.GetComponentInChildren<TMP_Text>().text = ((amount > 0) ? "+" : "") + amount;
         scoreText.text = LevelScore.ToString();
     }
 
@@ -129,6 +137,8 @@ public class LevelManager : MonoBehaviour
         if (amount > 0)
         {
             soundManager.PlaySingle(tipSfx);
+            GameObject tipPopup = Instantiate(tipScorePopup);
+            tipPopup.GetComponentInChildren<TMP_Text>().text = "+" + amount;
             LevelScore += amount;
             scoreText.text = LevelScore.ToString();
         }

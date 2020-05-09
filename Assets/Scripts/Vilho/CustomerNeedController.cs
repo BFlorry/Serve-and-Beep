@@ -207,7 +207,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
             int tipAmount = CalculateTip();
-            customer.ReviewPos();
+            customer.ReviewPos(tipAmount);
             customerController.PlayEatAnimation();
             NextNeed();
             return true;
@@ -223,7 +223,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
     {
         if (currentValue < CurNeed.MaxValue)
         {
-            int tipScore = (int)(1 - (CurNeed.MaxValue / currentValue));
+            int tipScore = (int)(CurNeed.MaxValue / currentValue) * 5;
             return tipScore;
         }
         return 0;

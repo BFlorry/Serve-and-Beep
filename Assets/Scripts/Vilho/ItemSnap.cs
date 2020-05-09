@@ -9,17 +9,15 @@ public class ItemSnap : MonoBehaviour
     private AudioClip snapSound;
 
     private Vector3 point;
-    private AudioSource audioSource;
+    private SoundManager soundManager;
 
     //Properties--------------------------------------------------------
-    public GameObject SnappedItem {
-        get;
-        set; }
+    public GameObject SnappedItem { get; set; }
 
     //Methods-----------------------------------------------------------
     private void Start()
     {
-        audioSource = this.GetComponent<AudioSource>();
+        soundManager = FindObjectOfType<SoundManager>();
 
         GameObject pointObj = transform.GetChild(0).gameObject;
         if (pointObj != null)
@@ -55,10 +53,7 @@ public class ItemSnap : MonoBehaviour
                     item.transform.position = point;
                     item.GetComponent<Rigidbody>().isKinematic = true;
                     SnappedItem = item;
-                    if (audioSource.isPlaying == false)
-                    {
-                        audioSource.PlayOneShot(snapSound);
-                    }
+                    soundManager.PlaySingle(snapSound);
                 }
             }
         }

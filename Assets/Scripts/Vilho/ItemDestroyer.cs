@@ -12,10 +12,13 @@ public class ItemDestroyer : MonoBehaviour, IItemInteractable
     [SerializeField]
     private float fadeOutTime = 2f;
 
+    [SerializeField]
+    private AudioClip trashingSound;
+
     private float alpha;
     private Shader standardShader;
     private Material transparentMat;
-    private AudioSource audio;
+    private SoundManager soundManager;
     private ItemSnap itemSnap;
 
     //Methods-----------------------------------------------------------------------------------------
@@ -23,7 +26,7 @@ public class ItemDestroyer : MonoBehaviour, IItemInteractable
     private void Awake()
     {
         standardShader = Shader.Find("Standard");
-        audio = this.GetComponentInParent<AudioSource>();
+        soundManager = FindObjectOfType<SoundManager>();
         itemSnap = this.gameObject.GetComponent<ItemSnap>();
     }
 
@@ -55,7 +58,7 @@ public class ItemDestroyer : MonoBehaviour, IItemInteractable
                 {
                     pickupable.DropObjFromPlayer();
                     Destroy(pickupable);
-                    audio.PlayOneShot(audio.clip);
+                    soundManager.PlaySingle(trashingSound);
 
                     MeshRenderer[] rends = SetTransparentWithChildren(item);
 

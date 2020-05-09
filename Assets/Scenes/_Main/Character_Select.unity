@@ -7732,12 +7732,12 @@ GameObject:
   - component: {fileID: 667133744}
   - component: {fileID: 667133743}
   m_Layer: 5
-  m_Name: Controls (ENABLE THIS WHEN CONTROLS FIXED!)
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &667133743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7777,7 +7777,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 403c2c857ef2e6d469d58a82ce60e03d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08760b9c4a999a3449868f6ab4518a87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -46,14 +46,6 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "Start",
-                    "type": "Button",
-                    "id": "2fc17106-71ab-4581-8824-ad5b81e5d385",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "328f28ae-1dbd-46ef-9ce1-209d81c033cd",
@@ -246,41 +238,19 @@
                 },
                 {
                     "name": "",
-                    "id": "47787dee-af81-47b7-9ac9-34f95d9a2b8f",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6cb4f957-4185-41d6-9fcf-d984679892d7",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "46530678-2b52-4358-9c06-277377d8b271",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard p1",
-                    "action": "Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "385769a0-a0f7-449b-a993-dadb852495c8",
                     "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "427231ab-7f8d-437a-90b0-33296c79ff8c",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -379,7 +349,7 @@
                 {
                     "name": "",
                     "id": "ccd3c7dd-8812-45f0-9eff-18de8d4c6956",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -401,7 +371,7 @@
                 {
                     "name": "",
                     "id": "84ab9cff-c5f0-41a7-b57c-d1f5fed160bd",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -606,7 +576,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Main menu;Keyboard p1;Keyboard p2",
+                    "groups": "Main menu;Keyboard p1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -617,7 +587,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Main menu;Keyboard p1;Keyboard p2",
+                    "groups": "Main menu;Keyboard p1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -628,7 +598,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Main menu;Keyboard p1;Keyboard p2",
+                    "groups": "Main menu;Keyboard p1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -639,7 +609,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Main menu;Keyboard p2;Keyboard p1",
+                    "groups": "Main menu;Keyboard p1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -659,6 +629,17 @@
                     "name": "",
                     "id": "993f699b-f00b-4fe1-932f-7b71ad24c820",
                     "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;Main menu",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9667f813-cdba-403e-9b3e-f6af6b62366a",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad;Main menu",

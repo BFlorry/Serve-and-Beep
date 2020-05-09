@@ -79,17 +79,25 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerInput input = PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
             input.transform.position = spawnPoints[player.index].transform.position;
+
+            // TODO: If player customization by material is going to be enabled, edit this out and make the color persist some other way
+            input.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
+            if (playerMaterialManager != null)
+            {
+                playerMaterialManager.SetPlayerIndex(input.playerIndex);
+            }
         }
     }
 
     public void DeserializePlayers()
     {
-        foreach (var player in PlayerInput.all)
+        foreach (PlayerInput player in PlayerInput.all)
         {
             player.user.UnpairDevicesAndRemoveUser();
             player.DeactivateInput();
             Destroy(player);
         }
+        DisableHotJoin();
     }
 
     public void LoadScene(string scene)

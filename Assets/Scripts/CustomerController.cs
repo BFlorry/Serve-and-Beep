@@ -45,4 +45,5 @@ public class CustomerController : MonoBehaviour
     {
         animator.SetTrigger("eat");
     }
+
 }

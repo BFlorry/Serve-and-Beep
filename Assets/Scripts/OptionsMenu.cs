@@ -66,31 +66,39 @@ public class OptionsMenu : MonoBehaviour
         SetVolume(masterVolume);
         SetBGMVolume(bgmVolume);
         SetSFXVolume(sfxVolume);
-        masterVolumeSlider.value = masterVolume;
-        bgmVolumeSlider.value = bgmVolume;
-        sfxVolumeSlider.value = sfxVolume;
+        if(masterVolumeSlider != null)
+            masterVolumeSlider.value = masterVolume;
+        if(bgmVolumeSlider != null)
+            bgmVolumeSlider.value = bgmVolume;
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.value = sfxVolume;
 
         if (PlayerPrefs.HasKey("Quality"))
         {
             int quality = PlayerPrefs.GetInt("Quality");
             SetQuality(quality);
-            qualityDropdown.value = quality;
+            if (qualityDropdown != null)
+                qualityDropdown.value = quality;
         }
         else
         {
-            qualityDropdown.value = QualitySettings.GetQualityLevel();
+            if (qualityDropdown != null)
+                qualityDropdown.value = QualitySettings.GetQualityLevel();
         }
-        qualityDropdown.RefreshShownValue();
+        if (qualityDropdown != null)
+            qualityDropdown.RefreshShownValue();
 
         if (PlayerPrefs.HasKey("Fullscreen"))
         {
             bool isFullscreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("Fullscreen"));
             SetFullscreen(isFullscreen);
-            fullscreenToggle.isOn = isFullscreen;
+            if (fullscreenToggle != null)
+                fullscreenToggle.isOn = isFullscreen;
         }
         else
         {
-            fullscreenToggle.isOn = Screen.fullScreen;
+            if (fullscreenToggle != null)
+                fullscreenToggle.isOn = Screen.fullScreen;
         }
 
         resolutions = Screen.resolutions;

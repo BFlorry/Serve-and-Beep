@@ -55,6 +55,9 @@ public class LevelManager : MonoBehaviour
     private AudioClip stageOverMusic;
 
     [SerializeField]
+    private AudioClip tipSfx;
+
+    [SerializeField]
     private GameObject gameOverMenu;
 
     [SerializeField]
@@ -99,19 +102,36 @@ public class LevelManager : MonoBehaviour
         return starCount;
     }
 
-    public void ChangeScore(int amount)
+    public void ChangeScore(int scoreAmount, int tipAmount = 0)
+    {
+        AddScore(scoreAmount);
+        AddTip(tipAmount);
+        scoreText.text = LevelScore.ToString();
+    }
+
+    private void AddScore(int amount)
     {
         if (amount > 0) soundManager.PlaySingle(posReviewSfx);
         else soundManager.PlaySingle(negReviewSfx);
-        if((LevelScore + amount) >= 0)
+        if ((LevelScore + amount) >= 0)
         {
             LevelScore += amount;
         }
-        else if((LevelScore + amount) < 0)
+        else if ((LevelScore + amount) < 0)
         {
             LevelScore = 0;
         }
         scoreText.text = LevelScore.ToString();
+    }
+
+    public void AddTip(int amount)
+    {
+        if (amount > 0)
+        {
+            soundManager.PlaySingle(tipSfx);
+            LevelScore += amount;
+            scoreText.text = LevelScore.ToString();
+        }
     }
 
     private void Update()

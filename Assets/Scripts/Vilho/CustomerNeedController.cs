@@ -206,6 +206,7 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
 
             // TODO: If this change is final, remove this and following line
             //customer.SfGain(curNeed.PosReview);
+            int tipAmount = CalculateTip();
             customer.ReviewPos();
             customerController.PlayEatAnimation();
             NextNeed();
@@ -216,6 +217,16 @@ public class CustomerNeedController : MonoBehaviour, IItemInteractable
             Debug.Log("Target is not pickupable. Pickupable component is null.");
             return false;
         }
+    }
+
+    private int CalculateTip()
+    {
+        if (currentValue < CurNeed.MaxValue)
+        {
+            int tipScore = (int)(1 - (CurNeed.MaxValue / currentValue));
+            return tipScore;
+        }
+        return 0;
     }
 
     /// <summary>

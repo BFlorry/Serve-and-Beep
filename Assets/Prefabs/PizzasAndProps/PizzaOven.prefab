@@ -148,12 +148,12 @@ MonoBehaviour:
   - itemType: 1
     spawnItem: {fileID: 6761194121998309291, guid: a1f2392fd7329d046b2c8210ab087daa,
       type: 3}
-    preparationTime: 8
+    preparationTime: 10
     changeSound: {fileID: 0}
   - itemType: 2
     spawnItem: {fileID: 322006110348598537, guid: df5177445a4571e4cb5d9b5778f6e406,
       type: 3}
-    preparationTime: 15
+    preparationTime: 20
     changeSound: {fileID: 0}
 --- !u!1 &5306379688718997296
 GameObject:

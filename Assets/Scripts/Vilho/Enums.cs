@@ -42,6 +42,7 @@ public static class Enums
             PurpleDrink,
             GreenDrink,
             BlackDrink,
+	    Key,
         }
     }
 }

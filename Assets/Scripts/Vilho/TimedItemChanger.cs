@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static Enums.Pickupables;
 
 public class TimedItemChanger : MonoBehaviour, IItemInteractable
@@ -27,13 +28,18 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
     private GameObject curObj;
     private SoundManager soundManager;
 
+    [SerializeField]
+    private Image progressBarImage;
+    [SerializeField]
+    private GameObject progressBarCanvas;
+
     //Methods-----------------------------------------------------------------
     private void Awake()
     {
         itemSnap = GetComponentInChildren<ItemSnap>();
         pickupableManager = FindObjectOfType<PickupableManager>();
         soundManager = FindObjectOfType<SoundManager>();
-    }   
+    }
 
     public bool Interact(GameObject obj)
     {
@@ -71,6 +77,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                 {
                     StopAllCoroutines();
                     StartCoroutine(ChangeItems(item));
+                    
                 }
             }
         }
@@ -84,6 +91,7 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
             if (parent.gameObject.Equals(curObj))
             {
                 curObj = null;
+                progressBarCanvas.SetActive(false);
             }
         }
     }
@@ -99,7 +107,16 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                     curObj = originalObj;
                     for (int j = i; j < itemPairs.Length; j++)
                     {
-                        yield return new WaitForSeconds(itemPairs[j].preparationTime);
+                        //yield return new WaitForSeconds(itemPairs[j].preparationTime);
+                        progressBarCanvas.SetActive(true);
+                        float timeLeft = itemPairs[j].preparationTime;
+
+                        while (timeLeft >= 0.0f)
+                        {
+                            timeLeft -= Time.deltaTime;
+                            progressBarImage.fillAmount = (1 - timeLeft / itemPairs[j].preparationTime);
+                            yield return null;
+                        }
 
                         if ((itemSnap != null && itemSnap.SnappedItem != null) || itemSnap == null || multipleItemsAtATime)
                         {

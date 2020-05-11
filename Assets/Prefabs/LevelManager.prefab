@@ -1372,7 +1372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimeLimit: 180
   hurryUpTime: 10
-  requiredScorePerPlayer: ee020000dc050000f00a0000
+  onePlayerRequiredScores: 64000000c80000002c010000
+  twoPlayersRequiredScores: 90010000f401000058020000
+  threePlayersRequiredScores: bc0200002003000084030000
+  fourPlayersRequiredScores: e80300004c040000b0040000
   timerText: {fileID: 7185816678170122843}
   scoreText: {fileID: 1753088720}
   newScorePopup: {fileID: 5356935087662312133, guid: b146acba936a0034b8644e932561c0f4,

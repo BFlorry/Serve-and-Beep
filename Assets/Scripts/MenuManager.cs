@@ -35,6 +35,14 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(WaitBeforePlayingBgm());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            StartGame();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ExitGame();
+    }
+
     IEnumerator WaitBeforePlayingBgm()
     {
         // Check if timescale not 1 (if returning from stageover, time is 0)

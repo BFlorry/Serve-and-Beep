@@ -79,6 +79,7 @@ public class StageOverManager : MonoBehaviour
         dspFanfareTime = (float)AudioSettings.dspTime;
         soundManager.PlaySingleSecondary(starAudios[stars]);
     }
+
     void Update()
     {
         if (!soundManager.IsSFXPlaying())
@@ -127,5 +128,13 @@ public class StageOverManager : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.N))
+            FindObjectOfType<GameStateController>().NextStage();
+        if (Input.GetKeyDown(KeyCode.L))
+            FindObjectOfType<GameStateController>().LoadMenu();
+        if (Input.GetKeyDown(KeyCode.R))
+            FindObjectOfType<GameStateController>().RestartScene();
+
     }
 }

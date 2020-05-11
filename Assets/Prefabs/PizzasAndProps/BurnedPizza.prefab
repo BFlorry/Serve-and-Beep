@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 322006110348598540}
   - component: {fileID: 322006110348598543}
   - component: {fileID: 322006110348598542}
+  - component: {fileID: 8491155829492566305}
   m_Layer: 8
   m_Name: BurnedPizza
   m_TagString: Untagged
@@ -81,6 +82,19 @@ MonoBehaviour:
   maxRaySphereRadius: 0.5
   targetInteractableObjects:
   - {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
+--- !u!114 &8491155829492566305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322006110348598537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b950f3a04c54308499a795083e0b2ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSfx: {fileID: 8300000, guid: f29114e2cb4bed24c89b5865b5896f33, type: 3}
 --- !u!1 &322006110556848428
 GameObject:
   m_ObjectHideFlags: 0

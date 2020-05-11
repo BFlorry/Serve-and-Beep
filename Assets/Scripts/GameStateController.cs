@@ -16,6 +16,19 @@ public class GameStateController : MonoBehaviour
     private GameObject eventSystem;
 
     private PlayerInput mainMenuInput;
+    public static GameStateController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

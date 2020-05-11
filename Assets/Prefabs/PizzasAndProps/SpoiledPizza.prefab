@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8356362984735592210}
   - component: {fileID: 8356362984735592209}
   - component: {fileID: 8356362984735592208}
+  - component: {fileID: 4898173222803948800}
   m_Layer: 8
   m_Name: SpoiledPizza
   m_TagString: Untagged
@@ -174,3 +175,16 @@ MonoBehaviour:
   maxRaySphereRadius: 0.5
   targetInteractableObjects:
   - {fileID: 6298475039252347908, guid: 8badad6709598bb4589d0251bb2f3988, type: 3}
+--- !u!114 &4898173222803948800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356362984735592215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b950f3a04c54308499a795083e0b2ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSfx: {fileID: 8300000, guid: 4b0660f6ccf6fbf45be1844ba80199c3, type: 3}

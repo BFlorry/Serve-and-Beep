@@ -3070,10 +3070,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7134138674775490}
   m_HandleRect: {fileID: 7134139191438994}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3530,9 +3530,9 @@ MonoBehaviour:
   qualityDropdown: {fileID: 7134138535784148}
   fullscreenToggle: {fileID: 7134138757654987}
   resolutionDropdown: {fileID: 7134138401860391}
-  sliderSfx: {fileID: 0}
-  checkBoxSfx: {fileID: 0}
-  exitSfx: {fileID: 0}
+  sliderSfx: {fileID: 8300000, guid: 3b14a54ffd7235f40b9cd89ed0c7a6b2, type: 3}
+  checkBoxSfx: {fileID: 8300000, guid: 79c22c9c809314e45aeb2314a26d4633, type: 3}
+  exitSfx: {fileID: 8300000, guid: adab2ea5a21e66b48b3502d16677667c, type: 3}
 --- !u!114 &9019806841049006398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4863,10 +4863,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 6014465521536276291}
   m_HandleRect: {fileID: 4559235807881741574}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6185,10 +6185,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 4384543934232312386}
   m_HandleRect: {fileID: 82731205719312368}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

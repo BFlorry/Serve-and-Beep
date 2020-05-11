@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
     private GameObject throwChargedParticle;
 
     [SerializeField]
+    private AudioClip throwChargingSfx;
+
+    [SerializeField]
     private AudioClip throwChargedSfx;
 
 private void OnEnable()
@@ -186,11 +189,15 @@ private void OnEnable()
     void OnPickupDown()
     {
         pickupButtonHeld = Time.time + throwHoldTime;
-        StartCoroutine(WaitForThrowCharge());
+        if (pickupController.Carrying)
+        {
+            StartCoroutine(WaitForThrowCharge());
+        }
     }
 
     void OnPickupUp()
     {
+        sfxManager.StopSingleStoppable();
         StopAllCoroutines();
         if (Time.time >= pickupButtonHeld)
         {
@@ -214,6 +221,7 @@ private void OnEnable()
 
     private IEnumerator WaitForThrowCharge()
     {
+        sfxManager.PlaySingleStoppable(throwChargingSfx);
         yield return new WaitForSeconds(throwHoldTime);
         if (Time.time >= pickupButtonHeld)
         {

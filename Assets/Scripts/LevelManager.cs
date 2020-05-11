@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -25,10 +26,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private float hurryUpTime = 170f;
 
-    [SerializeField]
-    private int[] requiredScorePerPlayer = new int[]{750, 1500, 2800};
+    private int[] requiredScores;
 
-    private int[] totalRequiredScore;
+    [SerializeField]
+    private int[]
+        onePlayerRequiredScores,
+        twoPlayersRequiredScores,
+        threePlayersRequiredScores,
+        fourPlayersRequiredScores;
 
     [SerializeField]
     private TextMeshProUGUI timerText;
@@ -84,24 +89,14 @@ public class LevelManager : MonoBehaviour
         scoreText.text = LevelScore.ToString();
         Time.timeScale = 1f;
 
-        if (PlayerInput.all.Count > 0)
-        {
-            for (int i = 0; i < requiredScorePerPlayer.Length; i++)
-            {
-                totalRequiredScore[i] = requiredScorePerPlayer[i] * PlayerInput.all.Count;
-            }
-        }
-        else
-        {
-            totalRequiredScore = requiredScorePerPlayer;
-            StartCoroutine(LateCheckPlayerAmount());
-        }
+        requiredScores = onePlayerRequiredScores;
+        StartCoroutine(LateSetRequiredScores());
     }
 
     public int GetLevelStars()
     {
         int starCount = 0;
-        foreach(int starLimit in requiredScorePerPlayer)
+        foreach(int starLimit in requiredScores)
         {
             if (LevelScore >= starLimit) starCount++;
         }
@@ -200,18 +195,28 @@ public class LevelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Players might not be loaded to scene before after Start(), so wait for 0.5 seconds and check again.
+    /// Players might not be loaded to scene before after Start(), iso wait for 0.5 seconds and check again.
     /// </summary>
     /// <returns></returns>
-    private IEnumerator LateCheckPlayerAmount()
+    private IEnumerator LateSetRequiredScores()
     {
         yield return new WaitForSeconds(0.5f);
-        if (PlayerInput.all.Count > 0)
+        switch (PlayerInput.all.Count)
         {
-            for (int i = 0; i < requiredScorePerPlayer.Length; i++)
-            {
-                totalRequiredScore[i] = requiredScorePerPlayer[i] * PlayerInput.all.Count;
-            }
+            case 1:
+                requiredScores = onePlayerRequiredScores;
+                break;
+            case 2:
+                requiredScores = twoPlayersRequiredScores;
+                break;
+            case 3:
+                requiredScores = threePlayersRequiredScores;
+                break;
+            case 4:
+                requiredScores = fourPlayersRequiredScores;
+                break;
+            default:
+                break;
         }
     }
 }

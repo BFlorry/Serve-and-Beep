@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e785d143af4e34bb295a59b5913e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useDefaultPickupSound: 1
-  spawnSound: {fileID: 0}
+  useDefaultPickupSound: 0
+  spawnSound: {fileID: 8300000, guid: a509f518bb4d0d943a637d7d0255d7dc, type: 3}
   itemPrefab: {fileID: 1376113330052888277, guid: bde85ebb11fb27dd1afd93c997962466,
     type: 3}
 --- !u!65 &4290864468335272348

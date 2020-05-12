@@ -59,7 +59,7 @@ public class StageOverManager : MonoBehaviour
     private IEnumerator WaitBeforeScorescreen()
     {
         // TODO: This sound play should be done in LevelManager, but currently bugs when done so.
-        soundManager.PlaySingleStoppable(levelEndSfx);
+        soundManager.PlaySingle(levelEndSfx);
 
         float startTime = Time.realtimeSinceStartup;
         while (Time.realtimeSinceStartup - startTime < 1.5f)

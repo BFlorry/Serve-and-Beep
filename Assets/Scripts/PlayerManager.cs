@@ -46,10 +46,13 @@ public class PlayerManager : MonoBehaviour
 
         foreach (PlayerInput playerInput in PlayerInput.all)
         {
-            playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
-            if (playerMaterialManager != null)
+            if( playerInput != null)
             {
-                playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
+                playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
+                if (playerMaterialManager != null)
+                {
+                    playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
+                }
             }
         }
     }
@@ -77,17 +80,24 @@ public class PlayerManager : MonoBehaviour
         GameObject[] spawnPoints = FindObjectOfType<LevelManager>().PlayerSpawnpoints;
         foreach (PlayerData player in m_Players)
         {
-            PlayerInput input = PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
-            input.transform.position = spawnPoints[player.index].transform.position;
+            if(player != null)
+            {
+                PlayerInput input = PlayerInput.Instantiate(playerPrefab, /*controlScheme: nameOfControlSchemeToUse,*/ playerIndex: player.index, pairWithDevices: player.devices);
+                input.transform.position = spawnPoints[player.index].transform.position;
+
+            }
         }
 
         // TODO: If player customization by material is going to be enabled, edit this out and make the color persist some other way
         foreach (PlayerInput playerInput in PlayerInput.all)
         {
-            playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
-            if (playerMaterialManager != null)
+            if(playerInput != null)
             {
-                playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
+                playerInput.TryGetComponent(out PlayerMaterialManager playerMaterialManager);
+                if (playerMaterialManager != null)
+                {
+                    playerMaterialManager.SetPlayerIndex(playerInput.playerIndex);
+                }
             }
         }
     }
@@ -96,9 +106,12 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (PlayerInput player in PlayerInput.all)
         {
-            player.user.UnpairDevicesAndRemoveUser();
-            player.DeactivateInput();
-            Destroy(player);
+            if(player != null)
+            {
+                player.user.UnpairDevicesAndRemoveUser();
+                player.DeactivateInput();
+                Destroy(player);
+            }
         }
         DisableHotJoin();
     }

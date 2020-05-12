@@ -98,14 +98,20 @@ private void OnEnable()
 
     private void EnablePlayerControls()
     {
-        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        if (this.TryGetComponent(out PlayerInput playerInput))
+        {
+            playerInput.SwitchCurrentActionMap("Player");
+        }
     }
 
     private void EnableMenuControls()
     {
-        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Menu");
-        this.GetComponent<PlayerInput>().uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
-        this.GetComponent<PlayerInput>().camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        if(this.TryGetComponent(out PlayerInput playerInput))
+        {
+            playerInput.SwitchCurrentActionMap("Menu");
+            playerInput.uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
+            playerInput.camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        }
     }
 
     void OnDeviceLost(PlayerInput pi)
@@ -183,7 +189,9 @@ private void OnEnable()
     /// </summary>
     void OnInteract()
     {
-        playerInteractionController.Interact();
+        if(playerInteractionController == null) this.TryGetComponent(out playerInteractionController);
+        if (playerInteractionController != null)
+            playerInteractionController.Interact();
     }
 
     void OnPickupDown()

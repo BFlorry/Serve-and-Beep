@@ -189,25 +189,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fa60b5fc45d16f34aababe3c6efe6d28, type: 3}
   - {fileID: 8300000, guid: 4c3ac1f0d954cdc4aa0938ca8778dc54, type: 3}
   - {fileID: 8300000, guid: 3c1ac52d3d0c58640a3d7da58ad62efa, type: 3}
-  - {fileID: 8300000, guid: cfbfb378c44d017429c9a77c7423af98, type: 3}
-  - {fileID: 8300000, guid: 83b6366181913ea42b49f89a48e6adf3, type: 3}
-  - {fileID: 8300000, guid: 9d3f6f74bef70304d8216efdc825daaf, type: 3}
-  - {fileID: 8300000, guid: 5f41b1dc3b1023048a99d9cf3d2346c4, type: 3}
-  - {fileID: 8300000, guid: ebf317c650041e24d8d1815c1a72a1bc, type: 3}
-  - {fileID: 8300000, guid: 9f5f699682dc9fd4bb825be0b4fcb061, type: 3}
-  - {fileID: 8300000, guid: caea5a78ace258b498e4b0d1bea5ed41, type: 3}
-  - {fileID: 8300000, guid: 283adef416d3769489e68c76018d68f4, type: 3}
-  - {fileID: 8300000, guid: 3e8ea72e5131cac4b8e03de60829ed68, type: 3}
-  - {fileID: 8300000, guid: 816cede8810dbf34e9d5b02f5e640c79, type: 3}
-  - {fileID: 8300000, guid: 40b86fbc53338f847ba6bb74b2a65d21, type: 3}
-  - {fileID: 8300000, guid: 8e4af95495e2ffb4796008bc9fb33964, type: 3}
-  - {fileID: 8300000, guid: 8e1ad9875f453924384a2a3e7bcf2dd3, type: 3}
-  - {fileID: 8300000, guid: 63ec69bc1f11a5d4b808357b6586c737, type: 3}
-  - {fileID: 8300000, guid: e27265b3bd97cdf4580d8b4fa2f8ea41, type: 3}
   throwHoldTime: 0.3
   throwChargedParticle: {fileID: 8203022364779615837, guid: 96bd1491269f4074aa515b5f6c879b71,
     type: 3}
-  throwChargingSfx: {fileID: 0}
+  throwChargingSfx: {fileID: 8300000, guid: 2af073ff099d3ed44b2459a5b662ddac, type: 3}
   throwChargedSfx: {fileID: 8300000, guid: a09fe78a980110e4c8656248b60f7582, type: 3}
 --- !u!114 &5588795269810305736
 MonoBehaviour:

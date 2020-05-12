@@ -171,7 +171,7 @@ public class LevelManager : MonoBehaviour
                 }
             case LevelPhase.HurryupBegin:
                 {
-                    soundManager.PlaySecondaryMusic(timeRunningOutSfx);
+                    soundManager.PlaySingleLoopable(timeRunningOutSfx);
                     levelState = LevelPhase.Hurryup;
                     break;
                 }
@@ -182,7 +182,7 @@ public class LevelManager : MonoBehaviour
                 }
             case LevelPhase.Finish:
                 {
-                    soundManager.StopSecondaryMusic();
+                    soundManager.StopSingleLoopable();
                     soundManager.StopMusic();
                     Time.timeScale = 0f;
                     // TODO: Figure out why PlaySingle bugs out here! An unity bug?

@@ -32,6 +32,10 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
     private Image progressBarImage;
     [SerializeField]
     private GameObject progressBarCanvas;
+    [SerializeField]
+    private AudioClip cookingSfx;
+    [SerializeField]
+    private AudioClip removeSfx;
 
     //Methods-----------------------------------------------------------------
     private void Awake()
@@ -77,7 +81,6 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                 {
                     StopAllCoroutines();
                     StartCoroutine(ChangeItems(item));
-                    
                 }
             }
         }

@@ -65,37 +65,31 @@ public class PreferencesController : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
-        PlayerPrefs.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
     }
     public void SetBGMVolume(float volume)
     {
-        audioMixer.SetFloat("BGMVolume", volume);
-        PlayerPrefs.SetFloat("BGMVolume", volume);
+        audioMixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFXVolume", volume);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
-        PlayerPrefs.SetInt("Quality", qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-        PlayerPrefs.SetInt("Fullscreen", System.Convert.ToInt32(isFullscreen));
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt("Resolution", resolutionIndex);
     }
 }

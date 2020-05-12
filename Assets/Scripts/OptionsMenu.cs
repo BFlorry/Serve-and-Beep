@@ -129,19 +129,19 @@ public class OptionsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("MasterVolume", volume);
     }
     public void SetBGMVolume(float volume)
     {
         audioMixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("BGMVolume", volume);
 
     }
 
     public void SetSFXVolume(float volume)
     {
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
         soundManager = FindObjectOfType<SoundManager>();
         soundManager.PlaySingle(sliderSfx);
     }

@@ -32,7 +32,8 @@ public class Pickupable : MonoBehaviour
 
     //Properties-----------------------------------------------------------------------
 
-    public PickupController Player { get; private set; }
+    public PickupController Player { get;
+        private set; }
     public ItemSnap ItemSnap
     {
         get;
@@ -56,21 +57,14 @@ public class Pickupable : MonoBehaviour
 
     public void Pickup(PickupController pickupPlayer)
     {
-        highlightCaster = pickupPlayer.GetComponent<HighlightCaster>();
-        if (Player == null)
+        if (Player != null)
         {
-            NullifyItemSnap();
-            // No player carrying, set this player
-            Carried = true;
-            Player = pickupPlayer;
-        }
-        else if (Player.Equals(pickupPlayer) == false)
-        {
-            // Change player
             DropObjFromPlayer();
-            Carried = true;
-            Player = pickupPlayer;
         }
+        NullifyItemSnap();
+        Carried = true;
+        Player = pickupPlayer;
+        highlightCaster = pickupPlayer.GetComponent<HighlightCaster>();
     }
 
     public void DropObjFromPlayer()

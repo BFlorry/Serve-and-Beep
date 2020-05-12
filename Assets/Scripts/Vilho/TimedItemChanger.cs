@@ -91,7 +91,10 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
             if (parent.gameObject.Equals(curObj))
             {
                 curObj = null;
-                progressBarCanvas.SetActive(false);
+                if (progressBarCanvas != null)
+                {
+                    progressBarCanvas.SetActive(false);
+                }
             }
         }
     }
@@ -108,13 +111,19 @@ public class TimedItemChanger : MonoBehaviour, IItemInteractable
                     for (int j = i; j < itemPairs.Length; j++)
                     {
                         //yield return new WaitForSeconds(itemPairs[j].preparationTime);
-                        progressBarCanvas.SetActive(true);
+                        if (progressBarCanvas != null)
+                        {
+                            progressBarCanvas.SetActive(true);
+                        }
                         float timeLeft = itemPairs[j].preparationTime;
 
                         while (timeLeft >= 0.0f)
                         {
                             timeLeft -= Time.deltaTime;
-                            progressBarImage.fillAmount = (1 - timeLeft / itemPairs[j].preparationTime);
+                            if (progressBarImage != null)
+                            {
+                                progressBarImage.fillAmount = (1 - timeLeft / itemPairs[j].preparationTime);
+                            }
                             yield return null;
                         }
 

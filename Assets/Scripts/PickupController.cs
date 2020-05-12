@@ -83,14 +83,12 @@ public class PickupController : MonoBehaviour
         GameObject p = pickupable.gameObject;
         Carrying = true;
         CarriedObject = p.gameObject;
-        CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
         pickupable.Pickup(this);
         CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     private void Carry(GameObject o)
     {
-        //o.GetComponent<Rigidbody>().isKinematic = true;
         o.GetComponent<Rigidbody>().useGravity = false;
         MovePickupable(o);
         o.transform.rotation = carryPosition.transform.rotation;
@@ -104,13 +102,11 @@ public class PickupController : MonoBehaviour
     {
         if (Carrying)
         {
-            CarriedObject.GetComponent<Pickupable>().Carried = false;
+            CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
             sfxManager.PlaySingle(throwSfx);
             Carrying = false;
-            //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
             CarriedObject.GetComponent<Rigidbody>().useGravity = true;
             CarriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwMagnitude + new Vector3(0f, 200f, 0f) + GetComponent<Rigidbody>().velocity);
-            CarriedObject.GetComponent<Pickupable>().Pickup(this);
             CarriedObject = null;
 
             return true;
@@ -124,7 +120,6 @@ public class PickupController : MonoBehaviour
         {
             CarriedObject.GetComponent<Pickupable>().RemoveFromPlayer();
             Carrying = false;
-            //CarriedObject.GetComponent<Rigidbody>().isKinematic = false;
             CarriedObject.GetComponent<Rigidbody>().useGravity = true;
             CarriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity);
             CarriedObject = null;

@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
     //Drag a reference to the audio source which will play the sound effects.
     public AudioSource sfxSource;
     public AudioSource secondarySfxSource;
+    public AudioSource loopableSfxSource;
     //Drag a reference to the audio source which will play the music.
     public AudioSource musicSource;
     public AudioSource secondaryMusicSource;
@@ -67,6 +68,17 @@ public class SoundManager : MonoBehaviour
         else Debug.LogWarning("SFX source was null: ", sfxSource);
     }
 
+    public void PlaySingleLoopable(AudioClip clip)
+    {
+        //Play the clip.
+        if (loopableSfxSource != null)
+        {
+            loopableSfxSource.clip = clip;
+            loopableSfxSource.Play();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
+
     public bool IsSFXPlaying()
     {
         //Play the clip.
@@ -83,6 +95,15 @@ public class SoundManager : MonoBehaviour
         if (sfxSource != null)
         {
             sfxSource.Stop();
+        }
+        else Debug.LogWarning("SFX source was null: ", sfxSource);
+    }
+
+    public void StopSingleLoopable()
+    {
+        if (loopableSfxSource != null)
+        {
+            loopableSfxSource.Stop();
         }
         else Debug.LogWarning("SFX source was null: ", sfxSource);
     }

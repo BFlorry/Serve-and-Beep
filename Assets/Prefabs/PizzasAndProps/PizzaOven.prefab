@@ -57,14 +57,16 @@ MonoBehaviour:
     spawnItem: {fileID: 6761194121998309291, guid: a1f2392fd7329d046b2c8210ab087daa,
       type: 3}
     preparationTime: 10
-    changeSound: {fileID: 0}
+    changeSound: {fileID: 8300000, guid: f29114e2cb4bed24c89b5865b5896f33, type: 3}
   - itemType: 2
     spawnItem: {fileID: 322006110348598537, guid: df5177445a4571e4cb5d9b5778f6e406,
       type: 3}
     preparationTime: 10
-    changeSound: {fileID: 0}
+    changeSound: {fileID: 8300000, guid: f29114e2cb4bed24c89b5865b5896f33, type: 3}
   progressBarImage: {fileID: 3428697070912870568}
   progressBarCanvas: {fileID: 6271659713455097109}
+  cookingSfx: {fileID: 8300000, guid: db673d2c91a8e9d40a424e534b427744, type: 3}
+  removeSfx: {fileID: 8300000, guid: 93de3974fab04bd498f51bfdafd3c453, type: 3}
 --- !u!65 &4985621466662151094
 BoxCollider:
   m_ObjectHideFlags: 0

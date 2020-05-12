@@ -98,14 +98,20 @@ private void OnEnable()
 
     private void EnablePlayerControls()
     {
-        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        if (this.TryGetComponent(out PlayerInput playerInput))
+        {
+            playerInput.SwitchCurrentActionMap("Player");
+        }
     }
 
     private void EnableMenuControls()
     {
-        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Menu");
-        this.GetComponent<PlayerInput>().uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
-        this.GetComponent<PlayerInput>().camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        if(this.TryGetComponent(out PlayerInput playerInput))
+        {
+            playerInput.SwitchCurrentActionMap("Menu");
+            playerInput.uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
+            playerInput.camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+        }
     }
 
     void OnDeviceLost(PlayerInput pi)
@@ -183,7 +189,9 @@ private void OnEnable()
     /// </summary>
     void OnInteract()
     {
-        playerInteractionController.Interact();
+        if(playerInteractionController == null) this.TryGetComponent(out playerInteractionController);
+        if (playerInteractionController != null)
+            playerInteractionController.Interact();
     }
 
     void OnPickupDown()
@@ -221,8 +229,10 @@ private void OnEnable()
 
     private IEnumerator WaitForThrowCharge()
     {
+        // short wait before playing sfx so that it does not play when putting down objects instead of throwing
+        yield return new WaitForSeconds(0.05f);
         sfxManager.PlaySingleStoppable(throwChargingSfx);
-        yield return new WaitForSeconds(throwHoldTime);
+        yield return new WaitForSeconds(throwHoldTime - 0.05f);
         if (Time.time >= pickupButtonHeld)
         {
             Instantiate(throwChargedParticle, this.transform.position + Vector3.up * 1.5f, Quaternion.identity);
@@ -233,12 +243,12 @@ private void OnEnable()
     void OnPlayerSoundDown()
     {
         int randInt = Random.Range(0, beepSfx.Length);
-        sfxManager.PlaySingleStoppable(beepSfx[randInt]);
+        sfxManager.PlaySingle(beepSfx[randInt]);
     }
 
     void OnPlayerSoundUp()
     {
-        sfxManager.StopSingleStoppable();
+        //sfxManager.StopSingleStoppable();
     }
 
     public void TogglePlayerFreeze()

@@ -240,7 +240,7 @@ private void OnEnable()
 
     void OnPlayerSoundUp()
     {
- //       sfxManager.StopSingleStoppable();
+        //sfxManager.StopSingleStoppable();
     }
 
     public void TogglePlayerFreeze()

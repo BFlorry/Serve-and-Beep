@@ -87,6 +87,12 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<GameStateController>().LoadLobby();
     }
 
+    public void LevelSelect()
+    {
+        ClickSound();
+        FindObjectOfType<GameStateController>().LoadLevelSelect();
+    }
+
     public void Options()
     {
         ClickSound();

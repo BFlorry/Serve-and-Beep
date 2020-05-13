@@ -25,6 +25,10 @@ public class PlayerMaterialManager : MonoBehaviour
         );
             GetComponentInChildren<Renderer>().material.color = randColor;
         }
+        else
+        {
+            GetComponentInChildren<Renderer>().material = materials[playerIndex];
+        }
 
     }
 

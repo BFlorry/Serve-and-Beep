@@ -29,6 +29,7 @@ public class LevelSelectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
         gameStateController = FindObjectOfType<GameStateController>();
         buttonLevel1.onClick.AddListener(() => LoadLevel(scenes[0]));
         buttonLevel2.onClick.AddListener(() => LoadLevel(scenes[1]));

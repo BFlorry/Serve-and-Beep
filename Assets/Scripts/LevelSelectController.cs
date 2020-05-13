@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelSelectController : MonoBehaviour
 {
     [SerializeField]
-    private int[] scenes;
+    private string[] scenes;
 
     [SerializeField]
     private Button buttonLevel1;
@@ -44,9 +44,10 @@ public class LevelSelectController : MonoBehaviour
     /// <summary>
     /// Load a scene
     /// </summary>
-    /// <param name="buildIndex">Desired scene build index</param>
-    private void LoadLevel(int buildIndex)
+    /// <param name="sceneName">Desired scene name</param>
+    private void LoadLevel(string sceneName)
     {
-        FindObjectOfType<GameStateController>().LoadStage(buildIndex);
+        FindObjectOfType<GameStateController>().SceneToLoad = sceneName;
+        FindObjectOfType<GameStateController>().LoadLobby();
     }
 }

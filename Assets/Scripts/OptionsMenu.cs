@@ -168,7 +168,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void BackButton()
     {
-        PauseMenu.SetActive(true);
+        if(PauseMenu != null)
+            PauseMenu.SetActive(true);
         soundManager.PlaySingle(exitSfx);
         this.gameObject.SetActive(false);
     }

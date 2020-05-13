@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
 
     private SoundManager soundManager;
 
+    private bool enableButtonFunctionality = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -59,7 +61,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         soundManager.PlayMusic(menuMusic);
-
+        enableButtonFunctionality = true;
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 
@@ -83,14 +85,22 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (enableButtonFunctionality)
+        {
         ClickSound();
+        FindObjectOfType<GameStateController>().SceneToLoad = "Stage_1";
         FindObjectOfType<GameStateController>().LoadLobby();
+        }
     }
 
     public void LevelSelect()
     {
+        if (enableButtonFunctionality)
+        {
         ClickSound();
         FindObjectOfType<GameStateController>().LoadLevelSelect();
+
+        }
     }
 
     public void Options()
@@ -101,7 +111,8 @@ public class MenuManager : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        if(enableButtonFunctionality)
+            Application.Quit();
     }
 
 }

@@ -14,6 +14,8 @@ public class PauseManager : MonoBehaviour
 
     public static bool GameIsPaused { get; private set; } = false;
 
+    public static bool OptionsOpen { get; private set; } = false;
+
     public AudioMixerSnapshot levelSnapshot;
 
     public AudioMixerSnapshot pauseSnapshot;
@@ -38,16 +40,22 @@ public class PauseManager : MonoBehaviour
     {
         // Don't toggle pause if current scene is main menu and that StageOverManager is not enabled
         if(SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Main_Menu")
-            && !FindObjectOfType<StageOverManager>() && !options.activeSelf)
+            && !FindObjectOfType<StageOverManager>() && !options.activeSelf
+            && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Level_Select"))
         {
-            if (GameIsPaused)
+            if (GameIsPaused && !OptionsOpen)
             {
                 Resume();
             }
-            else
+            else if (!GameIsPaused && !OptionsOpen)
             {
                 Pause();
             }
+        }
+        else if (GameIsPaused && OptionsOpen)
+        {
+            options.GetComponent<OptionsMenu>().BackButton();
+            OptionsOpen = false;
         }
     }
 
@@ -84,6 +92,7 @@ public class PauseManager : MonoBehaviour
 
     public void Options()
     {
+        OptionsOpen = true;
         options.GetComponent<OptionsMenu>().PauseMenu = pauseMenuUI;
         options.SetActive(true);
         pauseMenuUI.SetActive(false);

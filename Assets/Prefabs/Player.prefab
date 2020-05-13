@@ -488,10 +488,10 @@ MonoBehaviour:
   buttonPromptCanvas: {fileID: 6300327827271087631}
   keyboardInteract: {fileID: 21300000, guid: a56731ec3651b304888c36a4ac780131, type: 3}
   keyboardPickup: {fileID: 21300000, guid: b0537dd42b9cdf6499ead55c863e92c9, type: 3}
-  dualshockInteract: {fileID: 21300000, guid: 268bdbd1534581e4e8d162e00edc678e, type: 3}
-  dualshockPickup: {fileID: 21300000, guid: 594e4355f85d2e8498bea281c13f8ae1, type: 3}
-  xboxInteract: {fileID: 21300000, guid: 970e299e1d7110348afbfa1843456780, type: 3}
-  xboxPickup: {fileID: 21300000, guid: b427b2406dcb9d34b8b3607ce2552ad8, type: 3}
+  dualshockInteract: {fileID: 21300000, guid: 594e4355f85d2e8498bea281c13f8ae1, type: 3}
+  dualshockPickup: {fileID: 21300000, guid: 268bdbd1534581e4e8d162e00edc678e, type: 3}
+  xboxInteract: {fileID: 21300000, guid: b427b2406dcb9d34b8b3607ce2552ad8, type: 3}
+  xboxPickup: {fileID: 21300000, guid: 970e299e1d7110348afbfa1843456780, type: 3}
 --- !u!1 &6300327827271087631
 GameObject:
   m_ObjectHideFlags: 0

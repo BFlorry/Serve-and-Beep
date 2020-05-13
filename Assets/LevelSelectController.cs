@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class LevelSelectController : MonoBehaviour
 {
     [SerializeField]
+    private int[] scenes;
+
+    [SerializeField]
     private Button buttonLevel1;
     [SerializeField]
     private Button buttonLevel2;
@@ -24,10 +27,10 @@ public class LevelSelectController : MonoBehaviour
     void Start()
     {
         gameStateController = FindObjectOfType<GameStateController>();
-        buttonLevel1.onClick.AddListener(() => LoadLevel(1));
-        buttonLevel2.onClick.AddListener(() => LoadLevel(2));
-        buttonLevel3.onClick.AddListener(() => LoadLevel(3));
-        buttonLevel4.onClick.AddListener(() => LoadLevel(4));
+        buttonLevel1.onClick.AddListener(() => LoadLevel(scenes[0]));
+        buttonLevel2.onClick.AddListener(() => LoadLevel(scenes[1]));
+        buttonLevel3.onClick.AddListener(() => LoadLevel(scenes[2]));
+        buttonLevel4.onClick.AddListener(() => LoadLevel(scenes[3]));
 
         buttonMenu.onClick.AddListener(() => gameStateController.LoadMenu());
     }
@@ -41,9 +44,9 @@ public class LevelSelectController : MonoBehaviour
     /// <summary>
     /// Load a scene
     /// </summary>
-    /// <param name="levelNumber">Desired level number, eg. Level 1</param>
-    private void LoadLevel(int levelNumber)
+    /// <param name="buildIndex">Desired scene build index</param>
+    private void LoadLevel(int buildIndex)
     {
-        FindObjectOfType<GameStateController>().LoadStage(levelNumber - 1);
+        FindObjectOfType<GameStateController>().LoadStage(buildIndex);
     }
 }

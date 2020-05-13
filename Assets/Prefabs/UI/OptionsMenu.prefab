@@ -3073,7 +3073,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3506,7 +3506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7134138922849985}
-  - {fileID: 7690512969955677515}
+  - {fileID: 426912662058482451}
   - {fileID: 2852449619880093522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4853,7 +4853,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6175,7 +6175,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7762,7 +7762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3fafb46a5f4df94eaabc2c3310d6bb1, type: 3}
---- !u!4 &7690512969955677515 stripped
+--- !u!4 &426912662058482451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8022742727930326684, guid: e3fafb46a5f4df94eaabc2c3310d6bb1,
     type: 3}

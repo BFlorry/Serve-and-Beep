@@ -237,6 +237,7 @@ public class PlayerController : MonoBehaviour
     {
         int randInt = Random.Range(0, beepSfx.Length);
         sfxManager.PlaySingle(beepSfx[randInt]);
+        animator.Play("Wave");
     }
 
     void OnPlayerSoundUp()

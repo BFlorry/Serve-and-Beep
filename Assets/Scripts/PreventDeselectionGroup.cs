@@ -30,12 +30,12 @@ public class PreventDeselectionGroup : MonoBehaviour
     private void OnEnable()
     {
         evt = EventSystem.current;
-        evt.SetSelectedGameObject(null);
+        //evt.SetSelectedGameObject(null);
     }
 
     private void Update()
     {
-        evt = EventSystem.current;
+        //evt = EventSystem.current;
         if (evt.currentSelectedGameObject != null && evt.currentSelectedGameObject != selected)
             selected = evt.currentSelectedGameObject;
         else if (selected != null && selected.activeInHierarchy && evt.currentSelectedGameObject == null)

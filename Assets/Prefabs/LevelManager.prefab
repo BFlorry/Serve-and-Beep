@@ -1634,11 +1634,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -997.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3509382750093216005, guid: 058af8c40d9a6e04abcbdbc28879ac2d,
-        type: 3}
-      propertyPath: levelEndSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 05ba595a4e1f13a48955bd70f46b2e76, type: 3}
     - target: {fileID: 3864054937814480087, guid: 058af8c40d9a6e04abcbdbc28879ac2d,
         type: 3}
       propertyPath: m_AnchorMin.y

@@ -84,6 +84,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         ClickSound();
+        FindObjectOfType<GameStateController>().SceneToLoad = "Stage_1";
         FindObjectOfType<GameStateController>().LoadLobby();
     }
 

@@ -465,7 +465,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Click"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""4ae9d5d6-d39a-49d5-b7aa-fb026eaf0579"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -490,7 +490,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -501,7 +501,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard p1;Main menu"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -512,7 +512,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -523,7 +523,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -534,7 +534,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
-                    ""groups"": ""Main menu;Gamepad"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -545,7 +545,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -556,7 +556,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -567,7 +567,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Gamepad"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -589,7 +589,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -600,7 +600,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -611,7 +611,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -622,7 +622,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p1"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -633,7 +633,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Main menu;Keyboard p2"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Accept"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -644,7 +644,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Main menu"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -655,7 +655,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Main menu"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -666,7 +666,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard p1;Main menu;Keyboard p2"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -688,7 +688,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard p1;Main menu"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -699,7 +699,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard p1;Main menu"",
+                    ""groups"": ""Keyboard p1"",
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

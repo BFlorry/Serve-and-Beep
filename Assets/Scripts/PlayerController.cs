@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip throwChargedSfx;
 
-private void OnEnable()
+    private void OnEnable()
     {
         PauseManager.OnPause += EnableMenuControls;
         PauseManager.OnResume += EnablePlayerControls;
@@ -98,23 +99,15 @@ private void OnEnable()
 
     private void EnablePlayerControls()
     {
-        if (this.TryGetComponent(out PlayerInput playerInput))
-        {
-            playerInput.SwitchCurrentActionMap("Player");
-        }
+        // Nothing anymore
     }
 
     private void EnableMenuControls()
     {
-        if(this.TryGetComponent(out PlayerInput playerInput))
-        {
-            playerInput.SwitchCurrentActionMap("Menu");
-            playerInput.uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
-            playerInput.camera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
-        }
+        // Nothing anymore
     }
 
-    void OnDeviceLost(PlayerInput pi)
+    private void OnDeviceLost(PlayerInput pi)
     {
         pi.DeactivateInput();
         Destroy(this.gameObject);

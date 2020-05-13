@@ -17,6 +17,9 @@ public class GameStateController : MonoBehaviour
 
     private PlayerInput mainMenuInput;
     public static GameStateController Instance { get; private set; }
+    
+    // Scene that lobby loads
+    public string SceneToLoad { get; set; }
 
     private void Awake()
     {
@@ -36,7 +39,7 @@ public class GameStateController : MonoBehaviour
         eventSystem = EventSystem.current.gameObject;
         TryGetComponent(out playerManager);
         StageOverManager.OnStageOver += EnableEventSystem;
-        mainMenuInput = eventSystem.GetComponent<PlayerInput>();
+        //mainMenuInput = eventSystem.GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class GameStateController : MonoBehaviour
 
     private void EnablePlayerInput()
     {
-        mainMenuInput.enabled = true;
+        //mainMenuInput.enabled = true;
         Cursor.visible = true;
     }
 
@@ -71,7 +74,7 @@ public class GameStateController : MonoBehaviour
         SceneManager.LoadSceneAsync("Main_Menu");
         Time.timeScale = 1f;
         EnableEventSystem();
-        //EnablePlayerInput();
+        EnablePlayerInput();
     }
 
     public void LoadLevelSelect()
@@ -82,6 +85,7 @@ public class GameStateController : MonoBehaviour
         SceneManager.LoadSceneAsync("Level_Select");
         Time.timeScale = 1f;
         EnableEventSystem();
+        EnablePlayerInput();
     }
 
     public void LoadLobby()

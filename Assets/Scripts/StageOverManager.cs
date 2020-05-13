@@ -42,6 +42,8 @@ public class StageOverManager : MonoBehaviour
     [SerializeField]
     private AudioClip levelEndSfx;
 
+    private bool enableButtonFunctionality = false;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -71,11 +73,6 @@ public class StageOverManager : MonoBehaviour
 
     private void BeginScoreScreen()
     {
-        GameStateController gameStateController = FindObjectOfType<GameStateController>();
-        restartButton.onClick.AddListener(() => gameStateController.RestartScene());
-        menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
-        nextButton.onClick.AddListener(() => gameStateController.NextStage());
-
         dspFanfareTime = (float)AudioSettings.dspTime;
         soundManager.PlaySingleSecondary(starAudios[stars]);
     }
@@ -90,6 +87,7 @@ public class StageOverManager : MonoBehaviour
                     if (fanfareStarTimes[1] <= (float)(AudioSettings.dspTime - dspFanfareTime))
                     {
                         texts[0].SetActive(true);
+                        enableButtonFunctionality = true;
                         // Activate sad guy?
                     }
                     break;
@@ -98,6 +96,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[1].SetActive(true);
                         texts[1].SetActive(true);
+                        enableButtonFunctionality = true;
                     }
                     break;
                 case 2:
@@ -109,6 +108,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[2].SetActive(true);
                         texts[2].SetActive(true);
+                        enableButtonFunctionality = true;
                     }
                     break;
                 case 3:
@@ -124,17 +124,25 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[3].SetActive(true);
                         texts[3].SetActive(true);
+                        enableButtonFunctionality = true;
                     }
                     break;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.N))
-            FindObjectOfType<GameStateController>().NextStage();
-        if (Input.GetKeyDown(KeyCode.L))
-            FindObjectOfType<GameStateController>().LoadMenu();
-        if (Input.GetKeyDown(KeyCode.R))
-            FindObjectOfType<GameStateController>().RestartScene();
+        if (enableButtonFunctionality)
+        {
+            GameStateController gameStateController = FindObjectOfType<GameStateController>();
+            restartButton.onClick.AddListener(() => gameStateController.RestartScene());
+            menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
+            nextButton.onClick.AddListener(() => gameStateController.NextStage());
 
+            if (Input.GetKeyDown(KeyCode.N))
+                gameStateController.NextStage();
+            if (Input.GetKeyDown(KeyCode.L))
+                gameStateController.LoadMenu();
+            if (Input.GetKeyDown(KeyCode.R))
+                gameStateController.RestartScene();
+        }
     }
 }

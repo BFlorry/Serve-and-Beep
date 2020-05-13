@@ -56,7 +56,7 @@ public class PickupController : MonoBehaviour
             return;
         }
 
-        if (highlightCaster.TargetObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
+        if (highlightCaster.TargetObject != null && highlightCaster.TargetObject.TryGetComponent<Pickupable>(out Pickupable pickupable))
         {
             Pickup(pickupable);
             return;

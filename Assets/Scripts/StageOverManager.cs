@@ -94,7 +94,7 @@ public class StageOverManager : MonoBehaviour
 
     void Update()
     {
-        if (!soundManager.IsSFXPlaying())
+        if (!soundManager.IsSFXPlaying() && !enableButtonFunctionality)
         {
             switch (stars)
             {

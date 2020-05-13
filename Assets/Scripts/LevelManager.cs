@@ -173,6 +173,7 @@ public class LevelManager : MonoBehaviour
                 {
                     soundManager.PlaySingleLoopable(timeRunningOutSfx);
                     levelState = LevelPhase.Hurryup;
+                    timerText.color = Color.red;
                     break;
                 }
             case LevelPhase.Hurryup:

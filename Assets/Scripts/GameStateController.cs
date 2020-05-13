@@ -47,7 +47,7 @@ public class GameStateController : MonoBehaviour
 
     public void EnableEventSystem()
     {
-        eventSystem.SetActive(true);
+       // eventSystem.SetActive(true);
     }
 
     private void EnablePlayerInput()
@@ -58,8 +58,8 @@ public class GameStateController : MonoBehaviour
 
     public void DisableEventSystem()
     {
-        mainMenuInput.enabled = false;
-        eventSystem.SetActive(false);
+        //mainMenuInput.enabled = false;
+        //eventSystem.SetActive(false);
         Cursor.visible = false;
     }
 
@@ -73,7 +73,17 @@ public class GameStateController : MonoBehaviour
         EnableEventSystem();
         //EnablePlayerInput();
     }
-    
+
+    public void LoadLevelSelect()
+    {
+        OnSceneChange?.Invoke();
+        TryGetComponent(out playerManager);
+        playerManager.DeserializePlayers();
+        SceneManager.LoadSceneAsync("Level_Select");
+        Time.timeScale = 1f;
+        EnableEventSystem();
+    }
+
     public void LoadLobby()
     {
         OnSceneChange?.Invoke();

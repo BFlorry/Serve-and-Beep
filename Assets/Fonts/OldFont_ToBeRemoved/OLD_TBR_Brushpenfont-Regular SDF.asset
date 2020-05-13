@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: OLD_TBR_Brushpenfont-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: -980629648
+  hashCode: 1075466131
   material: {fileID: 6715009133072976277}
   materialHashCode: 104224641
   m_Version: 1.1.0

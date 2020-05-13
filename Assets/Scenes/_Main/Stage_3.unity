@@ -28415,12 +28415,12 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: onePlayerRequiredScores.Array.data[0]
-      value: 900
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: onePlayerRequiredScores.Array.data[2]
-      value: 2100
+      value: 1900
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -28445,7 +28445,7 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: threePlayersRequiredScores.Array.data[2]
-      value: 4500
+      value: 6400
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -28455,7 +28455,7 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: threePlayersRequiredScores.Array.data[1]
-      value: 3500
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -28465,12 +28465,12 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[2]
-      value: 4600
+      value: 6500
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[1]
-      value: 3600
+      value: 4100
       objectReference: {fileID: 0}
     - target: {fileID: 373767345178538528, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}

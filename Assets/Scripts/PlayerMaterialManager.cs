@@ -13,34 +13,41 @@ public class PlayerMaterialManager : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        SetPlayerMaterial();
+        if (playerIndex == -1)
+            StartCoroutine(LateCheckPlayerIndex());
+    }
+
+    private IEnumerator LateCheckPlayerIndex()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SetPlayerMaterial();
+    }
+
+    private void SetPlayerMaterial()
+    {
         // If index not set, use random material and color
-        if(playerIndex == -1)
+        if (playerIndex == -1)
         {
-        int randInt = Random.Range(0, materials.Length);
-        GetComponentInChildren<Renderer>().material = materials[randInt];
-        Color randColor = new Color(
-        Random.Range(0.7f, 1f),
-        Random.Range(0.7f, 1f),
-        Random.Range(0.7f, 1f)
-        );
+            int randInt = Random.Range(0, materials.Length);
+            GetComponentInChildren<Renderer>().material = materials[randInt];
+            Color randColor = new Color(
+            Random.Range(0.7f, 1f),
+            Random.Range(0.7f, 1f),
+            Random.Range(0.7f, 1f)
+            );
             GetComponentInChildren<Renderer>().material.color = randColor;
+            StartCoroutine(LateCheckPlayerIndex());
         }
         else
         {
             GetComponentInChildren<Renderer>().material = materials[playerIndex];
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetPlayerIndex(int index)
     {
         playerIndex = index;
-        GetComponentInChildren<Renderer>().material = materials[index];
+        GetComponentInChildren<Renderer>().material = materials[playerIndex];
     }
 }

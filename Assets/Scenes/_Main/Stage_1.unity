@@ -18281,7 +18281,7 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: onePlayerRequiredScores.Array.data[2]
-      value: 1800
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -18306,22 +18306,22 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: threePlayersRequiredScores.Array.data[1]
-      value: 2300
+      value: 2600
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: threePlayersRequiredScores.Array.data[2]
-      value: 3200
+      value: 4400
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[2]
-      value: 3200
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[1]
-      value: 2400
+      value: 2700
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}

@@ -19,6 +19,9 @@ public class LevelSelectController : MonoBehaviour
     private Button buttonLevel4;
 
     [SerializeField]
+    StarDisplayController[] levelStars;
+
+    [SerializeField]
     private Button buttonMenu;
 
     private GameStateController gameStateController;
@@ -32,13 +35,21 @@ public class LevelSelectController : MonoBehaviour
         buttonLevel3.onClick.AddListener(() => LoadLevel(scenes[2]));
         buttonLevel4.onClick.AddListener(() => LoadLevel(scenes[3]));
 
+        LoadLevelStars();
+
         buttonMenu.onClick.AddListener(() => gameStateController.LoadMenu());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LoadLevelStars()
     {
-        
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            if(PlayerPrefs.HasKey(scenes[i] + "_stars"))
+            {
+                int stars = PlayerPrefs.GetInt(scenes[i] + "_stars");
+                levelStars[i].EnableStar(stars);
+            }
+        }
     }
 
     /// <summary>

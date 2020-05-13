@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StageOverManager : MonoBehaviour
@@ -53,9 +54,23 @@ public class StageOverManager : MonoBehaviour
         scoreText.text = score.ToString();
         stars = levelManager.GetLevelStars();
         Cursor.visible = true;
+        SaveLevelStars(stars);
 
         OnStageOver?.Invoke();
         StartCoroutine(WaitBeforeScorescreen());
+    }
+
+    void SaveLevelStars(int stars)
+    {
+        if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_stars"))
+        {
+            int prevStars = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_stars");
+            if (prevStars < stars)
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_stars", stars);
+            }
+        } 
+        else PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_stars", stars);
     }
 
     private IEnumerator WaitBeforeScorescreen()
@@ -87,7 +102,7 @@ public class StageOverManager : MonoBehaviour
                     if (fanfareStarTimes[1] <= (float)(AudioSettings.dspTime - dspFanfareTime))
                     {
                         texts[0].SetActive(true);
-                        enableButtonFunctionality = true;
+                        EnableButtons();
                         // Activate sad guy?
                     }
                     break;
@@ -96,7 +111,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[1].SetActive(true);
                         texts[1].SetActive(true);
-                        enableButtonFunctionality = true;
+                        EnableButtons();
                     }
                     break;
                 case 2:
@@ -108,7 +123,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[2].SetActive(true);
                         texts[2].SetActive(true);
-                        enableButtonFunctionality = true;
+                        EnableButtons();
                     }
                     break;
                 case 3:
@@ -124,7 +139,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         starImages[3].SetActive(true);
                         texts[3].SetActive(true);
-                        enableButtonFunctionality = true;
+                        EnableButtons();
                     }
                     break;
             }
@@ -133,10 +148,6 @@ public class StageOverManager : MonoBehaviour
         if (enableButtonFunctionality)
         {
             GameStateController gameStateController = FindObjectOfType<GameStateController>();
-            restartButton.onClick.AddListener(() => gameStateController.RestartScene());
-            menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
-            nextButton.onClick.AddListener(() => gameStateController.NextStage());
-
             if (Input.GetKeyDown(KeyCode.N))
                 gameStateController.NextStage();
             if (Input.GetKeyDown(KeyCode.L))
@@ -144,5 +155,14 @@ public class StageOverManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
                 gameStateController.RestartScene();
         }
+    }
+
+    void EnableButtons()
+    {
+        enableButtonFunctionality = true;
+        GameStateController gameStateController = FindObjectOfType<GameStateController>();
+        restartButton.onClick.AddListener(() => gameStateController.RestartScene());
+        menuButton.onClick.AddListener(() => gameStateController.LoadMenu());
+        nextButton.onClick.AddListener(() => gameStateController.NextStage());
     }
 }

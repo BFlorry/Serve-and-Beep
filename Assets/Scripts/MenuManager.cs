@@ -41,8 +41,10 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
             StartGame();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
             ExitGame();
+        if (Input.GetKeyDown(KeyCode.L))
+            LevelSelect();
     }
 
     IEnumerator WaitBeforePlayingBgm()

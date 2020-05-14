@@ -15402,17 +15402,17 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: twoPlayersRequiredScores.Array.data[2]
-      value: 3000
+      value: 3200
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: twoPlayersRequiredScores.Array.data[0]
-      value: 1300
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: twoPlayersRequiredScores.Array.data[1]
-      value: 2200
+      value: 2300
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -15437,12 +15437,12 @@ PrefabInstance:
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[1]
-      value: 3400
+      value: 3700
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
       propertyPath: fourPlayersRequiredScores.Array.data[2]
-      value: 4300
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}
@@ -15453,6 +15453,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onePlayerRequiredScores.Array.data[1]
       value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 39392388495346746, guid: 2ad3f18e43d3217438a475caac4d5a56,
+        type: 3}
+      propertyPath: onePlayerRequiredScores.Array.data[0]
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 373767345178538528, guid: 2ad3f18e43d3217438a475caac4d5a56,
         type: 3}

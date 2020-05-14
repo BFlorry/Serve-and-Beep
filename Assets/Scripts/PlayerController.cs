@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,10 +10,13 @@ using UnityEngine.InputSystem.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float playerSpeed = 1f;
+    private float playerSpeed = 5f;
 
     [SerializeField]
-    private float rotateSpeed = 1f;
+    private float ControllerRotateSpeed = 20f;
+
+    [SerializeField]
+    private float keyboardRotateSpeed = 10f;
 
     [SerializeField]
     private Animator animator;
@@ -135,7 +139,20 @@ public class PlayerController : MonoBehaviour
             //Rotate player
             turnRotation = Quaternion.LookRotation(targetVelocity);
         }
-        transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, Time.deltaTime * rotateSpeed);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, Time.deltaTime * GetRotateSpeed());
+    }
+
+    public float GetRotateSpeed()
+    {
+        if (GetComponent<PlayerInput>().devices.First().layout.Contains("Keyboard"))
+        {
+            return keyboardRotateSpeed;
+        }
+        else
+        {
+            return ControllerRotateSpeed;
+        }
     }
 
     public void OnMovement(InputValue value)

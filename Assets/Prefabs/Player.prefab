@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  ControllerRotateSpeed: 10
-  keyboardRotateSpeed: 7
+  ControllerRotateSpeed: 20
+  keyboardRotateSpeed: 10
   animator: {fileID: 750759800903914228}
   dashDistance: 1.6
   dashCooldown: 0.6

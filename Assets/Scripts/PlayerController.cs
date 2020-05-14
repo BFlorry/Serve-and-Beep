@@ -10,13 +10,13 @@ using UnityEngine.InputSystem.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float playerSpeed = 0f;
+    private float playerSpeed = 5f;
 
     [SerializeField]
-    private float ControllerRotateSpeed = 0f;
+    private float ControllerRotateSpeed = 20f;
 
     [SerializeField]
-    private float keyboardRotateSpeed = 0f;
+    private float keyboardRotateSpeed = 10f;
 
     [SerializeField]
     private Animator animator;
@@ -145,19 +145,14 @@ public class PlayerController : MonoBehaviour
 
     public float GetRotateSpeed()
     {
-        if (GetComponent<PlayerInput>().devices.First().layout.Contains("DualShock"))
-        {
-            return ControllerRotateSpeed;
-        }
-        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("XInput"))
-        {
-            return ControllerRotateSpeed;
-        }
-        else if (GetComponent<PlayerInput>().devices.First().layout.Contains("Keyboard"))
+        if (GetComponent<PlayerInput>().devices.First().layout.Contains("Keyboard"))
         {
             return keyboardRotateSpeed;
         }
-        return 0;
+        else
+        {
+            return ControllerRotateSpeed;
+        }
     }
 
     public void OnMovement(InputValue value)

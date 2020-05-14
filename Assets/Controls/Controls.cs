@@ -640,6 +640,17 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c8f8c37d-f457-4c43-b826-5a7978bfc629"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard p1"",
+                    ""action"": ""Accept"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""993f699b-f00b-4fe1-932f-7b71ad24c820"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",

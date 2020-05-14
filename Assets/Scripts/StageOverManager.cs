@@ -34,6 +34,12 @@ public class StageOverManager : MonoBehaviour
     [SerializeField]
     private GameObject[] texts;
 
+    [SerializeField]
+    private GameObject happyAnim;
+
+    [SerializeField]
+    private GameObject sadAnim;
+
     private int stars = 0;
 
     private float dspFanfareTime = float.MaxValue;
@@ -103,7 +109,7 @@ public class StageOverManager : MonoBehaviour
                     {
                         texts[0].SetActive(true);
                         EnableButtons();
-                        // Activate sad guy?
+                        sadAnim.SetActive(true);
                     }
                     break;
                 case 1:
@@ -140,6 +146,7 @@ public class StageOverManager : MonoBehaviour
                         starImages[3].SetActive(true);
                         texts[3].SetActive(true);
                         EnableButtons();
+                        happyAnim.SetActive(true);
                     }
                     break;
             }

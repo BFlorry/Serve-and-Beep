@@ -1018,7 +1018,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d8b50537aab8ade43a1c13e53bbe9019, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -2267,7 +2267,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -112.5}
-  m_SizeDelta: {x: -200, y: -575}
+  m_SizeDelta: {x: -50, y: -575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4965872340630841586
 MonoBehaviour:
@@ -2795,6 +2795,8 @@ MonoBehaviour:
   - {fileID: 1644405230428819292}
   - {fileID: 2596421073860901537}
   - {fileID: 2609097151766433890}
+  happyAnim: {fileID: 1968738459352393502}
+  sadAnim: {fileID: 8161246106906933810}
   levelEndSfx: {fileID: 8300000, guid: 05ba595a4e1f13a48955bd70f46b2e76, type: 3}
 --- !u!1 &7052115281135897489
 GameObject:
@@ -3068,7 +3070,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5b257330cc0f14248a0b96fddc2e8c5f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

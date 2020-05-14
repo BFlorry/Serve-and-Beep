@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8108597032627293006}
   - component: {fileID: -5357754424767642127}
   m_Layer: 11
-  m_Name: NewScoreCanvas
+  m_Name: NewScorePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &561649601474476481
 MonoBehaviour:
@@ -205,12 +205,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 150
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 150
   m_fontStyle: 0
   m_textAlignment: 260
   m_characterSpacing: 0
@@ -304,8 +304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -23.57}
-  m_SizeDelta: {x: 335, y: 74.7}
+  m_AnchoredPosition: {x: 0, y: -228}
+  m_SizeDelta: {x: 360.9, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2425585511550819435
 MonoBehaviour:

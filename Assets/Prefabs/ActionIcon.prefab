@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 855544009514593854}
   - component: {fileID: 798169286509674238}
   - component: {fileID: 8364982672983230681}
+  - component: {fileID: 852320334408046888}
   m_Layer: 10
   m_Name: ActionIcon
   m_TagString: Untagged
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &852320334408046888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738462415712628644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc91d7f1371b4942a47f43b4789be3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8252369421545481378
 GameObject:
   m_ObjectHideFlags: 0
